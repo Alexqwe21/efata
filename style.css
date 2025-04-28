@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.site {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+:root {
+
+    --cor_P_topo: #25788A;
+    --cor_SPAN_topo: #25788A;
+    --fonte_INTER: "Inter", sans-serif;
+}
+
+.lado_a_lado {
+    display: flex;
+    align-items: center;
+}
+
+header {
+
+
+    .info_topo {
+        display: flex;
+
+        .site {
+            min-width: 1500px;
+            min-height: 130px;
+
+
+            .lado_a_lado {
+                justify-content: space-between;
+
+                .logo {
+                    width: 20%;
+                    display: flex;
+
+                    img {
+                        margin-right: 20px;
+                    }
+                }
+
+                .redes_sociais {
+                    display: flex;
+                    align-self: center;
+                    width: 20%;
+
+                    img {
+                        margin-right: 50px;
+                    }
+
+                }
+
+                .como_funciona {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 45%;
+
+                    .horarios,
+                    .telefone {
+                        p {
+                            color: var(--cor_P_topo);
+                            font-family: var(--fonte_INTER);
+                            font-weight: bolder;
+                        }
+
+                        .relogio,
+                        .numero_telefone {
+                            margin-top: 16px;
+                            display: flex;
+                            align-items: center;
+
+                            img {
+                                margin-right: 10px;
+                            }
+
+                            span {
+                                font-family: var(--fonte_INTER);
+                                font-weight: bolder;
+                                font-size: 16px;
+                                color: var(--cor_SPAN_topo);
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+        }
+
+
+    }
+
+    .navegacao {
+        position: relative;
+        .site {
+            .container_azul {
+                min-height: 150px;
+                background-color: #2C878C;
+                border-radius: 20px;
+                display: flex;
+                
+
+                nav {
+                    width: 100%;
+
+                    ul {
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        height: 100%;
+                        list-style: none;
+
+                        a {
+                            text-decoration: none;
+                            color: white;
+                            font-family: var(--fonte_INTER);
+                            font-weight: bolder;
+                            font-size: 20px;
+
+
+                        }
+
+                        .conhecer_volei {
+                            border-radius: 10px;
+                            width: 20%;
+                          
+                            background-color: #007893;
+                            display: flex;
+                            align-items: center;
+
+                            a {
+                                width: 100%;
+                                height: 70px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-around;
+                                font-size: 20px;
+                                font-family: var(--fonte_INTER);
+                                font-weight: bolder;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.banner{
+    position: relative;
+    img{
+        
+        width: 100%;
+        bottom: 50px;
+        position: relative;
+        z-index: -9;
+    }
+    .site{
+        .ben_vindo{
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
