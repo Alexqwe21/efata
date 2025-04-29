@@ -22,6 +22,7 @@
     --cor_P_topo: #25788A;
     --cor_SPAN_topo: #25788A;
     --fonte_INTER: "Inter", sans-serif;
+
 }
 
 .lado_a_lado {
@@ -30,7 +31,8 @@
 }
 
 header {
-
+    position: relative;
+    z-index: 1;
 
     .info_topo {
         display: flex;
@@ -106,13 +108,14 @@ header {
 
     .navegacao {
         position: relative;
+
         .site {
             .container_azul {
                 min-height: 150px;
                 background-color: #2C878C;
                 border-radius: 20px;
                 display: flex;
-                
+
 
                 nav {
                     width: 100%;
@@ -137,7 +140,7 @@ header {
                         .conhecer_volei {
                             border-radius: 10px;
                             width: 20%;
-                          
+
                             background-color: #007893;
                             display: flex;
                             align-items: center;
@@ -161,20 +164,77 @@ header {
 }
 
 
-.banner{
+.banner {
     position: relative;
-    img{
-        
-        width: 100%;
-        bottom: 50px;
-        position: relative;
-        z-index: -9;
-    }
-    .site{
-        .ben_vindo{
-            height: 100%;
+    background-image: url(img/banner_home.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 100%;
+    bottom: 50px;
+    position: relative;
+
+
+    .site {
+        .ben_vindo {
+            position: relative;
+            width: 100%;
             display: flex;
-            align-items: center;
+            align-items: start;
+            height: 500px;
+            justify-content: center;
+            flex-direction: column;
+
+
+            h2,
+            h3,
+            p {
+                font-family: var(--fonte_INTER);
+                font-size: 24px;
+                color: white;
+                font-weight: bolder;
+            }
+
+            h3 {
+                font-size: 32px;
+                margin: 10px 0;
+            }
+
+            p {
+                font-size: 13px;
+                font-weight: normal;
+                width: 45%;
+                line-height: 20px;
+            }
+
+            .sobre_mais {
+                font-weight: 600;
+                font-family: var(--fonte_INTER);
+                display: flex;
+                margin-top: 30px;
+
+                .saiba_mais,
+                .sobre_nos {
+                    display: flex;
+                    width: 100px;
+                    height: 40px;
+                    color: white;
+                    background-color: #007893;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 5px;
+
+                }
+
+                .sobre_nos {
+                    background-color: white;
+                    color: black;
+                    margin-left: 15px;
+                }
+
+            }
+
+
         }
     }
 }
