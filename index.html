@@ -97,42 +97,93 @@
             </div>
         </div>
     </header>
+    <main>
 
-    <section class="banner">
-        <article class="site">
-            <div class="ben_vindo">
-                <h2>BEM-VINDO</h2>
-                <h3>CEU SÃO MIGUEL</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas pariatur enim doloremque quae
-                    dolore unde placeat nemo omnis asperiores quos ipsum quod minima error veritatis magnam, adipisci
-                    veniam sunt assumenda.</p>
-                <div class="sobre_mais">
-                    <a href="#" class="saiba_mais ">Saiba mais</a>
-                    <a href="#" class="sobre_nos">Saiba mais</a>
+
+        <section class="banner">
+            <article class="site">
+                <div class="ben_vindo">
+                    <h2>BEM-VINDO</h2>
+                    <h3>CEU SÃO MIGUEL</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas pariatur enim doloremque quae
+                        dolore unde placeat nemo omnis asperiores quos ipsum quod minima error veritatis magnam,
+                        adipisci
+                        veniam sunt assumenda.</p>
+                    <div class="sobre_mais">
+                        <a href="#" class="saiba_mais ">Saiba mais</a>
+                        <a href="#" class="sobre_nos">Saiba mais</a>
+                    </div>
+
                 </div>
 
+                <div class="escolha_categoria">
+
+                    <div class="container_escolha">
+                        <a href="#"> <img src="img/esporte.svg" alt="esporte"> <strong>ESPORTES</strong></a>
+                    </div>
+
+                    <div class="container_escolha_cul">
+                        <a href="#"> <img src="img/duas_cara.svg" alt="esporte"> <strong>CULTURA</strong></a>
+                    </div>
+
+                    <div class="container_escolha_even">
+                        <a href="#"> <img src="img/eventos.svg" alt="esporte"><strong>EVENTOS</strong></a>
+                    </div>
+
+                </div>
+
+
+            </article>
             </div>
+        </section>
 
-            <div class="escolha_categoria">
+        <div class="space">
 
-                <div class="container_escolha">
-                    <a href="#"> <img src="img/esporte.svg" alt="esporte"> <strong>ESPORTES</strong></a>
-                </div>
-
-                <div class="container_escolha_cul">
-                    <a href="#"> <img src="img/esporte.svg" alt="esporte"> <strong>ESPORTES</strong></a>
-                </div>
-
-                <div class="container_escolha_even">
-                    <a href="#"> <img src="img/esporte.svg" alt="esporte"> <strong>ESPORTES</strong></a>
-                </div>
-
-            </div>
-
-
-        </article>
         </div>
-    </section>
+
+        <section class="video">
+            <article class="site">
+                <div class="centro">
+                    <div class="video-wrapper">
+                        <div class="video-thumbnail" id="thumbnail">
+                            <div class="play-button" onclick="playVideo()">
+                                <div class="play-icon"></div>
+                            </div>
+                        </div>
+
+                        <video id="video" controls loop style="display: none;" width="200" height="140">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeo.
+                        </video>
+                    </div>
+
+                    <div class="conhecer_efata">
+                        <div>
+                            <h3>Sobre o Ceu</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rerum excepturi ipsam
+                                asperiores dolorem quod esse quia tenetur, minima aspernatur dolores accusantium eaque
+                                cumque iusto quam libero est ea nemo provident vitae quo modi. In error reprehenderit
+                                quos hic delectus.</p>
+
+                                
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+
+    </main>
+
+
+    <script>
+        function playVideo() {
+            document.getElementById('thumbnail').style.display = 'none';
+            const video = document.getElementById('video');
+            video.style.display = 'block';
+            video.play();
+        }
+    </script>
 
 </body>
 
