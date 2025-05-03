@@ -81,6 +81,17 @@
     color: black;
 }
 
+.largura_total {
+
+    width: 65%;
+    height: 100px;
+    border-radius: 0 30px 30px 0px;
+    background-color: #FFB800;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
 header {
     position: relative;
     z-index: 1;
@@ -314,11 +325,11 @@ header {
 
 .video {
     background: var(--background_fundo);
-
+    height: 550px;
 
     .site {
         .centro {
-
+            height: 550px;
 
             .video-wrapper {
                 position: relative;
@@ -374,15 +385,97 @@ header {
 
             .conhecer_efata {
                 width: 50%;
-                div{
-                    h3{
+
+                div {
+                    h3 {
                         font-family: var(--font_joseh);
                         font-size: 36px;
                         font-weight: normal;
-                        margin-bottom: 50px;
+                    }
+
+                    p {
+                        margin: 50px 0;
+                        line-height: 30px;
+                        font-family: var(--fonte_INTER);
+                    }
+
+                    div {
+                        display: flex;
+                        width: 40%;
+                        justify-content: space-between;
+
+                        .sobre_nos {
+                            border: none;
+                            cursor: pointer;
+                        }
                     }
                 }
             }
         }
     }
+}
+
+.eventos_prox {
+    height: 1000px;
+
+    .largura_total {
+        h2 {
+            margin-right: 20px;
+            font-family: var(--font_joseh);
+            font-size: 64px;
+            font-weight: bold;
+            color: white;
+            margin-top: 15px;
+        }
+    }
+
+    .site {
+
+        .eventos {
+            display: flex;
+            justify-content: space-between;
+
+            .evento {
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    display: block;
+                    background-color: #FFB800;
+                    width: 500px;
+                    border-radius: 25px 25px 20px 20px;
+
+                    img {
+
+                        width: 500px;
+                    }
+
+                    div {
+                        height: 80px;
+                        background-color: #FFB800;
+                        width: 41%;
+                        border-radius: 0px 0px 20px 20px;
+                        width: 100%;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        strong {
+                            font-family: var(--fonte_INTER);
+                            color: white;
+                            font-weight: bold;
+                            font-size: 48px;
+                        }
+                    }
+
+
+
+                }
+
+            }
+
+        }
+    }
+
 }
