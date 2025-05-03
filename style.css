@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
 * {
@@ -23,6 +23,7 @@
     --cor_SPAN_topo: #25788A;
     --fonte_INTER: "Inter", sans-serif;
     --background_fundo: #F6F6F6;
+    --font_joseh: "Josefin Sans", sans-serif;
 
 }
 
@@ -58,6 +59,26 @@
     height: 500px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+}
+
+
+.saiba_mais,
+.sobre_nos {
+    display: flex;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: #007893;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+
+}
+
+.sobre_nos {
+    background-color: white;
+    color: black;
 }
 
 header {
@@ -243,18 +264,7 @@ header {
                 display: flex;
                 margin-top: 30px;
 
-                .saiba_mais,
-                .sobre_nos {
-                    display: flex;
-                    width: 100px;
-                    height: 40px;
-                    color: white;
-                    background-color: #007893;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 5px;
 
-                }
 
                 .sobre_nos {
                     background-color: white;
@@ -304,55 +314,72 @@ header {
 
 .video {
     background: var(--background_fundo);
-    
+
 
     .site {
-        .video-wrapper {
-            position: relative;
-            width: 430px;
-            height: 290px;
+        .centro {
 
-            #video {
-                display: none;
-                width: 100%;
-                height: 100%;
-                border-radius: 5px;
-                object-fit: cover; /* mantém a proporção preenchendo */
-                position: absolute;
-                top: 0;
-                left: 0;
-              }
 
-            .video-thumbnail {
-                width: 100%;
-                height: 100%;
-                background-color: #2b2b2b;
-                border-radius: 5px;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 2;
+            .video-wrapper {
+                position: relative;
+                width: 430px;
+                height: 290px;
 
-                .play-button {
-                    width: 80px;
-                    height: 80px;
-                    background-color: white;
-                    border-radius: 50%;
+                #video {
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                    object-fit: cover;
+                    /* mantém a proporção preenchendo */
                     position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                }
 
-                    .play-icon {
-                        width: 0;
-                        height: 0;
-                        border-left: 18px solid #009CFF;  
-                        border-top: 12px solid transparent;
-                        border-bottom: 12px solid transparent;
+                .video-thumbnail {
+                    width: 100%;
+                    height: 100%;
+                    background-color: #2b2b2b;
+                    border-radius: 5px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+
+                    .play-button {
+                        width: 80px;
+                        height: 80px;
+                        background-color: white;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+
+                        .play-icon {
+                            width: 0;
+                            height: 0;
+                            border-left: 18px solid #009CFF;
+                            border-top: 12px solid transparent;
+                            border-bottom: 12px solid transparent;
+                        }
+                    }
+                }
+            }
+
+            .conhecer_efata {
+                width: 50%;
+                div{
+                    h3{
+                        font-family: var(--font_joseh);
+                        font-size: 36px;
+                        font-weight: normal;
+                        margin-bottom: 50px;
                     }
                 }
             }
