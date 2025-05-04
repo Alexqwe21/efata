@@ -92,6 +92,20 @@
     justify-content: end;
 }
 
+.ver_atividades {
+    width: 230px;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--fonte_INTER);
+    font-size: 14px;
+    font-weight: bolder;
+    color: black;
+}
+
+
 header {
     position: relative;
     z-index: 1;
@@ -415,7 +429,8 @@ header {
     }
 }
 
-.eventos_prox {
+.eventos_prox,
+.eventos_espor {
     height: 1000px;
 
     .largura_total {
@@ -431,11 +446,11 @@ header {
 
     .site {
 
-        .eventos {
+        .eventos_esporte_cultura {
             display: flex;
             justify-content: space-between;
 
-            .evento {
+            .evento_esporte_cultura {
                 display: flex;
                 flex-direction: column;
 
@@ -476,6 +491,96 @@ header {
             }
 
         }
+
+        .centro {
+            height: 0;
+
+            .ver_atividades {
+                background-color: #FFB800;
+            }
+        }
+    }
+
+}
+
+
+.eventos_espor {
+    .inverter {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        .largura_total {
+            border-radius: 30px 0 0 30px;
+            justify-content: flex-start;
+            background-color: #00FF29;
+
+            h2 {
+                margin-left: 60px;
+                color: black;
+            }
+        }
+    }
+
+    .site {
+        .eventos_esporte_cultura {
+            .evento_esporte_cultura {
+                width: 300px;
+                a {
+                    background-color: white;
+                    width: 300px;
+
+                    img {
+                        width: 300px !important;
+                    }
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        height: auto;
+                        background: white;
+                        border-bottom: 10px solid #00FF29;
+
+                        h3 {
+                            text-align: center;
+                            margin-top: 15px;
+                            font-family: var(--fonte_INTER);
+                            font-size: 24px;
+                            color: black;
+
+                        }
+
+                        p {
+                            text-align: start;
+                            margin: 13px 0 13px 12px ;
+                            font-family: var(--fonte_INTER);
+                            color: black;
+                            font-size: 16px;
+                            line-height: 25px;
+                        }
+
+                        span {
+                            display: flex;
+                            justify-content: start;
+                            width: 100%;
+                            margin-bottom: 30px;
+                            margin-left: 21px;
+                            font-family: var(--fonte_INTER);
+                            color: #00A3FF;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .centro{
+                .ver_atividades{
+                    background-color: #00FF29;
+                    width: 100%;
+                }
+            }
+        }
+
     }
 
 }
