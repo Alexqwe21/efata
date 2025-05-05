@@ -418,9 +418,12 @@ header {
                         width: 40%;
                         justify-content: space-between;
 
-                        .sobre_nos {
+                        .sobre_nos, .saiba_mais {
                             border: none;
                             cursor: pointer;
+                            font-weight: 700;
+                            font-family: var(--fonte_INTER);
+                            font-size: 14px;
                         }
                     }
                 }
@@ -430,8 +433,9 @@ header {
 }
 
 .eventos_prox,
-.eventos_espor {
-    height: 1000px;
+.eventos_espor,
+.eventos_cul {
+    height: 880px;
 
     .largura_total {
         h2 {
@@ -504,7 +508,8 @@ header {
 }
 
 
-.eventos_espor {
+.eventos_espor,
+.eventos_cul {
     .inverter {
         width: 100%;
         display: flex;
@@ -526,6 +531,7 @@ header {
         .eventos_esporte_cultura {
             .evento_esporte_cultura {
                 width: 300px;
+
                 a {
                     background-color: white;
                     width: 300px;
@@ -552,7 +558,7 @@ header {
 
                         p {
                             text-align: start;
-                            margin: 13px 0 13px 12px ;
+                            margin: 13px 0 13px 12px;
                             font-family: var(--fonte_INTER);
                             color: black;
                             font-size: 16px;
@@ -573,14 +579,53 @@ header {
                 }
             }
 
-            .centro{
-                .ver_atividades{
-                    background-color: #00FF29;
-                    width: 100%;
+
+        }
+
+        .centro {
+            .ver_atividades {
+                background-color: #00FF29;
+                width: 260px;
+            }
+        }
+    }
+
+}
+
+
+.eventos_cul {
+    .largura_total {
+        background: #00A3FF;
+
+        h2 {
+            color: black;
+        }
+    }
+
+    .site {
+        .eventos_esporte_cultura {
+            .evento_esporte_cultura {
+                div {
+                    border-bottom: 10px solid #00A3FF !important;
                 }
             }
         }
 
-    }
+        .centro {
+            .ver_atividades {
+                background-color: #00A3FF;
+                width: 260px;
+                color: white;
+            }
+        }
 
+    }
+}
+
+.galeria_volei{
+    min-height: 700px;
+    background-color: #1CBEFF;
+    .site{
+        background: url(img/fundo_icones.svg);
+    }
 }
