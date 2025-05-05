@@ -418,7 +418,8 @@ header {
                         width: 40%;
                         justify-content: space-between;
 
-                        .sobre_nos, .saiba_mais {
+                        .sobre_nos,
+                        .saiba_mais {
                             border: none;
                             cursor: pointer;
                             font-weight: 700;
@@ -622,10 +623,169 @@ header {
     }
 }
 
-.galeria_volei{
+.galeria_volei {
     min-height: 700px;
-    background-color: #1CBEFF;
-    .site{
-        background: url(img/fundo_icones.svg);
+    background: url(img/fundo_icones.png);
+    padding-bottom: 100px;
+
+    .site {
+        max-width: 1300px;
+
+        .atividades_volei {
+            text-align: center;
+            padding-top: 32px;
+
+            font-family: var(--font_joseh);
+
+            h4,
+            h5 {
+                color: white;
+                font-weight: bolder;
+                font-size: 48px;
+            }
+
+            h5 {
+                font-size: 32px;
+                margin-top: 10px;
+            }
+
+
+        }
+
+        .galeria {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+
+            .galeria_um {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .foto_um,
+                .foto_dois,
+                .foto_tres,
+                .foto_quatro,
+                .foto_cinco,
+                .foto_seis,
+                .foto_sete,
+                .foto_oito {
+
+                    width: 179px;
+                    min-height: 210px;
+                    background-color: white;
+                    display: flex;
+                    justify-content: center;
+
+                    img {
+                        margin: 10px;
+                    }
+                }
+
+                .foto_dois {
+                    margin-top: 35px;
+                    width: 280px;
+                    height: 140px;
+                }
+
+                .foto_tres {
+                    width: 440px;
+                    height: 120px;
+                    margin-right: 45px;
+                }
+
+                .foto_quatro {
+                    width: 300px;
+                    height: 290px;
+                    margin-top: 35px;
+                }
+
+                .foto_cinco {
+                    width: 220px;
+                    min-height: 200px;
+                }
+
+                .foto_seis {
+                    margin-top: 50px;
+                    width: 220px;
+                    min-height: 250px;
+                }
+
+                .foto_sete {
+                    width: 200px;
+                    min-height: 250px;
+                }
+
+                .foto_oito {
+                    margin-top: 50px;
+                    width: 300px;
+                    min-height: 200px;
+                    margin-left: 44px;
+                }
+            }
+        }
+    }
+}
+
+
+footer {
+    height: 1000px;
+    background-color: #F7F9F8;
+
+    .site {
+        .lado_a_lado {
+
+
+            .columns {
+                .logo_footer {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    padding-top: 50px;
+                }
+
+                .mapa {
+
+                    iframe {
+                        width: 400px;
+                        height: 200px;
+                        border-radius: 10px;
+                        margin-top: 20px;
+                    }
+                }
+            }
+
+            .entre_em_contato{
+                font-family: var(--fonte_INTER);
+                width: 200px;
+                height: 75px;
+                background-color: white;
+                border-radius: 10px;
+                border: 1px solid black;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                p{
+                    font-size: 13px;
+                    font-weight: bolder;
+                    color: #007893;
+                }
+                .telefone{
+                    display: flex;
+                    align-items: center;
+                    margin-top: 15px;
+                    img{
+                        margin-right: 13px;
+                       
+                    }
+
+                    span{
+                          font-size: 20px;  
+                          color: #25788A;
+                    }
+                }
+            }
+        }
     }
 }
