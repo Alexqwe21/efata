@@ -105,6 +105,34 @@
     color: black;
 }
 
+.jogo {
+    width: 400px;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.25);
+    height: 210px;
+    border-radius: 10px;
+
+}
+
+.circulo {
+    width: 50px;
+    height: 50px;
+    background-color: #00b1d9a3;
+    border-radius: 50%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .seta_circulo {
+        width: 21px !important;
+        height: 27px !important;
+    }
+}
+
+.cadastre-se{
+    
+}
+
 
 header {
     position: relative;
@@ -433,6 +461,69 @@ header {
     }
 }
 
+
+
+
+.jogos {
+
+
+    .site {
+        h3 {
+            font-family: var(--font_joseh);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 50px;
+            font-weight: normal;
+
+        }
+
+        .lado_a_lado {
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+
+            .jogo {
+
+                h4,
+                h5,
+                p {
+                    font-family: var(--font_joseh);
+                    text-align: center;
+                    margin-top: 14px;
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+
+                .times {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 30px;
+
+                    p {
+                        font-family: var(--font_joseh);
+                        font-size: 40px;
+                        font-weight: bold;
+                    }
+
+                    img {
+                        margin: 0px 10px;
+                    }
+                }
+
+                h5 {
+                    margin-top: 0px;
+                    font-size: 24px;
+                }
+
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+}
+
 .eventos_prox,
 .eventos_espor,
 .eventos_cul {
@@ -623,6 +714,163 @@ header {
     }
 }
 
+
+.sobre_foto {
+    .site {
+        .lado_a_lado {
+
+            .columns {
+
+
+
+                h2,
+                h3,
+                h4 {
+                    font-family: var(--font_joseh);
+                    font-weight: bold;
+                    font-size: 40px;
+                }
+
+                h3 {
+                    font-size: 60px;
+                    width: 100%;
+                    line-height: 70px;
+                    margin-top: 16px;
+                }
+
+                h4 {
+                    font-weight: bold;
+                    font-size: 25px;
+                    margin-top: 30px;
+                }
+
+                p {
+                    width: 90%;
+                    font-family: var(--fonte_INTER);
+                    font-size: 20px;
+                    font-weight: normal;
+                    line-height: 40px;
+                    margin-top: 40px;
+                }
+            }
+
+            .sobre_nos {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .lado_a_lado {
+                    width: 100%;
+                    display: flex;
+
+                    .ancora_sobre {
+                        width: 30%;
+
+                        a {
+                            width: 170px;
+                            height: 50px;
+                            background: #007893;
+                            border-radius: 30px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-family: var(--fonte_INTER);
+                            font-weight: 700;
+                        }
+
+                    }
+
+                    .tel_sobre {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        margin-left: 40px;
+
+                        p {
+                            width: 100%;
+                            margin: 0;
+                            margin-left: 20px;
+                            font-family: var(--font_joseh);
+                            font-weight: bold;
+                            font-size: 30px;
+                        }
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+
+.patrocinadores {
+    .site {
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: var(--font_joseh);
+            text-align: center;
+
+            font-size: 50px;
+            font-weight: normal;
+
+        }
+
+        .lado_a_lado {
+            .columns {
+
+                .patrocinador_oficial {
+
+                    a {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 80%;
+
+                        img {
+                            width: 250px;
+                            height: 250px;
+                        }
+
+                        strong {
+                            text-align: center;
+                            font-family: var(--font_joseh);
+                            font-size: 17px;
+                            color: #25788A;
+                            font-weight: bold;
+                            margin: 38px 0 20px 0;
+                        }
+
+                        h6 {
+                            font-weight: bold;
+                            font-family: var(--font_joseh);
+                            color: black;
+                            text-align: center;
+                            font-size: 45px;
+                            margin-bottom: 20px;
+                        }
+
+                        span {
+                            width: 65%;
+                            text-align: center;
+                            line-height: 30px;
+                            color: black;
+                            font-family: var(--fonte_INTER);
+                            font-size: 15px;
+                            font-weight: normal;
+
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 .galeria_volei {
     min-height: 700px;
     background: url(img/fundo_icones.png);
@@ -684,7 +932,7 @@ header {
 
                 .foto_dois {
                     margin-top: 35px;
-                    width: 280px;
+                    width: 270px;
                     height: 140px;
                 }
 
@@ -695,7 +943,7 @@ header {
                 }
 
                 .foto_quatro {
-                    width: 300px;
+                    width: 200px;
                     height: 290px;
                     margin-top: 35px;
                 }
@@ -727,14 +975,75 @@ header {
     }
 }
 
+.efeito_paralax {
+
+    background-image: url('img/efeito_paralax.png');
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    .site {
+        height: 500px;
+        display: flex;
+        align-items: center;
+
+        .content {
+            width: 700px;
+            height: 390px;
+            background-color: white;
+            border-radius: 5px;
+
+            .columns {
+                
+                .texto {
+                    width: 70%;
+                    height: 250px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 60px;
+                    h2{
+                        font-family: var(--font_joseh);
+                        font-size: 30px;
+                        font-weight: bold;
+
+                    }
+                    .hr{
+                        width: 88%;
+                        margin-top: 5px;
+                        hr{
+                            border: 3px solid #FFB800;
+                            width: 100%;
+                        }
+                    }
+
+                    .paragrafro{
+                        width: 88%;
+                        margin-top: 10px;
+                        p{
+                            font-family: var(--fonte_INTER);
+                            font-size: 20px;
+                            line-height: 35px;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
 
 footer {
-    height: 1000px;
+    height: auto;
     background-color: #F7F9F8;
 
     .site {
         .lado_a_lado {
-
+            justify-content: space-between;
 
             .columns {
                 .logo_footer {
@@ -753,38 +1062,171 @@ footer {
                         margin-top: 20px;
                     }
                 }
-            }
 
-            .entre_em_contato{
-                font-family: var(--fonte_INTER);
-                width: 200px;
-                height: 75px;
-                background-color: white;
-                border-radius: 10px;
-                border: 1px solid black;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                p{
-                    font-size: 13px;
-                    font-weight: bolder;
-                    color: #007893;
-                }
-                .telefone{
+
+                .entre_em_contato {
+                    font-family: var(--fonte_INTER);
+                    width: 200px;
+                    height: 75px;
+                    background-color: white;
+                    border-radius: 10px;
+                    border: 1px solid black;
                     display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                     align-items: center;
-                    margin-top: 15px;
-                    img{
-                        margin-right: 13px;
-                       
+                    margin-bottom: 30px;
+
+                    p {
+                        font-size: 17px;
+                        font-weight: bolder;
+                        color: #007893;
                     }
 
-                    span{
-                          font-size: 20px;  
-                          color: #25788A;
+                    .telefone {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 15px;
+
+                        img {
+                            margin-right: 13px;
+
+                        }
+
+                        span {
+                            font-size: 20px;
+                            color: #25788A;
+                        }
                     }
                 }
+
+                nav {
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 130px;
+
+                        li {
+                            a {
+                                color: black;
+                                font-family: var(--fonte_INTER);
+                                font-size: 16px;
+                                font-weight: normal;
+
+                            }
+                        }
+                    }
+                }
+
+
+                .Newsletter {
+                    font-family: var(--fonte_INTER);
+                    font-size: 30px;
+                    color: #00A3FF;
+                    font-weight: bolder;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    h2 {
+                        text-align: start;
+                        width: 100%;
+                    }
+
+                    div {
+                        width: 100%;
+
+                        hr {
+                            border: 3px solid #00A3FF;
+                            margin-top: 12px;
+                            display: flex;
+                            justify-content: start;
+                            width: 25%;
+                        }
+                    }
+
+
+                    p {
+                        font-family: var(--fonte_INTER);
+                        font-size: 16px;
+                        font-weight: bold;
+                        color: black;
+                        width: 100%;
+                        margin-top: 20px;
+                        line-height: 20px;
+                    }
+                }
+
+                form {
+
+
+                    .email_Newsletter {
+                        margin-top: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        input {
+                            height: 40px;
+                            border-radius: 40px;
+                            border: 1px solid black;
+                            width: 90%;
+
+
+                        }
+
+                        input::placeholder {
+                            padding-left: 20px;
+                            color: #B7B7B7;
+                            font-family: var(--fonte_INTER);
+                            font-size: 17px;
+                        }
+
+                        button {
+                            border: none;
+                            cursor: pointer;
+                            background: transparent;
+                            margin-left: 15px;
+
+                        }
+                    }
+                }
+
+                .siga_agente {
+                    margin-top: 33px;
+
+                    span {
+                        font-weight: bold;
+                        font-size: 16px;
+                        color: #00A3FF;
+                        font-family: var(--fonte_INTER);
+                    }
+                }
+
+                .redes_sociais_footer {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 80%;
+                    margin-top: 19px;
+                }
+
+
+            }
+        }
+
+        .direitos {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 20px;
+
+            strong {
+                font-size: 20px;
+                font-family: var(--fonte_INTER);
+                font-weight: 500;
+
             }
         }
     }
