@@ -129,8 +129,17 @@
     }
 }
 
-.cadastre-se{
-    
+.cadastre-se {
+    width: 170px;
+    height: 50px;
+    background: #007893;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: var(--fonte_INTER);
+    font-weight: 700;
 }
 
 
@@ -997,7 +1006,7 @@ header {
             border-radius: 5px;
 
             .columns {
-                
+
                 .texto {
                     width: 70%;
                     height: 250px;
@@ -1005,31 +1014,41 @@ header {
                     flex-direction: column;
                     align-items: center;
                     margin-top: 60px;
-                    h2{
+
+                    h2 {
                         font-family: var(--font_joseh);
                         font-size: 30px;
                         font-weight: bold;
 
                     }
-                    .hr{
+
+                    .hr {
                         width: 88%;
                         margin-top: 5px;
-                        hr{
+
+                        hr {
                             border: 3px solid #FFB800;
                             width: 100%;
                         }
                     }
 
-                    .paragrafro{
+                    .paragrafro {
                         width: 88%;
                         margin-top: 10px;
-                        p{
+
+                        p {
                             font-family: var(--fonte_INTER);
                             font-size: 20px;
                             line-height: 35px;
                         }
                     }
-                    
+
+.cadastre-se{
+    background-color: #FFB800;
+    color: black;
+    font-weight: 700;
+}
+
                 }
             }
         }
