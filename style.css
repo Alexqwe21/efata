@@ -19,8 +19,8 @@
 
 :root {
 
-    --cor_P_topo: #25788A;
-    --cor_SPAN_topo: #25788A;
+    --cor_P_topo: #0597F2;
+    --cor_SPAN_topo: #0597F2;
     --fonte_INTER: "Inter", sans-serif;
     --background_fundo: #F6F6F6;
     --font_joseh: "Josefin Sans", sans-serif;
@@ -39,15 +39,15 @@
     min-height: 145px;
     border-radius: 15px;
     background-color: #ffffff;
-    border-bottom: 4px solid #02F128;
+    border-bottom: 4px solid #05F2DB;
 }
 
 .container_escolha_cul {
-    border-bottom: 4px solid #00A3FF;
+    border-bottom: 4px solid #056CF2;
 }
 
 .container_escolha_even {
-    border-bottom: 4px solid #FFB800;
+    border-bottom: 4px solid #F2A007;
 }
 
 
@@ -69,7 +69,7 @@
     width: 100px;
     height: 40px;
     color: white;
-    background-color: #007893;
+    background-color: #0597F2;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
@@ -86,7 +86,7 @@
     width: 65%;
     height: 100px;
     border-radius: 0 30px 30px 0px;
-    background-color: #FFB800;
+    background-color: #F2A007;
     display: flex;
     align-items: center;
     justify-content: end;
@@ -102,7 +102,7 @@
     font-family: var(--fonte_INTER);
     font-size: 14px;
     font-weight: bolder;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .jogo {
@@ -116,7 +116,7 @@
 .circulo {
     width: 50px;
     height: 50px;
-    background-color: #00b1d9a3;
+    background-color: #F2A007;
     border-radius: 50%;
     margin-top: 20px;
     display: flex;
@@ -132,7 +132,7 @@
 .cadastre-se {
     width: 170px;
     height: 50px;
-    background: #007893;
+    background: #0597F2;
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -149,9 +149,10 @@ header {
 
     .info_topo {
         display: flex;
+        padding: 20px 0;
 
         .site {
-            min-width: 1500px;
+            min-width: 1240px;
             min-height: 130px;
 
 
@@ -159,18 +160,16 @@ header {
                 justify-content: space-between;
 
                 .logo {
-                    width: 20%;
+
                     display: flex;
 
-                    img {
-                        margin-right: 20px;
-                    }
+
                 }
 
                 .redes_sociais {
                     display: flex;
                     align-self: center;
-                    width: 20%;
+
 
                     img {
                         margin-right: 50px;
@@ -225,7 +224,7 @@ header {
         .site {
             .container_azul {
                 min-height: 150px;
-                background-color: #2C878C;
+                background-color: #0597F2;
                 border-radius: 20px;
                 display: flex;
 
@@ -254,7 +253,7 @@ header {
                             border-radius: 10px;
                             width: 20%;
 
-                            background-color: #007893;
+                            background-color: #04192C;
                             display: flex;
                             align-items: center;
 
@@ -278,7 +277,7 @@ header {
 
 
 .banner {
-    background-image: url(img/banner_home.png);
+    background-image: url(img/baner_home.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 560px;
@@ -426,7 +425,7 @@ header {
                         .play-icon {
                             width: 0;
                             height: 0;
-                            border-left: 18px solid #009CFF;
+                            border-left: 18px solid #056CF2;
                             border-top: 12px solid transparent;
                             border-bottom: 12px solid transparent;
                         }
@@ -561,7 +560,7 @@ header {
 
                 a {
                     display: block;
-                    background-color: #FFB800;
+                    background-color: #F2A007;
                     width: 500px;
                     border-radius: 25px 25px 20px 20px;
 
@@ -572,7 +571,7 @@ header {
 
                     div {
                         height: 80px;
-                        background-color: #FFB800;
+                        background-color: #F2A007;
                         width: 41%;
                         border-radius: 0px 0px 20px 20px;
                         width: 100%;
@@ -601,7 +600,7 @@ header {
             height: 0;
 
             .ver_atividades {
-                background-color: #FFB800;
+                background-color: #F2A007;
             }
         }
     }
@@ -619,7 +618,7 @@ header {
         .largura_total {
             border-radius: 30px 0 0 30px;
             justify-content: flex-start;
-            background-color: #00FF29;
+            background-color: #05F2DB;
 
             h2 {
                 margin-left: 60px;
@@ -646,7 +645,7 @@ header {
                         flex-direction: column;
                         height: auto;
                         background: white;
-                        border-bottom: 10px solid #00FF29;
+                        border-bottom: 10px solid #05F2DB;
 
                         h3 {
                             text-align: center;
@@ -673,7 +672,7 @@ header {
                             margin-bottom: 30px;
                             margin-left: 21px;
                             font-family: var(--fonte_INTER);
-                            color: #00A3FF;
+                            color: #0597F2;
                             font-size: 16px;
                         }
                     }
@@ -685,7 +684,7 @@ header {
 
         .centro {
             .ver_atividades {
-                background-color: #00FF29;
+                background-color: #05F2DB;
                 width: 260px;
             }
         }
@@ -694,9 +693,18 @@ header {
 }
 
 
+.eventos_espor {
+    .site {
+        a {
+            color: black;
+        }
+    }
+}
+
+
 .eventos_cul {
     .largura_total {
-        background: #00A3FF;
+        background: #0597F2;
 
         h2 {
             color: black;
@@ -707,14 +715,14 @@ header {
         .eventos_esporte_cultura {
             .evento_esporte_cultura {
                 div {
-                    border-bottom: 10px solid #00A3FF !important;
+                    border-bottom: 10px solid #0597F2 !important;
                 }
             }
         }
 
         .centro {
             .ver_atividades {
-                background-color: #00A3FF;
+                background-color: #0597F2;
                 width: 260px;
                 color: white;
             }
@@ -778,7 +786,7 @@ header {
                         a {
                             width: 170px;
                             height: 50px;
-                            background: #007893;
+                            background: #0597F2;
                             border-radius: 30px;
                             display: flex;
                             align-items: center;
@@ -846,7 +854,7 @@ header {
                             text-align: center;
                             font-family: var(--font_joseh);
                             font-size: 17px;
-                            color: #25788A;
+                            color: #0597F2;
                             font-weight: bold;
                             margin: 38px 0 20px 0;
                         }
@@ -1001,7 +1009,7 @@ header {
 
         .content {
             width: 700px;
-            height: 390px;
+            height: 420px;
             background-color: white;
             border-radius: 5px;
 
@@ -1027,7 +1035,7 @@ header {
                         margin-top: 5px;
 
                         hr {
-                            border: 3px solid #FFB800;
+                            border: 3px solid #F2A007;
                             width: 100%;
                         }
                     }
@@ -1043,11 +1051,18 @@ header {
                         }
                     }
 
-.cadastre-se{
-    background-color: #FFB800;
-    color: black;
-    font-weight: 700;
-}
+                    .cadastre {
+                        width: 88%;
+                        margin-top: 30px;
+
+                        .cadastre-se {
+                            background-color: #F2A007;
+                            color: black;
+                            font-weight: 700;
+
+                        }
+                    }
+
 
                 }
             }
@@ -1068,7 +1083,7 @@ footer {
                 .logo_footer {
                     display: flex;
                     width: 100%;
-                    justify-content: space-between;
+                    justify-content: center;
                     padding-top: 50px;
                 }
 
@@ -1099,7 +1114,7 @@ footer {
                     p {
                         font-size: 17px;
                         font-weight: bolder;
-                        color: #007893;
+                        color: #0597F2;
                     }
 
                     .telefone {
@@ -1114,7 +1129,7 @@ footer {
 
                         span {
                             font-size: 20px;
-                            color: #25788A;
+                            color: #0597F2;
                         }
                     }
                 }
@@ -1142,7 +1157,7 @@ footer {
                 .Newsletter {
                     font-family: var(--fonte_INTER);
                     font-size: 30px;
-                    color: #00A3FF;
+                    color: #0597F2;
                     font-weight: bolder;
                     width: 100%;
                     display: flex;
@@ -1158,7 +1173,7 @@ footer {
                         width: 100%;
 
                         hr {
-                            border: 3px solid #00A3FF;
+                            border: 3px solid #0597F2;
                             margin-top: 12px;
                             display: flex;
                             justify-content: start;
@@ -1219,7 +1234,7 @@ footer {
                     span {
                         font-weight: bold;
                         font-size: 16px;
-                        color: #00A3FF;
+                        color: #0597F2;
                         font-family: var(--fonte_INTER);
                     }
                 }
