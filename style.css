@@ -152,7 +152,7 @@ header {
         padding: 20px 0;
 
         .site {
-            min-width: 1240px;
+            max-width: 1240px;
             min-height: 130px;
 
 
@@ -922,7 +922,8 @@ header {
             display: flex;
             justify-content: space-between;
 
-            .galeria_um {
+            .galeria_um,
+            .galeria_dois {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -1269,28 +1270,196 @@ footer {
 @media (max-width: 1024px) {
 
 
-.galeria_dois{
-    display: none;
-}
+    .galeria_dois {
+        display: none !important;
+    }
 
 
+    header {
 
-    .info_topo{
-        .site{
-            
-           
-            .lado_a_lado{
-                justify-content: space-around!important;
-                .como_funciona{
-                   
-                    
-                    align-items: center;
-                    .telefone{
-                        width: 100% !important;
-                       
+
+        .info_topo {
+            .site {
+
+
+                .lado_a_lado {
+                    justify-content: space-around !important;
+
+                    .como_funciona {
+
+
+                        align-items: center;
+
+                        .telefone {
+                            margin: 0 20px;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .navegacao {
+            .site {
+                .container_azul {
+                    margin: 0 20px;
+                }
+            }
+        }
+
+    }
+
+
+    .banner {
+        .site {
+            .ben_vindo {
+                align-items: center;
+                height: 500px;
+
+                h2 {
+                    font-size: 60px;
+                    margin-bottom: 20px;
+                }
+
+                h3 {
+                    font-size: 45px;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    line-height: 25px;
+                    font-size: 18px;
+                    width: 60%;
+                }
+            }
+        }
+    }
+
+    .eventos_prox {
+        .largura_total {
+            h2 {
+                font-size: 58px;
+            }
+        }
+
+
+    }
+
+
+    .eventos_espor,
+    .eventos_cul {
+        .site {
+            .eventos_esporte_cultura {
+                display: flex;
+                justify-content: space-evenly;
+
+                .evento_esporte_cultura {
+                    width: 30%;
+
+                }
+            }
+        }
+
+    }
+
+
+    .sobre_foto {
+        .site {
+            .lado_a_lado {
+                flex-direction: column;
+
+                .columns {
+                    .info_sobre {
+                        text-align: center;
+
+                        p {
+                            width: 100%;
+                            padding: 0 40px;
+                        }
+                    }
+
+                    .sobre_nos {
+                        .lado_a_lado {
+
+                            .ancora_sobre,
+                            .tel_sobre {
+                                width: auto;
+                            }
+
+                            .tel_sobre {
+                                margin-top: 30px;
+                            }
+                        }
+                    }
+                }
+
+
+                .foto_volei {
+                    margin-top: 80px;
+                }
+            }
+        }
+    }
+
+    .patrocinadores {
+        .site {
+            .lado_a_lado {
+                .columns {
+                    .patrocinador_oficial {
+                        display: flex;
+                        justify-content: center;
                     }
                 }
             }
         }
     }
- }
+
+    .galeria_volei {
+        background: url(img/responsivo_1024.png);
+
+        .site {
+            .galeria {
+                .galeria_um {
+                    .foto_dois {
+                        margin-left: 10px;
+                    }
+
+                    .foto_cinco,
+                    .foto_seis {
+                        margin-right: 10px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .efeito_paralax {
+        .site {
+            justify-content: center;
+        }
+    }
+
+
+    footer{
+        .site{
+            .lado_a_lado{
+                flex-direction: column;
+
+                .columns{
+                    margin: 30px 0;
+                }
+            }
+        }
+    }
+
+
+
+
+
+}
+
+
+@media (max-width: 768px){
+    
+}
