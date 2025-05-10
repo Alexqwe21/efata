@@ -1265,3 +1265,32 @@ footer {
         }
     }
 }
+
+@media (max-width: 1024px) {
+
+
+.galeria_dois{
+    display: none;
+}
+
+
+
+    .info_topo{
+        .site{
+            
+           
+            .lado_a_lado{
+                justify-content: space-around!important;
+                .como_funciona{
+                   
+                    
+                    align-items: center;
+                    .telefone{
+                        width: 100% !important;
+                       
+                    }
+                }
+            }
+        }
+    }
+ }
