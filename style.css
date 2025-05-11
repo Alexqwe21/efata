@@ -143,6 +143,61 @@
 }
 
 
+/* Oculta o botão do menu por padrão */
+.menu-toggle {
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    /* para ficar acima do menu */
+}
+
+.menu-toggle span {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+.menu-toggle span:nth-child(1) {
+    top: 0;
+}
+
+.menu-toggle span:nth-child(2) {
+    top: 9px;
+}
+
+.menu-toggle span:nth-child(3) {
+    top: 18px;
+}
+
+/* Estilo quando ativado */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 9px;
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 9px;
+}
+
+/* Estilos do menu padrão */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+
 header {
     position: relative;
     z-index: 1;
@@ -177,7 +232,8 @@ header {
 
                 }
 
-                .como_funciona {
+                .como_funciona,
+                .como_funciona_ {
                     display: flex;
                     justify-content: space-between;
                     width: 45%;
@@ -1441,12 +1497,12 @@ footer {
     }
 
 
-    footer{
-        .site{
-            .lado_a_lado{
+    footer {
+        .site {
+            .lado_a_lado {
                 flex-direction: column;
 
-                .columns{
+                .columns {
                     margin: 30px 0;
                 }
             }
@@ -1460,6 +1516,331 @@ footer {
 }
 
 
-@media (max-width: 768px){
-    
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        background-color: #005aa7;
+        width: 100%;
+        position: absolute;
+        top: -11px;
+        left: 0;
+        padding: 10px 0;
+        opacity: 0;
+        transform: translateY(-20%);
+        pointer-events: none;
+        transition: all 0.3s ease;
+        height: 500px !important;
+    }
+
+    nav ul.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+
+
+    header {
+
+        .info_topo {
+            .site {
+                .lado_a_lado {
+                    .como_funciona {
+                        flex-direction: column;
+                        align-items: start;
+                        width: 30%;
+
+                        .telefone {
+                            display: flex;
+                            margin: 40px 0 0 0;
+                            flex-direction: column;
+                        }
+                    }
+
+                    .como_funciona_ {
+                        width: 100%;
+                    }
+                }
+
+            }
+        }
+
+
+        & .navegacao {
+            & .site {
+
+                .container_azul {
+                    background-color: white;
+                    border-radius: 0;
+                    margin-bottom: 85px;
+                    min-height: 0;
+                    margin-top: 10px;
+
+                    nav {
+                        display: flex;
+                        justify-content: end;
+
+                        ul {
+                            .conhecer_volei {
+                                width: 30%;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    .banner {
+        .site {
+            .escolha_categoria {
+
+                .container_escolha .container_escolha_cul,
+                .container_escolha_even {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+
+    .video {
+        height: 700px;
+
+        .site {
+            .centro {
+                flex-direction: column;
+
+                .conhecer_efata {
+                    order: 1;
+                    margin: 25px 0;
+
+                    h3 {
+                        font-size: 50px !important;
+                        text-align: center;
+                    }
+
+                    p {
+                        text-align: center;
+                    }
+
+                    div {
+                        width: 100% !important;
+                    }
+                }
+
+                .video-wrapper {
+                    order: 2;
+
+                    .video-thumbnail,
+                    #video {
+                        height: 250px !important;
+
+                    }
+                }
+            }
+        }
+    }
+
+
+    .jogos {
+        .space {
+            height: 0px;
+        }
+
+        .site {
+            .lado_a_lado {
+                .jogo {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+
+    .eventos_prox,
+    .eventos_espor,
+    .eventos_cul {
+        height: auto;
+
+        .largura_total {
+            height: 70px;
+
+            h2 {
+                font-size: 40px;
+            }
+        }
+
+        .site {
+            .eventos_esporte_cultura {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .evento_esporte_cultura {
+                    margin-bottom: 40px;
+                    width: 100% !important;
+                    align-items: center;
+                }
+            }
+
+            .centro {
+                margin-bottom: 50px;
+            }
+        }
+    }
+
+
+    .patrocinadores {
+        .site {
+            .lado_a_lado {
+                flex-direction: column;
+
+                .columns {
+                    margin-bottom: 60px;
+                }
+            }
+        }
+    }
+
+
+    .galeria_volei {
+        .site {
+            .galeria {
+                margin-top: 30px;
+                flex-direction: column;
+                align-items: center;
+
+                .galeria_um {
+                    margin-bottom: 40px;
+                }
+
+                .galeria_dois {
+                    display: block !important;
+                    width: 30%;
+                    margin: 0 auto;
+
+                    .foto_oito {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .efeito_paralax {
+        & .site {
+            .content {
+                height: 360px;
+
+                .columns {
+                    .texto {
+                        width: 100% !important;
+                    }
+
+                    .cadastre {
+                        width: 100% !important;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+
+
+    footer {
+        & .site {
+            & .lado_a_lado {
+                .columns {
+                    width: 50% !important;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    form {
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+
+@media (max-width: 480px) {
+
+    nav ul {
+        height: auto !important;
+    }
+
+    .redes_sociais img,
+    .como_funciona,
+    .como_funciona_ img {
+        filter: brightness(0) invert(1);
+        margin-bottom: 30px;
+    }
+
+    .como_funciona,
+    .como_funciona_ {
+        display: flex;
+        flex-direction: column;
+        align-items: cente
+        justify-content: center;
+
+        .horarios, .telefone{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .relogio , .numero_telefone {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 20px 0;
+                p{
+                    text-align: center !important;
+                }
+                img{
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    header {
+        & .navegacao {
+            & .site {
+                & .container_azul {
+                    & nav {
+                        ul {
+                            li {
+                                margin-top: 40px;
+
+                                a {
+                                    font-size: 25px;
+                                }
+                            }
+
+                            .conhecer_volei {
+                                width: 70% !important;
+                                font-size: 20px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
