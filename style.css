@@ -1795,7 +1795,7 @@ footer {
     .como_funciona_ {
         display: flex;
         flex-direction: column;
-        align-items: cente
+        align-items: cente;
         justify-content: center;
 
         .horarios, .telefone{
