@@ -1798,21 +1798,32 @@ footer {
         align-items: cente;
         justify-content: center;
 
-        .horarios, .telefone{
+        p,
+        span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .horarios,
+        .telefone {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            .relogio , .numero_telefone {
+
+            .relogio,
+            .numero_telefone {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 margin: 20px 0;
-                p{
+
+                p {
                     text-align: center !important;
                 }
-                img{
+
+                img {
                     margin-bottom: 20px;
                 }
             }
@@ -1843,4 +1854,21 @@ footer {
             }
         }
     }
+
+
+    .banner {
+        & .site {
+            & .ben_vindo {
+                h2 {
+                    font-size: 40px;
+                   margin-top:80px;
+                }
+            }
+        }
+    }
+
+
+
+
 }
+
