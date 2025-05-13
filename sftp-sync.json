@@ -1,0 +1,16 @@
+{
+  "host": "ftp.webdevsolutions.com.br",
+  "username": "u230564252.efata",
+  "password": "efata123aA@",
+  "port": 22,
+  "protocol": "sftp",
+  "uploadOnSave": true,
+  "passive": false,
+  "remotePath": "/",
+  "context": "./",
+  "ignore": [
+    "**/.vscode/**",
+    "**/.git/**",
+    "**/node_modules/**"
+  ]
+}
