@@ -2,7 +2,7 @@
   "host": "ftp.webdevsolutions.com.br",
   "username": "u230564252.efata",
   "password": "efata123aA@",
-  "port": 22,
+  "port": 21,
   "protocol": "sftp",
   "uploadOnSave": true,
   "passive": false,
