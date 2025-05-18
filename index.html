@@ -8,6 +8,9 @@
     <link rel="shortcut icon" href="img/Logo_Cultura.png" type="image/x-icon">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" />
+
     <title>Cultura Efatá</title>
 </head>
 
@@ -102,6 +105,7 @@
 
 
         <section class="banner">
+             <div class="bg-transition"></div>
             <article class="site">
                 <div class="ben_vindo">
                     <h2>BEM-VINDO</h2>
@@ -112,7 +116,7 @@
                         transformação de vidas.</p>
                     <div class="sobre_mais">
                         <a href="#" class="saiba_mais ">Saiba mais</a>
-                        <a href="#" class="sobre_nos" id="openModal">Sobre Nos</a>
+                        <a href="#" class="sobre_nos" id="openModal">Galeria</a>
                     </div>
 
                 </div>
@@ -704,17 +708,13 @@
 
 
     <script src="js/menu_hamburguer.js"></script>
+    <script src="js/efeito_aparecer.js"></script>
+    <script src="js/video.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/carrosel.js"></script>
 
-    <script>
-        function playVideo() {
-            document.getElementById('thumbnail').style.display = 'none';
-            const video = document.getElementById('video');
-            video.style.display = 'block';
-            video.play();
-        }
-
-
-    </script>
 
     <script>
         const redes = document.querySelector('.redes_sociais');
@@ -764,25 +764,7 @@
 
 
 
-    <script>
-        const video = document.getElementById('video');
-        const source = document.getElementById('videoSource');
 
-        const videos = [
-            'video/cultura_efata.mp4',
-            'video/treino.mp4'
-        ];
-
-        let current = 0;
-
-        video.addEventListener('ended', function () {
-            // Avança para o próximo vídeo da lista, ou volta ao início
-            current = (current + 1) % videos.length;
-            source.src = videos[current];
-            video.load();
-            video.play();
-        });
-    </script>
 
     <script>
         const modal = document.getElementById('modal');
@@ -828,39 +810,6 @@
         }
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const videoSite = document.querySelector('.video .site');
-
-            function checkFade() {
-                const rect = videoSite.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 350) {
-                    videoSite.classList.add('visible');
-                    // opcional: remover o listener se quiser que só aconteça uma vez
-                    window.removeEventListener('scroll', checkFade);
-                }
-            }
-
-            window.addEventListener('scroll', checkFade);
-            checkFade(); // ativar ao carregar, caso já esteja visível
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const eventosSite = document.querySelector('.eventos_prox .site');
-
-            function checkFade() {
-                const rect = eventosSite.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    eventosSite.classList.add('visible');
-                    window.removeEventListener('scroll', checkFade);
-                }
-            }
-
-            window.addEventListener('scroll', checkFade);
-            checkFade(); // checa no carregamento
-        });
-
-    </script>
 
 
 
