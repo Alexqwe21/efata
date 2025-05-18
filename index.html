@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="img/Logo_Cultura.png" type="image/x-icon">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Cultura Efatá</title>
 </head>
 
 <body>
@@ -58,7 +58,7 @@
                                 <p>Telefone</p>
                                 <div class="numero_telefone">
                                     <img src="img/telefone_topo.svg" alt="relogio">
-                                    <span>11 2056-4500</span>
+                                    <span>11 951950032</span>
                                 </div>
                             </div>
 
@@ -106,13 +106,13 @@
                 <div class="ben_vindo">
                     <h2>BEM-VINDO</h2>
                     <h3>CULTURA EFATÁ</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas pariatur enim doloremque quae
-                        dolore unde placeat nemo omnis asperiores quos ipsum quod minima error veritatis magnam,
-                        adipisci
-                        veniam sunt assumenda.</p>
+                    <p>Cultura Efatá é um projeto dedicado ao vôlei de quadra, com um propósito maior: usar o esporte
+                        como uma ferramenta para compartilhar a Palavra do Senhor.
+                        Acreditamos que o esporte vai além da competição — ele é um meio de união, crescimento e
+                        transformação de vidas.</p>
                     <div class="sobre_mais">
                         <a href="#" class="saiba_mais ">Saiba mais</a>
-                        <a href="#" class="sobre_nos">Sobre Nos</a>
+                        <a href="#" class="sobre_nos" id="openModal">Sobre Nos</a>
                     </div>
 
                 </div>
@@ -152,19 +152,20 @@
                             </div>
                         </div>
 
-                        <video id="video" controls loop style="display: none;" width="200" height="140">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        <video id="video" controls>
+                            <source id="videoSource" src="video/cultura_efata.mp4" type="video/mp4">
                             Seu navegador não suporta vídeo.
                         </video>
                     </div>
 
                     <div class="conhecer_efata">
                         <div>
-                            <h3>Sobre o Ceu</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rerum excepturi ipsam
-                                asperiores dolorem quod esse quia tenetur, minima aspernatur dolores accusantium eaque
-                                cumque iusto quam libero est ea nemo provident vitae quo modi. In error reprehenderit
-                                quos hic delectus.</p>
+                            <h3>Sobre o Cultura Efatá</h3>
+                            <p>Nossa missão é criar um ambiente onde atletas possam desenvolver suas habilidades
+                                esportivas, enquanto fortalecem sua fé e seus princípios cristãos.
+                                Aqui, cada treino e cada jogo são oportunidades de aprendizado, comunhão e testemunho do
+                                amor de Deus.
+                            </p>
                             <div>
                                 <a href="#" class="saiba_mais">Saiba mais</a>
                                 <button class="sobre_nos" onclick="playVideo()">Play Video</button>
@@ -182,7 +183,7 @@
 
         <section class="jogos">
             <article class="site">
-                <h3>Jogos cultura efata </h3>
+                <h3>Jogos Cultura Efatá</h3>
                 <div class="lado_a_lado">
                     <div class="jogo">
                         <h4>Agosto 25,2023</h4>
@@ -288,7 +289,7 @@
         <section class="eventos_espor">
             <div class="inverter">
                 <div class="largura_total">
-                    <h2>ESPORTES</h2>
+                    <h2>TREINOS</h2>
                 </div>
             </div>
 
@@ -299,45 +300,40 @@
                 <div class="eventos_esporte_cultura">
                     <div class="evento_esporte_cultura">
                         <a href="#">
-                            <img src="img/esporte.png" alt="esporte">
+                            <img src="img/esporte.png" alt="Treinos Efatá">
                             <div>
-                                <h3>TAEKWONDO</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus earum,
-                                    dignissimos adipisci eligendi libero.</p>
-                                <span> SAIBA MAIS</span>
-
+                                <h3>Treinos</h3>
+                                <p>Aulas com fundamentos técnicos, táticos e devocionais, unindo esporte e
+                                    espiritualidade em cada encontro.</p>
+                                <span>SAIBA MAIS</span>
                             </div>
-
                         </a>
                     </div>
 
                     <div class="evento_esporte_cultura">
                         <a href="#">
-                            <img src="img/esporte.png" alt="esporte">
+                            <img src="img/esporte.png" alt="Jogos e Competições">
                             <div>
-                                <h3>TAEKWONDO</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus earum,
-                                    dignissimos adipisci eligendi libero.</p>
-                                <span> SAIBA MAIS</span>
-
+                                <h3>Jogos e Competições</h3>
+                                <p>Participação em torneios e campeonatos, sempre levando a mensagem do Evangelho dentro
+                                    e fora das quadras.</p>
+                                <span>SAIBA MAIS</span>
                             </div>
-
                         </a>
                     </div>
 
                     <div class="evento_esporte_cultura">
                         <a href="#">
-                            <img src="img/esporte.png" alt="esporte">
+                            <img src="img/esporte.png" alt="Momentos de Fé">
                             <div>
-                                <h3>TAEKWONDO</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus earum,
-                                    dignissimos adipisci eligendi libero.</p>
-                                <span> SAIBA MAIS</span>
-
+                                <h3>Oração e Palavra</h3>
+                                <p>Momentos dedicados à oração, reflexão e ensino bíblico, fortalecendo a fé e a
+                                    comunhão entre os atletas.</p>
+                                <span>SAIBA MAIS</span>
                             </div>
-
                         </a>
                     </div>
+
 
                 </div>
                 <div class="space"></div>
@@ -353,7 +349,7 @@
         <section class="eventos_cul">
 
             <div class="largura_total">
-                <h2>CULTURA</h2>
+                <h2>OBJETIVO</h2>
             </div>
 
 
@@ -364,45 +360,41 @@
                 <div class="eventos_esporte_cultura">
                     <div class="evento_esporte_cultura">
                         <a href="#">
-                            <img src="img/cultura.png" alt="esporte">
+                            <img src="img/cultura.png" alt="vôlei com excelência">
                             <div>
-                                <h3>XADREZ</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus earum,
-                                    dignissimos adipisci eligendi libero.</p>
-                                <span> SAIBA MAIS</span>
-
+                                <h3>VÔLEI COM EXCELÊNCIA</h3>
+                                <p>Ensinamos e praticamos o vôlei com dedicação, promovendo desenvolvimento técnico e
+                                    espiritual em cada atleta.</p>
+                                <span>SAIBA MAIS</span>
                             </div>
-
                         </a>
                     </div>
 
                     <div class="evento_esporte_cultura">
                         <a href="#">
-                            <img src="img/cultura.png" alt="esporte">
+                            <img src="img/cultura.png" alt="Evangelismo Esportivo">
                             <div>
-                                <h3>XADREZ</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus earum,
-                                    dignissimos adipisci eligendi libero.</p>
-                                <span> SAIBA MAIS</span>
-
+                                <h3>EVANGELISMO ESPORTIVO</h3>
+                                <p>Utilizamos o esporte como ferramenta para anunciar o evangelho de Cristo e impactar
+                                    vidas dentro e fora das quadras.</p>
+                                <span>SAIBA MAIS</span>
                             </div>
-
                         </a>
                     </div>
 
                     <div class="evento_esporte_cultura">
                         <a href="#">
-                            <img src="img/cultura.png" alt="esporte">
+                            <img src="img/cultura.png" alt="Formação de Atletas">
                             <div>
-                                <h3>XADREZ</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus earum,
-                                    dignissimos adipisci eligendi libero.</p>
-                                <span> SAIBA MAIS</span>
-
+                                <h3>FORMAÇÃO DE ATLETAS</h3>
+                                <p>Buscamos formar atletas que sejam referência em caráter, liderança e fé, vivendo os
+                                    valores cristãos no dia a dia.</p>
+                                <span>SAIBA MAIS</span>
                             </div>
-
                         </a>
                     </div>
+                </div>
+
 
                 </div>
                 <div class="space"></div>
@@ -419,14 +411,24 @@
                 <div class="lado_a_lado">
                     <div class="columns">
                         <div class="info_sobre">
-                            <h2>Volleyball teams</h2>
-                            <h3>Discover our
-                                volleyball league</h3>
-                            <h4>Qadipiscing elit, sed do eiusmod tempor.</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas pariatur enim
-                                doloremque quae dolore unde placeat nemo omnis asperiores quos ipsum quod minima error
-                                veritatis magnam, adipisci veniam sunt assumenda.</p>
+                            <h2>A Equipe do Projeto</h2>
+                            <h3>Quem faz tudo acontecer</h3>
+                            <h4>Cada membro tem um papel essencial no propósito do Cultura Efatá.</h4>
+                            <p>
+                                Nossa equipe é formada por pessoas comprometidas com excelência e propósito:
+                                <br><br>
+                                🏐 <strong>Allan</strong> — professor de Educação Física, responsável pelos treinos
+                                técnicos.
+                                <br>
+                                🏐 <strong>Katiane</strong> — organiza os treinos e campeonatos, garantindo que tudo
+                                funcione bem.
+                                <br>
+                                🏐 <strong>Pastora Gislene</strong> — cuida da parte espiritual e da organização dos
+                                eventos.
+                            </p>
                         </div>
+
+
                         <div class="space"></div>
 
                         <div class="sobre_nos">
@@ -437,7 +439,7 @@
 
                                 <div class="tel_sobre">
                                     <img src="img/tel_sobre.svg" alt="telefone">
-                                    <p>0 800 555 44 33</p>
+                                    <p>11 96458-4570</p>
                                 </div>
                             </div>
                         </div>
@@ -573,17 +575,20 @@
                                 <hr>
                             </div>
                             <div class="paragrafro">
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas pariatur enim
-                                    doloremque quae dolore unde placeat nemo omnis asperiores quos ipsum quod minima
-                                    error veritatis magnam, adipisci veniam sunt assumenda.</p>
+                                <p>
+                                    Nosso time é dedicado e comprometido.
+                                    Luan cuida da comunicação e marketing, enquanto Fidel e Almir organizam e apoiam as
+                                    atividades.
+                                    Juntos, transformamos vidas pelo esporte e pela fé.
+                                </p>
                             </div>
 
                             <div class="cadastre">
                                 <a href="#" class="cadastre-se">CADASTRE-SE</a>
                             </div>
-
-
                         </div>
+
+
                     </div>
                 </div>
             </article>
@@ -680,7 +685,22 @@
 
     </footer>
 
+    <!-- Modal -->
+    <div id="modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
 
+            <!-- Slideshow -->
+            <div class="slideshow-container">
+                <img src="https://picsum.photos/id/1015/600/400" style="width:100%" class="slide">
+                <img src="https://picsum.photos/id/1025/600/400" style="width:100%" class="slide" hidden>
+                <img src="https://picsum.photos/id/1035/600/400" style="width:100%" class="slide" hidden>
+
+                <button class="modal_button" id="prev">&#10094;</button>
+                <button class="modal_button" id="next">&#10095;</button>
+            </div>
+        </div>
+    </div>
 
 
     <script src="js/menu_hamburguer.js"></script>
@@ -739,6 +759,106 @@
         window.addEventListener('DOMContentLoaded', moverElementosSeNecessario);
         window.addEventListener('resize', moverElementosSeNecessario);
 
+
+    </script>
+
+
+
+    <script>
+        const video = document.getElementById('video');
+        const source = document.getElementById('videoSource');
+
+        const videos = [
+            'video/cultura_efata.mp4',
+            'video/treino.mp4'
+        ];
+
+        let current = 0;
+
+        video.addEventListener('ended', function () {
+            // Avança para o próximo vídeo da lista, ou volta ao início
+            current = (current + 1) % videos.length;
+            source.src = videos[current];
+            video.load();
+            video.play();
+        });
+    </script>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const openModalBtn = document.getElementById('openModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.hidden = i !== index;
+            });
+        }
+
+        openModalBtn.onclick = function (e) {
+            e.preventDefault();
+            modal.style.display = 'flex';
+            showSlide(currentSlide);
+        }
+
+        closeModalBtn.onclick = function () {
+            modal.style.display = 'none';
+        }
+
+        prevBtn.onclick = function () {
+            currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+            showSlide(currentSlide);
+        }
+
+        nextBtn.onclick = function () {
+            currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+            showSlide(currentSlide);
+        }
+
+        // Fecha o modal se clicar fora da área do conteúdo
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoSite = document.querySelector('.video .site');
+
+            function checkFade() {
+                const rect = videoSite.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 350) {
+                    videoSite.classList.add('visible');
+                    // opcional: remover o listener se quiser que só aconteça uma vez
+                    window.removeEventListener('scroll', checkFade);
+                }
+            }
+
+            window.addEventListener('scroll', checkFade);
+            checkFade(); // ativar ao carregar, caso já esteja visível
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const eventosSite = document.querySelector('.eventos_prox .site');
+
+            function checkFade() {
+                const rect = eventosSite.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    eventosSite.classList.add('visible');
+                    window.removeEventListener('scroll', checkFade);
+                }
+            }
+
+            window.addEventListener('scroll', checkFade);
+            checkFade(); // checa no carregamento
+        });
 
     </script>
 

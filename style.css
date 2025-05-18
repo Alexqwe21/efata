@@ -197,6 +197,81 @@ nav ul {
     gap: 20px;
 }
 
+.modal {
+    display: none;
+    /* já controla pelo JS */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 700px;
+    width: 90%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    /* Esconde todas por padrão */
+    width: 100%;
+    border-radius: 6px;
+}
+
+.slide[hidden="false"],
+.slide:not([hidden]) {
+    display: block;
+    /* Exibe só o slide ativo */
+}
+
+.modal_button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+}
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+
 
 header {
     position: relative;
@@ -433,7 +508,20 @@ header {
     background: var(--background_fundo);
     height: 550px;
 
+    video::-webkit-media-controls-fullscreen-button {
+        display: none;
+    }
+
     .site {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .centro {
             height: 550px;
 
@@ -588,6 +676,26 @@ header {
 
 }
 
+/* EFEITO DO SCROLL */
+.eventos_prox {
+    .site {
+        opacity: 0;
+        transform: translateX(-50px);
+
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+
+        &.visible {
+            opacity: 1;
+            transform: translateX(0);
+
+        }
+
+    }
+}
+
+/* EFEITO DO SCROLL */
+
 .eventos_prox,
 .eventos_espor,
 .eventos_cul {
@@ -605,6 +713,7 @@ header {
     }
 
     .site {
+
 
         .eventos_esporte_cultura {
             display: flex;
@@ -1823,7 +1932,8 @@ footer {
         align-items: center;
         justify-content: center;
 
-        p , span {
+        p,
+        span {
             text-align: center !important;
             font-weight: bold;
             font-size: 20px;
@@ -1836,7 +1946,7 @@ footer {
             justify-content: center;
             flex-direction: column;
 
-          
+
 
             .relogio,
             .numero_telefone {
@@ -1846,7 +1956,7 @@ footer {
                 justify-content: center;
                 margin: 20px 0;
 
-             
+
 
                 img {
                     margin-bottom: 20px;
@@ -1903,7 +2013,7 @@ footer {
                 flex-direction: column;
                 align-items: center;
                 margin: 60px 0;
-                background:#F6F6F6 ;
+                background: #F6F6F6;
 
                 .container_escolha,
                 .container_escolha_cul,
@@ -1943,6 +2053,7 @@ footer {
 
                 & div {
                     margin-top: 65px;
+
                     h3 {
                         font-family: var(--font_joseh);
                         font-size: 40px !important;
@@ -2096,6 +2207,7 @@ footer {
 
     .galeria_volei {
         background-position: bottom center;
+
         & .site {
 
             .atividades_volei {
@@ -2161,7 +2273,7 @@ footer {
 
                 .columns {
                     .texto {
-                        h2{
+                        h2 {
                             text-align: center;
                             line-height: 40px;
                         }
@@ -2173,21 +2285,23 @@ footer {
 
     }
 
-footer {
-    & .site {
-        & .lado_a_lado {
-            & .columns {
-                width: 90% !important;
-                .mapa {
-                    width: 100%;
-                    iframe{
-                        width: 100% !important;
+    footer {
+        & .site {
+            & .lado_a_lado {
+                & .columns {
+                    width: 90% !important;
+
+                    .mapa {
+                        width: 100%;
+
+                        iframe {
+                            width: 100% !important;
+                        }
                     }
                 }
             }
         }
     }
-}
 
 
 
