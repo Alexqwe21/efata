@@ -23,4 +23,48 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
- 
+
+$('.carrosel_encontro').slick({
+    centerMode: true,
+    centerPadding: '0px',
+    slidesToShow: 1,
+    arrows: true,
+    autoplay: true,             // Ativa o autoplay
+    autoplaySpeed: 3000,        // Tempo entre slides (3000ms = 3 segundos)
+    responsive: [
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 3000
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '20px',
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 3000
+            }
+        }
+    ]
+});
+
+
+
+$('.lado_a_lado_patrocinador').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+
+
+
