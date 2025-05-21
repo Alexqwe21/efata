@@ -27,7 +27,8 @@
 
 }
 
-.lado_a_lado, .lado_a_lado_patrocinador {
+.lado_a_lado,
+.lado_a_lado_patrocinador {
     display: flex;
     align-items: center;
 }
@@ -278,7 +279,7 @@ nav ul {
     width: 100%;
     margin: 0 auto;
 
-  
+
 }
 
 .evento_esporte_cultura {
@@ -300,6 +301,111 @@ nav ul {
 /* CARROSEL SLICK */
 
 
+/* ESTILO PARA O MENU AO PASSAR O MOUSE  */
+
+
+/* Reset */
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#menu ul li {
+    margin: 0 10px;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Linha embaixo no hover */
+#menu ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: #05F2DB;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+/* Hover */
+#menu ul li a:hover {
+    color: #05F2DB;
+}
+
+#menu ul li a:hover::after {
+    width: 100%;
+}
+
+/* Ativo (quando clicado) */
+#menu ul li a.active {
+    color: #05F2DB;
+    font-weight: bold;
+}
+
+#menu ul li a.active::after {
+    width: 100%;
+}
+
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+footer ul li {
+    margin: 0 10px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+footer ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: #05F2DB;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+footer ul li a:hover {
+    color: #05F2DB;
+}
+
+footer ul li a:hover::after {
+    width: 100%;
+}
+
+footer ul li a.active {
+    color: #05F2DB;
+    font-weight: bold;
+}
+
+footer ul li a.active::after {
+    width: 100%;
+}
+
+/* ESTILO PARA O MENU AO PASSAR O MOUSE  */
 
 header {
     position: relative;
@@ -1093,7 +1199,8 @@ header {
 
         }
 
-        .lado_a_lado ,.lado_a_lado_patrocinador{
+        .lado_a_lado,
+        .lado_a_lado_patrocinador {
             .columns {
 
                 .patrocinador_oficial {

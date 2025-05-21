@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#" type="image/x-icon">
     <link rel="shortcut icon" href="img/Logo_Cultura.png" type="image/x-icon">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
@@ -85,17 +85,14 @@
                             <span></span>
                             <span></span>
                         </div>
-
-
-
                         <ul>
-                            <li><a href="#">INICIO</a></li>
-                            <li><a href="#">ESPORTE</a></li>
-                            <li><a href="#">CULTURA</a></li>
-                            <li><a href="#">EVENTOS</a></li>
-                            <li><a href="#">SECRETARIA</a></li>
+                            <li><a href="#inicio" class="active">INICIO</a></li>
+                            <li><a href="#esporte">ESPORTE</a></li>
+                            <li><a href="#cultura">CULTURA</a></li>
+                            <li><a href="#eventos">EVENTOS</a></li>
+                            <li><a href="#sobre">SOBRE</a></li>
                             <li class="conhecer_volei">
-                                <a href="#"><img src="img/bola_de_volei.svg" alt="">PROJETO VOLEI</a>
+                                <a href="#volei"><img src="img/bola_de_volei.svg" alt="">PROJETO VOLEI</a>
                             </li>
                         </ul>
                     </nav>
@@ -490,7 +487,7 @@
         <section class="patrocinadores">
             <article class="site">
                 <h2>Nossos Patrocinadores</h2>
-               
+
                 <div class="lado_a_lado_patrocinador">
                     <div class="columns">
                         <div class="patrocinador_oficial">
@@ -702,15 +699,12 @@
                         </div>
                     </div>
                     <nav>
-                        <ul>
-                            <li><a href="#" style="color:#00A3FF ; font-weight: bold;">INICIO</a></li>
-                            <li><a href="#">ESPORTE</a></li>
-                            <li><a href="#">CULTURA</a></li>
-                            <li><a href="#">EVENTOS</a></li>
-                            <li><a href="#">SECRETARIA</a></li>
-
-
-                            </a>
+                        <ul id="menu">
+                            <li><a href="#inicio">INICIO</a></li>
+                            <li><a href="#esporte">ESPORTE</a></li>
+                            <li><a href="#cultura">CULTURA</a></li>
+                            <li><a href="#eventos">EVENTOS</a></li>
+                            <li><a href="#secretaria">SECRETARIA</a></li>
                         </ul>
                     </nav>
 
@@ -781,6 +775,7 @@
     <script src="js/menu_hamburguer.js"></script>
     <script src="js/efeito_aparecer.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- jQuery (obrigatório) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -918,9 +913,35 @@
     </script>
 
 
+    <script>
+        $(document).ready(function () {
+            const links = $('#menu a');
 
+            // Limpa qualquer classe ativa
+            links.removeClass('active');
 
+            // Verifica o hash atual da URL
+            const currentHash = window.location.hash;
 
+            // Ativa o link correspondente ao hash, ou o primeiro (INICIO)
+            if (currentHash) {
+                const activeLink = links.filter('[href="' + currentHash + '"]');
+                if (activeLink.length) {
+                    activeLink.addClass('active');
+                } else {
+                    links.first().addClass('active');
+                }
+            } else {
+                links.first().addClass('active');
+            }
+
+            // Ao clicar em qualquer link, define como ativo
+            links.on('click', function () {
+                links.removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
 
 
 </body>
