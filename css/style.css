@@ -33,6 +33,12 @@
     align-items: center;
 }
 
+
+.slick-next,
+.slick-prev {
+    display: none !important;
+}
+
 .container_escolha,
 .container_escolha_cul,
 .container_escolha_even {
@@ -554,7 +560,7 @@ header {
                             display: flex;
                             align-items: center;
                             justify-content: space-around;
-                            font-size: 20px;
+                            font-size: 16px;
                             font-family: var(--fonte_INTER);
                             font-weight: bolder;
                             color: white;
@@ -776,6 +782,40 @@ header {
 }
 
 
+.carrossel-nomes {
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #001F3F, #003366);
+    margin: 0px 0 30px 0;
+
+    .conteudo {
+        display: inline-flex;
+        animation: rolar 35s linear infinite;
+
+        div {
+            margin-right: 60px;
+            font-size: 24px;
+            color: #00c6ff;
+            font-family: var(--font_joseh);
+            font-weight: bold;
+            white-space: nowrap;
+            position: relative;
+            transition: transform 0.3s ease, color 0.3s ease;
+            animation: brilho 2s ease-in-out infinite;
+
+            &:hover {
+                transform: scale(1.2);
+                color: #ffffff;
+                text-shadow: 0 0 5px #00c6ff, 0 0 10px #00c6ff;
+            }
+        }
+    }
+
+
+}
 
 
 .jogos {
@@ -1033,7 +1073,7 @@ header {
                         span {
                             display: flex;
                             justify-content: start;
-                            width: 100%;
+
                             margin-bottom: 30px;
                             margin-left: 21px;
                             font-family: var(--fonte_INTER);
@@ -1256,16 +1296,19 @@ header {
 
 .galeria_volei {
     min-height: 700px;
-    background: url(img/fundo_icones.png);
+    background-image: url('../img/fundo_icones.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding-bottom: 100px;
 
     .site {
         max-width: 1300px;
+        margin: 0 auto;
 
         .atividades_volei {
             text-align: center;
             padding-top: 32px;
-
             font-family: var(--font_joseh);
 
             h4,
@@ -1279,20 +1322,20 @@ header {
                 font-size: 32px;
                 margin-top: 10px;
             }
-
-
         }
 
         .galeria {
             margin-top: 100px;
             display: flex;
             justify-content: space-between;
+            gap: 20px;
 
             .galeria_um,
             .galeria_dois {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
 
                 .foto_um,
                 .foto_dois,
@@ -1302,56 +1345,72 @@ header {
                 .foto_seis,
                 .foto_sete,
                 .foto_oito {
-
-                    width: 179px;
-                    min-height: 210px;
                     background-color: white;
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
                     img {
-                        margin: 10px;
+                        width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                        transition: transform 0.3s ease;
+                        cursor: pointer;
+                    }
+
+                    &:hover img {
+                        transform: scale(1.05);
                     }
                 }
 
+
+
+                .foto_um {
+                    width: 220px;
+                    height: 250px;
+                }
+
                 .foto_dois {
-                    margin-top: 35px;
-                    width: 270px;
-                    height: 140px;
+                    width: 320px;
+                    height: 160px;
+                    margin-top: 20px;
                 }
 
                 .foto_tres {
-                    width: 440px;
-                    height: 120px;
+                    width: 500px;
+                    height: 140px;
                     margin-right: 45px;
                 }
 
                 .foto_quatro {
-                    width: 200px;
-                    height: 290px;
-                    margin-top: 35px;
+                    width: 240px;
+                    height: 320px;
+                    margin-top: 20px;
                 }
 
                 .foto_cinco {
-                    width: 220px;
-                    min-height: 200px;
+                    width: 260px;
+                    height: 240px;
                 }
 
                 .foto_seis {
-                    margin-top: 50px;
-                    width: 220px;
-                    min-height: 250px;
+                    width: 260px;
+                    height: 290px;
+                    margin-top: 30px;
                 }
 
                 .foto_sete {
-                    width: 200px;
-                    min-height: 250px;
+                    width: 230px;
+                    height: 290px;
                 }
 
                 .foto_oito {
-                    margin-top: 50px;
-                    width: 300px;
-                    min-height: 200px;
+                    width: 350px;
+                    height: 240px;
+                    margin-top: 30px;
                     margin-left: 44px;
                 }
             }
@@ -1360,8 +1419,7 @@ header {
 }
 
 .efeito_paralax {
-
-    background-image: url('img/efeito_paralax.png');
+    background-image: url('../img/efeito_paralax.png');
     height: 500px;
     background-attachment: fixed;
     background-position: center;
@@ -1634,6 +1692,15 @@ footer {
 }
 
 @media (max-width: 1024px) {
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-slide {
+        float: none !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
 
 
     .galeria_dois {
@@ -1694,7 +1761,7 @@ footer {
                 }
 
                 p {
-                    line-height: 25px;
+                    line-height: 30px;
                     font-size: 18px;
                     width: 60%;
                 }
@@ -1726,7 +1793,7 @@ footer {
     .eventos_prox {
         .largura_total {
             h2 {
-                font-size: 58px;
+                font-size: 48px;
             }
         }
 
@@ -1768,6 +1835,7 @@ footer {
 
                     .sobre_nos {
                         .lado_a_lado {
+                            display: flex;
 
                             .ancora_sobre,
                             .tel_sobre {
@@ -1803,7 +1871,7 @@ footer {
     }
 
     .galeria_volei {
-        background: url(img/responsivo_1024.png);
+        background: url(../img/responsivo_1024.png);
 
         .site {
             .galeria {
@@ -1943,7 +2011,7 @@ footer {
 
 
     .video {
-        height: 700px;
+        height: 840px;
 
         .site {
             .centro {
@@ -1964,6 +2032,7 @@ footer {
 
                     div {
                         width: 100% !important;
+                        margin-top: 50px;
 
                         div {
                             width: 100% !important;
@@ -2009,7 +2078,7 @@ footer {
             height: 70px;
 
             h2 {
-                font-size: 40px;
+                font-size: 35px;
             }
         }
 
@@ -2021,7 +2090,7 @@ footer {
 
                 .evento_esporte_cultura {
                     margin-bottom: 40px;
-                    width: 100% !important;
+
                     align-items: center;
                 }
             }
@@ -2035,11 +2104,15 @@ footer {
 
     .patrocinadores {
         .site {
-            .lado_a_lado {
-                flex-direction: column;
-
+            .lado_a_lado_patrocinador {
                 .columns {
                     margin-bottom: 60px;
+
+                    .patrocinador_oficial {
+                        a {
+                            width: 100% !important;
+                        }
+                    }
                 }
             }
         }
@@ -2116,6 +2189,17 @@ footer {
 
 @media (max-width: 480px) {
 
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .evento_esporte_cultura img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
     nav ul {
         height: auto !important;
     }
@@ -2174,7 +2258,7 @@ footer {
                     & nav {
                         ul {
                             li {
-                                margin-top: 40px;
+                                margin-top: 40px !important;
 
                                 a {
                                     font-size: 25px;
@@ -2209,6 +2293,11 @@ footer {
                 p {
                     width: 80% !important;
                 }
+
+                .sobre_mais {
+                    margin-top: 10px !important;
+                }
+
             }
 
             .escolha_categoria {
@@ -2235,7 +2324,7 @@ footer {
     }
 
     .video {
-        height: 1200px;
+        height: 1320px;
         padding-top: 350px;
 
         & .site {
@@ -2252,6 +2341,7 @@ footer {
 
             & .conhecer_efata {
                 width: 80% !important;
+                margin-top: 120px !important;
 
                 & div {
                     margin-top: 65px;
@@ -2261,6 +2351,7 @@ footer {
                         font-size: 40px !important;
                         font-weight: normal;
                         margin-top: 20px;
+
                     }
                 }
             }
@@ -2286,7 +2377,7 @@ footer {
             height: 55px;
 
             h2 {
-                font-size: 23px;
+                font-size: 20px;
                 margin-top: 5px;
             }
         }
@@ -2314,18 +2405,18 @@ footer {
             .eventos_esporte_cultura {
                 .evento_esporte_cultura {
                     img {
-                        width: 100% !important;
+                        width: 280px !important;
                     }
 
                     a {
-                        width: 300px !important;
+                        width: 280px !important;
                     }
 
                     div {
                         height: 50px !important;
 
                         strong {
-                            font-size: 40px !important;
+                            font-size: 23px !important;
                             letter-spacing: 12px;
                         }
                     }
@@ -2524,5 +2615,15 @@ footer {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes rolar {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
     }
 }

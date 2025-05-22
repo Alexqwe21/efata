@@ -64,6 +64,22 @@ $('.lado_a_lado_patrocinador').slick({
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
+  responsive: [
+    {
+      breakpoint: 800, // Menor que 800px
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480, // Menor que 480px
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
 });
 
 

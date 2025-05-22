@@ -11,7 +11,10 @@
     <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
+
 
     <title>Cultura Efatá</title>
 </head>
@@ -100,6 +103,7 @@
         </div>
 
     </header>
+
     <main>
 
 
@@ -182,7 +186,39 @@
 
             </article>
         </section>
-        <div class="space"></div>
+
+
+
+
+
+
+        <section class="carrossel-nomes">
+            <article class="conteudo">
+                <div class="carrossel-nomes">
+                    <div class="conteudo">
+                        <div>/ SAQUE /</div>
+                        <div>/ ATAQUE /</div>
+                        <div>/ DEFESA /</div>
+                        <div>/ VITÓRIA /</div>
+                        <div>/ UNIÃO /</div>
+
+                        <!-- Repetição para looping contínuo -->
+                        <div>/ SAQUE /</div>
+                        <div>/ ATAQUE /</div>
+                        <div>/ DEFESA /</div>
+                        <div>/ VITÓRIA /</div>
+                        <div>/ UNIÃO /</div>
+
+                        <div>/ SAQUE /</div>
+                        <div>/ ATAQUE /</div>
+                        <div>/ DEFESA /</div>
+                        <div>/ VITÓRIA /</div>
+                        <div>/ UNIÃO /</div>
+                    </div>
+                </div>
+
+            </article>
+        </section>
 
         <section class="jogos">
             <article class="site">
@@ -248,6 +284,7 @@
             </article>
         </section>
 
+
         <div class="space"></div>
 
         <section class="eventos_prox">
@@ -310,6 +347,7 @@
 
             </article>
         </section>
+
 
 
         <section class="eventos_espor">
@@ -590,50 +628,67 @@
                 <div class="galeria">
                     <div class="galeria_um">
                         <div class="foto_um">
-                            <img src="img/foto_um.png" alt="foto_galeria">
+                            <a href="img/foto_um.png" data-lightbox="galeria"
+                                data-title="Foto 1 - Atividades na Quadra">
+                                <img src="img/foto_um.png" alt="foto_galeria" />
+                            </a>
                         </div>
                         <div class="foto_dois">
-                            <img src="img/foto_dois.png" alt="foto_galeria">
+                            <a href="img/foto_dois.png" data-lightbox="galeria"
+                                data-title="Foto 2 - Atividades na Quadra">
+                                <img src="img/foto_dois.png" alt="foto_galeria" />
+                            </a>
                         </div>
                     </div>
 
                     <div class="galeria_um">
                         <div class="foto_tres">
-                            <img src="img/foto_tres.png" alt="foto_galeria">
+                            <a href="img/foto_tres.png" data-lightbox="galeria"
+                                data-title="Foto 3 - Atividades na Quadra">
+                                <img src="img/foto_tres.png" alt="foto_galeria" />
+                            </a>
                         </div>
                         <div class="foto_quatro">
-                            <img src="img/foto_quatro.png" alt="foto_galeria">
+                            <a href="img/foto_quatro.png" data-lightbox="galeria"
+                                data-title="Foto 4 - Atividades na Quadra">
+                                <img src="img/foto_quatro.png" alt="foto_galeria" />
+                            </a>
                         </div>
                     </div>
 
                     <div class="galeria_um">
                         <div class="foto_cinco">
-                            <img src="img/foto_cinco.png" alt="foto_galeria">
+                            <a href="img/foto_cinco.png" data-lightbox="galeria"
+                                data-title="Foto 5 - Atividades na Quadra">
+                                <img src="img/foto_cinco.png" alt="foto_galeria" />
+                            </a>
                         </div>
-
                         <div class="foto_seis">
-                            <img src="img/foto_seis.png" alt="foto_galeria">
+                            <a href="img/foto_seis.png" data-lightbox="galeria"
+                                data-title="Foto 6 - Atividades na Quadra">
+                                <img src="img/foto_seis.png" alt="foto_galeria" />
+                            </a>
                         </div>
                     </div>
-
 
                     <div class="galeria_dois">
                         <div class="foto_sete">
-                            <img src="img/foto_sete.png" alt="foto_galeria">
+                            <a href="img/foto_sete.png" data-lightbox="galeria"
+                                data-title="Foto 7 - Atividades na Quadra">
+                                <img src="img/foto_sete.png" alt="foto_galeria" />
+                            </a>
                         </div>
-
                         <div class="foto_oito">
-                            <img src="img/foto_oito.png" alt="foto_galeria">
+                            <a href="img/foto_oito.png" data-lightbox="galeria"
+                                data-title="Foto 8 - Atividades na Quadra">
+                                <img src="img/foto_oito.png" alt="foto_galeria" />
+                            </a>
                         </div>
                     </div>
-
-
                 </div>
-
-
-
             </article>
         </section>
+
         <div class="space"></div>
 
         <section class="efeito_paralax">
@@ -763,6 +818,18 @@
                 <img src="img/galeria_um.png" style="width:100%" class="slide">
                 <img src="img/galeria_dois.png" style="width:100%" class="slide" hidden>
                 <img src="img/galeria_tres.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_quatro.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_cinco.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_seis.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_sete.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_oito.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_nove.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_dez.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_onze.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_doze.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_treze.png" style="width:100%" class="slide" hidden>
+                <img src="img/galeria_quatorze.png" style="width:100%" class="slide" hidden>
+
 
                 <button class="modal_button" id="prev">&#10094;</button>
                 <button class="modal_button" id="next">&#10095;</button>
@@ -783,6 +850,8 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script type="text/javascript" src="js/slick/slick.min.js"></script>
     <script type="text/javascript" src="js/carrosel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+
 
 
     <script>
@@ -832,9 +901,6 @@
     </script>
 
 
-
-
-
     <script>
         const modal = document.getElementById('modal');
         const openModalBtn = document.getElementById('openModal');
@@ -878,7 +944,6 @@
             }
         }
     </script>
-
 
     <script>
         const video = document.getElementById('video');
@@ -941,6 +1006,29 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const termos = ["/ SAQUE /", "/ ATAQUE /", "/ DEFESA /", "/ VITÓRIA /", "/ UNIÃO /"];
+            const container = document.querySelector('.carrossel-nomes .conteudo');
+
+            function embaralhar(array) {
+                return array.sort(() => Math.random() - 0.5);
+            }
+
+            const termosRepetidos = [...embaralhar(termos), ...embaralhar(termos), ...embaralhar(termos)];
+            container.innerHTML = termosRepetidos.map(t => `<div>${t}</div>`).join('');
+
+            container.addEventListener('mouseenter', () => {
+                container.style.animationPlayState = 'paused';
+            });
+
+            container.addEventListener('mouseleave', () => {
+                container.style.animationPlayState = 'running';
+            });
+        });
+    </script>
+
 
 
 </body>
