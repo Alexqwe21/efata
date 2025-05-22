@@ -782,40 +782,44 @@ header {
 }
 
 
+
 .carrossel-nomes {
-    width: 100%;
-    height: 70px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #001F3F, #003366);
-    margin: 0px 0 30px 0;
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #001F3F, #003366);
+  margin: 0px 0 30px 0;
 
-    .conteudo {
-        display: inline-flex;
-        animation: rolar 35s linear infinite;
+  .conteudo {
+    display: inline-flex;
+    animation: rolar 35s linear infinite;
 
-        div {
-            margin-right: 60px;
-            font-size: 24px;
-            color: #00c6ff;
-            font-family: var(--font_joseh);
-            font-weight: bold;
-            white-space: nowrap;
-            position: relative;
-            transition: transform 0.3s ease, color 0.3s ease;
-            animation: brilho 2s ease-in-out infinite;
+    div {
+      margin-right: 60px;
+      font-size: 24px;
+      color: #00c6ff;
+      font-family: var(--font_joseh);
+      font-weight: bold;
+      white-space: nowrap;
+      position: relative;
+      transition: transform 0.3s ease, color 0.3s ease;
+      animation: brilho 2s ease-in-out infinite;
 
-            &:hover {
-                transform: scale(1.2);
-                color: #ffffff;
-                text-shadow: 0 0 5px #00c6ff, 0 0 10px #00c6ff;
-            }
-        }
+      &:hover {
+        transform: scale(1.2);
+        color: #ffffff;
+        text-shadow: 0 0 5px #00c6ff, 0 0 10px #00c6ff;
+      }
     }
+  }
 
-
+  
 }
+
+
+
 
 
 .jogos {
@@ -1304,11 +1308,11 @@ header {
 
     .site {
         max-width: 1300px;
-        margin: 0 auto;
 
         .atividades_volei {
             text-align: center;
             padding-top: 32px;
+
             font-family: var(--font_joseh);
 
             h4,
@@ -1322,20 +1326,20 @@ header {
                 font-size: 32px;
                 margin-top: 10px;
             }
+
+
         }
 
         .galeria {
             margin-top: 100px;
             display: flex;
             justify-content: space-between;
-            gap: 20px;
 
             .galeria_um,
             .galeria_dois {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 20px;
 
                 .foto_um,
                 .foto_dois,
@@ -1345,72 +1349,56 @@ header {
                 .foto_seis,
                 .foto_sete,
                 .foto_oito {
+
+                    width: 179px;
+                    min-height: 210px;
                     background-color: white;
                     display: flex;
                     justify-content: center;
-                    align-items: center;
-                    overflow: hidden;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
                     img {
-                        width: 100%;
-                        height: auto;
-                        object-fit: cover;
-                        transition: transform 0.3s ease;
-                        cursor: pointer;
+                        margin: 10px;
                     }
-
-                    &:hover img {
-                        transform: scale(1.05);
-                    }
-                }
-
-
-
-                .foto_um {
-                    width: 220px;
-                    height: 250px;
                 }
 
                 .foto_dois {
-                    width: 320px;
-                    height: 160px;
-                    margin-top: 20px;
+                    margin-top: 35px;
+                    width: 270px;
+                    height: 140px;
                 }
 
                 .foto_tres {
-                    width: 500px;
-                    height: 140px;
+                    width: 440px;
+                    height: 120px;
                     margin-right: 45px;
                 }
 
                 .foto_quatro {
-                    width: 240px;
-                    height: 320px;
-                    margin-top: 20px;
+                    width: 200px;
+                    height: 290px;
+                    margin-top: 35px;
                 }
 
                 .foto_cinco {
-                    width: 260px;
-                    height: 240px;
+                    width: 220px;
+                    min-height: 200px;
                 }
 
                 .foto_seis {
-                    width: 260px;
-                    height: 290px;
-                    margin-top: 30px;
+                    margin-top: 50px;
+                    width: 220px;
+                    min-height: 250px;
                 }
 
                 .foto_sete {
-                    width: 230px;
-                    height: 290px;
+                    width: 200px;
+                    min-height: 250px;
                 }
 
                 .foto_oito {
-                    width: 350px;
-                    height: 240px;
-                    margin-top: 30px;
+                    margin-top: 50px;
+                    width: 300px;
+                    min-height: 200px;
                     margin-left: 44px;
                 }
             }
