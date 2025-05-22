@@ -83,10 +83,79 @@
 
 }
 
-.sobre_nos {
-    background-color: white;
-    color: black;
+.saiba_mais {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
 }
+
+.sobre_nos {
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: all 0.2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+    z-index: 1;
+    font-family: var(--fonte_INTER);
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+
+
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+
+}
+
 
 .largura_total {
 
@@ -629,7 +698,7 @@ header {
                 .sobre_nos {
                     background-color: white;
                     color: black;
-                    margin-left: 15px;
+                    margin-left: 40px;
                 }
 
             }
@@ -645,6 +714,12 @@ header {
             .container_escolha_cul,
             .container_escolha_even {
                 margin-right: 80px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+                }
 
                 a {
                     display: flex;
@@ -696,8 +771,8 @@ header {
             .video-wrapper {
 
                 position: relative;
-                width: 430px;
-                height: 290px;
+                width: 500px;
+                height: 360px;
 
                 #video {
                     width: 100%;
@@ -817,8 +892,6 @@ header {
 
 
 }
-
-
 
 
 
@@ -1373,7 +1446,7 @@ header {
                 .foto_oito {
 
                     width: 179px;
-
+                    border-radius: 10px;
                     background-color: white;
                     display: flex;
                     justify-content: center;
@@ -1383,10 +1456,24 @@ header {
                     }
                 }
 
+                .foto_um {
+                    width: 300px;
+                    height: 230px;
+
+                    img {
+                        width: 270px;
+                        height: 200px
+                    }
+                }
+
                 .foto_dois {
                     margin-top: 35px;
-                    width: 190px;
-                    height: 150px;
+                    width: 270px;
+                    height: 200px;
+
+                    img {
+                        width: 250px;
+                    }
                 }
 
                 .foto_tres {
@@ -1396,32 +1483,56 @@ header {
                 }
 
                 .foto_quatro {
-                    width: 200px;
-                    height: 290px;
-                    margin-top: 35px;
+                    height: 330px;
+                    width: 320px;
+                    margin-top: 60px;
+
+                    img {
+                        height: 300px;
+                        width: 300px;
+
+                    }
                 }
 
                 .foto_cinco {
                     width: 220px;
                     min-height: 200px;
+                    padding: 0 10px;
+
+                    img {
+                        height: 200px;
+                    }
                 }
 
                 .foto_seis {
                     margin-top: 50px;
                     width: 220px;
-                    min-height: 250px;
+
+                    height: 231px;
+                    padding: 10px;
+
+                    img {
+                        height: 210px;
+                    }
+
                 }
 
                 .foto_sete {
                     width: 200px;
-                    min-height: 250px;
+                    height: 240px;
+                    padding: 10px;
+
+                    img {
+                        height: 220px;
+                    }
                 }
 
                 .foto_oito {
                     margin-top: 50px;
                     width: 300px;
-                    min-height: 170px;
+                    height: 220px;
                     margin-left: 44px;
+                    padding: 10px;
                 }
             }
         }
@@ -2032,7 +2143,7 @@ footer {
                     margin: 25px 0;
 
                     h3 {
-                        font-size: 50px !important;
+                        font-size: 50px;
                         text-align: center;
                     }
 
@@ -2334,7 +2445,7 @@ footer {
     }
 
     .video {
-        height: 1320px;
+        height: 1300px;
         padding-top: 350px;
 
         & .site {
@@ -2344,7 +2455,7 @@ footer {
 
                     .video-thumbnail,
                     #video {
-                        height: 200px !important;
+                        height: 260px !important;
                     }
                 }
             }
@@ -2358,10 +2469,17 @@ footer {
 
                     h3 {
                         font-family: var(--font_joseh);
-                        font-size: 40px !important;
                         font-weight: normal;
                         margin-top: 20px;
 
+                        font-size: 40px !important;
+                        line-height: 40px;
+                        text-align: center;
+
+                    }
+
+                    p {
+                        margin: 25px 0 !important;
                     }
                 }
             }
@@ -2508,6 +2626,7 @@ footer {
         }
     }
 
+
     .galeria_volei {
         background-position: bottom center;
 
@@ -2548,6 +2667,7 @@ footer {
                     .foto_tres {
                         width: 90%;
                         margin-right: 0px;
+                        height: 225px;
                     }
 
 
@@ -2560,10 +2680,17 @@ footer {
                         width: 100% !important;
                         background-color: transparent !important;
                     }
+
+                    .foto_oito {
+                        img {
+                            width: 275px;
+                        }
+                    }
                 }
             }
         }
     }
+
 
     .efeito_paralax {
         height: 800px;
@@ -2588,6 +2715,7 @@ footer {
 
 
     }
+
 
     footer {
         & .site {
