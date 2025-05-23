@@ -9,6 +9,8 @@
     box-sizing: border-box;
 }
 
+
+
 .site {
     width: 100%;
     max-width: 1200px;
@@ -109,7 +111,7 @@
     font-weight: 500;
     color: black;
     background-color: white;
-    z-index: 1;
+
     font-family: var(--fonte_INTER);
 
     &:hover {
@@ -368,11 +370,6 @@ nav ul {
     border-radius: 10px;
 }
 
-
-
-
-
-
 /* CARROSEL SLICK */
 
 
@@ -481,6 +478,76 @@ footer ul li a.active::after {
 }
 
 /* ESTILO PARA O MENU AO PASSAR O MOUSE  */
+
+/* icones FIXO NA PAGINA  */
+
+.whatsapp-fixo {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+
+    .whatsapp-fixo img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+#back-to-top {
+    position: fixed;
+    z-index: 9999;
+    bottom: 100px;
+    right: 18px;
+    backdrop-filter: blur(15px);
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Efeito de suavidade */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s ease, transform 0.9s ease, visibility 0.9s;
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Quando deve aparecer */
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* ICONES FIXO NA PAGINA  */
+
 
 header {
     position: relative;
@@ -1617,6 +1684,11 @@ header {
 }
 
 
+
+
+
+
+
 footer {
     height: auto;
     background-color: #F7F9F8;
@@ -2314,6 +2386,13 @@ footer {
     body {
         overflow-x: hidden;
     }
+
+    #back-to-top{
+    right: 23px;
+    width: 45px;
+    height: 45px
+}
+
 
     .evento_esporte_cultura img {
         max-width: 100%;
