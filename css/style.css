@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
+
 * {
     padding: 0;
     margin: 0;
@@ -200,11 +201,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.5s ease;
 
     .seta_circulo {
         width: 21px !important;
         height: 27px !important;
     }
+
+
 }
 
 .cadastre-se {
@@ -547,6 +551,26 @@ footer ul li a.active::after {
 
 
 /* ICONES FIXO NA PAGINA  */
+
+
+
+
+/* Container */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f0f8ff;
+    display: flex;
+    /* VISÍVEL AO CARREGAR */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
 
 
 header {
@@ -1150,6 +1174,11 @@ header {
 
             .ver_atividades {
                 background-color: #F2A007;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-10px);
+                }
             }
         }
     }
@@ -1184,6 +1213,13 @@ header {
                 a {
                     background-color: white;
                     width: 300px;
+                    display: block;
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-10px);
+                        /* sobe 10px */
+                    }
 
                     img {
                         width: 300px !important;
@@ -1235,6 +1271,11 @@ header {
             .ver_atividades {
                 background-color: #05F2DB;
                 width: 260px;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-10px);
+                }
             }
         }
     }
@@ -1274,6 +1315,11 @@ header {
                 background-color: #0597F2;
                 width: 260px;
                 color: white;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-10px);
+                }
             }
         }
 
@@ -1320,7 +1366,7 @@ header {
                 }
             }
 
-            .sobre_nos {
+            .sobre_nos_tel {
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
@@ -1343,6 +1389,7 @@ header {
                             color: white;
                             font-family: var(--fonte_INTER);
                             font-weight: 700;
+
                         }
 
                     }
@@ -1386,8 +1433,18 @@ header {
         .lado_a_lado,
         .lado_a_lado_patrocinador {
             .columns {
+                height: 570px;
 
                 .patrocinador_oficial {
+                    transition: transform 0.4s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+
+                    &:hover .circulo {
+                        background-color: #0597F2;
+                    }
 
                     a {
                         display: flex;
@@ -1398,6 +1455,9 @@ header {
                         img {
                             width: 250px;
                             height: 250px;
+
+
+
                         }
 
                         strong {
@@ -1428,6 +1488,8 @@ header {
                             font-weight: normal;
 
                         }
+
+
 
 
                     }
@@ -1672,6 +1734,13 @@ header {
                             background-color: #F2A007;
                             color: black;
                             font-weight: 700;
+                            transition: background-color 0.5s ease, transform 0.5s ease;
+
+                            &:hover {
+                                background-color: #0597F2;
+                                color: rgb(255, 255, 255);
+                                transform: translateY(-7px);
+                            }
 
                         }
                     }
@@ -1682,11 +1751,6 @@ header {
         }
     }
 }
-
-
-
-
-
 
 
 footer {
@@ -2026,7 +2090,7 @@ footer {
                         }
                     }
 
-                    .sobre_nos {
+                    .sobre_nos_tel {
                         .lado_a_lado {
                             display: flex;
 
@@ -2037,6 +2101,8 @@ footer {
 
                             .tel_sobre {
                                 margin-top: 30px;
+                                display: flex;
+                                justify-content: center;
                             }
                         }
                     }
@@ -2387,11 +2453,11 @@ footer {
         overflow-x: hidden;
     }
 
-    #back-to-top{
-    right: 23px;
-    width: 45px;
-    height: 45px
-}
+    #back-to-top {
+        right: 23px;
+        width: 45px;
+        height: 45px
+    }
 
 
     .evento_esporte_cultura img {
@@ -2637,6 +2703,9 @@ footer {
         & .site {
             & .lado_a_lado {
                 .columns {
+                    .space{
+                       height: 20px;
+                    }
                     .info_sobre {
                         h2 {
                             font-size: 30px;
@@ -2657,13 +2726,23 @@ footer {
                         }
                     }
 
-                    .sobre_nos {
+                    .sobre_nos_tel {
                         .lado_a_lado {
+                            .ancora_sobre {
+                                width: 100%;
+                                display: flex;
+                                justify-content: center;
+                                margin-bottom: 30px;
+                            }
+
                             .tel_sobre {
                                 margin-left: 0;
+                                display: flex;
+                                justify-content: center;
 
                                 p {
                                     font-size: 25px;
+                                    width: 50%;
                                 }
                             }
                         }
@@ -2814,17 +2893,9 @@ footer {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
 }
+
+
 
 @keyframes rotBGvolei {
     from {

@@ -23,6 +23,11 @@
 
 <body>
     <button id="back-to-top" title="Voltar para o Topo"><img src="img/seta_para_cima.svg" alt="seta"></button>
+
+    <div class="preloader" id="preloader">
+        <div id="lottie-container" style="width: 350px; height: 350px;"></div>
+    </div>
+
     <header>
         <div class="info_topo">
 
@@ -502,7 +507,7 @@
 
                         <div class="space"></div>
 
-                        <div class="sobre_nos">
+                        <div class="sobre_nos_tel">
                             <div class="lado_a_lado">
                                 <div class="ancora_sobre">
                                     <a href="#">SOBRE NOS</a>
@@ -851,6 +856,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
 
     <!-- jQuery (obrigatório) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -1039,32 +1045,54 @@
 
 
     <script>
-      $(document).ready(function () {
-    function checkScroll() {
-        if ($(window).scrollTop() > 200) {
-            $('#back-to-top').addClass('show');
-        } else {
-            $('#back-to-top').removeClass('show');
-        }
-    }
+        $(document).ready(function () {
+            function checkScroll() {
+                if ($(window).scrollTop() > 200) {
+                    $('#back-to-top').addClass('show');
+                } else {
+                    $('#back-to-top').removeClass('show');
+                }
+            }
 
-    checkScroll();
+            checkScroll();
 
-    $(window).scroll(function () {
-        checkScroll();
-    });
+            $(window).scroll(function () {
+                checkScroll();
+            });
 
-    $('#back-to-top').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
-        return false;
-    });
-});
+            $('#back-to-top').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                return false;
+            });
+        });
 
     </script>
 
 
+    <script>
+        // Inicia o preload com animação Lottie
+        const animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-container'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/preloads.json' // Caminho do seu JSON
+        });
+
+        // Esconde o preload após o carregamento
+        window.addEventListener('load', () => {
+            const preload = document.getElementById('preloader');
+            setTimeout(() => {
+                preload.style.opacity = '0';
+                setTimeout(() => {
+                    preload.style.display = 'none';
+                }, 600);
+            }, 2200);
+        });
+    </script>
 
 
+  
 </body>
 
 </html>
