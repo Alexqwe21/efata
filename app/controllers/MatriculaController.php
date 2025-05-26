@@ -1,6 +1,6 @@
 <?php
 
-class FichaDeCadastroController extends Controller
+class MatriculaController extends Controller
 {
 
     public function index()
@@ -19,6 +19,6 @@ class FichaDeCadastroController extends Controller
 
         //var_dump($dados);
 
-        $this ->carregarViews('ficha_de_cadastro', $dados);
+        $this ->carregarViews('matricula', $dados);
     }
 }
