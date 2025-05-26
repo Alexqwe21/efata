@@ -1076,7 +1076,7 @@
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: '/preloads.json' // Caminho do seu JSON
+            path: 'assets/preloads/preloads.json' // Caminho do seu JSON
         });
 
         // Esconde o preload após o carregamento
