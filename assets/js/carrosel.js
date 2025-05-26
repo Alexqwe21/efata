@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const banner = document.querySelector('.banner');
 
     const imagens = [
-        'https://culturaefata.com.br/assets/img/baner_home.png',
-        '../assets/img/banner_dois.png',
-        '../assets/img/banner_tres.png'
+        'assets/img/baner_home.png',
+        'assets/img/banner_dois.png',
+        'assets/img/banner_tres.png'
     ];
 
     let index = 0;
