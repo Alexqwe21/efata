@@ -4,8 +4,8 @@ const thumbnail = document.getElementById('thumbnail');
 const player = new Plyr(video);
 
 const videos = [
-  'video/cultura_efata.mp4',
-  'video/treino.mp4'
+  'assets/video/cultura_efata.mp4',
+  'assets/video/treino.mp4'
 ];
 
 let current = 0;

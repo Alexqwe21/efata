@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="shortcut icon" href="img/Logo_Cultura.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/Logo_Cultura.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/js/slick/slick.css" />
@@ -171,7 +171,7 @@
                         </div>
 
                         <video id="video" controls>
-                            <source id="videoSource" src="video/cultura_efata.mp4" type="video/mp4">
+                            <source id="videoSource" src="assets/video/cultura_efata.mp4" type="video/mp4">
                             Seu navegador não suporta vídeo.
                         </video>
                     </div>
@@ -639,12 +639,12 @@
                 <div class="galeria">
                     <div class="galeria_um">
                         <div class="foto_um">
-                            <a href="img/foto_um.png" data-fancybox="galeria_volei" data-width="1000" data-height="700">
+                            <a href="assets/img/foto_um.png" data-fancybox="galeria_volei" data-width="1000" data-height="700">
                                 <img src="assets/img/foto_um.png" alt="foto_galeria">
                             </a>
                         </div>
                         <div class="foto_dois">
-                            <a href="img/foto_dois.png" data-fancybox="galeria_volei" data-width="1000"
+                            <a href="assets/img/foto_dois.png" data-fancybox="galeria_volei" data-width="1000"
                                 data-height="700">
                                 <img src="assets/img/foto_dois.png" alt="foto_galeria">
                             </a>
@@ -653,13 +653,13 @@
 
                     <div class="galeria_um">
                         <div class="foto_tres">
-                            <a href="img/foto_tres.png" data-fancybox="galeria_volei" data-width="1000"
+                            <a href="assets/img/foto_tres.png" data-fancybox="galeria_volei" data-width="1000"
                                 data-height="700">
                                 <img src="assets/img/foto_tres.png" alt="foto_galeria">
                             </a>
                         </div>
                         <div class="foto_quatro">
-                            <a href="img/foto_quatro.png" data-fancybox="galeria_volei" data-width="1000"
+                            <a href="assets/img/foto_quatro.png" data-fancybox="galeria_volei" data-width="1000"
                                 data-height="700">
                                 <img src="assets/img/foto_quatro.png" alt="foto_galeria">
                             </a>
@@ -668,13 +668,13 @@
 
                     <div class="galeria_um">
                         <div class="foto_cinco">
-                            <a href="img/foto_cinco.png" data-fancybox="galeria_volei" data-width="1000"
+                            <a href="assets/img/foto_cinco.png" data-fancybox="galeria_volei" data-width="1000"
                                 data-height="700">
                                 <img src="assets/img/foto_cinco.png" alt="foto_galeria">
                             </a>
                         </div>
                         <div class="foto_seis">
-                            <a href="img/foto_seis.png" data-fancybox="galeria_volei" data-width="1000"
+                            <a href="assets/img/foto_seis.png" data-fancybox="galeria_volei" data-width="1000"
                                 data-height="700">
                                 <img src="assets/img/foto_seis.png" alt="foto_galeria">
                             </a>
@@ -683,13 +683,13 @@
 
                     <div class="galeria_dois">
                         <div class="foto_sete">
-                            <a href="img/foto_sete.png" data-fancybox="galeria_volei" data-width="1000"
+                            <a href="assets/img/foto_sete.png" data-fancybox="galeria_volei" data-width="1000"
                                 data-height="700">
                                 <img src="assets/img/foto_sete.png" alt="foto_galeria">
                             </a>
                         </div>
                         <div class="foto_oito">
-                            <a href="img/foto_oito.png" data-fancybox="galeria_volei" data-width="1000"
+                            <a href="assets/img/foto_oito.png" data-fancybox="galeria_volei" data-width="1000"
                                 data-height="700">
                                 <img src="assets/img/foto_oito.png" alt="foto_galeria">
                             </a>
@@ -965,8 +965,8 @@
         const thumbnail = document.getElementById('thumbnail');
 
         const videos = [
-            'video/cultura_efata.mp4',
-            'video/treino.mp4'
+            'assets/video/cultura_efata.mp4',
+            'assets/video/treino.mp4'
         ];
 
         let current = 0;
