@@ -11,7 +11,6 @@ class MatriculaController extends Controller
 
 
         $this->matriculaModel = new Matricula;
-
     }
 
     public function index()
@@ -37,10 +36,9 @@ class MatriculaController extends Controller
     public function salvar()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            session_start();
 
-            session_start(); // iniciar sessão para usar $_SESSION
-
-            // Captura e limpa dados da matrícula
+            // Dados da matrícula
             $dadosMatricula = [
                 'nome' => strip_tags(trim(filter_input(INPUT_POST, 'nome'))),
                 'cep' => strip_tags(trim(filter_input(INPUT_POST, 'cep'))),
@@ -66,7 +64,7 @@ class MatriculaController extends Controller
                 'atividade' => strip_tags(trim(filter_input(INPUT_POST, 'atividade')))
             ];
 
-            // Captura e limpa dados do questionário
+            // Dados do questionário
             $dadosQuestionario = [
                 'saude_problemas' => implode(',', $_POST['saude_problemas'] ?? []),
                 'saude_outros' => strip_tags(trim(filter_input(INPUT_POST, 'saude_outros'))),
@@ -87,23 +85,13 @@ class MatriculaController extends Controller
                 'avaliacao_medica_quem' => strip_tags(trim(filter_input(INPUT_POST, 'avaliacao_medica_quem')))
             ];
 
-            // Formatar data de nascimento do menor, se existir
-            if (!empty($dadosMatricula['menor_nascimento'])) {
-                $data = DateTime::createFromFormat('d/m/Y', $dadosMatricula['menor_nascimento']);
-                $dadosMatricula['menor_nascimento'] = $data ? $data->format('Y-m-d') : null;
-            } else {
-                $dadosMatricula['menor_nascimento'] = null;
-            }
+            // Formatar datas
+            $dadosMatricula['menor_nascimento'] = !empty($dadosMatricula['menor_nascimento']) ?
+                (DateTime::createFromFormat('d/m/Y', $dadosMatricula['menor_nascimento']) ?: null)->format('Y-m-d') : null;
+            $dadosMatricula['data_nascimento'] = !empty($dadosMatricula['data_nascimento']) ?
+                (DateTime::createFromFormat('d/m/Y', $dadosMatricula['data_nascimento']) ?: null)->format('Y-m-d') : null;
 
-            // Formatar data de nascimento principal
-            if (!empty($dadosMatricula['data_nascimento'])) {
-                $data = DateTime::createFromFormat('d/m/Y', $dadosMatricula['data_nascimento']);
-                $dadosMatricula['data_nascimento'] = $data ? $data->format('Y-m-d') : null;
-            } else {
-                $dadosMatricula['data_nascimento'] = null;
-            }
-
-            // Validação básica dos campos obrigatórios
+            // Campos obrigatórios
             $camposObrigatorios = ['nome', 'cep', 'endereco', 'bairro', 'cidade', 'estado', 'pais', 'telefone', 'cpf',  'data_nascimento', 'email', 'atividade'];
 
             foreach ($camposObrigatorios as $campo) {
@@ -113,26 +101,72 @@ class MatriculaController extends Controller
                     exit;
                 }
             }
+
             $matriculaModel = new Matricula();
 
             try {
                 $matriculaModel->salvarMatriculaComQuestionario($dadosMatricula, $dadosQuestionario);
 
-                $_SESSION['sucesso'] = "Matrícula realizada com sucesso! Verifique o email ou a caixa de spam.";
+                // Envio de e-mail
+                require_once("vendors/phpmailer/PHPMailer.php");
+                require_once("vendors/phpmailer/SMTP.php");
+                require_once("vendors/phpmailer/Exception.php");
 
-                header('Location: ' . BASE_URL . 'matricula'); // redireciona para o formulário
+                $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+
+                $nome = $dadosMatricula['nome'];
+                $email = $dadosMatricula['email'];
+                $atividade = $dadosMatricula['atividade'];
+
+                // Configuração SMTP
+                $mail->isSMTP();
+                $mail->Host = HOTS_EMAIL;
+                $mail->Port = PORT_EMAIL;
+                $mail->SMTPAuth = true;
+                $mail->SMTPSecure = 'ssl';
+                $mail->Username = USER_EMAIL;
+                $mail->Password = PASS_EMAIL;
+                $mail->CharSet = 'UTF-8';
+                $mail->Encoding = 'base64';
+                $mail->isHTML(true);
+
+                // --------- Enviar para o ADMIN ---------
+                $mail->setFrom(USER_EMAIL, 'Nova Matrícula - Cultura Efatá');
+                $mail->addAddress(USER_EMAIL, 'Cultura Efatá');
+                $mail->Subject = '📥 Nova Matrícula Realizada';
+                $mail->msgHTML("
+                <p><strong>Nome:</strong> $nome</p>
+                <p><strong>E-mail:</strong> $email</p>
+                <p><strong>Atividade:</strong> $atividade</p>
+                <p>✅ Matrícula realizada com sucesso!</p>
+            ");
+                $mail->AltBody = "Nova matrícula: $nome - $email - Atividade: $atividade";
+                $mail->send();
+
+                // --------- Enviar para o USUÁRIO ---------
+                $mail->clearAddresses();
+                $mail->addAddress($email, $nome);
+                $mail->Subject = '✅ Confirmação de Matrícula - Cultura Efatá';
+                $mail->msgHTML("
+                <div style='font-family: Arial; padding: 20px;'>
+                    <h2 style='color: #4CAF50;'>🎉 Matrícula Confirmada!</h2>
+                    <p>Olá <strong>$nome</strong>,</p>
+                    <p>Obrigado por se inscrever na atividade <strong>$atividade</strong> com a gente!</p>
+                    <p>Fique atento ao seu e-mail para mais informações.</p>
+                    <p><strong>Equipe Cultura Efatá</strong></p>
+                </div>
+            ");
+                $mail->AltBody = "Olá $nome,\n\nSua matrícula na atividade '$atividade' foi confirmada!\n\nEquipe Cultura Efatá";
+                $mail->send();
+
+                $_SESSION['sucesso'] = "Matrícula realizada com sucesso! Verifique o email ou a caixa de spam.";
+                header('Location: ' . BASE_URL . 'matricula');
                 exit;
             } catch (Exception $e) {
-                $_SESSION['erro'] = "Erro ao realizar matrícula: " . $e->getMessage();
+                $_SESSION['erro'] = "Erro ao realizar matrícula ou enviar e-mail: " . $mail->ErrorInfo;
                 header('Location: ' . BASE_URL . 'matricula');
                 exit;
             }
-
         }
     }
-
-
-
-
-
 }

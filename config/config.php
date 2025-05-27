@@ -12,10 +12,10 @@ define("DB_USER", "u230564252_culturaefata");
 define("DB_PASS", "21566647aA#");
 
 
-define('HOTS_EMAIL', 'smtp.gmail.com');
-define('PORT_EMAIL', '465');
-define('USER_EMAIL', 'desenvolvedorweb21@gmail.com');
-define('PASS_EMAIL', 'fgip hdva gvep mdso');
+define('HOTS_EMAIL', 'smtp.hostinger.com');
+define('PORT_EMAIL', 465);
+define('USER_EMAIL', 'culturaefata@culturaefata.com.br');
+define('PASS_EMAIL', 'Culturaefata1@');
 
 
 
