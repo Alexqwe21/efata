@@ -6,10 +6,10 @@ define("BASE_URL" ,"https://culturaefata.com.br/");
 
 
 // Configuração do Data Base
-define("DB_HOST", "");
-define("DB_NAME", "");
-define("DB_USER", "");
-define("DB_PASS", "");
+define("DB_HOST", "culturaefata.com.br");
+define("DB_NAME", "u230564252_culturaefata");
+define("DB_USER", "u230564252_culturaefata");
+define("DB_PASS", "21566647aA#");
 
 
 define('HOTS_EMAIL', 'smtp.gmail.com');

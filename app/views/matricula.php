@@ -1,25 +1,39 @@
+<?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/img/Logo_Cultura.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/js/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="assets/js/slick/slick-theme.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" href="assets/img/Logo_Cultura.png" type="image/x-icon" />
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css" />
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Slick Carousel CSS (escolha local OU CDN, não os dois) -->
+    <link rel="stylesheet" href="assets/js/slick/slick.css" />
+    <link rel="stylesheet" href="assets/js/slick/slick-theme.css" />
+    <!-- OU -->
+    <!--
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    -->
+
+    <!-- Fancybox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <title>Cultura Efatá</title>
-
-
 </head>
+
 
 <body>
     <button id="back-to-top" title="Voltar para o Topo"><img src="assets/img/seta_para_cima.svg" alt="seta"></button>
@@ -36,43 +50,35 @@
             <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
 
+
         <section class="matricula_formulario">
             <article class="site">
+
+
+
                 <!-- From Uiverse.io by Smit-Prajapati -->
                 <div class="container">
                     <div class="heading">Ficha de Matrícula - Aula de Vôlei</div>
-                    <form action="MatriculaController.php?acao=salvar" class="form" method="POST">
+                    <form action="matricula/salvar" class="form" method="POST">
 
-
-
+                        <!-- Dados Pessoais -->
                         <input required class="input" type="text" name="nome" placeholder="Nome Completo">
 
                         <input required class="input" type="text" name="cep" id="cep" placeholder="CEP">
-                        <small id="erro-cep">CEP inválido ou não encontrado.</small>
-
+                        <small id="erro-cep" style="color:red; display:none;">CEP inválido ou não encontrado.</small>
 
                         <input required class="input" type="text" name="endereco" placeholder="Endereço">
-
-
-
                         <input required class="input" type="text" name="bairro" placeholder="Bairro">
-
                         <input required class="input" type="text" name="cidade" placeholder="Cidade">
-
-                        <input required class="input" type="text" name="estado" placeholder="Estado">
-
+                        <input required class="input" type="text" name="estado" placeholder="Estado" maxlength="2"
+                            style="text-transform:uppercase ;">
                         <input required class="input" type="text" name="pais" placeholder="País">
 
-
-
                         <input required class="input" type="text" name="telefone" id="telefone" placeholder="Telefone">
-
-                        <input required class="input" type="text" name="telefone_emergencia" id="telefone_emergencia"
-                            placeholder="Telefone de Emergência">
-
+                        <input class="input" type="text" name="telefone_emergencia" id="telefone_emergencia"
+                            placeholder="Telefone de Emergência" required>
                         <input required class="input" type="text" name="cpf" id="cpf" placeholder="CPF">
-
-                        <input required class="input" type="text" name="rg" id="rg" placeholder="RG">
+                        <input  class="input" type="text" name="rg" id="rg" placeholder="RG">
 
                         <div class="space_formulario">
                             <label class="input-label">Data de Nascimento (DD/MM/AAAA)</label>
@@ -80,45 +86,160 @@
                         <input required class="input" type="text" name="data_nascimento" id="data_nascimento"
                             placeholder="Ex: 25/12/2010" maxlength="10">
 
-
                         <input required class="input" type="email" name="email" placeholder="E-mail">
 
+                        <!-- Problemas de saúde simples -->
                         <input class="input" type="text" name="problemas_saude"
                             placeholder="Problemas de Saúde (se houver)">
 
-
+                        <!-- Dados do Responsável -->
                         <div class="space_formulario">
                             <h4>Dados do Responsável (se menor de idade)</h4>
                         </div>
-
                         <input class="input" type="text" name="responsavel_nome" placeholder="Nome do Responsável">
-
                         <input class="input" type="text" name="responsavel_rg" id="responsavel_rg"
                             placeholder="RG do Responsável">
-
                         <input class="input" type="text" name="responsavel_cpf" id="responsavel_cpf"
                             placeholder="CPF do Responsável">
-
                         <input class="input" type="text" name="responsavel_qualidade"
                             placeholder="Qualidade (Pai/Mãe/Tutor)">
-
                         <input class="input" type="text" name="menor_nome" placeholder="Nome do Menor">
-
                         <input class="input" type="text" name="menor_rg" id="menor_rg" placeholder="RG do Menor">
 
                         <div class="space_formulario">
                             <label class="input-label">Nascimento do Menor (DD/MM/AAAA)</label>
                         </div>
                         <input class="input" type="text" name="menor_nascimento" id="menor_nascimento"
-                            placeholder="Ex: 25/12/2010" maxlength="10" required>
+                            placeholder="Ex: 25/12/2010" maxlength="10">
 
                         <input class="input" type="text" name="atividade" value="Aula de Vôlei" readonly>
 
+                        <!-- Questionário de Avaliação de Saúde -->
+                        <div class="space_formulario_saude">
+                            <h4>Questionário de Avaliação de Saúde</h4>
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">1. Você possui ou já teve algum dos seguintes problemas de
+                                saúde?</label><br>
+                            <label><input type="checkbox" name="saude_problemas[]" value="Doença cardíaca">
+                                Doença cardíaca</label><br>
+                            <label><input type="checkbox" name="saude_problemas[]" value="Pressão alta"> Pressão
+                                alta</label><br>
+                            <label><input type="checkbox" name="saude_problemas[]" value="Diabetes">
+                                Diabetes</label><br>
+                            <label><input type="checkbox" name="saude_problemas[]" value="Asma"> Asma</label><br>
+                            <label><input type="checkbox" name="saude_problemas[]" value="Problemas articulares">
+                                Problemas articulares</label><br>
+                            <label><input type="checkbox" name="saude_problemas[]" value="Epilepsia">
+                                Epilepsia</label><br>
+
+                            <label><input type="checkbox" name="saude_problemas[]" value="Nenhum"> Não possuo problemas
+                                de saúde</label><br>
+
+
+
+                            <label>Outras condições médicas: <input type="text" class="input" placeholder="Digite aqui"
+                                    name="saude_outros"></label>
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">2. Está fazendo uso de medicamentos atualmente?</label><br>
+                            <div class="radio_lado_a_lado">
+                                <label><input type="radio" name="medicamentos" value="Sim"> Sim</label>
+                                <label><input type="radio" name="medicamentos" value="Não"> Não</label>
+                            </div>
+                            <input class="input" type="text" name="medicamentos_quais" placeholder="Se Sim Qual(is)?">
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">3. Já sofreu alguma lesão praticando esportes?</label><br>
+                            <div class="radio_lado_a_lado">
+                                <label><input type="radio" name="lesao" value="Sim"> Sim</label>
+                                <label><input type="radio" name="lesao" value="Não"> Não</label>
+                            </div>
+                            <input class="input" type="text" name="lesao_qual" placeholder="Se Sim Qual foi a lesão?">
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">4. Realiza acompanhamento médico regular?</label><br>
+                            <div class="radio_lado_a_lado">
+                                <label><input type="radio" name="acompanhamento" value="Sim"> Sim</label>
+                                <label><input type="radio" name="acompanhamento" value="Não"> Não</label>
+                            </div>
+                            <input class="input" type="text" name="acompanhamento_especialidade"
+                                placeholder="Se Sim Qual Especialidade">
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">5. Possui alergias?</label><br>
+                            <div class="radio_lado_a_lado">
+                                <label><input type="radio" name="alergias" value="Sim"> Sim</label>
+                                <label><input type="radio" name="alergias" value="Não"> Não</label>
+                            </div>
+                            <input class="input" type="text" name="alergias_quais" placeholder="Quais?">
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">6. Pratica atividades físicas regularmente?</label><br>
+                            <div class="radio_lado_a_lado">
+                                <label><input type="radio" name="atividade_fisica" value="Sim"> Sim</label>
+                                <label><input type="radio" name="atividade_fisica" value="Não"> Não</label>
+                            </div>
+                            <input class="input" type="text" name="atividade_fisica_quais" placeholder="Quais?">
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">7. Com que frequência você dorme pelo menos 7 horas por
+                                noite?</label><br>
+                            <label><input type="radio" name="sono" value="Sempre"> Sempre</label>
+                            <label><input type="radio" name="sono" value="Às vezes"> Às vezes</label>
+                            <label><input type="radio" name="sono" value="Raramente"> Raramente</label>
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">8. Alimenta-se bem e com regularidade?</label><br>
+                            <label><input type="radio" name="alimentacao" value="Sim"> Sim</label>
+                            <label><input type="radio" name="alimentacao" value="Não"> Não</label>
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">9. Está apto(a) para participar de atividades físicas
+                                intensas?</label><br>
+                            <label><input type="radio" name="apto" value="Sim"> Sim</label>
+                            <label><input type="radio" name="apto" value="Não"> Não</label>
+                            <label><input type="radio" name="apto" value="Não sei"> Não sei / Preciso de avaliação
+                                médica</label>
+                        </div>
+
+                        <div class="pergunta">
+                            <label class="bold">10. Já realizou avaliação médica nos últimos 12 meses?</label><br>
+                            <div class="radio_lado_a_lado">
+                                <label><input type="radio" name="avaliacao_medica" value="Sim"> Sim</label>
+                                <label><input type="radio" name="avaliacao_medica" value="Não"> Não</label>
+                            </div>
+                            <input class="input" type="text" name="avaliacao_medica_quem" placeholder="Médico">
+                        </div>
+
+                        <!-- Termo de Responsabilidade -->
+                        <div class="space_formulario_saude">
+                            <h4>Termo de Responsabilidade</h4>
+                        </div>
+
+                        <p>Declaro que as informações acima são verdadeiras e me responsabilizo por qualquer omissão.
+                            Autorizo a participação no projeto de vôlei e reconheço que é recomendada a realização de
+                            avaliação médica antes do início das atividades.</p>
+
                         <button class="login-button" type="submit">Enviar Matrícula</button>
                     </form>
+                    <!-- Modal de mensagem -->
 
                     <span class="agreement"><a href="/home">Saiba mais sobre o projeto</a></span>
                 </div>
+
+
+
+
 
 
             </article>
@@ -126,38 +247,62 @@
 
 
 
-
-
-
-
-
     </main>
 
+    <div class="modal fade" id="modalMensagem" tabindex="-1" aria-labelledby="modalMensagemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalMensagemLabel">Mensagem</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body" id="modalMensagemCorpo"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de erro -->
+    <div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="modalErroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="modalErroLabel">Erro de validação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body" id="modalErroMensagem">
+                    <!-- Mensagem de erro será inserida aqui -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
 
-
-
-
-    
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- jQuery apenas uma vez -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
-    <!-- jQuery (obrigatório) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Slick JS -->
+
+    <!-- jQuery Migrate se precisar de compatibilidade (opcional) -->
+    <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+
+    <!-- Slick Carousel -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+    <!-- Fancybox -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
+    <!-- Bootstrap Bundle JS (inclui Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-
-
+    <!-- Lottie -->
+    <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
 
 
 
@@ -352,8 +497,88 @@
     </script>
 
 
+    <script>
+        document.querySelector('.form').addEventListener('submit', function (e) {
+
+            // Função para mostrar o modal com a mensagem de erro usando Bootstrap
+            function mostrarModal(msg) {
+                const modalMensagem = document.getElementById('modalErroMensagem');
+                modalMensagem.textContent = msg;
+
+                // Criar instancia do modal Bootstrap e mostrar
+                const modalBootstrap = new bootstrap.Modal(document.getElementById('modalErro'));
+                modalBootstrap.show();
+            }
+
+            function isRadioChecked(name) {
+                return document.querySelector('input[name="' + name + '"]:checked') !== null;
+            }
+
+            // Validação checkbox saude_problemas
+            const checkboxes = document.querySelectorAll('input[name="saude_problemas[]"]');
+            let peloMenosUmMarcado = false;
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    peloMenosUmMarcado = true;
+                }
+            });
+            if (!peloMenosUmMarcado) {
+                e.preventDefault();
+                mostrarModal('Por favor, marque pelo menos um problema de saúde ou indique que não possui.');
+                return;
+            }
+
+            // Validação radios obrigatórios
+            const radiosToCheck = [
+                'medicamentos',
+                'lesao',
+                'acompanhamento',
+                'alergias',
+                'atividade_fisica',
+                'sono',
+                'alimentacao',
+                'apto',
+                'avaliacao_medica'
+            ];
+
+            for (let i = 0; i < radiosToCheck.length; i++) {
+                if (!isRadioChecked(radiosToCheck[i])) {
+                    e.preventDefault();
+                    // Melhor deixar a mensagem genérica ou com nome amigável
+                    const nomeAmigavel = radiosToCheck[i].replace(/_/g, ' ');
+                    mostrarModal('Por favor, responda a pergunta sobre "' + nomeAmigavel + '".');
+                    return;
+                }
+            }
+
+            // Não valida os inputs condicionais porque não são obrigatórios
+
+        });
+    </script>
 
 
+
+    <?php if (!empty($_SESSION['sucesso']) || !empty($_SESSION['erro'])): ?>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var mensagem = '';
+
+                <?php if (!empty($_SESSION['sucesso'])): ?>
+                    mensagem = <?= json_encode($_SESSION['sucesso']); ?>;
+                <?php elseif (!empty($_SESSION['erro'])): ?>
+                    mensagem = <?= json_encode($_SESSION['erro']); ?>;
+                <?php endif; ?>
+
+                document.getElementById('modalMensagemCorpo').textContent = mensagem;
+
+                var modal = new bootstrap.Modal(document.getElementById('modalMensagem'));
+                modal.show();
+            });
+        </script>
+        <?php
+        unset($_SESSION['sucesso'], $_SESSION['erro']);
+    endif;
+    ?>
 
 
 

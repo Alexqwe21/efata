@@ -579,7 +579,7 @@ footer ul li a.active::after {
     display: flex;
     justify-content: center;
     align-items: center;
-font-family: var(--font_joseh);
+    font-family: var(--font_joseh);
 
 
     .site {
@@ -587,12 +587,25 @@ font-family: var(--font_joseh);
         display: flex !important;
         justify-content: center !important;
 
-        .space_formulario{
+        .space_formulario,
+        .space_formulario_saude {
             margin-top: 30px;
         }
 
-        #erro-cep{
-          margin-top: 15px ;
+
+        .space_formulario_saude {
+            text-align: center;
+
+            h4 {
+                margin-bottom: 30px;
+                font-size: 30px !important;
+            }
+
+
+        }
+
+        #erro-cep {
+            margin-top: 15px;
             color: red;
             display: none;
         }
@@ -738,6 +751,77 @@ font-family: var(--font_joseh);
             color: #0099ff;
             font-size: 9px;
         }
+
+        .pergunta {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .input {
+                margin-bottom: 30px;
+            }
+
+            .radio_lado_a_lado {
+                display: flex;
+
+                label {
+                    margin: 0 20px;
+                }
+            }
+
+            label {
+                margin-bottom: 20px;
+
+            }
+
+            .bold {
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+
+        p {
+            text-align: center;
+            line-height: 20px;
+
+        }
+
+
+
+        .modal {
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        .fechar {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
 
 
     }
