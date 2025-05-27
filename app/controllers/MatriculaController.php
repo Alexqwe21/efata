@@ -66,7 +66,7 @@ class MatriculaController extends Controller
 
             // Dados do questionário
             $dadosQuestionario = [
-                'saude_problemas' => implode(',', $_POST['saude_problemas'] ?? []),
+                'saude_problemas' => implode(', ', $_POST['saude_problemas'] ?? []),
                 'saude_outros' => strip_tags(trim(filter_input(INPUT_POST, 'saude_outros'))),
                 'medicamentos' => strip_tags(trim(filter_input(INPUT_POST, 'medicamentos'))),
                 'medicamentos_quais' => strip_tags(trim(filter_input(INPUT_POST, 'medicamentos_quais'))),
@@ -87,9 +87,9 @@ class MatriculaController extends Controller
 
             // Formatar datas
             $dadosMatricula['menor_nascimento'] = !empty($dadosMatricula['menor_nascimento']) ?
-                (DateTime::createFromFormat('d/m/Y', $dadosMatricula['menor_nascimento']) ?: null)->format('Y-m-d') : null;
+                (DateTime::createFromFormat('d/m/Y', $dadosMatricula['menor_nascimento']) ?: null)?->format('Y-m-d') : null;
             $dadosMatricula['data_nascimento'] = !empty($dadosMatricula['data_nascimento']) ?
-                (DateTime::createFromFormat('d/m/Y', $dadosMatricula['data_nascimento']) ?: null)->format('Y-m-d') : null;
+                (DateTime::createFromFormat('d/m/Y', $dadosMatricula['data_nascimento']) ?: null)?->format('Y-m-d') : null;
 
             // Campos obrigatórios
             $camposObrigatorios = ['nome', 'cep', 'endereco', 'bairro', 'cidade', 'estado', 'pais', 'telefone', 'cpf',  'data_nascimento', 'email', 'atividade'];
@@ -106,6 +106,55 @@ class MatriculaController extends Controller
 
             try {
                 $matriculaModel->salvarMatriculaComQuestionario($dadosMatricula, $dadosQuestionario);
+
+                // Gera o PDF
+                require_once 'vendors/fpdf/fpdf.php';
+
+                $pdf = new FPDF();
+                $pdf->AddPage();
+                $pdf->SetFont('Arial', 'B', 16);
+                $pdf->Cell(0, 10, 'Confirmação de Matrícula - Cultura Efatá', 0, 1, 'C');
+                $pdf->Ln(5);
+                $pdf->SetFont('Arial', '', 12);
+
+                $pdf->Cell(50, 8, 'Nome:', 0, 0);
+                $pdf->Cell(0, 8, $dadosMatricula['nome'], 0, 1);
+
+                $pdf->Cell(50, 8, 'CPF:', 0, 0);
+                $pdf->Cell(0, 8, $dadosMatricula['cpf'], 0, 1);
+
+                $pdf->Cell(50, 8, 'Data Nascimento:', 0, 0);
+                $dtNasc = !empty($dadosMatricula['data_nascimento']) ? date('d/m/Y', strtotime($dadosMatricula['data_nascimento'])) : '';
+                $pdf->Cell(0, 8, $dtNasc, 0, 1);
+
+                $pdf->Cell(50, 8, 'E-mail:', 0, 0);
+                $pdf->Cell(0, 8, $dadosMatricula['email'], 0, 1);
+
+                $pdf->Cell(50, 8, 'Telefone:', 0, 0);
+                $pdf->Cell(0, 8, $dadosMatricula['telefone'], 0, 1);
+
+                $pdf->Cell(50, 8, 'Atividade:', 0, 0);
+                $pdf->Cell(0, 8, $dadosMatricula['atividade'], 0, 1);
+
+                $pdf->Ln(10);
+                $pdf->SetFont('Arial', 'B', 14);
+                $pdf->Cell(0, 8, 'Questionário de Saúde', 0, 1);
+                $pdf->SetFont('Arial', '', 12);
+
+                $pdf->MultiCell(0, 7, "Problemas de Saúde: " . $dadosQuestionario['saude_problemas']);
+                $pdf->MultiCell(0, 7, "Outros Problemas: " . $dadosQuestionario['saude_outros']);
+                $pdf->MultiCell(0, 7, "Medicamentos: " . $dadosQuestionario['medicamentos']);
+                $pdf->MultiCell(0, 7, "Lesão: " . $dadosQuestionario['lesao']);
+                $pdf->MultiCell(0, 7, "Acompanhamento Médico: " . $dadosQuestionario['acompanhamento']);
+                $pdf->MultiCell(0, 7, "Alergias: " . $dadosQuestionario['alergias']);
+                $pdf->MultiCell(0, 7, "Atividade Física: " . $dadosQuestionario['atividade_fisica']);
+
+                $pdf->Ln(10);
+                $pdf->SetFont('Arial', 'I', 10);
+                $pdf->Cell(0, 7, 'Documento gerado automaticamente. Cultura Efatá agradece sua matrícula.', 0, 1, 'C');
+
+                $caminhoPdf = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'matricula_' . time() . '.pdf';
+                $pdf->Output('F', $caminhoPdf);
 
                 // Envio de e-mail
                 require_once("vendors/phpmailer/PHPMailer.php");
@@ -147,19 +196,30 @@ class MatriculaController extends Controller
                 $mail->clearAddresses();
                 $mail->addAddress($email, $nome);
                 $mail->Subject = '✅ Confirmação de Matrícula - Cultura Efatá';
+
                 $mail->msgHTML("
-                <div style='font-family: Arial; padding: 20px;'>
+                <div style='font-family: Arial, sans-serif; padding: 20px;'>
                     <h2 style='color: #4CAF50;'>🎉 Matrícula Confirmada!</h2>
                     <p>Olá <strong>$nome</strong>,</p>
                     <p>Obrigado por se inscrever na atividade <strong>$atividade</strong> com a gente!</p>
-                    <p>Fique atento ao seu e-mail para mais informações.</p>
+                    <p>Segue em anexo o comprovante da sua matrícula.</p>
+                    <p>Fique atento ao seu e-mail para mais informações e atualizações.</p>
                     <p><strong>Equipe Cultura Efatá</strong></p>
                 </div>
             ");
-                $mail->AltBody = "Olá $nome,\n\nSua matrícula na atividade '$atividade' foi confirmada!\n\nEquipe Cultura Efatá";
+                $mail->AltBody = "Olá $nome,\n\nSua matrícula na atividade '$atividade' foi confirmada!\n\nSegue o comprovante da matrícula em anexo.\n\nEquipe Cultura Efatá";
+
+                // Anexa o PDF
+                $mail->addAttachment($caminhoPdf, 'Comprovante_Matricula_CulturaEfatá.pdf');
+
                 $mail->send();
 
-                $_SESSION['sucesso'] = "Matrícula realizada com sucesso! Verifique o email ou a caixa de spam.";
+                // Apaga o arquivo temporário do PDF
+                if (file_exists($caminhoPdf)) {
+                    unlink($caminhoPdf);
+                }
+
+                $_SESSION['sucesso'] = "Matrícula realizada com sucesso! Verifique seu email (inclusive caixa de spam).";
                 header('Location: ' . BASE_URL . 'matricula');
                 exit;
             } catch (Exception $e) {
