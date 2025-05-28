@@ -38,31 +38,35 @@ class MatriculaController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
 
+
+
             // Dados da matrícula
-            $dadosMatricula = [
-                'nome' => strip_tags(trim(filter_input(INPUT_POST, 'nome'))),
-                'cep' => strip_tags(trim(filter_input(INPUT_POST, 'cep'))),
-                'endereco' => strip_tags(trim(filter_input(INPUT_POST, 'endereco'))),
-                'bairro' => strip_tags(trim(filter_input(INPUT_POST, 'bairro'))),
-                'cidade' => strip_tags(trim(filter_input(INPUT_POST, 'cidade'))),
-                'estado' => strtoupper(strip_tags(trim(filter_input(INPUT_POST, 'estado')))),
-                'pais' => strip_tags(trim(filter_input(INPUT_POST, 'pais'))),
-                'telefone' => strip_tags(trim(filter_input(INPUT_POST, 'telefone'))),
-                'telefone_emergencia' => strip_tags(trim(filter_input(INPUT_POST, 'telefone_emergencia'))),
-                'cpf' => strip_tags(trim(filter_input(INPUT_POST, 'cpf'))),
-                'rg' => strip_tags(trim(filter_input(INPUT_POST, 'rg'))),
-                'data_nascimento' => strip_tags(trim(filter_input(INPUT_POST, 'data_nascimento'))),
-                'email' => filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL),
-                'problemas_saude' => strip_tags(trim(filter_input(INPUT_POST, 'problemas_saude'))),
-                'responsavel_nome' => strip_tags(trim(filter_input(INPUT_POST, 'responsavel_nome'))),
-                'responsavel_rg' => strip_tags(trim(filter_input(INPUT_POST, 'responsavel_rg'))),
-                'responsavel_cpf' => strip_tags(trim(filter_input(INPUT_POST, 'responsavel_cpf'))),
-                'responsavel_qualidade' => strip_tags(trim(filter_input(INPUT_POST, 'responsavel_qualidade'))),
-                'menor_nome' => strip_tags(trim(filter_input(INPUT_POST, 'menor_nome'))),
-                'menor_rg' => strip_tags(trim(filter_input(INPUT_POST, 'menor_rg'))),
-                'menor_nascimento' => strip_tags(trim(filter_input(INPUT_POST, 'menor_nascimento'))),
-                'atividade' => strip_tags(trim(filter_input(INPUT_POST, 'atividade')))
-            ];
+          $dadosMatricula = [
+    'nome' => strip_tags(trim(filter_input(INPUT_POST, 'nome'))),
+    'cep' => strip_tags(trim(filter_input(INPUT_POST, 'cep'))),
+    'endereco' => strip_tags(trim(filter_input(INPUT_POST, 'endereco'))),
+    'bairro' => strip_tags(trim(filter_input(INPUT_POST, 'bairro'))),
+    'cidade' => strip_tags(trim(filter_input(INPUT_POST, 'cidade'))),
+    'estado' => strtoupper(strip_tags(trim(filter_input(INPUT_POST, 'estado')))),
+    'pais' => strip_tags(trim(filter_input(INPUT_POST, 'pais'))),
+    'telefone' => strip_tags(trim(filter_input(INPUT_POST, 'telefone'))),
+    'telefone_emergencia' => strip_tags(trim(filter_input(INPUT_POST, 'telefone_emergencia'))),
+    'cpf' => strip_tags(trim(filter_input(INPUT_POST, 'cpf'))),
+    'rg' => strip_tags(trim(filter_input(INPUT_POST, 'rg'))),
+    'data_nascimento' => strip_tags(trim(filter_input(INPUT_POST, 'data_nascimento'))),
+    'email' => filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL),
+    'problemas_saude' => strip_tags(trim(filter_input(INPUT_POST, 'problemas_saude'))),
+    'responsavel_nome' => strip_tags(trim(filter_input(INPUT_POST, 'responsavel_nome'))),
+    'responsavel_rg' => strip_tags(trim(filter_input(INPUT_POST, 'responsavel_rg'))),
+    'responsavel_cpf' => strip_tags(trim(filter_input(INPUT_POST, 'responsavel_cpf'))),
+    'responsavel_qualidade' => strip_tags(trim(filter_input(INPUT_POST, 'responsavel_qualidade'))),
+    'menor_nome' => strip_tags(trim(filter_input(INPUT_POST, 'menor_nome'))),
+    'menor_rg' => strip_tags(trim(filter_input(INPUT_POST, 'menor_rg'))),
+    'menor_nascimento' => strip_tags(trim(filter_input(INPUT_POST, 'menor_nascimento'))),
+    'atividade' => strip_tags(trim(filter_input(INPUT_POST, 'atividade'))),
+    'data_cadastro' => date('Y-m-d H:i:s') 
+];
+
 
             // Dados do questionário
             $dadosQuestionario = [
@@ -91,6 +95,8 @@ class MatriculaController extends Controller
             $dadosMatricula['data_nascimento'] = !empty($dadosMatricula['data_nascimento']) ?
                 (DateTime::createFromFormat('d/m/Y', $dadosMatricula['data_nascimento']) ?: null)?->format('Y-m-d') : null;
 
+
+            
             // Campos obrigatórios
             $camposObrigatorios = ['nome', 'cep', 'endereco', 'bairro', 'cidade', 'estado', 'pais', 'telefone', 'cpf',  'data_nascimento', 'email', 'atividade'];
 
@@ -106,57 +112,119 @@ class MatriculaController extends Controller
 
             try {
                 $matriculaModel->salvarMatriculaComQuestionario($dadosMatricula, $dadosQuestionario);
-
-                // Gera o PDF
                 require_once 'vendors/fpdf/fpdf.php';
+
+                function safe($texto)
+                {
+                    return iconv("UTF-8", "ISO-8859-1//TRANSLIT", !empty($texto) ? $texto : 'Não informado');
+                }
 
                 $pdf = new FPDF();
                 $pdf->AddPage();
+                $pdf->SetAutoPageBreak(true, 20); // margem inferior
+
+                // --------- TOPO COM LOGO E TÍTULO ---------
+                if (file_exists('assets/img/Logo_Cultura.png')) {
+                  $pdf->Image('assets/img/Logo_Cultura.png', 85, 10, 40); // Y = 10, altura = 40
+                }
+             $pdf->SetY(55); // 10 (topo) + 40 (altura da imagem) + 5 (margem extra)
+
                 $pdf->SetFont('Arial', 'B', 16);
-                $pdf->Cell(0, 10, 'Confirmação de Matrícula - Cultura Efatá', 0, 1, 'C');
+                $pdf->SetTextColor(51, 51, 51);
+                $pdf->Cell(0, 10, safe(' Confirmação de Matrícula'), 0, 1, 'C');
+
+                $pdf->SetFont('Arial', 'I', 12);
+                $pdf->SetTextColor(100, 100, 100);
+                $pdf->Cell(0, 8, safe('Cultura Efatá - Projeto Sociocultural'), 0, 1, 'C');
                 $pdf->Ln(5);
-                $pdf->SetFont('Arial', '', 12);
 
-                $pdf->Cell(50, 8, 'Nome:', 0, 0);
-                $pdf->Cell(0, 8, $dadosMatricula['nome'], 0, 1);
+                $pdf->SetDrawColor(180, 180, 180);
+                $pdf->Line(10, $pdf->GetY(), 200, $pdf->GetY());
+                $pdf->Ln(8);
 
-                $pdf->Cell(50, 8, 'CPF:', 0, 0);
-                $pdf->Cell(0, 8, $dadosMatricula['cpf'], 0, 1);
-
-                $pdf->Cell(50, 8, 'Data Nascimento:', 0, 0);
-                $dtNasc = !empty($dadosMatricula['data_nascimento']) ? date('d/m/Y', strtotime($dadosMatricula['data_nascimento'])) : '';
-                $pdf->Cell(0, 8, $dtNasc, 0, 1);
-
-                $pdf->Cell(50, 8, 'E-mail:', 0, 0);
-                $pdf->Cell(0, 8, $dadosMatricula['email'], 0, 1);
-
-                $pdf->Cell(50, 8, 'Telefone:', 0, 0);
-                $pdf->Cell(0, 8, $dadosMatricula['telefone'], 0, 1);
-
-                $pdf->Cell(50, 8, 'Atividade:', 0, 0);
-                $pdf->Cell(0, 8, $dadosMatricula['atividade'], 0, 1);
-
-                $pdf->Ln(10);
+                // --------- DADOS DO ALUNO ---------
                 $pdf->SetFont('Arial', 'B', 14);
-                $pdf->Cell(0, 8, 'Questionário de Saúde', 0, 1);
+                $pdf->SetTextColor(40, 40, 40);
+                $pdf->Cell(0, 10, safe('Dados do Aluno'), 0, 1);
+
                 $pdf->SetFont('Arial', '', 12);
+                $pdf->SetTextColor(0, 0, 0);
+                $pdf->SetFillColor(245, 245, 245);
 
-                $pdf->MultiCell(0, 7, "Problemas de Saúde: " . $dadosQuestionario['saude_problemas']);
-                $pdf->MultiCell(0, 7, "Outros Problemas: " . $dadosQuestionario['saude_outros']);
-                $pdf->MultiCell(0, 7, "Medicamentos: " . $dadosQuestionario['medicamentos']);
-                $pdf->MultiCell(0, 7, "Lesão: " . $dadosQuestionario['lesao']);
-                $pdf->MultiCell(0, 7, "Acompanhamento Médico: " . $dadosQuestionario['acompanhamento']);
-                $pdf->MultiCell(0, 7, "Alergias: " . $dadosQuestionario['alergias']);
-                $pdf->MultiCell(0, 7, "Atividade Física: " . $dadosQuestionario['atividade_fisica']);
+                $campos = [
+                    'Nome' => $dadosMatricula['nome'],
+                    'CPF' => $dadosMatricula['cpf'],
+                    'Data de Nascimento' => !empty($dadosMatricula['data_nascimento']) ? date('d/m/Y', strtotime($dadosMatricula['data_nascimento'])) : '',
+                    'E-mail' => $dadosMatricula['email'],
+                    'Telefone' => $dadosMatricula['telefone'],
+                    'Atividade' => $dadosMatricula['atividade']
+                ];
 
+                foreach ($campos as $label => $valor) {
+                    $pdf->SetFont('Arial', 'B', 11);
+                    $pdf->Cell(50, 8, safe($label . ':'), 0, 0, '', true);
+                    $pdf->SetFont('Arial', '', 11);
+                    $pdf->Cell(0, 8, safe($valor), 0, 1, '', true);
+                }
+                $pdf->Ln(5);
+
+                // --------- QUESTIONÁRIO DE SAÚDE ---------
+                $pdf->SetDrawColor(180, 180, 180);
+                $pdf->Line(10, $pdf->GetY(), 200, $pdf->GetY());
+                $pdf->Ln(8);
+
+                $pdf->SetFont('Arial', 'B', 14);
+                $pdf->SetTextColor(40, 40, 40);
+                $pdf->Cell(0, 10, safe('Questionário de Saúde'), 0, 1);
+
+                $pdf->SetFont('Arial', '', 12);
+                $pdf->SetTextColor(0, 0, 0);
+
+                // Campos detalhados
+                $questoes = [
+                    'Possui algum problema de saúde?' => $dadosQuestionario['saude_problemas'],
+                    'Outros problemas de saúde' => $dadosQuestionario['saude_outros'],
+                    'Faz uso de medicamentos?' => $dadosQuestionario['medicamentos'],
+                    'Quais medicamentos?' => $dadosQuestionario['medicamentos_quais'],
+                    'Possui alguma lesão?' => $dadosQuestionario['lesao'],
+                    'Qual lesão?' => $dadosQuestionario['lesao_qual'],
+                    'Está em acompanhamento médico?' => $dadosQuestionario['acompanhamento'],
+                    'Especialidade do acompanhamento' => $dadosQuestionario['acompanhamento_especialidade'],
+                    'Possui alergias?' => $dadosQuestionario['alergias'],
+                    'Quais alergias?' => $dadosQuestionario['alergias_quais'],
+                    'Pratica atividade física?' => $dadosQuestionario['atividade_fisica'],
+                    'Quais atividades físicas?' => $dadosQuestionario['atividade_fisica_quais'],
+                    'Como está seu sono?' => $dadosQuestionario['sono'],
+                    'Como está sua alimentação?' => $dadosQuestionario['alimentacao'],
+                    'Está apto para atividades físicas?' => $dadosQuestionario['apto'],
+                    'Foi feita avaliação médica?' => $dadosQuestionario['avaliacao_medica'],
+                    'Quem realizou a avaliação médica?' => $dadosQuestionario['avaliacao_medica_quem']
+                ];
+
+                foreach ($questoes as $pergunta => $resposta) {
+                    $pdf->SetFont('Arial', 'B', 11);
+                    $pdf->MultiCell(0, 8, safe($pergunta . ':'), 0);
+                    $pdf->SetFont('Arial', '', 11);
+                    $pdf->SetFillColor(248, 248, 248);
+                    $pdf->MultiCell(0, 8, safe($resposta), 0, '', true);
+                    $pdf->Ln(2);
+                }
+
+                // --------- RODAPÉ ---------
                 $pdf->Ln(10);
-                $pdf->SetFont('Arial', 'I', 10);
-                $pdf->Cell(0, 7, 'Documento gerado automaticamente. Cultura Efatá agradece sua matrícula.', 0, 1, 'C');
+                $pdf->SetDrawColor(180, 180, 180);
+                $pdf->Line(10, $pdf->GetY(), 200, $pdf->GetY());
 
+                $pdf->SetFont('Arial', 'I', 10);
+                $pdf->SetTextColor(90, 90, 90);
+                $pdf->Cell(0, 10, safe('Documento gerado automaticamente. Cultura Efatá agradece sua matrícula!'), 0, 1, 'C');
+
+
+                // Salvar PDF temporariamente
                 $caminhoPdf = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'matricula_' . time() . '.pdf';
                 $pdf->Output('F', $caminhoPdf);
 
-                // Envio de e-mail
+                // Envio de E-mail
                 require_once("vendors/phpmailer/PHPMailer.php");
                 require_once("vendors/phpmailer/SMTP.php");
                 require_once("vendors/phpmailer/Exception.php");
@@ -167,7 +235,6 @@ class MatriculaController extends Controller
                 $email = $dadosMatricula['email'];
                 $atividade = $dadosMatricula['atividade'];
 
-                // Configuração SMTP
                 $mail->isSMTP();
                 $mail->Host = HOTS_EMAIL;
                 $mail->Port = PORT_EMAIL;
@@ -179,42 +246,38 @@ class MatriculaController extends Controller
                 $mail->Encoding = 'base64';
                 $mail->isHTML(true);
 
-                // --------- Enviar para o ADMIN ---------
+                // ---------- ADMIN ----------
                 $mail->setFrom(USER_EMAIL, 'Nova Matrícula - Cultura Efatá');
                 $mail->addAddress(USER_EMAIL, 'Cultura Efatá');
                 $mail->Subject = '📥 Nova Matrícula Realizada';
                 $mail->msgHTML("
-                <p><strong>Nome:</strong> $nome</p>
-                <p><strong>E-mail:</strong> $email</p>
-                <p><strong>Atividade:</strong> $atividade</p>
-                <p>✅ Matrícula realizada com sucesso!</p>
-            ");
+        <p><strong>Nome:</strong> $nome</p>
+        <p><strong>E-mail:</strong> $email</p>
+        <p><strong>Atividade:</strong> $atividade</p>
+        <p>✅ Matrícula realizada com sucesso!</p>
+    ");
                 $mail->AltBody = "Nova matrícula: $nome - $email - Atividade: $atividade";
                 $mail->send();
 
-                // --------- Enviar para o USUÁRIO ---------
+                // ---------- USUÁRIO ----------
                 $mail->clearAddresses();
                 $mail->addAddress($email, $nome);
                 $mail->Subject = '✅ Confirmação de Matrícula - Cultura Efatá';
-
                 $mail->msgHTML("
-                <div style='font-family: Arial, sans-serif; padding: 20px;'>
-                    <h2 style='color: #4CAF50;'>🎉 Matrícula Confirmada!</h2>
-                    <p>Olá <strong>$nome</strong>,</p>
-                    <p>Obrigado por se inscrever na atividade <strong>$atividade</strong> com a gente!</p>
-                    <p>Segue em anexo o comprovante da sua matrícula.</p>
-                    <p>Fique atento ao seu e-mail para mais informações e atualizações.</p>
-                    <p><strong>Equipe Cultura Efatá</strong></p>
-                </div>
-            ");
+        <div style='font-family: Arial, sans-serif; padding: 20px;'>
+            <h2 style='color: #4CAF50;'>🎉 Matrícula Confirmada!</h2>
+            <p>Olá <strong>$nome</strong>,</p>
+            <p>Obrigado por se inscrever na atividade <strong>$atividade</strong> com a gente!</p>
+            <p>Segue em anexo o comprovante da sua matrícula.</p>
+            <p>Fique atento ao seu e-mail para mais informações e atualizações.</p>
+            <p><strong>Equipe Cultura Efatá</strong></p>
+        </div>
+    ");
                 $mail->AltBody = "Olá $nome,\n\nSua matrícula na atividade '$atividade' foi confirmada!\n\nSegue o comprovante da matrícula em anexo.\n\nEquipe Cultura Efatá";
-
-                // Anexa o PDF
                 $mail->addAttachment($caminhoPdf, 'Comprovante_Matricula_CulturaEfatá.pdf');
-
                 $mail->send();
 
-                // Apaga o arquivo temporário do PDF
+                // Remove PDF temporário
                 if (file_exists($caminhoPdf)) {
                     unlink($caminhoPdf);
                 }
@@ -222,8 +285,8 @@ class MatriculaController extends Controller
                 $_SESSION['sucesso'] = "Matrícula realizada com sucesso! Verifique seu email (inclusive caixa de spam).";
                 header('Location: ' . BASE_URL . 'matricula');
                 exit;
-            } catch (Exception $e) {
-                $_SESSION['erro'] = "Erro ao realizar matrícula ou enviar e-mail: " . $mail->ErrorInfo;
+            } catch (\Exception $e) {
+                $_SESSION['erro'] = "Erro ao realizar matrícula ou enviar e-mail: " . $e->getMessage();
                 header('Location: ' . BASE_URL . 'matricula');
                 exit;
             }

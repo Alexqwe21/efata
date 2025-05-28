@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Sao_Paulo');
 
 // Definir URL  da aplicação 
 // define("BASE_URL" ,"https://kioficina.smpsistema.com.br/");

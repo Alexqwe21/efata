@@ -10,52 +10,55 @@ class Matricula extends Model
 
             // 1. Inserir na tabela matriculas
             $sqlMatricula = "INSERT INTO matriculas (
-                matricula_nome,
-                matricula_cep,
-                matricula_endereco,
-                matricula_bairro,
-                matricula_cidade,
-                matricula_estado,
-                matricula_pais,
-                matricula_telefone,
-                matricula_telefone_emergencia,
-                matricula_cpf,
-                matricula_rg,
-                matricula_data_nascimento,
-                matricula_email,
-                matricula_problemas_saude,
-                matricula_responsavel_nome,
-                matricula_responsavel_rg,
-                matricula_responsavel_cpf,
-                matricula_responsavel_qualidade,
-                matricula_menor_nome,
-                matricula_menor_rg,
-                matricula_menor_nascimento,
-                matricula_atividade
-            ) VALUES (
-                :nome,
-                :cep,
-                :endereco,
-                :bairro,
-                :cidade,
-                :estado,
-                :pais,
-                :telefone,
-                :telefone_emergencia,
-                :cpf,
-                :rg,
-                :data_nascimento,
-                :email,
-                :problemas_saude,
-                :responsavel_nome,
-                :responsavel_rg,
-                :responsavel_cpf,
-                :responsavel_qualidade,
-                :menor_nome,
-                :menor_rg,
-                :menor_nascimento,
-                :atividade
-            )";
+    matricula_nome,
+    matricula_cep,
+    matricula_endereco,
+    matricula_bairro,
+    matricula_cidade,
+    matricula_estado,
+    matricula_pais,
+    matricula_telefone,
+    matricula_telefone_emergencia,
+    matricula_cpf,
+    matricula_rg,
+    matricula_data_nascimento,
+    matricula_email,
+    matricula_problemas_saude,
+    matricula_responsavel_nome,
+    matricula_responsavel_rg,
+    matricula_responsavel_cpf,
+    matricula_responsavel_qualidade,
+    matricula_menor_nome,
+    matricula_menor_rg,
+    matricula_menor_nascimento,
+    matricula_atividade,
+    matricula_data_cadastro
+) VALUES (
+    :nome,
+    :cep,
+    :endereco,
+    :bairro,
+    :cidade,
+    :estado,
+    :pais,
+    :telefone,
+    :telefone_emergencia,
+    :cpf,
+    :rg,
+    :data_nascimento,
+    :email,
+    :problemas_saude,
+    :responsavel_nome,
+    :responsavel_rg,
+    :responsavel_cpf,
+    :responsavel_qualidade,
+    :menor_nome,
+    :menor_rg,
+    :menor_nascimento,
+    :atividade,
+    :data_cadastro
+)";
+
 
             $stmt = $this->db->prepare($sqlMatricula);
             $stmt->execute([
@@ -80,8 +83,10 @@ class Matricula extends Model
                 ':menor_nome' => $dadosMatricula['menor_nome'],
                 ':menor_rg' => $dadosMatricula['menor_rg'],
                 ':menor_nascimento' => $dadosMatricula['menor_nascimento'],
-                ':atividade' => $dadosMatricula['atividade']
+                ':atividade' => $dadosMatricula['atividade'],
+                ':data_cadastro' => date('Y-m-d H:i:s')
             ]);
+
 
             $matriculaId = $this->db->lastInsertId();
 
@@ -156,8 +161,4 @@ class Matricula extends Model
             throw $e;
         }
     }
-
-
-
-
 }
