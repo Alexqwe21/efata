@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
 $('.carrosel_encontro').slick({
     centerMode: true,
     centerPadding: '0px',

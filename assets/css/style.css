@@ -831,10 +831,6 @@ footer ul li a.active::after {
 
 }
 
-
-
-
-
 /* AQUI TERMINA O FORMULARIO DE MATRICULA */
 
 
@@ -1001,7 +997,8 @@ header {
 }
 
 
-.banner {
+.banner,
+.banner_sobre {
     background-size: cover;
     background-repeat: no-repeat;
     height: 560px;
@@ -2213,6 +2210,108 @@ footer {
         }
     }
 }
+
+
+/* AQUI COMEÇA A PARTE  SOBRE */
+
+
+
+.banner_sobre {
+    background-image: url('/assets/img/baner_sobre.png');
+
+    .site {
+        .ben_vindo {
+            height: 560px;
+
+            h2 {
+                font-size: 60px;
+            }
+
+            h3 {
+                font-size: 80px;
+            }
+
+            #breadcrumb {
+                font-size: 20px !important;
+                font-family: var(--fonte_INTER);
+                font-weight: bolder;
+
+                a {
+                    color: white;
+                    font-size: 20px;
+                    font-family: var(--fonte_INTER);
+                    font-weight: bolder;
+                }
+            }
+
+            #pagina-atual {
+                color: #F2A007 !important;
+                font-weight: bolder;
+            }
+        }
+    }
+}
+
+
+.sobre_bem_vindo {
+    .site {
+        .lado_a_lado {
+            align-items: start;
+            gap: 50px;
+            .carrossel-hover {
+                width: 530px;
+                height: 835px;
+                border-radius: 10px;
+                background-size: cover;
+                background-position: center;
+                transition: background-image 0.6s ease-in-out;
+                position: relative;
+                display: inline-block;
+                cursor: none !important;
+
+                &:hover {
+                    cursor: url('https://culturaefata.com.br/assets/img/cursor.png') 32 32, pointer;
+                }
+
+                .carrossel-hover img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .texto_bem_vindo{
+                hr{
+                    height: 30px;
+                    background-color: black;
+                    width: 30%;
+                }
+                .sub_titulo_efata{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}
+
+#cursorCustom {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-100px, -100px);
+    /* Centraliza a imagem */
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    /* Suaviza entrada e saída */
+}
+
+
+
+
+
+/* AQUI COMEÇA A PARTE  SOBRE */
 
 @media (max-width: 1024px) {
     .slick-track {
