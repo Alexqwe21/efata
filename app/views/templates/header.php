@@ -70,7 +70,7 @@
                             <li><a href="/eventos">EVENTOS</a></li>
                             <li><a href="/sobre">SOBRE</a></li>
                             <li class="conhecer_volei">
-                                <a href="#volei"><img src="assets/img/bola_de_volei.svg" alt="">PROJETO VOLEI</a>
+                                <a href="/matricula"><img src="assets/img/bola_de_volei.svg" alt="Bola de volei">MATRICULE-SE</a>
                             </li>
                         </ul>
                     </nav>

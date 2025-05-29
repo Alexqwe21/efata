@@ -2300,7 +2300,7 @@ footer {
     height: 80px;
     pointer-events: none;
     z-index: 9999;
-    transform: translate(-100px, -100px);
+    transform: translate(-50px, -50px);
     /* Centraliza a imagem */
     opacity: 0;
     transition: opacity 0.6s ease;
