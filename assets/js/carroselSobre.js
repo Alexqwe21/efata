@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const imagensCarrossel = [
     'assets/img/ben_vindo_sobre.png',
-    'assets/img/banner_dois.png',
-    'assets/img/banner_tres.png'
+    'assets/img/bem_vindo_um.png',
+    'assets/img/bem_vindo_dois.png'
   ];
 
   let indexCarrossel = 0;

@@ -51,6 +51,38 @@
                             <h3>CULTURA EFATA</h3>
                         </div>
 
+                        <div class="equipe">
+                            <h4>Equipe Cultura efata</h4>
+                        </div>
+
+                        <div class="ong">
+                            <h5>Uma ONG dedicada a transformar a paixão pelo vôlei em oportunidades.</h5>
+                        </div>
+
+                        <div class="historia_sobre">
+                            <p>A equipe da nossa ONG, com o intuito de atender às necessidades dos amantes do vôlei e da
+                                comunidade, dedicou-se ao desenvolvimento de um site que oferece mais acessibilidade,
+                                clareza e proximidade. Pensando em facilitar o acesso às informações, criamos um espaço
+                                digital onde você pode acompanhar atividades, treinos e eventos esportivos com
+                                comodidade, direto da sua casa. Com muito carinho e dedicação, nasce o site da nossa ONG
+                                de Vôlei — um canal criado especialmente para fortalecer a paixão pelo esporte e
+                                promover inclusão, transparência e oportunidades para todos.</p>
+                        </div>
+
+                        <div class="equipe_numero">
+                            <h6>EQUIPE CULTURA EFATA</h6>
+                        </div>
+
+                        <div class="contagem">
+                            <div class="contagem_um">
+                                <div class="number_um">
+                                    <strong>17+</strong>
+                                    <hr>
+                                    <span>Experiência</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </article>

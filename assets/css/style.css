@@ -2258,6 +2258,7 @@ footer {
         .lado_a_lado {
             align-items: start;
             gap: 50px;
+
             .carrossel-hover {
                 width: 530px;
                 height: 835px;
@@ -2279,15 +2280,96 @@ footer {
                     height: auto;
                 }
             }
-            .texto_bem_vindo{
-                hr{
-                    height: 30px;
+
+            .texto_bem_vindo {
+                width: 50%;
+                font-family: var(--fonte_INTER);
+
+                hr {
+                    height: 6px;
                     background-color: black;
-                    width: 30%;
+                    width: 25%;
+                    border: none;
                 }
-                .sub_titulo_efata{
+
+                .sub_titulo_efata {
                     display: flex;
                     justify-content: space-between;
+                    margin-top: 15px;
+                    align-items: center;
+
+                    h2 {
+                        font-size: 50px;
+                        font-weight: 600;
+
+                    }
+
+                    h3 {
+                        font-size: 30px;
+                        font-weight: 600;
+                    }
+                }
+
+                .equipe {
+                    margin-top: 33px;
+
+                    h4 {
+                        font-size: 32px;
+                        font-weight: bold;
+                    }
+                }
+
+                .ong {
+                    h5 {
+                        margin-top: 45px;
+                        font-weight: bold;
+                        font-size: 16px;
+
+                    }
+                }
+
+                .historia_sobre{
+                    margin-top: 35px;
+
+                    p{
+                        font-weight: bold;
+                        font-size: 14px;
+                        line-height: 35px;
+
+                    }
+                }
+
+                .equipe_numero{
+                    margin-top: 70px;
+                    h6{
+                        font-size: 16px;
+                        font-weight: bold;
+                        color:#25788A ;
+                    }
+                }
+
+                .contagem{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 30px;
+                    .contagem_um{
+                        
+                        number_um{
+                            strong{
+                                font-size: 48px;
+                                font-weight: bold;
+
+                            }
+
+                            hr{
+                                height: 3px;
+                                width: 200px;
+                                background-color: black;
+                                border: none;
+                            }
+                        }
+                    }
                 }
             }
         }
