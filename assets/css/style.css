@@ -2634,7 +2634,8 @@ footer {
         .carrossel-jogadoras {
             position: relative;
             margin-top: 30px;
-padding-bottom: 30px;
+            padding-bottom: 30px;
+
             .jogadoras {
                 display: flex;
                 justify-content: space-between;
@@ -2672,14 +2673,14 @@ padding-bottom: 30px;
             }
 
             .barra-progresso {
-                            width: 100%;
+                width: 100%;
                 height: 15px;
                 background-color: rgba(255, 255, 255, 0.2);
                 margin-top: 10px;
-             
+
                 overflow: hidden;
-               
-          
+
+
 
                 .progresso-fill {
                     height: 100%;
@@ -2698,6 +2699,41 @@ padding-bottom: 30px;
 
 
 
+
+.fazerMatricula {
+    font-family: var(--fonte_INTER);
+    background-color: #F9F9F9;
+
+    .site {
+        .texto {
+            margin-bottom: 30px;
+            text-align: center;
+           padding-top: 30px;
+
+            h2 {
+                font-weight: bold;
+                font-size: 48px;
+
+            }
+        }
+
+        .centro {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 450px;
+
+            .fundo {
+                width: 90%;
+                border-radius: 50px;
+                height: 420px;
+                box-shadow: 5px 5px 36px 10px rgba(0, 0, 0, 0.25);
+
+            }
+        }
+
+    }
+}
 
 
 /* AQUI COMEÇA A PARTE  SOBRE */

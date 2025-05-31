@@ -275,65 +275,84 @@
                 </div>
 
 
-              <div class="carrossel-jogadoras">
-  <div class="jogadoras">
-    <div class="jogadora">
-      <img src="assets/img/jogadora.png" alt="jogadora">
-      <p>Bridget Perry</p>
-      <strong>Bloqueador do meio</strong>
-    </div>
-    <div class="jogadora">
-      <img src="assets/img/jogadora.png" alt="jogadora">
-      <p>Bridget Perry</p>
-      <strong>Bloqueador do meio</strong>
-    </div>
-    <div class="jogadora">
-      <img src="assets/img/jogadora.png" alt="jogadora">
-      <p>Bridget Perry</p>
-      <strong>Bloqueador do meio</strong>
-    </div>
-    <div class="jogadora">
-      <img src="assets/img/jogadora.png" alt="jogadora">
-      <p>Bridget Perry</p>
-      <strong>Bloqueador do meio</strong>
-    </div>
-    <div class="jogadora">
-      <img src="assets/img/jogadora.png" alt="jogadora">
-      <p>Bridget Perry</p>
-      <strong>Bloqueador do meio</strong>
-    </div>
+                <div class="carrossel-jogadoras">
+                    <div class="jogadoras">
+                        <div class="jogadora">
+                            <img src="assets/img/jogadora.png" alt="jogadora">
+                            <p>Bridget Perry</p>
+                            <strong>Bloqueador do meio</strong>
+                        </div>
+                        <div class="jogadora">
+                            <img src="assets/img/jogadora.png" alt="jogadora">
+                            <p>Bridget Perry</p>
+                            <strong>Bloqueador do meio</strong>
+                        </div>
+                        <div class="jogadora">
+                            <img src="assets/img/jogadora.png" alt="jogadora">
+                            <p>Bridget Perry</p>
+                            <strong>Bloqueador do meio</strong>
+                        </div>
+                        <div class="jogadora">
+                            <img src="assets/img/jogadora.png" alt="jogadora">
+                            <p>Bridget Perry</p>
+                            <strong>Bloqueador do meio</strong>
+                        </div>
+                        <div class="jogadora">
+                            <img src="assets/img/jogadora.png" alt="jogadora">
+                            <p>Bridget Perry</p>
+                            <strong>Bloqueador do meio</strong>
+                        </div>
 
-     <div class="jogadora">
-      <img src="assets/img/jogadora.png" alt="jogadora">
-      <p>Bridget Perry</p>
-      <strong>Bloqueador do meio</strong>
-    </div>
+                        <div class="jogadora">
+                            <img src="assets/img/jogadora.png" alt="jogadora">
+                            <p>Bridget Perry</p>
+                            <strong>Bloqueador do meio</strong>
+                        </div>
 
-     <div class="jogadora">
-      <img src="assets/img/jogadora.png" alt="jogadora">
-      <p>Bridget Perry</p>
-      <strong>Bloqueador do meio</strong>
-    </div>
+                        <div class="jogadora">
+                            <img src="assets/img/jogadora.png" alt="jogadora">
+                            <p>Bridget Perry</p>
+                            <strong>Bloqueador do meio</strong>
+                        </div>
 
-     <div class="jogadora">
-      <img src="assets/img/jogadora.png" alt="jogadora">
-      <p>Bridget Perry</p>
-      <strong>Bloqueador do meio</strong>
-    </div>
-  </div>
+                        <div class="jogadora">
+                            <img src="assets/img/jogadora.png" alt="jogadora">
+                            <p>Bridget Perry</p>
+                            <strong>Bloqueador do meio</strong>
+                        </div>
+                    </div>
 
-  <!-- Barra de progresso -->
-  <div class="barra-progresso">
-    <div class="progresso-fill"></div>
-  </div>
-</div>
+                    <!-- Barra de progresso -->
+                    <div class="barra-progresso">
+                        <div class="progresso-fill"></div>
+                    </div>
+                </div>
 
 
             </article>
         </section>
 
+      
 
 
+
+
+
+        <section class="fazerMatricula">
+            <article class="site">
+                <div class="texto">
+                    <h2>Como fazer a Matricula ?</h2>
+                </div>
+              
+                <div class="centro">
+                    <div class="fundo">
+
+                    </div>
+                </div>
+
+            </article>
+
+        </section>
 
     </main>
 
@@ -345,80 +364,6 @@
 
 
     <?php require_once('templates/scriptGeral.php') ?>
-
-
-
-
-
-<script>
-  function iniciarBarraProgressoPorSlides($carousel, tempo) {
-    const $barra = $carousel.closest('.carrossel-jogadoras').find('.progresso-fill');
-    const duracaoPorSlide = tempo;
-
-    let totalSlides;
-    let timeoutReset;
-
-    function atualizarTotal() {
-      totalSlides = $carousel.find('.slick-slide:not(.slick-cloned)').length;
-    }
-
-    function atualizarBarra(index) {
-      const porcentagem = ((index + 1) / totalSlides) * 100;
-      $barra.css({
-        width: `${porcentagem}%`,
-        transition: `width ${duracaoPorSlide}ms linear`
-      });
-
-      // Se for o último slide, reinicia após o tempo
-      if (index + 1 >= totalSlides) {
-        clearTimeout(timeoutReset);
-        timeoutReset = setTimeout(() => {
-          $barra.css({ width: '0%', transition: 'none' });
-        }, duracaoPorSlide);
-      }
-    }
-
-    // Evento para qualquer troca de slide
-    $carousel.on('afterChange', function (event, slick, currentSlide) {
-      atualizarBarra(currentSlide);
-    });
-
-    atualizarTotal();
-    atualizarBarra(0); // inicia no slide 0
-  }
-
-  $(document).ready(function () {
-    const $jogadoras = $('.jogadoras');
-
-    $jogadoras.slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 10000,
-      arrows: true, // pode ativar para testar com clique
-      dots: false,
-      infinite: true, // mesmo com loop, o script funciona
-      responsive: [
-        {
-          breakpoint: 800,
-          settings: { slidesToShow: 2, slidesToScroll: 1 }
-        },
-        {
-          breakpoint: 480,
-          settings: { slidesToShow: 1, slidesToScroll: 1 }
-        }
-      ]
-    });
-
-    iniciarBarraProgressoPorSlides($jogadoras, 2000);
-  });
-</script>
-
-
-
-
-
-
 
 
 
