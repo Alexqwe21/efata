@@ -60,21 +60,21 @@ $('.carrosel_encontro').slick({
 
 
 
-$('.lado_a_lado_patrocinador').slick({
+$('.lado_a_lado_patrocinador, .coordenadores').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
   responsive: [
     {
-      breakpoint: 800, // Menor que 800px
+      breakpoint: 800,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1
       }
     },
     {
-      breakpoint: 480, // Menor que 480px
+      breakpoint: 480,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1
@@ -82,6 +82,36 @@ $('.lado_a_lado_patrocinador').slick({
     }
   ]
 });
+
+
+
+
+
+
+
+  $(document).ready(function () {
+    const $carrosel = $('.carrosel');
+
+    $carrosel.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 10000,
+      arrows: false,
+      dots: false,
+      centerMode: false,
+      variableWidth: false
+    });
+
+    // Atualiza contador ao trocar slide
+    $carrosel.on('afterChange', function (event, slick, currentSlide) {
+      const totalSlides = slick.slideCount;
+      $('.contador-carrossel').text(`${currentSlide + 1} / ${totalSlides}`);
+    });
+  });
+
+
+	
 
 
 

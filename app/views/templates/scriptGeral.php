@@ -7,6 +7,8 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.8/countUp.umd.js"></script>
+
 
 <!-- jQuery (obrigatório) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
