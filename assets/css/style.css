@@ -3594,39 +3594,45 @@ footer {
         }
     }
 
-.fazerMatricula , .horariosTreinos{
-    .site{
-       .centro{
-        height: auto;
-        .fundo{
-            height: auto;
-           .ladoAlado{
-            flex-direction: column;
-            align-items: center;
-            .columns{
-                width: 100%;
-                p{
-                    margin-bottom: 25px;
-                }
-            }
-            .seta{
-                img{
-                    transform: rotate(90deg);
-                }
-            }
-           }
-        }
-       } 
-    }
-}
+    .fazerMatricula,
+    .horariosTreinos {
+        .site {
+            .centro {
+                height: auto;
 
-.horariosTreinos{
-    .site{
-        .columns{
-            width: 90% !important;
+                .fundo {
+                    height: auto;
+
+                    .ladoAlado {
+                        flex-direction: column;
+                        align-items: center;
+
+                        .columns {
+                            width: 100%;
+
+                            p {
+                                margin-bottom: 25px;
+                            }
+                        }
+
+                        .seta {
+                            img {
+                                transform: rotate(90deg);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-}
+
+    .horariosTreinos {
+        .site {
+            .columns {
+                width: 90% !important;
+            }
+        }
+    }
 
 
     /* AQUI TERMINA SOBRE A PAGINA SOBRE */
@@ -4084,6 +4090,205 @@ footer {
     }
 
 
+
+    /* AQUI COMEÇA A PAGINA SOBRE */
+
+    .banner_sobre {
+        & .site {
+            & .ben_vindo {
+                h3 {
+                    font-size: 60px;
+                    text-align: center;
+                    line-height: 70px;
+                }
+            }
+        }
+    }
+
+
+    .sobre_bem_vindo {
+        .site {
+            .lado_a_lado {
+                .carrossel-hover {
+                    height: 500px;
+                }
+
+                .texto_bem_vindo {
+                    .equipe {
+                        h4 {
+                            line-height: 40px;
+                        }
+                    }
+                }
+
+                .contagem {
+                    .contagem_um {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .number {
+                            margin: 20px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .bolas_de_volei {
+        .site {
+            .bolas_volei {
+                img {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+
+            .texto-centro {
+                .texto {
+                    width: 95%;
+
+                    strong {
+                        font-size: 40px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .quemSomosSobre {
+        .site {
+            .group {
+                .coluna {
+                    .atletas {
+                        h3 {
+                            text-align: center;
+                            font-size: 30px;
+                            line-height: 50px;
+                        }
+                    }
+
+                    .columns {
+                        .textoEfoto {
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+
+            .imageGrande {
+                img {
+                    width: 300px !important;
+                    margin-right: 0 !important;
+                }
+
+            }
+        }
+    }
+
+    .carroselCampeonato {
+        .site {
+            & .texto {
+                span {
+                    font-size: 40px;
+                    text-align: center;
+                    line-height: 45px;
+                }
+            }
+        }
+
+        .contador-carrossel {
+            bottom: 110px;
+            right: 20px;
+            font-size: 20px;
+        }
+
+        .carrosel {
+            img {
+                height: 150px !important;
+            }
+        }
+
+    }
+
+    .nossaEquipe {
+        & .site {
+            & .group {
+                .coluna {
+                    text-align: center;
+
+
+                    .atletas {
+                        h3 {
+                            font-size: 30px;
+                            line-height: 50px;
+                        }
+
+                    }
+
+
+                }
+
+
+                .imageGrande {
+                    margin-top: 20px !important;
+                    width: 90%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .fazerMatricula {
+        h3 {
+            margin: 0 5px;
+            font-size: 25px !important
+        }
+
+        .site {
+            .texto {
+                h2 {
+                    font-size: 40px;
+                    line-height: 50px;
+                }
+            }
+        }
+    }
+
+
+    .horariosTreinos {
+        & .site {
+            .space{
+                height: 0px !important;
+            }
+            & .centro {
+                & .fundo {
+                    & .ladoAlado {
+
+                        .columns,
+                        .coluna {
+                            width: 95% !important ;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+    /* AQUI TERMINA A PAGINA SOBRE */
+
+
+
+
     footer {
         & .site {
             & .lado_a_lado {
@@ -4101,6 +4306,8 @@ footer {
             }
         }
     }
+
+
 
 }
 

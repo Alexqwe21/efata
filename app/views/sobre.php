@@ -50,11 +50,11 @@
                         <hr>
                         <div class="sub_titulo_efata">
                             <h2>BEM-VINDO</h2>
-                            <h3>CULTURA EFATA</h3>
+                            <h3>CULTURA EFATÁ</h3>
                         </div>
 
                         <div class="equipe">
-                            <h4>Equipe Cultura efata</h4>
+                            <h4>Equipe Cultura efatá</h4>
                         </div>
 
                         <div class="ong">
