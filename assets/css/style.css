@@ -2708,7 +2708,7 @@ footer {
         .texto {
             margin-bottom: 30px;
             text-align: center;
-           padding-top: 30px;
+            padding-top: 30px;
 
             h2 {
                 font-weight: bold;
@@ -2729,6 +2729,67 @@ footer {
                 height: 420px;
                 box-shadow: 5px 5px 36px 10px rgba(0, 0, 0, 0.25);
 
+                .ladoAlado {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .columns {
+                        display: flex;
+
+                        align-items: center;
+                        flex-direction: column;
+                        margin-top: 50px;
+                        width: 50%;
+
+
+                        img {
+                            margin-bottom: 15px;
+                        }
+
+                        h3 {
+                            font-weight: bold;
+                            font-size: 30px;
+                            margin-bottom: 15px;
+                        }
+
+                        p {
+                            margin: 0 20px;
+                            width: 80%;
+                            line-height: 30px;
+                        }
+                    }
+
+                    .seta {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+
+        .link_matricula {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            a {
+                display: flex;
+                width: 300px;
+                height: 70px;
+                background-color: #007893;
+                border-radius: 10px;
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-weight: bold;
+
+                img {
+                    width: 60px;
+                    height: 50px;
+                    margin-right: 10px;
+                }
             }
         }
 
@@ -2736,9 +2797,141 @@ footer {
 }
 
 
-/* AQUI COMEÇA A PARTE  SOBRE */
+
+.horariosTreinos {
+    font-family: var(--fonte_INTER);
+    background-color: #F9F9F9;
+
+    .site {
+
+        .centro {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 450px;
+
+            .fundo {
+                width: 90%;
+                border-radius: 50px;
+                height: 420px;
+
+
+                .ladoAlado {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .coluna {
+                        width: 350px;
+                        height: 420px;
+                        border-radius: 50px;
+                        background-color: #F2A007;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        h3 {
+                            margin-top: 30px;
+                            font-weight: bolder;
+                        }
+
+                        h4 {
+                            font-size: 40px;
+                            font-weight: bolder;
+                            text-align: center;
+                        }
+
+                        span {
+                            font-size: 15px;
+                            font-weight: bold;
+                            margin-bottom: 25px;
+                        }
+                    }
+
+                    .columns {
+                        width: 30%;
+                    }
+
+                    .columns,
+                    .coluna {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        margin-top: 50px;
+                        width: 50%;
+
+
+                        img {
+                            margin-bottom: 15px;
+
+                        }
+
+                        h3 {
+                            font-weight: bolder;
+                            font-size: 32px;
+                            margin-bottom: 15px;
+                        }
+
+                        p {
+                            margin: 0 20px;
+                            width: 80%;
+                            line-height: 30px;
+                            font-weight: bolder;
+                            text-align: center;
+                        }
+                    }
+
+                    .seta {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+
+        .link_matricula {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            a {
+                display: flex;
+                width: 300px;
+                height: 70px;
+                background-color: #007893;
+                border-radius: 10px;
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-weight: bold;
+
+                img {
+                    width: 60px;
+                    height: 50px;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .space {
+            background-color: #F9F9F9;
+            height: 80px;
+        }
+
+    }
+
+}
+
+/* AQUI TERMINA A PARTE  SOBRE */
 
 @media (max-width: 1024px) {
+
+    #cursorCustom {
+        display: none !important;
+    }
+
     .slick-track {
         display: flex !important;
     }
@@ -2945,6 +3138,103 @@ footer {
         }
     }
 
+    /* AQUI COMEÇA  O RESPONSIVO SOBRE */
+
+    .banner_sobre {
+
+        & .site {
+            .ben_vindo {
+                height: 560px;
+                align-items: center;
+
+                #breadcrumb {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+
+    .sobre_bem_vindo {
+        & .site {
+            & .lado_a_lado {
+                .carrossel-hover {
+                    width: 40%;
+                    margin-left: 20px;
+                }
+
+                .texto_bem_vindo {
+                    .sub_titulo_efata {
+                        flex-direction: column;
+                        align-items: start;
+
+                        h2 {
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    .ong {
+                        h5 {
+                            line-height: 30px;
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+
+    .bolas_de_volei {
+        & .site {
+            .bolas_volei {
+                margin: 0 20px;
+            }
+        }
+    }
+
+
+
+
+    .quemSomosSobre {
+        .site {
+            .group {
+
+                .coluna {
+                    .quemSomos {
+                        h2 {
+                            text-align: center;
+                            font-size: 30px;
+                        }
+                    }
+
+                    .atletas {
+                        h3 {
+                            text-align: center;
+
+                        }
+                    }
+
+                    .columns {
+                        .textoEfoto {
+                            width: 60%;
+                        }
+                    }
+                }
+
+                .imageGrande {
+                    img {
+                        margin-right: 20px;
+                        width: 500px;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    /* AQUI TERMINA  O RESPONSIVO SOBRE */
 
     footer {
         .site {
@@ -2957,10 +3247,6 @@ footer {
             }
         }
     }
-
-
-
-
 
 }
 
@@ -3212,6 +3498,138 @@ footer {
             }
         }
     }
+
+
+    /* AQUI COMEÇA SOBRE A PAGINA SOBRE */
+
+    .sobre_bem_vindo {
+        & .site {
+            & .lado_a_lado {
+                flex-direction: column-reverse;
+                align-items: center;
+
+                .carrossel-hover {
+                    width: 90% !important;
+                    margin-left: 0;
+                }
+
+                .texto_bem_vindo {
+                    width: 90%;
+
+                    .equipe_numero {
+                        h6 {
+                            font-size: 30px;
+                            text-align: center;
+                        }
+                    }
+
+                    .contagem {
+                        .contagem_um {
+                            justify-content: space-evenly;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .quemSomosSobre {
+        .site {
+            .group {
+                flex-direction: column;
+
+                .coluna {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .columns {
+                        .textoEfoto {
+                            display: flex;
+                            align-items: center;
+                            flex-direction: column;
+                        }
+                    }
+                }
+
+                .imageGrande {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    .carroselCampeonato {
+        .carrosel {
+            div {
+                img {
+                    width: 100% !important;
+                    height: 280px;
+                }
+            }
+        }
+
+        .contador-carrossel {
+            bottom: 210px;
+            right: 38px;
+            font-size: 35px;
+        }
+
+    }
+
+
+
+    .nossaEquipe {
+        .site {
+            .group {
+                flex-direction: column;
+                align-items: center;
+
+                .coluna {
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+.fazerMatricula , .horariosTreinos{
+    .site{
+       .centro{
+        height: auto;
+        .fundo{
+            height: auto;
+           .ladoAlado{
+            flex-direction: column;
+            align-items: center;
+            .columns{
+                width: 100%;
+                p{
+                    margin-bottom: 25px;
+                }
+            }
+            .seta{
+                img{
+                    transform: rotate(90deg);
+                }
+            }
+           }
+        }
+       } 
+    }
+}
+
+.horariosTreinos{
+    .site{
+        .columns{
+            width: 90% !important;
+        }
+    }
+}
+
+
+    /* AQUI TERMINA SOBRE A PAGINA SOBRE */
 
 
     footer {

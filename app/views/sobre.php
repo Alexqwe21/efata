@@ -332,27 +332,85 @@
             </article>
         </section>
 
-      
-
-
-
-
 
         <section class="fazerMatricula">
             <article class="site">
                 <div class="texto">
                     <h2>Como fazer a Matricula ?</h2>
                 </div>
-              
+
                 <div class="centro">
                     <div class="fundo">
-
+                        <div class="ladoAlado">
+                            <div class="columns">
+                                <img src="assets/img/documento.svg" alt="Documento">
+                                <h3>Documentos</h3>
+                                <p>Para participantes maiores de 18 anos, é necessário apresentar uma cópia do RG. Além disso, solicitamos informações como CPF, endereço de e-mail e residencial.</p>
+                            </div>
+                            <div class="seta">
+                                <img src="assets/img/seta.svg" alt="seta">
+                            </div>
+                            <div class="columns">
+                                <img src="assets/img/menor.svg" alt="Documento">
+                                <h3>Menores de 18 anos</h3>
+                                <p>Para participantes menores de 18 anos, é necessário apresentar uma cópia do documento de identidade do responsável</p>
+                            </div>
+                            <div class="seta">
+                                <img src="assets/img/seta.svg" alt="seta">
+                            </div>
+                            <div class="columns">
+                                <img src="assets/img/calendario.svg" alt="Documento">
+                                <h3>Agende um horario</h3>
+                                <p>Evite filas! Agende um horário e visite a secretaria para realizar o cadastro e conhecer todas as nossas atividades e eventos.</p>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <div class="link_matricula">
+                    <a href="/matricula"><img src="assets/img/bola_de_volei.svg" alt="Bola de volei">MATRICULE-SE</a>
                 </div>
 
             </article>
 
         </section>
+
+        <section class="horariosTreinos">
+            <article class="site">
+                <div class="centro">
+                    <div class="fundo">
+                        <div class="ladoAlado">
+                            <div class="coluna">
+                                <h3>CULTURA EFATÁ</h3>
+                                <h4>Horarios de treino</h4>
+                                <span>EQUIPE CULTURA EFATÁ</span>
+                            </div>
+
+                            <div class="columns">
+                                <img src="assets/img/relogio_sobre.svg" alt="Documento">
+                                <h3>SEMANA</h3>
+                                <p>Nosso horário de atendimento é de segunda a sexta-feira, das 8h às 20h,</p>
+                            </div>
+
+                            <div class="columns">
+                                <img src="assets/img/relogio_sobre.svg" alt="Documento">
+                                <h3>SABADO</h3>
+                                <p>Estamos disponíveis para atendimento aos sábados, das 8h às 12h, e permanecemos fechados aos domingos</p>
+                            </div>
+
+                            <div class="columns">
+                                <img src="assets/img/relogio_sobre.svg" alt="Documento">
+                                <h3>FERIADO</h3>
+                                <p>Durante feriados, nosso horário de atendimento é das 08:00 às 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space">
+                </div>
+            </article>
+        </section>
+
 
     </main>
 
@@ -410,9 +468,6 @@
         });
     </script>
 
-
-
-
     <script>
         // Evita redefinir múltiplas vezes
         if (!window.cursorCustomHandlerInitialized) {
@@ -440,11 +495,6 @@
             window.cursorCustomHandlerInitialized = true;
         }
     </script>
-
-
-
-
-
 
 
     <script>
