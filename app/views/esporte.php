@@ -21,10 +21,10 @@
         </a>
 
 
-        <section class="banner_sobre">
+        <section class="banner_sobre esporte">
             <article class="site">
                 <div class="ben_vindo">
-                    <h2>SOBRE</h2>
+                    <h2>ESPORTE</h2>
                     <h3>CULTURA EFATÁ</h3>
                     <p id="breadcrumb">
                         <a href="/home">Início</a> / <span id="pagina-atual"></span>
@@ -39,27 +39,70 @@
 
         <div class="space"></div>
 
-      
+        <section class="treino">
+            <article class="site">
+                <div class="ladoAlado">
+                    <div class="foto">
+                        <img src="/assets/img/foto_treino_volei.png" alt="foto treino">
+                    </div>
+                    <div class="treinos_texto">
+                        <h2>TREINO</h2>
+                        <h3>Os treinos são o coração do nosso projeto.</h3>
+                        <p>Através de
+                            atividades técnicas, táticas e físicas, desenvolvemos habilidades
+                            individuais e o trabalho em equipe. Os encontros são planejados
+                            para diferentes níveis, sempre com foco na evolução dos
+                            atletas.</p>
+                        <div class="foto">
+                            <img src="/assets/img/time_treino.png" alt="foto volei">
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="space"></div>
+
+        <section class="jogo_esporte">
+            <article class="site">
+                <div class="ladoAlado">
+
+                    <div class="treinos_texto">
+                        <h2>JOGO</h2>
+                        <h3>Os jogos fazem parte do aprendizado prático.</h3>
+                        <p>Neles, aplicamos
+                            os conhecimentos adquiridos nos treinos, testamos estratégias e
+                            promovemos o espírito competitivo de forma saudável,
+                            respeitosa e colaborativa.</p>
+                        <div class="foto">
+                            <img src="/assets/img/foto_jogo_can.png" alt="foto volei">
+                        </div>
+                    </div>
+
+                    <div class="foto">
+                        <img src="/assets/img/foto_jogo.png" alt="foto treino">
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="space"></div>
+
+
+        <section class="lista_esporte">
+            <article class="site">
+                <div class="lado_a_ladoEsporte">
+                    <div class="foto_lista">
+                        <img src="/assets/img/amistoso.png" alt="amistoso">
+                      <div class="caixa_esporte"><span>ESPORTE</span></div>
+                    </div>
+
+                </div>
+            </article>
+        </section>
+
         <!-- Cursor grande -->
         <img src="https://culturaefata.com.br/assets/img/cursor.png" id="cursorCustom">
-
-        
-
-
-       
-
-      
-
-
-       
-
-      
-
-
-       
-
-      
-
     </main>
 
 

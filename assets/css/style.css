@@ -2037,7 +2037,8 @@ header {
 
 
 
-.banner_sobre {
+.banner_sobre,
+.banner_esporte {
     background-image: url('/assets/img/baner_sobre.png');
 
     .site {
@@ -2737,10 +2738,82 @@ header {
 /* AQUI  COMEÇA A PAGINA ESPORTE  */
 
 
+.esporte {
+    background-image: url('/assets/img/banner_esporte.png');
+}
+
+.treino,
+.jogo_esporte {
+    font-family: var(--fonte_INTER);
+
+    .site {
+        .ladoAlado {
+            display: flex;
+            justify-content: space-between;
+            gap: 100px;
+        }
+
+        .treinos_texto {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            h2 {
+                font-size: 32px;
+                font-weight: 600;
+            }
+
+            h3 {
+                font-size: 32px;
+                font-weight: bold;
+                line-height: 50px;
+                width: 80%;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 45px;
+            }
+        }
+    }
+}
 
 
+.lista_esporte {
+    font-family: var(--fonte_INTER);
+    height: 500px;
 
+    .site {
+        .lado_a_ladoEsporte {
+            display: flex;
+            justify-content: space-between;
 
+            .foto_lista {
+                position: absolute;
+
+                .caixa_esporte {
+                    width: 80px;
+                    height: 30px;
+                    background-color: #F2A007;
+                    border-radius: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    bottom: 50px;
+                    left: 20px;
+
+                    span {
+                        color: white;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 
