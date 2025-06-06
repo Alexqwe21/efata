@@ -180,3 +180,59 @@ $(document).ready(function () {
 
 
 
+$(document).ready(function () {
+  $('.carrosel_foto_evento').slick({
+    centerMode: true,
+    centerPadding: '0px',
+    slidesToShow: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 9000,
+    speed: 800,
+    cssEase: 'ease-in-out',
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1,
+          autoplay: true,
+          autoplaySpeed: 3000
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '20px',
+          slidesToShow: 1,
+          autoplay: true,
+          autoplaySpeed: 3000
+        }
+      }
+    ]
+  });
+
+  // ✅ Marcar o <strong> ativo ao trocar slide
+  $('.carrosel_foto_evento').on('afterChange', function (event, slick, currentSlide) {
+    $('.selecao_texto strong').removeClass('ativo');
+    $(`.selecao_texto strong[data-slide="${currentSlide}"]`).addClass('ativo');
+  });
+
+  // ✅ Ir para o slide ao clicar no <strong>
+  $('.selecao_texto strong').on('click', function () {
+    const index = $(this).data('slide');
+    $('.carrosel_foto_evento').slick('slickGoTo', index);
+  });
+
+  // ✅ Ativar o primeiro item ao carregar
+  $('.selecao_texto strong[data-slide="0"]').addClass('ativo');
+});
+
+
+
+
+

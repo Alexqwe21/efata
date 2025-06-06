@@ -1326,7 +1326,8 @@ header {
 }
 
 /* EFEITO DO SCROLL */
-.eventos_prox {
+.eventos_prox,
+.treino {
     .site {
         opacity: 0;
         transform: translateX(-50px);
@@ -1343,7 +1344,24 @@ header {
     }
 }
 
-.eventos_espor {
+
+
+.lista_esporte {
+    .site {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+
+.eventos_espor,
+.jogo_esporte {
     .site {
         opacity: 0;
         transform: translateX(50px);
@@ -2735,12 +2753,17 @@ header {
 
 
 
-/* AQUI  COMEÇA A PAGINA ESPORTE  */
+/* AQUI  COMEÇA A PAGINA ESPORTE E CULTURA  */
 
 
 .esporte {
     background-image: url('/assets/img/banner_esporte.png');
 }
+
+.cultura {
+    background-image: url('/assets/img/banner_cultura.png');
+}
+
 
 .treino,
 .jogo_esporte {
@@ -2782,15 +2805,23 @@ header {
 
 .lista_esporte {
     font-family: var(--fonte_INTER);
-    height: 500px;
+    height: auto;
 
     .site {
         .lado_a_ladoEsporte {
             display: flex;
             justify-content: space-between;
+            flex-flow: row wrap;
+
+            a {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                color: black;
+            }
 
             .foto_lista {
-                position: absolute;
+                width: 45%;
 
                 .caixa_esporte {
                     width: 80px;
@@ -2810,6 +2841,83 @@ header {
                         font-weight: 600;
                     }
                 }
+
+
+                .video_e_texto {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        font-size: 24px;
+                        font-weight: bold;
+                        letter-spacing: 5%;
+                    }
+
+                    div {
+                        display: flex;
+                        align-items: center;
+                        gap: 25px;
+
+                        span {
+                            font-size: 20px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+                .venha_cultura {
+                    background-color: #0597F2 !important;
+                }
+
+                .venha_jogar {
+                    width: 100%;
+                    height: 30px;
+                    background-color: #F2A007;
+                    border-radius: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 10px;
+
+                    strong {
+                        color: white;
+                        margin: 0 5px;
+                        font-weight: bold;
+                        font-size: 13px;
+
+                    }
+                }
+
+                .maps {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    margin-top: 15px;
+
+                    div {
+                        display: flex;
+                        align-items: center;
+
+                        P {
+                            font-size: 15px;
+                            font-weight: bold;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+
+
+                .descricaoTexto {
+                    margin: 20px 0;
+
+                    p {
+                        font-size: 15px;
+                        font-weight: 500;
+                        line-height: 35px;
+                    }
+                }
             }
         }
     }
@@ -2819,8 +2927,124 @@ header {
 
 
 
-/* AQUI  TERMINA A PAGINA ESPORTE  */
+/* AQUI  TERMINA A PAGINA ESPORTE E CULTURA  */
 
+
+/* AQUI COMEÇA A PAGINA EVENTOS */
+
+.banner_eventos {
+    background-image: url('/assets/img/banner_evento.png') !important;
+}
+
+.banner_eventos {
+    background-image: url('/assets/img/banner_evento.png') !important;
+    height: 500px;
+    background-size: cover;
+    width: 100%;
+}
+
+.carrosel_eventos {
+  background-color: #0597F230;
+  height: 800px;
+  font-family: var(--font_joseh);
+
+  .site {
+    .titulo {
+      padding-top: 30px;
+
+      h2 {
+        text-align: center;
+        font-size: 60px;
+        font-weight: bold;
+      }
+    }
+
+    .eventos {
+      display: flex;
+      justify-content: space-between;
+
+      .selecao_texto {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        justify-content: center;
+        height: 700px;
+
+        strong {
+          color: white;
+          font-size: 40px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: color 0.3s ease;
+
+          &.ativo {
+            color: black;
+          }
+        }
+      }
+
+      .carrosel_foto_evento {
+        width: 65%;
+
+        .slick-slide {
+          transform: scale(0.9);
+          opacity: 0.5;
+          transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .slick-center {
+          transform: scale(1);
+          opacity: 1;
+          z-index: 2;
+          border-radius: 10px;
+        }
+
+        .foto_eventos {
+          display: flex;
+          margin-top: 50px;
+          cursor: none !important;
+          width: 100%;
+          height: 700px;
+
+          .caixa {
+            width: 400px;
+            height: 270px;
+            background-color: #056CF2;
+            border-radius: 10px;
+            position: relative;
+            left: 170px;
+            top: 300px;
+
+            .icone {
+              margin: 45px 0 0 20px;
+            }
+
+            .caixa_texto {
+              margin: 20px 0 0 20px;
+              font-family: var(--fonte_INTER);
+              font-weight: 600;
+              font-size: 15px;
+              line-height: 30px;
+              width: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.venha_participar_eventos{
+    background-color: #056CF2;
+    height: 1000px;
+}
+
+
+
+
+
+
+/* AQUI COMEÇA A PAGINA EVENTOS */
 
 
 footer {
@@ -3330,6 +3554,94 @@ footer {
 
     /* AQUI TERMINA  O RESPONSIVO SOBRE */
 
+
+
+
+
+
+
+    /* AQUI COMEÇA O RESPONSIVO ESPORTE */
+
+    .treino {
+        .site {
+            .ladoAlado {
+                gap: 0;
+
+                .foto {
+                    margin: 0 20px;
+
+                }
+
+                .treinos_texto {
+                    .foto {
+                        margin: 0 !important;
+                    }
+
+                    h3 {
+                        width: 90% !important;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .jogo_esporte {
+
+        .site {
+            .ladoAlado {
+                gap: 0;
+
+                .treinos_texto {
+
+                    margin: 0 20px;
+
+                    h3 {
+                        width: 90% !important;
+                    }
+                }
+            }
+
+            .responsivodiv {
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+
+                .responsivo {
+                    width: 500px;
+                    height: 500px;
+                }
+            }
+        }
+    }
+
+
+
+    .lista_esporte {
+        .site {
+            .lado_a_ladoEsporte {
+                justify-content: space-evenly;
+
+                .venha_jogar {
+                    height: 40px !important;
+                    width: 90% !important;
+
+                    strong {
+                        text-align: center;
+                        font-size: 14px !important;
+                        line-height: 17px;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+    /* AQUI TERMINA  O  RESPONSIVO ESPORTE */
+
     footer {
         .site {
             .lado_a_lado {
@@ -3730,6 +4042,65 @@ footer {
 
 
     /* AQUI TERMINA SOBRE A PAGINA SOBRE */
+
+
+
+    /* AQUI COMEÇA  A PAGINA ESPORTE */
+
+
+    .treino,
+    .jogo_esporte {
+        .site {
+            .ladoAlado {
+                flex-direction: column;
+
+                .foto {
+                    margin: 0;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    order: 1;
+                    margin-top: 20px;
+                }
+
+                .treinos_texto {
+                    text-align: center;
+
+                    h2 {
+                        font-size: 50px;
+                        letter-spacing: 20px;
+                    }
+
+                    h3 {
+                        width: 100%;
+
+                    }
+                }
+            }
+        }
+    }
+
+
+    .lista_esporte {
+        .site {
+            .lado_a_ladoEsporte {
+                flex-direction: column;
+                align-items: center;
+
+                .foto_lista {
+                    width: 70%;
+
+                    .venha_jogar {
+                        width: 100% !important;
+                    }
+                }
+
+            }
+        }
+    }
+
+
+    /* AQUI COMEÇA  A PAGINA ESPORTE */
 
 
     footer {
@@ -4381,8 +4752,87 @@ footer {
 
     /* AQUI TERMINA A PAGINA SOBRE */
 
+    /* AQUI COMEÇA  A PAGINA ESPORTE */
+
+    .cultura {
+        background-image: url('/assets/img/banner_responsivo.png');
+    }
+
+    .responsivo {
+        height: 370px !important;
+    }
+
+    .treino,
+    .jogo_esporte {
+        .site {
+
+            .ladoAlado {
+                .foto {
+                    img {
+                        width: 90%;
+                    }
+                }
 
 
+                .treino_texto_cultura {
+                    h2 {
+                        font-size: 29px !important;
+                        letter-spacing: 3px !important;
+                    }
+                }
+
+                .treinos_texto {
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+
+                    h2 {
+                        font-size: 40px;
+                        letter-spacing: 20px;
+
+                    }
+
+                    h3 {
+                        font-size: 25px;
+                        line-height: 40px;
+                    }
+
+                    h3,
+                    p {
+                        margin: 0 10px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .lista_esporte {
+        .site {
+            .lado_a_ladoEsporte {
+                .foto_lista {
+                    width: 90%;
+
+                    .video_e_texto {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        p {
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    .maps {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+
+
+    /* AQUI TERMINA  A PAGINA ESPORTE */
 
     footer {
         & .site {

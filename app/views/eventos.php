@@ -21,10 +21,10 @@
         </a>
 
 
-        <section class="banner_sobre esporte">
+        <section class="banner_sobre banner_eventos">
             <article class="site">
                 <div class="ben_vindo">
-                    <h2>ESPORTE</h2>
+                    <h2>EVENTOS</h2>
                     <h3>CULTURA EFATÁ</h3>
                     <p id="breadcrumb">
                         <a href="/home">Início</a> / <span id="pagina-atual"></span>
@@ -37,223 +37,119 @@
             </div>
         </section>
 
-        <div class="space"></div>
-
-        <section class="treino">
+        <section class="carrosel_eventos">
             <article class="site">
-                <div class="ladoAlado">
-                    <div class="foto">
-                        <img src="/assets/img/foto_treino_volei.png" alt="foto treino">
-                    </div>
-                    <div class="treinos_texto">
-                        <h2>TREINOS</h2>
-                        <h3>Os treinos são o coração do nosso projeto.</h3>
-                        <p>Através de
-                            atividades técnicas, táticas e físicas, desenvolvemos habilidades
-                            individuais e o trabalho em equipe. Os encontros são planejados
-                            para diferentes níveis, sempre com foco na evolução dos
-                            atletas.</p>
-                        <div class="foto">
-                            <img src="/assets/img/time_treino.png" alt="foto volei">
-                        </div>
-                    </div>
+                <div class="titulo">
+                    <h2>Conheça nossos eventos</h2>
                 </div>
-            </article>
-        </section>
-
-        <div class="space"></div>
-
-        <section class="jogo_esporte">
-            <article class="site">
-                <div class="ladoAlado">
-
-                    <div class="treinos_texto">
-                        <h2>JOGOS</h2>
-                        <h3>Os jogos fazem parte do aprendizado prático.</h3>
-                        <p>Neles, aplicamos
-                            os conhecimentos adquiridos nos treinos, testamos estratégias e
-                            promovemos o espírito competitivo de forma saudável,
-                            respeitosa e colaborativa.</p>
-                        <div class="foto">
-                            <img src="/assets/img/foto_jogo_can.png" alt="foto volei">
-                        </div>
+                <div class="eventos">
+                    <div class="selecao_texto">
+                        <strong data-slide="0">ANIVERSÁRIOS</strong>
+                        <strong data-slide="1">ENCONTROS</strong>
+                        <strong data-slide="2">CAFÉ DA MANHÃ</strong>
+                        <strong data-slide="3">COMUNHÃO</strong>
+                        <strong data-slide="4">CAMPEONATOS</strong>
                     </div>
-
-                    <div class="foto responsivodiv">
-                        <img src="/assets/img/foto_jogo.png" alt="foto treino" class="responsivo">
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <div class="space"></div>
-
-
-        <section class="lista_esporte">
-            <article class="site">
-                <div class="lado_a_ladoEsporte">
-
-
-                    <div class="foto_lista">
-
-                        <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
-                        </a>
-
-                        <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
-                            <div class="video_e_texto">
-                                <p>AMISTOSO</p>
-                                <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
-                                    <span>REPRODUZIR VÍDEO</span>
+                    <div class="carrosel_foto_evento">
+                        <div class="foto_eventos">
+                            <div class="caixa">
+                                <div class="icone">
+                                    <img src="assets/img/bolo.svg" alt="">
                                 </div>
-
-                            </div>
-                        </a>
-
-                        <div class="venha_jogar">
-                            
-                            <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
-                        </div>
-
-                        <div class="maps">
-                            <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
-                                <p>CULTURA EFATÁ</p>
-                            </div>
-                        </div>
-
-                        <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="foto_lista">
-
-                        <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Treinos - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
-                        </a>
-
-                        <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=xkU1PLa7ScQ&utm_source=chatgpt.com" data-fancybox data-caption="Treinos do Amistoso">
-                            <div class="video_e_texto">
-                                <p>AMISTOSO</p>
-                                <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
-                                    <span>REPRODUZIR VÍDEO</span>
+                                <div class="caixa_texto">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
                                 </div>
-
                             </div>
-                        </a>
 
-                        <div class="venha_jogar">
-                            <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
-                        </div>
-
-                        <div class="maps">
                             <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
-                                <p>CULTURA EFATÁ</p>
+                                <img src="/assets/img/evento_foto_um.png" alt="evento">
                             </div>
+
                         </div>
 
-                        <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
-                        </div>
-
-                    </div>
-
-                     <div class="foto_lista">
-
-                        <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Treinos - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
-                        </a>
-
-                        <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=xkU1PLa7ScQ&utm_source=chatgpt.com" data-fancybox data-caption="Treinos do Amistoso">
-                            <div class="video_e_texto">
-                                <p>AMISTOSO</p>
-                                <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
-                                    <span>REPRODUZIR VÍDEO</span>
+                        <div class="foto_eventos">
+                            <div class="caixa">
+                                <div class="icone">
+                                    <img src="assets/img/bolo.svg" alt="">
                                 </div>
-
-                            </div>
-                        </a>
-
-                        <div class="venha_jogar">
-                            <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
-                        </div>
-
-                        <div class="maps">
-                            <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
-                                <p>CULTURA EFATÁ</p>
-                            </div>
-                        </div>
-
-                        <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="foto_lista">
-
-                        <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Campeonatos - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
-                        </a>
-
-                        <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=1IYsqC6xpbQ&utm_source=chatgpt.com" data-fancybox data-caption="Vídeo do campeonatos">
-                            <div class="video_e_texto">
-                                <p>AMISTOSO</p>
-                                <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
-                                    <span>REPRODUZIR VÍDEO</span>
+                                <div class="caixa_texto">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
                                 </div>
-
                             </div>
-                        </a>
 
-                        <div class="venha_jogar">
-                            <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
-                        </div>
-
-                        <div class="maps">
                             <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
-                                <p>CULTURA EFATÁ</p>
+                                <img src="/assets/img/evento_foto_dois.png" alt="evento">
                             </div>
+
                         </div>
 
-                        <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
+                        <div class="foto_eventos">
+                            <div class="caixa">
+                                <div class="icone">
+                                    <img src="assets/img/bolo.svg" alt="">
+                                </div>
+                                <div class="caixa_texto">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="/assets/img/evento_foto_dois.png" alt="evento">
+                            </div>
+
                         </div>
+
+                        <div class="foto_eventos">
+                            <div class="caixa">
+                                <div class="icone">
+                                    <img src="assets/img/bolo.svg" alt="">
+                                </div>
+                                <div class="caixa_texto">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="/assets/img/evento_foto_dois.png" alt="evento">
+                            </div>
+
+                        </div>
+
+                        <div class="foto_eventos">
+                            <div class="caixa">
+                                <div class="icone">
+                                    <img src="assets/img/bolo.svg" alt="">
+                                </div>
+                                <div class="caixa_texto">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="/assets/img/evento_foto_dois.png" alt="evento">
+                            </div>
+
+                        </div>
+
 
                     </div>
-
-
-
-
+                  
                 </div>
             </article>
         </section>
 
 
-        <div class="space"></div>
+
+
+        <section class="venha_participar_eventos">
+            <article class="site">
+
+            </article>
+        </section>
+
+
+
+       
         <!-- Cursor grande -->
         <img src="https://culturaefata.com.br/assets/img/cursor.png" id="cursorCustom">
     </main>
@@ -316,7 +212,7 @@
         // Evita redefinir múltiplas vezes
         if (!window.cursorCustomHandlerInitialized) {
             const cursor = document.getElementById('cursorCustom');
-            const areas = document.querySelectorAll('.carrossel-hover, .carrosel , .jogadoras'); // seleciona todas as áreas desejadas
+            const areas = document.querySelectorAll('.carrossel-hover, .carrosel , .jogadoras, .foto_eventos'); // seleciona todas as áreas desejadas
 
             if (cursor && areas.length > 0) {
                 document.addEventListener('mousemove', (e) => {

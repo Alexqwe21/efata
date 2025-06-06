@@ -21,10 +21,10 @@
         </a>
 
 
-        <section class="banner_sobre esporte">
+        <section class="banner_sobre cultura">
             <article class="site">
                 <div class="ben_vindo">
-                    <h2>ESPORTE</h2>
+                    <h2>TRADIÇÃO</h2>
                     <h3>CULTURA EFATÁ</h3>
                     <p id="breadcrumb">
                         <a href="/home">Início</a> / <span id="pagina-atual"></span>
@@ -43,18 +43,21 @@
             <article class="site">
                 <div class="ladoAlado">
                     <div class="foto">
-                        <img src="/assets/img/foto_treino_volei.png" alt="foto treino">
+                        <img src="/assets/img/foto_cultura_dois.png" alt="foto treino">
                     </div>
-                    <div class="treinos_texto">
-                        <h2>TREINOS</h2>
-                        <h3>Os treinos são o coração do nosso projeto.</h3>
+                    <div class="treinos_texto treino_texto_cultura">
+                        <h2>SOCIOEDUCATIVO</h2>
+                        <h3>Nosso projeto vai além das quadras.</h3>
                         <p>Através de
-                            atividades técnicas, táticas e físicas, desenvolvemos habilidades
-                            individuais e o trabalho em equipe. Os encontros são planejados
-                            para diferentes níveis, sempre com foco na evolução dos
-                            atletas.</p>
+                            Por meio de atividades
+                            socioeducativas, promovemos valores como respeito, disciplina,
+                            responsabilidade e solidariedade. Buscamos formar cidadãos
+                            conscientes, oferecendo um ambiente seguro e acolhedor para
+                            o desenvolvimento integral dos participantes.
+                            Provendo cursos para qualificação e suporte na entrega de
+                            cestas básicas.</p>
                         <div class="foto">
-                            <img src="/assets/img/time_treino.png" alt="foto volei">
+                            <img src="/assets/img/foto_cultura_quatro.png" alt="foto volei">
                         </div>
                     </div>
                 </div>
@@ -67,20 +70,20 @@
             <article class="site">
                 <div class="ladoAlado">
 
-                    <div class="treinos_texto">
-                        <h2>JOGOS</h2>
-                        <h3>Os jogos fazem parte do aprendizado prático.</h3>
-                        <p>Neles, aplicamos
-                            os conhecimentos adquiridos nos treinos, testamos estratégias e
-                            promovemos o espírito competitivo de forma saudável,
-                            respeitosa e colaborativa.</p>
+                    <div class="treinos_texto treino_texto_cultura">
+                        <h2>PALESTRAS</h2>
+                        <h3>Realizamos palestras com temas  para a juventude.</h3>
+                        <p>Abordando princípios cristãos, ética, prevenção às drogas,
+                            cidadania e fortalecimento da fé. São momentos de reflexão e
+                            crescimento, que contribuem para a transformação de vidas
+                            através da mensagem do Evangelho.</p>
                         <div class="foto">
-                            <img src="/assets/img/foto_jogo_can.png" alt="foto volei">
+                            <img src="/assets/img/foto_cultura_tres.png" alt="foto volei">
                         </div>
                     </div>
 
                     <div class="foto responsivodiv">
-                        <img src="/assets/img/foto_jogo.png" alt="foto treino" class="responsivo">
+                        <img src="/assets/img/foto_cultura_um.png" alt="foto treino" class="responsivo">
                     </div>
                 </div>
             </article>
@@ -106,21 +109,21 @@
                             <div class="video_e_texto">
                                 <p>AMISTOSO</p>
                                 <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
+                                    <img src="/assets/img/video_cultura.svg" alt="vídeo">
                                     <span>REPRODUZIR VÍDEO</span>
                                 </div>
 
                             </div>
                         </a>
 
-                        <div class="venha_jogar">
-                            
+                        <div class="venha_jogar venha_cultura">
+
                             <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
                         </div>
 
                         <div class="maps">
                             <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
+                                <img src="/assets/img/maps_cultura.svg" alt="maps">
                                 <p>CULTURA EFATÁ</p>
                             </div>
                         </div>
@@ -132,33 +135,33 @@
 
                     </div>
 
-
-                    <div class="foto_lista">
+    <div class="foto_lista">
 
                         <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Treinos - Cultura Efatá">
+                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
                             <img src="/assets/img/amistoso.png" alt="amistoso">
                         </a>
 
                         <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=xkU1PLa7ScQ&utm_source=chatgpt.com" data-fancybox data-caption="Treinos do Amistoso">
+                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
                             <div class="video_e_texto">
                                 <p>AMISTOSO</p>
                                 <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
+                                    <img src="/assets/img/video_cultura.svg" alt="vídeo">
                                     <span>REPRODUZIR VÍDEO</span>
                                 </div>
 
                             </div>
                         </a>
 
-                        <div class="venha_jogar">
+                        <div class="venha_jogar venha_cultura">
+
                             <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
                         </div>
 
                         <div class="maps">
                             <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
+                                <img src="/assets/img/maps_cultura.svg" alt="maps">
                                 <p>CULTURA EFATÁ</p>
                             </div>
                         </div>
@@ -170,32 +173,34 @@
 
                     </div>
 
-                     <div class="foto_lista">
+
+                        <div class="foto_lista">
 
                         <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Treinos - Cultura Efatá">
+                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
                             <img src="/assets/img/amistoso.png" alt="amistoso">
                         </a>
 
                         <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=xkU1PLa7ScQ&utm_source=chatgpt.com" data-fancybox data-caption="Treinos do Amistoso">
+                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
                             <div class="video_e_texto">
                                 <p>AMISTOSO</p>
                                 <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
+                                    <img src="/assets/img/video_cultura.svg" alt="vídeo">
                                     <span>REPRODUZIR VÍDEO</span>
                                 </div>
 
                             </div>
                         </a>
 
-                        <div class="venha_jogar">
+                        <div class="venha_jogar venha_cultura">
+
                             <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
                         </div>
 
                         <div class="maps">
                             <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
+                                <img src="/assets/img/maps_cultura.svg" alt="maps">
                                 <p>CULTURA EFATÁ</p>
                             </div>
                         </div>
@@ -208,32 +213,33 @@
                     </div>
 
 
-                    <div class="foto_lista">
+                        <div class="foto_lista">
 
                         <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Campeonatos - Cultura Efatá">
+                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
                             <img src="/assets/img/amistoso.png" alt="amistoso">
                         </a>
 
                         <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=1IYsqC6xpbQ&utm_source=chatgpt.com" data-fancybox data-caption="Vídeo do campeonatos">
+                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
                             <div class="video_e_texto">
                                 <p>AMISTOSO</p>
                                 <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
+                                    <img src="/assets/img/video_cultura.svg" alt="vídeo">
                                     <span>REPRODUZIR VÍDEO</span>
                                 </div>
 
                             </div>
                         </a>
 
-                        <div class="venha_jogar">
+                        <div class="venha_jogar venha_cultura">
+
                             <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
                         </div>
 
                         <div class="maps">
                             <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
+                                <img src="/assets/img/maps_cultura.svg" alt="maps">
                                 <p>CULTURA EFATÁ</p>
                             </div>
                         </div>
@@ -244,9 +250,7 @@
                         </div>
 
                     </div>
-
-
-
+           
 
                 </div>
             </article>
