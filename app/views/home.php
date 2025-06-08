@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head><?php require_once('templates/head.php');?></head>
+<head><?php require_once('templates/head.php'); ?></head>
 
 <body>
     <button id="back-to-top" title="Voltar para o Topo"><img src="assets/img/seta_para_cima.svg" alt="seta"></button>
@@ -10,7 +10,7 @@
         <div id="lottie-container" style="width: 350px; height: 350px;"></div>
     </div>
 
-    <header><?php require_once('templates/header.php');?></header>
+    <header><?php require_once('templates/header.php'); ?></header>
 
     <main>
         <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-fixo"
@@ -210,7 +210,8 @@
                             <a href="#">
                                 <img src="assets/img/encontro_ceu.png" alt="Ceu são miguel">
                                 <div>
-                                    <strong>CEU SÃO MIGUEL</strong>
+
+                                    <span>CEU SÃO MIGUEL</span>
                                 </div>
 
                             </a>
@@ -220,7 +221,8 @@
                             <a href="#">
                                 <img src="assets/img/encontro_reverendo.png" alt="Escola reverendo tercio">
                                 <div>
-                                    <strong>REVERENDO TERCIO</strong>
+
+                                    <span>REVERENDO TERCIO</span>
                                 </div>
 
                             </a>
@@ -230,7 +232,8 @@
                             <a href="#">
                                 <img src="assets/img/encontro_parigot.png" alt="Parigot">
                                 <div>
-                                    <strong>PARIGOT</strong>
+
+                                    <span>PARIGOT</span>
                                 </div>
 
                             </a>
@@ -240,7 +243,8 @@
                             <a href="#">
                                 <img src="assets/img/encontro_reverendo.png" alt="">
                                 <div>
-                                    <strong>REVERENDO TERCIO</strong>
+
+                                    <span>REVERENDO TERCIO</span>
                                 </div>
 
                             </a>
@@ -664,7 +668,7 @@
 
 
 
-<?php require_once('templates/scriptGeral.php') ?>
+    <?php require_once('templates/scriptGeral.php') ?>
 
 
     <script>
@@ -709,8 +713,6 @@
 
         window.addEventListener('DOMContentLoaded', moverElementosSeNecessario);
         window.addEventListener('resize', moverElementosSeNecessario);
-
-
     </script>
 
 
@@ -730,28 +732,28 @@
             });
         }
 
-        openModalBtn.onclick = function (e) {
+        openModalBtn.onclick = function(e) {
             e.preventDefault();
             modal.style.display = 'flex';
             showSlide(currentSlide);
         }
 
-        closeModalBtn.onclick = function () {
+        closeModalBtn.onclick = function() {
             modal.style.display = 'none';
         }
 
-        prevBtn.onclick = function () {
+        prevBtn.onclick = function() {
             currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
             showSlide(currentSlide);
         }
 
-        nextBtn.onclick = function () {
+        nextBtn.onclick = function() {
             currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
             showSlide(currentSlide);
         }
 
         // Fecha o modal se clicar fora da área do conteúdo
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             if (event.target === modal) {
                 modal.style.display = 'none';
             }
@@ -770,7 +772,7 @@
 
         let current = 0;
 
-        video.addEventListener('ended', function () {
+        video.addEventListener('ended', function() {
             current = (current + 1) % videos.length;
             source.src = videos[current];
             video.load();
@@ -790,9 +792,9 @@
     </script>
 
 
-  
+
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             const links = $('#menu a');
             const currentPath = window.location.pathname;
 
@@ -800,7 +802,7 @@
             links.removeClass('active');
 
             // Marca como ativo o link que corresponde à URL
-            links.each(function () {
+            links.each(function() {
                 const linkPath = $(this).attr('href');
 
                 if (linkPath === currentPath) {
@@ -809,7 +811,7 @@
             });
 
             // Ao clicar em qualquer link, define como ativo visualmente (em tempo real)
-            links.on('click', function () {
+            links.on('click', function() {
                 links.removeClass('active');
                 $(this).addClass('active');
             });
@@ -840,7 +842,7 @@
 
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             function checkScroll() {
                 if ($(window).scrollTop() > 200) {
                     $('#back-to-top').addClass('show');
@@ -851,16 +853,17 @@
 
             checkScroll();
 
-            $(window).scroll(function () {
+            $(window).scroll(function() {
                 checkScroll();
             });
 
-            $('#back-to-top').click(function () {
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('#back-to-top').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
                 return false;
             });
         });
-
     </script>
 
 
@@ -887,7 +890,7 @@
     </script>
 
 
-  
+
 </body>
 
 </html>

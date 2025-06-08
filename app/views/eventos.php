@@ -62,7 +62,7 @@
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_um.png" alt="evento">
+                                <img src="/assets/img/evento_foto_um.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -78,7 +78,7 @@
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_dois.png" alt="evento">
+                                <img src="/assets/img/evento_foto_dois.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -94,7 +94,7 @@
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_dois.png" alt="evento">
+                                <img src="/assets/img/evento_foto_dois.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -110,7 +110,7 @@
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_dois.png" alt="evento">
+                                <img src="/assets/img/evento_foto_dois.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -126,30 +126,210 @@
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_dois.png" alt="evento">
+                                <img src="/assets/img/evento_foto_dois.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
 
 
                     </div>
-                  
+
                 </div>
             </article>
         </section>
 
 
-
-
         <section class="venha_participar_eventos">
             <article class="site">
+                <div class="texto">
+                    <h3>EVENTOS</h3>
+                </div>
+                <div class="sub_titulo">
+                    <h4>Conheça nossos eventos do vôlei
+                    </h4>
+                    <p>Consectetur adipiscing elit, sed do eiusmod onsectetur adipiscing elit, sed do eiusm od tempor.</p>
+                </div>
+                <div class="lado_evento_container">
+
+
+                    <div class="card_lado_container">
+                        <!-- From Uiverse.io by kennyotsu -->
+                        <div class="container">
+
+
+                            <div class="container noselect">
+                                <div class="canvas">
+                                    <div class="tracker tr-1"></div>
+                                    <div class="tracker tr-2"></div>
+                                    <div class="tracker tr-3"></div>
+                                    <div class="tracker tr-4"></div>
+                                    <div class="tracker tr-5"></div>
+                                    <div class="tracker tr-6"></div>
+                                    <div class="tracker tr-7"></div>
+                                    <div class="tracker tr-8"></div>
+                                    <div class="tracker tr-9"></div>
+                                    <div class="tracker tr-10"></div>
+                                    <div class="tracker tr-11"></div>
+                                    <div class="tracker tr-12"></div>
+                                    <div class="tracker tr-13"></div>
+                                    <div class="tracker tr-14"></div>
+                                    <div class="tracker tr-15"></div>
+                                    <div class="tracker tr-16"></div>
+                                    <div class="tracker tr-17"></div>
+                                    <div class="tracker tr-18"></div>
+                                    <div class="tracker tr-19"></div>
+                                    <div class="tracker tr-20"></div>
+                                    <div class="tracker tr-21"></div>
+                                    <div class="tracker tr-22"></div>
+                                    <div class="tracker tr-23"></div>
+                                    <div class="tracker tr-24"></div>
+                                    <div class="tracker tr-25"></div>
+                                    <div id="card">
+                                        <p id="prompt">PASSAR O MOUSE :D</p>
+                                        <div class="title">Evento<br>Cultura Efatá</div>
+                                        <div class="subtitle">
+                                            Venha Participar
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card_texto">
+                            <strong>Bridget Perry</strong>
+                            <span>Bloqueador do meio</span>
+                        </div>
+                    </div>
+
+                    <div class="card_lado_container_baixo">
+                        <!-- From Uiverse.io by kennyotsu -->
+                        <div class="container">
+
+
+                            <div class="container noselect">
+                                <div class="canvas">
+                                    <div class="tracker tr-1"></div>
+                                    <div class="tracker tr-2"></div>
+                                    <div class="tracker tr-3"></div>
+                                    <div class="tracker tr-4"></div>
+                                    <div class="tracker tr-5"></div>
+                                    <div class="tracker tr-6"></div>
+                                    <div class="tracker tr-7"></div>
+                                    <div class="tracker tr-8"></div>
+                                    <div class="tracker tr-9"></div>
+                                    <div class="tracker tr-10"></div>
+                                    <div class="tracker tr-11"></div>
+                                    <div class="tracker tr-12"></div>
+                                    <div class="tracker tr-13"></div>
+                                    <div class="tracker tr-14"></div>
+                                    <div class="tracker tr-15"></div>
+                                    <div class="tracker tr-16"></div>
+                                    <div class="tracker tr-17"></div>
+                                    <div class="tracker tr-18"></div>
+                                    <div class="tracker tr-19"></div>
+                                    <div class="tracker tr-20"></div>
+                                    <div class="tracker tr-21"></div>
+                                    <div class="tracker tr-22"></div>
+                                    <div class="tracker tr-23"></div>
+                                    <div class="tracker tr-24"></div>
+                                    <div class="tracker tr-25"></div>
+                                    <div id="card">
+                                        <p id="prompt">PASSAR O MOUSE :D</p>
+                                        <div class="title">Evento<br>Cultura Efatá</div>
+                                        <div class="subtitle">
+                                            Venha Participar
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card_texto">
+                            <strong>Bridget Perry</strong>
+                            <span>Bloqueador do meio</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="space"></div>
+
+        <section class="eventos_prox auto">
+            <div class="largura_total">
+                <h2 class="texto_eventos">EVENTOS</h2>
+            </div>
+
+            <div class="space"></div>
+
+            <article class="site">
+                <div class="eventos_esporte_cultura eventosWrap">
+                    <div class="container_encontro">
+
+
+                        <div class="evento_esporte_cultura">
+                            <a href="#">
+                                <img src="assets/img/troianos.png" alt="Evento">
+                                <div>
+                                    <strong class="strong_evento">EVENTO</strong>
+                                    
+                                </div>
+
+                            </a>
+                        </div>
+
+                           <div class="evento_esporte_cultura">
+                            <a href="#">
+                                <img src="assets/img/troianos.png" alt="Evento">
+                                <div>
+                                    <strong class="strong_evento">EVENTO</strong>
+                                </div>
+
+                            </a>
+                        </div>
+
+                           <div class="evento_esporte_cultura">
+                            <a href="#">
+                                <img src="assets/img/troianos.png" alt="Evento">
+                                <div>
+                                    <strong class="strong_evento">EVENTO</strong>
+                                </div>
+
+                            </a>
+                        </div>
+
+                           <div class="evento_esporte_cultura">
+                            <a href="#">
+                                <img src="assets/img/troianos.png" alt="Evento">
+                                <div>
+                                    <strong class="strong_evento">EVENTO</strong>
+                                </div>
+
+                            </a>
+                        </div>
+
+                     
+
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="centro">
+                    <a href="/sobre" class="ver_atividades">Saiba mais</a>
+                </div>
 
             </article>
         </section>
 
+  <div class="space"></div>
 
-
-       
         <!-- Cursor grande -->
         <img src="https://culturaefata.com.br/assets/img/cursor.png" id="cursorCustom">
     </main>

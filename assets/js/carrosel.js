@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 $('.carrosel_encontro').slick({
   centerMode: true,
   centerPadding: '0px',
-  slidesToShow: 1,
+  slidesToShow: 2,
   arrows: true,
   autoplay: true,             // Ativa o autoplay
   autoplaySpeed: 3000,        // Tempo entre slides (3000ms = 3 segundos)
@@ -199,7 +199,7 @@ $(document).ready(function () {
           centerPadding: '40px',
           slidesToShow: 1,
           autoplay: true,
-          autoplaySpeed: 3000
+          autoplaySpeed: 10000
         }
       },
       {
@@ -210,7 +210,7 @@ $(document).ready(function () {
           centerPadding: '20px',
           slidesToShow: 1,
           autoplay: true,
-          autoplaySpeed: 3000
+          autoplaySpeed: 10000
         }
       }
     ]

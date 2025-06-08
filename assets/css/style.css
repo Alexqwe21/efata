@@ -556,7 +556,7 @@ footer ul li a.active::after {
 
 
 /* Container */
-#preloader {
+#preloader, .container {
     position: fixed;
     top: 0;
     left: 0;
@@ -849,6 +849,16 @@ footer ul li a.active::after {
 }
 
 /* Icone de passar os slides */
+
+
+  .strong_evento {
+        font-family: var(--fonte_INTER);
+        font-weight: bold;
+        font-size: 40px !important;
+        letter-spacing: 5px !important;
+        text-align: center !important;
+        color: white;
+    }
 
 
 header {
@@ -1450,7 +1460,7 @@ header {
                         align-items: center;
                         justify-content: center;
 
-                        strong {
+                        span {
                             font-family: var(--fonte_INTER);
                             color: white;
                             font-weight: bold;
@@ -2944,107 +2954,569 @@ header {
 }
 
 .carrosel_eventos {
-  background-color: #0597F230;
-  height: 800px;
-  font-family: var(--font_joseh);
+    background-color: #0597F230;
+    height: 800px;
+    font-family: var(--font_joseh);
 
-  .site {
-    .titulo {
-      padding-top: 30px;
+    .site {
+        .titulo {
+            padding-top: 30px;
 
-      h2 {
-        text-align: center;
-        font-size: 60px;
-        font-weight: bold;
-      }
-    }
-
-    .eventos {
-      display: flex;
-      justify-content: space-between;
-
-      .selecao_texto {
-        display: flex;
-        flex-direction: column;
-        gap: 80px;
-        justify-content: center;
-        height: 700px;
-
-        strong {
-          color: white;
-          font-size: 40px;
-          font-weight: bold;
-          cursor: pointer;
-          transition: color 0.3s ease;
-
-          &.ativo {
-            color: black;
-          }
-        }
-      }
-
-      .carrosel_foto_evento {
-        width: 65%;
-
-        .slick-slide {
-          transform: scale(0.9);
-          opacity: 0.5;
-          transition: transform 0.5s ease, opacity 0.5s ease;
+            h2 {
+                text-align: center;
+                font-size: 60px;
+                font-weight: bold;
+            }
         }
 
-        .slick-center {
-          transform: scale(1);
-          opacity: 1;
-          z-index: 2;
-          border-radius: 10px;
-        }
+        .eventos {
+            display: flex;
+            justify-content: space-between;
 
-        .foto_eventos {
-          display: flex;
-          margin-top: 50px;
-          cursor: none !important;
-          width: 100%;
-          height: 700px;
+            .selecao_texto {
+                display: flex;
+                flex-direction: column;
+                gap: 80px;
+                justify-content: center;
+                height: 700px;
 
-          .caixa {
-            width: 400px;
-            height: 270px;
-            background-color: #056CF2;
-            border-radius: 10px;
-            position: relative;
-            left: 170px;
-            top: 300px;
+                strong {
+                    color: white;
+                    font-size: 40px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: color 0.3s ease;
 
-            .icone {
-              margin: 45px 0 0 20px;
+                    &.ativo {
+                        color: black;
+                    }
+                }
             }
 
-            .caixa_texto {
-              margin: 20px 0 0 20px;
-              font-family: var(--fonte_INTER);
-              font-weight: 600;
-              font-size: 15px;
-              line-height: 30px;
-              width: 90%;
+            .carrosel_foto_evento {
+                width: 65%;
+
+                .slick-slide {
+                    transform: scale(0.9);
+                    opacity: 0.5;
+                    transition: transform 0.5s ease, opacity 0.5s ease;
+                }
+
+                .slick-center {
+                    transform: scale(1);
+                    opacity: 1;
+                    z-index: 2;
+                    border-radius: 10px;
+                }
+
+                .foto_eventos {
+                    display: flex;
+                    margin-top: 50px;
+                    cursor: none !important;
+                    width: 100%;
+                    height: 700px;
+
+                    .caixa {
+                        width: 400px;
+                        height: 270px;
+                        background-color: #056CF2;
+                        border-radius: 10px;
+                        position: relative;
+                        left: 170px;
+                        top: 300px;
+
+                        .icone {
+                            margin: 45px 0 0 20px;
+                        }
+
+                        .caixa_texto {
+                            margin: 20px 0 0 20px;
+                            font-family: var(--fonte_INTER);
+                            font-weight: bold;
+                            font-size: 15px;
+                            line-height: 30px;
+                            width: 90%;
+                            color: white;
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 }
 
-.venha_participar_eventos{
+.venha_participar_eventos {
     background-color: #056CF2;
     height: 1000px;
 }
 
+.venha_participar_eventos {
+    font-family: var(--fonte_INTER);
+
+    .site {
+
+        .texto {
+            padding-top: 70px;
+
+            h3 {
+                font-size: 25px;
+                font-weight: bold;
+                color: white;
+            }
+        }
+
+        .sub_titulo {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 28px;
+
+            h4 {
+                font-family: var(--font_joseh);
+                font-weight: bold;
+                font-size: 60px;
+                color: white;
+            }
+
+            p {
+                font-family: var(--fonte_INTER);
+                font-weight: 500;
+                font-size: 25px;
+                width: 50%;
+                color: white;
+                line-height: 40px;
+            }
+        }
+
+        .lado_evento_container {
+            display: flex;
+            justify-content: space-around;
+            height: 700px;
+            width: 100%;
+            align-items: center;
+
+            .card_lado_container,
+            .card_lado_container_baixo {
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+            }
+
+            .card_lado_container_baixo {
+                height: 700px !important;
+            }
+        }
+
+
+        .card_texto {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+
+            strong {
+                font-family: var(--fonte_INTER);
+                font-weight: bold;
+                font-size: 25px;
+                color: white;
+                margin-bottom: 20px;
+            }
+
+            span {
+                font-size: 20px;
+                font-weight: 500;
+                font-family: var(--fonte_INTER);
+                color: white;
+            }
+        }
+
+        /* css do universe io */
+
+        /* From Uiverse.io by kennyotsu */
+        /*works janky on mobile :<*/
+        .container {
+            position: relative;
+            width: 450px;
+            height: 480px;
+            transition: 200ms;
+        }
+
+        .container:active {
+            width: 180px;
+            height: 245px;
+        }
+
+        #card {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            transition: 700ms;
+            background-image: url('/assets/img/evento_pessoa.png');
+        }
+
+        .subtitle {
+            transform: translateY(160px);
+            color: rgb(255, 255, 255);
+            font-family: var(--font_joseh);
+            font-size: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .title {
+            opacity: 0;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out-out;
+            transition-delay: 100ms;
+            position: absolute;
+            font-size: x-large;
+            font-weight: bold;
+            color: white;
+        }
+
+        .tracker:hover~#card .title {
+            opacity: 1;
+        }
+
+        #prompt {
+            bottom: 8px;
+            left: 12px;
+            z-index: 20;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 300ms ease-in-out-out;
+            position: absolute;
+            max-width: 110px;
+            color: rgb(255, 255, 255);
+        }
+
+        .tracker {
+            position: absolute;
+            z-index: 200;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tracker:hover {
+            cursor: pointer;
+        }
+
+        .tracker:hover~#card #prompt {
+            opacity: 0;
+        }
+
+        .tracker:hover~#card {
+            transition: 300ms;
+            filter: brightness(1.1);
+        }
+
+        .container:hover #card::before {
+            transition: 200ms;
+            content: '';
+            opacity: 80%;
+        }
+
+        .canvas {
+            perspective: 800px;
+            inset: 0;
+            z-index: 200;
+            position: absolute;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            gap: 0px 0px;
+            grid-template-areas: "tr-1 tr-2 tr-3 tr-4 tr-5"
+                "tr-6 tr-7 tr-8 tr-9 tr-10"
+                "tr-11 tr-12 tr-13 tr-14 tr-15"
+                "tr-16 tr-17 tr-18 tr-19 tr-20"
+                "tr-21 tr-22 tr-23 tr-24 tr-25";
+        }
+
+        #card::before {
+            content: '';
+            background-image: url();
+            filter: blur(2rem);
+            opacity: 30%;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -1;
+            transition: 200ms;
+        }
+
+        .tr-1 {
+            grid-area: tr-1;
+        }
+
+        .tr-2 {
+            grid-area: tr-2;
+        }
+
+        .tr-3 {
+            grid-area: tr-3;
+        }
+
+        .tr-4 {
+            grid-area: tr-4;
+        }
+
+        .tr-5 {
+            grid-area: tr-5;
+        }
+
+        .tr-6 {
+            grid-area: tr-6;
+        }
+
+        .tr-7 {
+            grid-area: tr-7;
+        }
+
+        .tr-8 {
+            grid-area: tr-8;
+        }
+
+        .tr-9 {
+            grid-area: tr-9;
+        }
+
+        .tr-10 {
+            grid-area: tr-10;
+        }
+
+        .tr-11 {
+            grid-area: tr-11;
+        }
+
+        .tr-12 {
+            grid-area: tr-12;
+        }
+
+        .tr-13 {
+            grid-area: tr-13;
+        }
+
+        .tr-14 {
+            grid-area: tr-14;
+        }
+
+        .tr-15 {
+            grid-area: tr-15;
+        }
+
+        .tr-16 {
+            grid-area: tr-16;
+        }
+
+        .tr-17 {
+            grid-area: tr-17;
+        }
+
+        .tr-18 {
+            grid-area: tr-18;
+        }
+
+        .tr-19 {
+            grid-area: tr-19;
+        }
+
+        .tr-20 {
+            grid-area: tr-20;
+        }
+
+        .tr-21 {
+            grid-area: tr-21;
+        }
+
+        .tr-22 {
+            grid-area: tr-22;
+        }
+
+        .tr-23 {
+            grid-area: tr-23;
+        }
+
+        .tr-24 {
+            grid-area: tr-24;
+        }
+
+        .tr-25 {
+            grid-area: tr-25;
+        }
+
+        .tr-1:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg);
+        }
+
+        .tr-2:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
+        }
+
+        .tr-3:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
+        }
+
+        .tr-4:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
+        }
+
+        .tr-5:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
+        }
+
+        .tr-6:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
+        }
+
+        .tr-7:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
+        }
+
+        .tr-8:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
+        }
+
+        .tr-9:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
+        }
+
+        .tr-10:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
+        }
+
+        .tr-11:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
+        }
+
+        .tr-12:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
+        }
+
+        .tr-13:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+
+        .tr-14:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
+        }
+
+        .tr-15:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
+        }
+
+        .tr-16:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+        }
+
+        .tr-17:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
+        }
+
+        .tr-18:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
+        }
+
+        .tr-19:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
+        }
+
+        .tr-20:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
+        }
+
+        .tr-21:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
+        }
+
+        .tr-22:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
+        }
+
+        .tr-23:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+        }
+
+        .tr-24:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
+        }
+
+        .tr-25:hover~#card {
+            transition: 125ms ease-in-out;
+            transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
+        }
+
+        .noselect {
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Old versions of Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently
+									supported by Chrome, Edge, Opera and Firefox */
+        }
 
 
 
+        /* css do universe io */
+
+    }
+}
+
+.auto {
+    height: auto;
+}
+
+.eventos_prox {
+    .site {
+
+        .eventosWrap {
+            display: flex;
+            justify-content: space-around;
+            flex-flow: row wrap;
+
+            .container_encontro {
+                display: flex;
+                justify-content: space-around;
+                flex-flow: row wrap;
+            }
+        }
+
+    }
+}
 
 
-/* AQUI COMEÇA A PAGINA EVENTOS */
+/* AQUI TERMINA A PAGINA EVENTOS */
 
 
 footer {
@@ -3642,6 +4114,57 @@ footer {
 
     /* AQUI TERMINA  O  RESPONSIVO ESPORTE */
 
+
+
+    /* AQUI COMEÇA O RESPOINSIVO EVENTOS */
+
+    .carrosel_eventos {
+        cursor: none !important;
+
+        & .site {
+            & .eventos {
+                .selecao_texto {
+
+                    margin-left: 20px;
+                }
+
+                .carrosel_foto_evento {
+                    width: 63%;
+
+                    .foto_eventos {
+                        padding-right: 20px;
+                    }
+
+                    .caixa {
+                        height: 320px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .venha_participar_eventos {
+        & .site {
+            & .texto {
+                h3 {
+                    font-size: 50px;
+                    letter-spacing: 25px;
+                    text-align: center;
+                }
+            }
+
+            .sub_titulo {
+                h4 {
+
+                    width: 70%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    /* AQUI TERMINA   O RESPOSIVO EVENTOS */
+
     footer {
         .site {
             .lado_a_lado {
@@ -4103,6 +4626,78 @@ footer {
     /* AQUI COMEÇA  A PAGINA ESPORTE */
 
 
+    /* AQUI COMEÇA O RESPONSIVO EVENTO */
+
+    .carrosel_eventos {
+        height: auto;
+
+        & .site {
+            .eventos {
+                flex-direction: column;
+                align-items: center;
+
+                .selecao_texto {
+                    order: 2;
+                    margin: 0;
+                    justify-content: start;
+                    height: 550px;
+                }
+
+                .carrosel_foto_evento {
+                    width: 100%;
+
+                    .foto_eventos {
+                        padding: 0;
+
+                        .caixa {
+                            width: 280px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .venha_participar_eventos {
+        height: 1600px;
+
+        & .site {
+            .sub_titulo {
+                flex-direction: column;
+                align-items: center;
+
+                h4 {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    width: 80%;
+                }
+            }
+
+            .lado_evento_container {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+
+                .card_texto {
+                    margin: 20px 0;
+                }
+            }
+        }
+    }
+
+
+
+
+    /* AQUI TERMINA O RESPONSIVO EVENTO */
+
+
+
+
+
     footer {
         & .site {
             & .lado_a_lado {
@@ -4367,7 +4962,7 @@ footer {
                     div {
                         height: 50px !important;
 
-                        strong {
+                        span {
                             font-size: 23px !important;
                             letter-spacing: 12px;
                         }
@@ -4833,6 +5428,118 @@ footer {
 
 
     /* AQUI TERMINA  A PAGINA ESPORTE */
+
+
+
+    /*   AQUI COMEÇA O RESPONSIVO EVENTOS */
+
+
+    .carrosel_eventos {
+        .site {
+            .titulo {
+                h2 {
+                    font-size: 40px;
+                }
+
+            }
+
+            .foto_responsivo {
+                width: 100%;
+            }
+
+            .eventos {
+                .selecao_texto {
+                    padding-top: 50px;
+
+                    strong {
+                        font-size: 30px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .carrosel_foto_evento {
+                .foto_eventos {
+                    display: flex;
+                    flex-direction: column;
+
+
+                    .caixa {
+                        left: 10px !important;
+                        top: -50px !important;
+                        order: 1;
+                        width: 94% !important;
+
+                        .caixa_texto {
+                            p {
+                                margin-bottom: 20px;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+
+        }
+    }
+
+    .texto_eventos {
+        font-size: 35px !important;
+    }
+
+    .strong_evento {
+        font-family: var(--fonte_INTER);
+        font-weight: bold;
+        font-size: 40px !important;
+        letter-spacing: 5px !important;
+        text-align: center !important;
+        color: white;
+    }
+
+    .venha_participar_eventos {
+        height: 1660px;
+
+        .site {
+
+            .texto {
+                h3 {
+                    font-size: 45px;
+                    letter-spacing: 10px;
+                    text-align: center;
+                }
+
+            }
+
+            .sub_titulo {
+                margin: 30px 5px 0 5px;
+
+                h4 {
+                    font-size: 40px !important;
+                    margin: 0 5px !important;
+                }
+
+                p {
+                    width: 100% !important;
+                    margin: 20px 5px;
+                }
+            }
+
+            .lado_evento_container {
+
+                .card_lado_container,
+                .card_lado_container_baixo {
+                    .container {
+                        width: 300px !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    /*   AQUI TERMINA O RESPONSIVO EVENTOS */
 
     footer {
         & .site {
