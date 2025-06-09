@@ -556,7 +556,8 @@ footer ul li a.active::after {
 
 
 /* Container */
-#preloader, .container {
+#preloader,
+.container_erro_pricipal {
     position: fixed;
     top: 0;
     left: 0;
@@ -851,14 +852,14 @@ footer ul li a.active::after {
 /* Icone de passar os slides */
 
 
-  .strong_evento {
-        font-family: var(--fonte_INTER);
-        font-weight: bold;
-        font-size: 40px !important;
-        letter-spacing: 5px !important;
-        text-align: center !important;
-        color: white;
-    }
+.strong_evento {
+    font-family: var(--fonte_INTER);
+    font-weight: bold;
+    font-size: 40px !important;
+    letter-spacing: 5px !important;
+    text-align: center !important;
+    color: white;
+}
 
 
 header {
@@ -3519,6 +3520,88 @@ header {
 /* AQUI TERMINA A PAGINA EVENTOS */
 
 
+
+
+/* AQUI COMEÇA A PAGINA DE ERRO 404  */
+
+.erro {
+    .site {
+        .container_erro_pricipal {
+            font-family: var(--fonte_INTER);
+
+            .container_erro {
+                .bola_erro {
+                    display: flex;
+                    gap: 40px;
+
+                    .numero_4 {
+                        display: flex;
+                        align-items: center;
+
+                        span {
+                            font-size: 220px;
+                            font-weight: bold;
+                            color: #000000;
+                        }
+                    }
+
+                    .img_bola {
+                        img {
+                            width: 230px;
+                            height: 230px;
+                        }
+                    }
+                }
+
+                .texto_erro {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 50px;
+                    flex-direction: column;
+                    align-items: center;
+
+                    strong {
+                        font-size: 50px;
+                        font-weight: bold;
+                    }
+
+                    p {
+                        font-size: 25px;
+                        font-weight: bold;
+                        margin-top: 50px;
+                    }
+                }
+
+                .voltar_home {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 50px;
+
+                    .pagina_inicial {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 200px;
+                        height: 70px;
+                        background-color: #F2A007;
+                        border-radius: 10px;
+                        color: black;
+                        font-weight: bold;
+                        font-size: 20px;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+
+
+/* AQUI TERMINA A PAGINA DE ERRO 404  */
+
 footer {
     height: auto;
     background-color: #F7F9F8;
@@ -5540,6 +5623,64 @@ footer {
 
 
     /*   AQUI TERMINA O RESPONSIVO EVENTOS */
+
+
+
+    /* AQUI COMEÇA O RESPONSIVO ERRO */
+
+    .erro {
+        .site {
+            .container_erro_pricipal {
+                font-family: var(--fonte_INTER);
+
+                .container_erro {
+                    .bola_erro {
+                      margin: 0 10px;
+
+                        .numero_4 {
+                            display: flex;
+                            align-items: center;
+
+                            span {
+                                font-size: 100px;
+                                font-weight: bold;
+                                color: #000000;
+                            }
+                        }
+
+                        .img_bola {
+                            display: flex;
+                            align-self: center;
+                            img {
+                                width: 100px;
+                                height: 100px;
+                            }
+                        }
+                    }
+
+                    .texto_erro {
+                      
+
+                        strong {
+                            font-size: 25px;
+                          
+                        }
+
+                        p {
+                            font-size: 15px;
+                         
+                        }
+                    }
+
+                   
+
+                }
+            }
+        }
+
+    }
+
+    /* AQUI TERMINA O RESPONSIVO ERRO */
 
     footer {
         & .site {

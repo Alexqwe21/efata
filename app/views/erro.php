@@ -6,28 +6,48 @@
 <body>
     <button id="back-to-top" title="Voltar para o Topo"><img src="assets/img/seta_para_cima.svg" alt="seta"></button>
 
-    <div class="preloader" id="preloader">
-        <div id="lottie-container" style="width: 350px; height: 350px;"></div>
-    </div>
+   
 
-  
+
 
     <main>
 
-<section class="erro">
-<article class="site">
-<div class="container">
+        <section class="erro">
+            <article class="site">
+                <div class="container_erro_pricipal">
+                    <div class="container_erro">
+                        <div class="bola_erro">
+                            <div class="numero_4">
+                                <span>4</span>
+                            </div>
+                            <div class="img_bola">
+                                <img src="/assets/img/bola_erro.png" alt="Bola de volei">
+                            </div>
+                            <div class="numero_4">
+                                <span>4</span>
+                            </div>
+                        </div>
 
-</div>
-</article>
-</section>
+                        <div class="texto_erro">
+                            <strong>Página Não Encontrada</strong>
+                            <p>Desculpe, algo deu errado.</p>
+                        </div>
+                        <div class="voltar_home">
+                            <a href="/home" class="pagina_inicial">Página Principal</a>
+                        </div>
 
-   
+                    </div>
+
+                </div>
+            </article>
+        </section>
+
+
     </main>
 
 
 
-  
+
 
 
 
@@ -35,27 +55,7 @@
 
     <?php require_once('templates/scriptGeral.php') ?>
 
-    <script>
-        // Inicia o preload com animação Lottie
-        const animation = lottie.loadAnimation({
-            container: document.getElementById('lottie-container'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'assets/preloads/preloads.json' // Caminho do seu JSON
-        });
-
-        // Esconde o preload após o carregamento
-        window.addEventListener('load', () => {
-            const preload = document.getElementById('preloader');
-            setTimeout(() => {
-                preload.style.opacity = '0';
-                setTimeout(() => {
-                    preload.style.display = 'none';
-                }, 600);
-            }, 2200);
-        });
-    </script>
+   
 
 
 
