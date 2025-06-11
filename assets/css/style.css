@@ -861,6 +861,16 @@ footer ul li a.active::after {
     color: white;
 }
 
+.erro-login {
+    background-color: #ffdddd;
+    color: #c0392b;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
 
 header {
     position: relative;
@@ -899,7 +909,6 @@ header {
                 .como_funciona,
                 .como_funciona_ {
                     display: flex;
-                    justify-content: space-between;
                     width: 45%;
 
                     .horarios,
@@ -927,7 +936,28 @@ header {
                                 color: var(--cor_SPAN_topo);
                             }
                         }
+
+
                     }
+
+                    .horarios {
+                        a {
+                            .fa-circle-user {
+                                font-size: 55px;
+                                color: #0597F2;
+                                transition: all 0.4s ease;
+                                transform: translateY(0);
+                                filter: drop-shadow(0 0 0 transparent);
+
+                                &:hover {
+                                    color: black;
+                                    transform: translateY(-6px);
+                                    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
+                                }
+                            }
+                        }
+                    }
+
                 }
             }
 
@@ -2775,6 +2805,10 @@ header {
     background-image: url('/assets/img/banner_cultura.png');
 }
 
+.banner_login {
+    background-image: url('/assets/img/banner_login.png');
+}
+
 
 .treino,
 .jogo_esporte {
@@ -3546,9 +3580,16 @@ header {
                     }
 
                     .img_bola {
+                        display: flex;
+                        justify-content: center;
+
                         img {
                             width: 230px;
                             height: 230px;
+                            opacity: 0;
+                            transform: translateY(-100px) rotate(-90deg);
+                            animation: cairGirando 1s ease-out forwards;
+
                         }
                     }
                 }
@@ -3601,6 +3642,185 @@ header {
 
 
 /* AQUI TERMINA A PAGINA DE ERRO 404  */
+
+
+/* AQUI COMEÇA A PAGINA LOGIN */
+
+.login {
+    .site {
+        font-family: var(--font_joseh) !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .campo-senha {
+            position: relative;
+            width: 100%;
+        }
+
+        .campo-senha .input {
+            width: 100%;
+            padding-right: 40px;
+            /* espaço para o olho */
+        }
+
+        .toggle-senha {
+            position: absolute;
+            top: 65%;
+            right: 12px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #000000;
+            font-size: 20px;
+        }
+
+
+        /* From Uiverse.io by Smit-Prajapati */
+        .container {
+            max-width: 772px;
+            background: #F8F9FD;
+            background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+            border-radius: 40px;
+            padding: 40px 80px;
+            border: 5px solid rgb(255, 255, 255);
+            box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+            margin: 20px;
+        }
+
+        .heading {
+            text-align: center;
+            font-weight: 900;
+            font-size: 30px;
+            color: rgb(16, 137, 211);
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        .form .input {
+            width: 100%;
+            background: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            box-shadow: #cff0ff 0px 10px 10px -5px;
+            border-inline: 2px solid transparent;
+        }
+
+        .form .input::-moz-placeholder {
+            color: rgb(170, 170, 170);
+        }
+
+        .form .input::placeholder {
+            color: rgb(170, 170, 170);
+        }
+
+        .form .input:focus {
+            outline: none;
+            border-inline: 2px solid #12B1D1;
+        }
+
+        .form .forgot-password {
+            display: block;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .form .forgot-password a {
+            font-size: 11px;
+            color: #0099ff;
+            text-decoration: none;
+        }
+
+        .form .login-button {
+            display: block;
+            width: 100%;
+            font-weight: bold;
+            background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+            color: white;
+            padding-block: 15px;
+            margin: 20px auto;
+            border-radius: 20px;
+            box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+            border: none;
+            transition: all 0.2s ease-in-out;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .form .login-button:hover {
+            transform: scale(1.03);
+            box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+        }
+
+        .form .login-button:active {
+            transform: scale(0.95);
+            box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+        }
+
+        .social-account-container {
+            margin-top: 25px;
+        }
+
+        .social-account-container .title {
+            display: block;
+            text-align: center;
+            font-size: 10px;
+            color: rgb(170, 170, 170);
+        }
+
+        .social-account-container .social-accounts {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .social-account-container .social-accounts .social-button {
+            background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
+            border: 5px solid white;
+            padding: 5px;
+            border-radius: 50%;
+            width: 40px;
+            aspect-ratio: 1;
+            display: grid;
+            place-content: center;
+            box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .social-account-container .social-accounts .social-button .svg {
+            fill: white;
+            margin: auto;
+        }
+
+        .social-account-container .social-accounts .social-button:hover {
+            transform: scale(1.2);
+        }
+
+        .social-account-container .social-accounts .social-button:active {
+            transform: scale(0.9);
+        }
+
+        .agreement {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .agreement a {
+            text-decoration: none;
+            color: #0099ff;
+            font-size: 9px;
+        }
+    }
+}
+
+/* AQUI TERMINA A PAGINA LOGIN */
 
 footer {
     height: auto;
@@ -4297,13 +4517,13 @@ footer {
             .site {
                 .lado_a_lado {
                     .como_funciona {
-                        flex-direction: column;
+
                         align-items: start;
                         width: 30%;
 
                         .telefone {
                             display: flex;
-                            margin: 40px 0 0 0;
+                            margin: 0px 0 0 0;
                             flex-direction: column;
                         }
                     }
@@ -4808,6 +5028,16 @@ footer {
     html,
     body {
         overflow-x: hidden;
+    }
+
+    .horarios {
+        .relogio {
+            a {
+                .fa-circle-user {
+                    font-size: 50px;
+                }
+            }
+        }
     }
 
     #back-to-top {
@@ -5635,7 +5865,7 @@ footer {
 
                 .container_erro {
                     .bola_erro {
-                      margin: 0 10px;
+                        margin: 0 10px;
 
                         .numero_4 {
                             display: flex;
@@ -5651,6 +5881,7 @@ footer {
                         .img_bola {
                             display: flex;
                             align-self: center;
+
                             img {
                                 width: 100px;
                                 height: 100px;
@@ -5659,20 +5890,20 @@ footer {
                     }
 
                     .texto_erro {
-                      
+
 
                         strong {
                             font-size: 25px;
-                          
+
                         }
 
                         p {
                             font-size: 15px;
-                         
+
                         }
                     }
 
-                   
+
 
                 }
             }
@@ -5681,6 +5912,35 @@ footer {
     }
 
     /* AQUI TERMINA O RESPONSIVO ERRO */
+
+
+    /* AQUI COMEÇA O RESPONSIVO LOGIN */
+
+
+    .banner_login {
+        .site {
+            .ben_vindo {
+                h2 {
+                    font-size: 35px;
+                    text-align: center;
+                    line-height: 40px;
+                }
+            }
+
+
+        }
+    }
+
+    .login {
+        .site {
+            .container {
+                padding: 40px 10px;
+            }
+        }
+    }
+
+
+    /* AQUI TERMINA O RESPONSIVO LOGIN */
 
     footer {
         & .site {
@@ -5723,5 +5983,18 @@ footer {
 
     100% {
         transform: translateX(-50%);
+    }
+}
+
+
+@keyframes cairGirando {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(-90deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
     }
 }

@@ -161,4 +161,42 @@ class Matricula extends Model
             throw $e;
         }
     }
+
+
+public function matricula_volei($status = null, $busca = null)
+{
+    $sql = "SELECT * FROM matriculas m 
+            INNER JOIN questionario_saude q ON m.matricula_id = q.matricula_id 
+            WHERE 1=1";
+
+    $params = [];
+
+    if (!empty($status)) {
+        $sql .= " AND m.status_matricula = :status";
+        $params[':status'] = $status;
+    }
+
+    if (!empty($busca)) {
+        $sql .= " AND (m.matricula_id = :id_busca OR m.matricula_nome LIKE :nome_busca)";
+        if (is_numeric($busca)) {
+            $params[':id_busca'] = $busca;
+        } else {
+            $params[':id_busca'] = 0; // evita erro
+        }
+        $params[':nome_busca'] = "%$busca%";
+    }
+
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute($params);
+
+    $matriculas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($matriculas as &$matricula) {
+        $matricula['matricula_data_cadastro'] = date('d/m/Y H:i:s', strtotime($matricula['matricula_data_cadastro']));
+    }
+
+    return $matriculas;
+}
+
+
 }

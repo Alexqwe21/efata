@@ -107,7 +107,7 @@
                         <input class="input" type="text" name="menor_rg" id="menor_rg" placeholder="RG do Menor">
 
                         <div class="space_formulario">
-                            <label class="input-label">Nascimento do Menor (DD/MM/AAAA)</label>
+                            <label class="input-label">Data nascimento Responsável (DD/MM/AAAA)</label>
                         </div>
                         <input class="input" type="text" name="menor_nascimento" id="menor_nascimento"
                             placeholder="Ex: 25/12/2010" maxlength="10">
@@ -231,6 +231,7 @@
                             avaliação médica antes do início das atividades.</p>
 
                         <button class="login-button" type="submit">Enviar Matrícula</button>
+                        <a href="/home" class="login-button" style="display: flex; justify-content: center; text-decoration: none;">VOLTAR</a>
                     </form>
                     <!-- Modal de mensagem -->
 

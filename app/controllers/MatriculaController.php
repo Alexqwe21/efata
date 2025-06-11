@@ -4,10 +4,16 @@ class MatriculaController extends Controller
 {
 
 
+
+
     private $matriculaModel;
 
     public function __construct()
     {
+        // Inicializa a sessão se ainda não estiver iniciada
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
 
         $this->matriculaModel = new Matricula;
@@ -375,4 +381,24 @@ class MatriculaController extends Controller
             }
         }
     }
+
+   public function matriculas()
+
+{
+    if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
+        header('Location: ' . BASE_URL);
+        exit;
+    }
+
+    $status = $_GET['status'] ?? null;
+    $busca = $_GET['busca'] ?? null;
+
+    $dados = [];
+    $dados['listarMatriculas'] = $this->matriculaModel->matricula_volei($status, $busca);
+    $dados['conteudo'] = 'dash/matriculas/listar';
+
+    $this->carregarViews('dash/dashboard', $dados);
+
+}
+
 }

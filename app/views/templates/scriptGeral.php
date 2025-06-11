@@ -18,3 +18,4 @@
 <script type="text/javascript" src="assets/js/slick/slick.min.js"></script>
 <script type="text/javascript" src="assets/js/carrosel.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<script src="https://kit.fontawesome.com/a327b26a99.js" crossorigin="anonymous"></script>
