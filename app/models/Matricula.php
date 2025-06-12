@@ -163,7 +163,7 @@ class Matricula extends Model
     }
 
 
-public function matricula_volei($status = null, $busca = null)
+  public function matricula_volei($status = null, $nome = null, $cpf = null, $rg = null, $telefone = null, $email = null)
 {
     $sql = "SELECT * FROM matriculas m 
             INNER JOIN questionario_saude q ON m.matricula_id = q.matricula_id 
@@ -176,14 +176,29 @@ public function matricula_volei($status = null, $busca = null)
         $params[':status'] = $status;
     }
 
-    if (!empty($busca)) {
-        $sql .= " AND (m.matricula_id = :id_busca OR m.matricula_nome LIKE :nome_busca)";
-        if (is_numeric($busca)) {
-            $params[':id_busca'] = $busca;
-        } else {
-            $params[':id_busca'] = 0; // evita erro
-        }
-        $params[':nome_busca'] = "%$busca%";
+    if (!empty($nome)) {
+        $sql .= " AND m.matricula_nome LIKE :nome";
+        $params[':nome'] = '%' . $nome . '%';
+    }
+
+    if (!empty($cpf)) {
+        $sql .= " AND m.matricula_cpf LIKE :cpf";
+        $params[':cpf'] = '%' . $cpf . '%';
+    }
+
+    if (!empty($rg)) {
+        $sql .= " AND m.matricula_rg LIKE :rg";
+        $params[':rg'] = '%' . $rg . '%';
+    }
+
+    if (!empty($telefone)) {
+        $sql .= " AND m.matricula_telefone LIKE :telefone";
+        $params[':telefone'] = '%' . $telefone . '%';
+    }
+
+    if (!empty($email)) {
+        $sql .= " AND m.matricula_email LIKE :email";
+        $params[':email'] = '%' . $email . '%';
     }
 
     $stmt = $this->db->prepare($sql);
@@ -199,4 +214,72 @@ public function matricula_volei($status = null, $busca = null)
 }
 
 
+
+
+    public function atualizarMatriculaCompleta($id, $dadosMatricula, $dadosQuestionario)
+    {
+        $this->db->beginTransaction();
+
+        try {
+            // Atualiza dados da matrícula
+            $sqlMatricula = "UPDATE matriculas SET 
+            matricula_nome = :nome,
+            matricula_email = :email,
+            matricula_cep = :cep,
+            matricula_endereco = :endereco,
+            matricula_bairro = :bairro,
+            matricula_cidade = :cidade,
+            matricula_estado = :estado,
+            matricula_pais = :pais,
+            matricula_telefone = :telefone,
+            matricula_telefone_emergencia = :telefone_emergencia,
+            matricula_cpf = :cpf,
+            matricula_rg = :rg,
+            matricula_data_nascimento = :data_nasc,
+            matricula_problemas_saude = :problemas,
+            matricula_responsavel_nome = :resp_nome,
+            matricula_responsavel_rg = :resp_rg,
+            matricula_responsavel_cpf = :resp_cpf,
+            matricula_responsavel_qualidade = :resp_qualidade,
+            matricula_menor_nome = :menor_nome,
+            matricula_menor_rg = :menor_rg,
+            matricula_menor_nascimento = :menor_nasc,
+            matricula_atividade = :atividade,
+            status_matricula = :status
+        WHERE matricula_id = :id";
+
+            $stmt = $this->db->prepare($sqlMatricula);
+            $stmt->execute(array_merge($dadosMatricula, ['id' => $id]));
+
+            // Atualiza questionário
+            $sqlQuestionario = "UPDATE questionario_saude SET
+            questionario_saude_problemas = :problemas,
+            questionario_saude_outros = :outros,
+            questionario_medicamentos = :medicamentos,
+            questionario_medicamentos_quais = :medicamentos_quais,
+            questionario_lesao = :lesao,
+            questionario_lesao_qual = :lesao_qual,
+            questionario_acompanhamento = :acompanhamento,
+            questionario_acompanhamento_especialidade = :especialidade,
+            questionario_alergias = :alergias,
+            questionario_alergias_quais = :alergias_quais,
+            questionario_atividade_fisica = :atividade_fisica,
+            questionario_atividade_fisica_quais = :atividade_fisica_quais,
+            questionario_sono = :sono,
+            questionario_alimentacao = :alimentacao,
+            questionario_apto = :apto,
+            questionario_avaliacao_medica = :avaliacao_medica,
+            questionario_avaliacao_medica_quem = :avaliacao_medica_quem
+        WHERE matricula_id = :id";
+
+            $stmt2 = $this->db->prepare($sqlQuestionario);
+            $stmt2->execute(array_merge($dadosQuestionario, ['id' => $id]));
+
+            $this->db->commit();
+            return true;
+        } catch (PDOException $e) {
+            $this->db->rollBack();
+            return false;
+        }
+    }
 }

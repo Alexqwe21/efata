@@ -382,23 +382,126 @@ class MatriculaController extends Controller
         }
     }
 
-   public function matriculas()
+    public function matriculas()
+    {
+        if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
+            header('Location: ' . BASE_URL);
+            exit;
+        }
 
-{
-    if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
-        header('Location: ' . BASE_URL);
-        exit;
+        // Captura os filtros individualmente
+        $status = $_GET['status'] ?? null;
+        $nome = $_GET['nome'] ?? null;
+        $cpf = $_GET['cpf'] ?? null;
+        $rg = $_GET['rg'] ?? null;
+        $telefone = $_GET['telefone'] ?? null;
+        $email = $_GET['email'] ?? null;
+
+        $dados = [];
+        $dados['listarMatriculas'] = $this->matriculaModel->matricula_volei($status, $nome, $cpf, $rg, $telefone, $email);
+        $dados['conteudo'] = 'dash/matriculas/listar';
+
+        $this->carregarViews('dash/dashboard', $dados);
     }
 
-    $status = $_GET['status'] ?? null;
-    $busca = $_GET['busca'] ?? null;
 
-    $dados = [];
-    $dados['listarMatriculas'] = $this->matriculaModel->matricula_volei($status, $busca);
-    $dados['conteudo'] = 'dash/matriculas/listar';
+    public function atualizar($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $this->carregarViews('dash/dashboard', $dados);
+            // Campos da tabela matriculas
+            $dadosMatricula = [
+                'nome' => $_POST['matricula_nome'] ?? '',
+                'email' => $_POST['matricula_email'] ?? '',
+                'cep' => $_POST['matricula_cep'] ?? '',
+                'endereco' => $_POST['matricula_endereco'] ?? '',
+                'bairro' => $_POST['matricula_bairro'] ?? '',
+                'cidade' => $_POST['matricula_cidade'] ?? '',
+                'estado' => $_POST['matricula_estado'] ?? '',
+                'pais' => $_POST['matricula_pais'] ?? '',
+                'telefone' => $_POST['matricula_telefone'] ?? '',
+                'telefone_emergencia' => $_POST['matricula_telefone_emergencia'] ?? '',
+                'cpf' => $_POST['matricula_cpf'] ?? '',
+                'rg' => $_POST['matricula_rg'] ?? '',
+                'data_nasc' => $_POST['matricula_data_nascimento'] ?? '',
+                'problemas' => $_POST['matricula_problemas_saude'] ?? '',
+                'resp_nome' => $_POST['matricula_responsavel_nome'] ?? '',
+                'resp_rg' => $_POST['matricula_responsavel_rg'] ?? '',
+                'resp_cpf' => $_POST['matricula_responsavel_cpf'] ?? '',
+                'resp_qualidade' => $_POST['matricula_responsavel_qualidade'] ?? '',
+                'menor_nome' => $_POST['matricula_menor_nome'] ?? '',
+                'menor_rg' => $_POST['matricula_menor_rg'] ?? '',
+                'menor_nasc' => $_POST['matricula_menor_nascimento'] ?? '',
+                'atividade' => $_POST['matricula_atividade'] ?? '',
+                'status' => $_POST['status_matricula'] ?? 'Ativo'
+            ];
 
-}
+            // Campos da tabela questionario_saude
+            $dadosQuestionario = [
+                'problemas' => $_POST['questionario_saude_problemas'] ?? '',
+                'outros' => $_POST['questionario_saude_outros'] ?? '',
+                'medicamentos' => $_POST['questionario_medicamentos'] ?? '',
+                'medicamentos_quais' => $_POST['questionario_medicamentos_quais'] ?? '',
+                'lesao' => $_POST['questionario_lesao'] ?? '',
+                'lesao_qual' => $_POST['questionario_lesao_qual'] ?? '',
+                'acompanhamento' => $_POST['questionario_acompanhamento'] ?? '',
+                'especialidade' => $_POST['questionario_acompanhamento_especialidade'] ?? '',
+                'alergias' => $_POST['questionario_alergias'] ?? '',
+                'alergias_quais' => $_POST['questionario_alergias_quais'] ?? '',
+                'atividade_fisica' => $_POST['questionario_atividade_fisica'] ?? '',
+                'atividade_fisica_quais' => $_POST['questionario_atividade_fisica_quais'] ?? '',
+                'sono' => $_POST['questionario_sono'] ?? '',
+                'alimentacao' => $_POST['questionario_alimentacao'] ?? '',
+                'apto' => $_POST['questionario_apto'] ?? '',
+                'avaliacao_medica' => $_POST['questionario_avaliacao_medica'] ?? '',
+                'avaliacao_medica_quem' => $_POST['questionario_avaliacao_medica_quem'] ?? ''
+            ];
 
+
+
+            $this->matriculaModel->atualizarMatriculaCompleta($id, $dadosMatricula, $dadosQuestionario);
+
+            $_SESSION['sucesso'] = 'Matrícula e questionário atualizados com sucesso!';
+            header('Location: ' . BASE_URL . 'matricula/matriculas');
+            exit;
+        }
+    }
+
+    public function exportarPDF()
+    {
+        if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
+            header('Location: ' . BASE_URL);
+            exit;
+        }
+
+       require_once __DIR__ . '/../../vendor/autoload.php';
+
+
+
+        $status = $_GET['status'] ?? null;
+        $nome = $_GET['nome'] ?? null;
+        $cpf = $_GET['cpf'] ?? null;
+        $rg = $_GET['rg'] ?? null;
+        $telefone = $_GET['telefone'] ?? null;
+        $email = $_GET['email'] ?? null;
+
+        $dados = $this->matriculaModel->matricula_volei($status, $nome, $cpf, $rg, $telefone, $email);
+
+        ob_start();
+       include __DIR__ . '/../views/pdf/relatorio_matriculas.php';
+
+        $html = ob_get_clean();
+
+        $options = new \Dompdf\Options();
+        $options->set('defaultFont', 'Arial');
+        $options->set('isRemoteEnabled', true);
+
+        $dompdf = new \Dompdf\Dompdf($options);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        $dompdf->stream('relatorio_matriculas.pdf', ['Attachment' => false]);
+        exit;
+    }
 }
