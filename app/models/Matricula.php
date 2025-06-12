@@ -282,4 +282,32 @@ class Matricula extends Model
             return false;
         }
     }
+
+
+    public function buscarFiltrados($filtro = '', $status = '')
+{
+    $sql = "SELECT * FROM matriculas WHERE 1";
+
+    if (!empty($filtro)) {
+        $sql .= " AND nome LIKE :filtro";
+    }
+
+    if (!empty($status)) {
+        $sql .= " AND status = :status";
+    }
+
+    $stmt = $this->db->prepare($sql);
+
+    if (!empty($filtro)) {
+        $stmt->bindValue(':filtro', "%{$filtro}%");
+    }
+
+    if (!empty($status)) {
+        $stmt->bindValue(':status', $status);
+    }
+
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }

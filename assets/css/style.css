@@ -871,6 +871,32 @@ footer ul li a.active::after {
 }
 
 
+/* ESTILO PARA EXPORTAR NO ADMIN */
+.btn-admin-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #198754;
+    /* Verde Bootstrap */
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-admin-export:hover {
+    background-color: #157347;
+    text-decoration: none;
+}
+
+.btn-admin-export i {
+    font-size: 18px;
+}
+
+
+/* ESTILO PARA O ADMIN */
 
 header {
     position: relative;

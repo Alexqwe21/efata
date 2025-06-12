@@ -1,5 +1,12 @@
 <?php
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Style\Border;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+
+
 class MatriculaController extends Controller
 {
 
@@ -474,7 +481,7 @@ class MatriculaController extends Controller
             exit;
         }
 
-       require_once __DIR__ . '/../../vendor/autoload.php';
+        require_once __DIR__ . '/../../vendor/autoload.php';
 
 
 
@@ -488,7 +495,7 @@ class MatriculaController extends Controller
         $dados = $this->matriculaModel->matricula_volei($status, $nome, $cpf, $rg, $telefone, $email);
 
         ob_start();
-       include __DIR__ . '/../views/pdf/relatorio_matriculas.php';
+        include __DIR__ . '/../views/pdf/relatorio_matriculas.php';
 
         $html = ob_get_clean();
 
@@ -502,6 +509,124 @@ class MatriculaController extends Controller
         $dompdf->render();
 
         $dompdf->stream('relatorio_matriculas.pdf', ['Attachment' => false]);
+        exit;
+    }
+
+   public function exportarExcel()
+    {
+        // Verifica se o usuário está logado e é funcionário
+        if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
+            header('Location: /');
+            exit;
+        }
+
+        require_once __DIR__ . '/../../vendor/autoload.php';
+
+        // Recebe filtros
+        $filtro = $_GET['filtro'] ?? '';
+        $status = $_GET['status'] ?? '';
+
+        // Busca os dados filtrados
+        $matriculaModel = new Matricula();
+        $matriculas = $matriculaModel->buscarFiltrados($filtro, $status);
+
+        // Cria a planilha
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setTitle('Relatório de Matrículas');
+
+        // Define os cabeçalhos
+        $cabecalhos = [
+            'ID',
+            'Nome',
+            'CEP',
+            'Endereço',
+            'Bairro',
+            'Cidade',
+            'Estado',
+            'País',
+            'Telefone',
+            'Telefone Emergência',
+            'CPF',
+            'RG',
+            'Data Nascimento',
+            'Email',
+            'Problemas de Saúde',
+            'Responsável Nome',
+            'Responsável RG',
+            'Responsável CPF',
+            'Qualidade do Responsável',
+            'Nome do Menor',
+            'RG do Menor',
+            'Nascimento do Menor',
+            'Atividade',
+            'Data de Cadastro',
+            'Status'
+        ];
+
+        // Estilo do cabeçalho
+        $headerStyle = [
+            'font' => ['bold' => true, 'color' => ['rgb' => 'FFFFFF']],
+            'fill' => ['fillType' => Fill::FILL_SOLID, 'startColor' => ['rgb' => '1E88E5']],
+            'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER],
+            'borders' => ['allBorders' => ['borderStyle' => Border::BORDER_THIN]]
+        ];
+
+        // Preenche os cabeçalhos na primeira linha
+        $coluna = 'A';
+        foreach ($cabecalhos as $cabecalho) {
+            $sheet->setCellValue("{$coluna}1", $cabecalho);
+            $sheet->getStyle("{$coluna}1")->applyFromArray($headerStyle);
+            $sheet->getColumnDimension($coluna)->setAutoSize(true);
+            $coluna++;
+        }
+
+        // Preenche os dados a partir da segunda linha
+        $linha = 2;
+        foreach ($matriculas as $matricula) {
+            $sheet->fromArray([
+                $matricula['matricula_id'],
+                $matricula['matricula_nome'],
+                $matricula['matricula_cep'],
+                $matricula['matricula_endereco'],
+                $matricula['matricula_bairro'],
+                $matricula['matricula_cidade'],
+                $matricula['matricula_estado'],
+                $matricula['matricula_pais'],
+                $matricula['matricula_telefone'],
+                $matricula['matricula_telefone_emergencia'],
+                $matricula['matricula_cpf'],
+                $matricula['matricula_rg'],
+                $matricula['matricula_data_nascimento'],
+                $matricula['matricula_email'],
+                $matricula['matricula_problemas_saude'],
+                $matricula['matricula_responsavel_nome'],
+                $matricula['matricula_responsavel_rg'],
+                $matricula['matricula_responsavel_cpf'],
+                $matricula['matricula_responsavel_qualidade'],
+                $matricula['matricula_menor_nome'],
+                $matricula['matricula_menor_rg'],
+                $matricula['matricula_menor_nascimento'],
+                $matricula['matricula_atividade'],
+                $matricula['matricula_data_cadastro'],
+                $matricula['status_matricula']
+            ], null, "A{$linha}");
+            $linha++;
+        }
+
+        // Estilo das bordas para os dados
+        $sheet->getStyle("A2:Y" . ($linha - 1))->applyFromArray([
+            'borders' => ['allBorders' => ['borderStyle' => Border::BORDER_THIN]]
+        ]);
+
+        // Configura headers para download
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="matriculas_completas.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        // Gera e envia o arquivo
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
         exit;
     }
 }
