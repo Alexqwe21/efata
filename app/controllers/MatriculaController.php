@@ -512,7 +512,7 @@ class MatriculaController extends Controller
         exit;
     }
 
-   public function exportarExcel()
+    public function exportarExcel()
     {
         // Verifica se o usuário está logado e é funcionário
         if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
@@ -629,4 +629,14 @@ class MatriculaController extends Controller
         $writer->save('php://output');
         exit;
     }
+
+
+    public function totalMatriculas()
+    {
+        $matriculaModel = new Matricula();
+        $total = $matriculaModel->contarTodas();
+        echo json_encode(['total' => $total]);
+    }
+
+   
 }

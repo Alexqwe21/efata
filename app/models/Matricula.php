@@ -1,8 +1,9 @@
 <?php
 
 class Matricula extends Model
-{
 
+
+{
     public function salvarMatriculaComQuestionario($dadosMatricula, $dadosQuestionario)
     {
         try {
@@ -163,55 +164,58 @@ class Matricula extends Model
     }
 
 
-  public function matricula_volei($status = null, $nome = null, $cpf = null, $rg = null, $telefone = null, $email = null)
-{
-    $sql = "SELECT * FROM matriculas m 
-            INNER JOIN questionario_saude q ON m.matricula_id = q.matricula_id 
-            WHERE 1=1";
+    public function matricula_volei($status = null, $nome = null, $cpf = null, $rg = null, $telefone = null, $email = null)
+    {
+        $sql = "SELECT * FROM matriculas m 
+        INNER JOIN questionario_saude q ON m.matricula_id = q.matricula_id 
+        WHERE 1=1 ";
 
-    $params = [];
+        $params = [];
 
-    if (!empty($status)) {
-        $sql .= " AND m.status_matricula = :status";
-        $params[':status'] = $status;
+        if (!empty($status)) {
+            $sql .= " AND m.status_matricula = :status";
+            $params[':status'] = $status;
+        }
+
+        if (!empty($nome)) {
+            $sql .= " AND m.matricula_nome LIKE :nome";
+            $params[':nome'] = '%' . $nome . '%';
+        }
+
+        if (!empty($cpf)) {
+            $sql .= " AND m.matricula_cpf LIKE :cpf";
+            $params[':cpf'] = '%' . $cpf . '%';
+        }
+
+        if (!empty($rg)) {
+            $sql .= " AND m.matricula_rg LIKE :rg";
+            $params[':rg'] = '%' . $rg . '%';
+        }
+
+        if (!empty($telefone)) {
+            $sql .= " AND m.matricula_telefone LIKE :telefone";
+            $params[':telefone'] = '%' . $telefone . '%';
+        }
+
+        if (!empty($email)) {
+            $sql .= " AND m.matricula_email LIKE :email";
+            $params[':email'] = '%' . $email . '%';
+        }
+
+
+        $sql .= " ORDER BY m.matricula_nome ASC";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute($params);
+
+        $matriculas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($matriculas as &$matricula) {
+            $matricula['matricula_data_cadastro'] = date('d/m/Y H:i:s', strtotime($matricula['matricula_data_cadastro']));
+        }
+
+        return $matriculas;
     }
-
-    if (!empty($nome)) {
-        $sql .= " AND m.matricula_nome LIKE :nome";
-        $params[':nome'] = '%' . $nome . '%';
-    }
-
-    if (!empty($cpf)) {
-        $sql .= " AND m.matricula_cpf LIKE :cpf";
-        $params[':cpf'] = '%' . $cpf . '%';
-    }
-
-    if (!empty($rg)) {
-        $sql .= " AND m.matricula_rg LIKE :rg";
-        $params[':rg'] = '%' . $rg . '%';
-    }
-
-    if (!empty($telefone)) {
-        $sql .= " AND m.matricula_telefone LIKE :telefone";
-        $params[':telefone'] = '%' . $telefone . '%';
-    }
-
-    if (!empty($email)) {
-        $sql .= " AND m.matricula_email LIKE :email";
-        $params[':email'] = '%' . $email . '%';
-    }
-
-    $stmt = $this->db->prepare($sql);
-    $stmt->execute($params);
-
-    $matriculas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($matriculas as &$matricula) {
-        $matricula['matricula_data_cadastro'] = date('d/m/Y H:i:s', strtotime($matricula['matricula_data_cadastro']));
-    }
-
-    return $matriculas;
-}
 
 
 
@@ -285,29 +289,35 @@ class Matricula extends Model
 
 
     public function buscarFiltrados($filtro = '', $status = '')
-{
-    $sql = "SELECT * FROM matriculas WHERE 1";
+    {
+        $sql = "SELECT * FROM matriculas WHERE 1";
 
-    if (!empty($filtro)) {
-        $sql .= " AND nome LIKE :filtro";
+        if (!empty($filtro)) {
+            $sql .= " AND nome LIKE :filtro";
+        }
+
+        if (!empty($status)) {
+            $sql .= " AND status = :status";
+        }
+
+        $stmt = $this->db->prepare($sql);
+
+        if (!empty($filtro)) {
+            $stmt->bindValue(':filtro', "%{$filtro}%");
+        }
+
+        if (!empty($status)) {
+            $stmt->bindValue(':status', $status);
+        }
+
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    if (!empty($status)) {
-        $sql .= " AND status = :status";
+    public function contarTodas()
+    {
+        $stmt = $this->db->query("SELECT COUNT(*) AS total FROM matriculas");
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $resultado['total'] ?? 0;
     }
-
-    $stmt = $this->db->prepare($sql);
-
-    if (!empty($filtro)) {
-        $stmt->bindValue(':filtro', "%{$filtro}%");
-    }
-
-    if (!empty($status)) {
-        $stmt->bindValue(':status', $status);
-    }
-
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
 }
