@@ -14,16 +14,16 @@
              </div>
              <div class="redes_sociais">
                  <div>
-                     <a href="#"><img src="assets/img/wpp_topo.svg" alt="whatsapp"></a>
+                     <a href="https://wa.link/rbfxje" target="_blank"><img src="assets/img/wpp_topo.svg" alt="whatsapp"></a>
                  </div>
 
                  <div>
-                     <a href="#"><img src="assets/img/instagram_topo.svg" alt="instagram"></a>
+                     <a href="https://www.instagram.com/culturaefata?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><img src="assets/img/instagram_topo.svg" alt="instagram"></a>
                  </div>
 
-                 <div>
-                     <a href="#"><img src="assets/img/facebook_topo.svg" alt="facebook"></a>
-                 </div>
+                 <a href="#" onclick="alert('O link para o Facebook ainda não está disponível. Em breve!'); return false;">
+                     <img src="assets/img/facebook_topo.svg" alt="facebook">
+                 </a>
 
 
              </div>

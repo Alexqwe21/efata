@@ -320,4 +320,103 @@ class Matricula extends Model
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
         return $resultado['total'] ?? 0;
     }
+
+    public function agruparPorIdade()
+    {
+        $sql = "
+            SELECT 
+                CASE 
+                    WHEN TIMESTAMPDIFF(YEAR, matricula_data_nascimento, CURDATE()) BETWEEN 0 AND 12 THEN '0-12 anos'
+                    WHEN TIMESTAMPDIFF(YEAR, matricula_data_nascimento, CURDATE()) BETWEEN 13 AND 17 THEN '13-17 anos'
+                    WHEN TIMESTAMPDIFF(YEAR, matricula_data_nascimento, CURDATE()) BETWEEN 18 AND 25 THEN '18-25 anos'
+                    WHEN TIMESTAMPDIFF(YEAR, matricula_data_nascimento, CURDATE()) BETWEEN 26 AND 35 THEN '26-35 anos'
+                    WHEN TIMESTAMPDIFF(YEAR, matricula_data_nascimento, CURDATE()) BETWEEN 36 AND 50 THEN '36-50 anos'
+                    ELSE '50+ anos'
+                END AS label,
+                COUNT(*) AS valor
+            FROM matriculas
+            GROUP BY label
+        ";
+        return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function agruparPorAtividade()
+    {
+        $sql = "
+                 SELECT matricula_atividade AS label, COUNT(*) AS valor
+FROM matriculas
+GROUP BY matricula_atividade
+        ";
+        return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function agruparPorStatus()
+    {
+        $sql = "
+            SELECT status_matricula AS label, COUNT(*) AS valor
+            FROM matriculas
+            GROUP BY status_matricula
+        ";
+        return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function agruparPorMesCadastro()
+    {
+        $sql = "
+            SELECT 
+                DATE_FORMAT(matricula_data_cadastro, '%m/%Y') AS label,
+                COUNT(*) AS valor
+            FROM matriculas
+            GROUP BY label
+            ORDER BY MIN(matricula_data_cadastro)
+        ";
+        return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function agruparPorCidade()
+    {
+        $sql = "
+            SELECT matricula_cidade AS label, COUNT(*) AS valor
+            FROM matriculas
+            GROUP BY matricula_cidade
+            ORDER BY valor DESC
+        ";
+        return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function agruparPorBairro()
+    {
+        $sql = "SELECT matricula_bairro AS label, COUNT(*) AS valor 
+            FROM matriculas 
+            GROUP BY matricula_bairro 
+            ORDER BY valor DESC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function contarAtivos()
+    {
+        $sql = "SELECT COUNT(*) AS total FROM matriculas WHERE status_matricula = 'Ativo'";
+        return $this->db->query($sql)->fetch(PDO::FETCH_ASSOC)['total'];
+    }
+
+    public function contarInativos()
+    {
+        $sql = "SELECT COUNT(*) AS total FROM matriculas WHERE status_matricula = 'Inativo'";
+        return $this->db->query($sql)->fetch(PDO::FETCH_ASSOC)['total'];
+    }
+
+
+
+
+    public function cpfExiste($cpf)
+    {
+        $sql = "SELECT COUNT(*) as total FROM matriculas WHERE matricula_cpf = :cpf";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':cpf', $cpf);
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $resultado['total'] > 0;
+    }
 }

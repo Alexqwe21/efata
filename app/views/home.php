@@ -13,7 +13,7 @@
     <header><?php require_once('templates/header.php'); ?></header>
 
     <main>
-        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-fixo"
+        <a href="https://wa.link/ywitwe" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
             <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
@@ -30,7 +30,7 @@
                         Acreditamos que o esporte vai além da competição — ele é um meio de união, crescimento e
                         transformação de vidas.</p>
                     <div class="sobre_mais">
-                        <a href="#" class="saiba_mais ">Saiba mais</a>
+                        <a href="/sobre" class="saiba_mais ">Saiba mais</a>
                         <a href="#" class="sobre_nos" id="openModal">Galeria</a>
                     </div>
 
@@ -39,15 +39,15 @@
                 <div class="escolha_categoria">
 
                     <div class="container_escolha">
-                        <a href="#"> <img src="assets/img/esporte.svg" alt="esporte"> <strong>ESPORTES</strong></a>
+                        <a href="/esporte"> <img src="assets/img/esporte.svg" alt="esporte"> <strong>ESPORTES</strong></a>
                     </div>
 
                     <div class="container_escolha_cul">
-                        <a href="#"> <img src="assets/img/duas_cara.svg" alt="esporte"> <strong>CULTURA</strong></a>
+                        <a href="/cultura"> <img src="assets/img/duas_cara.svg" alt="esporte"> <strong>CULTURA</strong></a>
                     </div>
 
                     <div class="container_escolha_even">
-                        <a href="#"> <img src="assets/img/eventos.svg" alt="esporte"><strong>EVENTOS</strong></a>
+                        <a href="/eventos"> <img src="assets/img/eventos.svg" alt="esporte"><strong>EVENTOS</strong></a>
                     </div>
 
                 </div>
@@ -57,9 +57,7 @@
             </div>
         </section>
 
-        <div class="space">
-
-        </div>
+        <div class="space"></div>
 
         <section class="video">
             <article class="site">
@@ -86,7 +84,7 @@
                                 amor de Deus.
                             </p>
                             <div>
-                                <a href="#" class="saiba_mais">Saiba mais</a>
+                                <a href="/sobre" class="saiba_mais">Saiba mais</a>
                                 <button class="sobre_nos" onclick="playVideo()">Play Video</button>
 
                             </div>
@@ -132,27 +130,27 @@
                 <h3>Jogos Cultura Efatá</h3>
                 <div class="lado_a_lado">
                     <div class="jogo">
-                        <h4>Agosto 25,2023</h4>
+                        <h4>Amistoso</h4>
                         <div class="times">
-                            <img src="assets/img/time_spike.png" alt="time">
-                            <p>3 - 2</p>
-                            <img src="assets/img/time_centaurus.png" alt="time">
+                            <img src="assets/img/vibes.png" alt="vibes">
+                            <p>2 - 1</p>
+                            <img src="assets/img/thudercats.png" alt="time">
 
                         </div>
-                        <h5>Campeonato Efatá</h5>
-                        <p>Ceu são Miguel</p>
+                        <h5>Amistoso</h5>
+                        <p>Amistoso</p>
                     </div>
 
                     <div class="jogo">
-                        <h4>Agosto 25,2023</h4>
+                        <h4>Amistoso</h4>
                         <div class="times">
-                            <img src="assets/img/time_spike.png" alt="time">
-                            <p>3 - 2</p>
-                            <img src="assets/img/time_cepheus.png" alt="time">
+                            <img src="assets/img/Logo_Cultura.png" alt="time">
+                            <p>5 - 0</p>
+                            <img src="assets/img/sesi.webp" alt="time">
 
                         </div>
-                        <h5>Campeonato Efatá</h5>
-                        <p>Ceu são Miguel</p>
+                        <h5>Amistoso</h5>
+                        <p>Amistoso</p>
                     </div>
 
 
@@ -162,18 +160,18 @@
 
                 <div class="lado_a_lado">
                     <div class="jogo">
-                        <h4>Agosto 25,2023</h4>
+                        <h4>Amistoso</h4>
                         <div class="times">
-                            <img src="assets/img/time_spike.png" alt="time">
-                            <p>3 - 2</p>
-                            <img src="assets/img/time_cygnus.png" alt="time">
+                            <img src="assets/img/dragao_time.png" alt="time">
+                            <p>3 - 1</p>
+                             <img src="assets/img/vibes.png" alt="vibes">
 
                         </div>
-                        <h5>Campeonato Efatá</h5>
-                        <p>Ceu são Miguel</p>
+                        <h5>Amistoso</h5>
+                        <p>Amistoso</p>
                     </div>
 
-                    <div class="jogo">
+                    <!-- <div class="jogo">
                         <h4>Agosto 25,2023</h4>
                         <div class="times">
                             <img src="assets/img/time_volleyball.png" alt="time">
@@ -183,7 +181,7 @@
                         </div>
                         <h5>Campeonato Efatá</h5>
                         <p>Ceu são Miguel</p>
-                    </div>
+                    </div> -->
 
 
                 </div>
@@ -207,7 +205,7 @@
 
 
                         <div class="evento_esporte_cultura">
-                            <a href="#">
+                            <a href="https://maps.app.goo.gl/tdaki6jwBR1h8Kaj7" target="_blank">
                                 <img src="assets/img/encontro_ceu.png" alt="Ceu são miguel">
                                 <div>
 
@@ -218,7 +216,7 @@
                         </div>
 
                         <div class="evento_esporte_cultura">
-                            <a href="#">
+                            <a href="https://maps.app.goo.gl/DQXXSuREcPJ76DVL9" target="_blank">
                                 <img src="assets/img/encontro_reverendo.png" alt="Escola reverendo tercio">
                                 <div>
 
@@ -229,7 +227,7 @@
                         </div>
 
                         <div class="evento_esporte_cultura">
-                            <a href="#">
+                            <a href="https://maps.app.goo.gl/axJY8jmV8axrNJRQA" target="_blank">
                                 <img src="assets/img/encontro_parigot.png" alt="Parigot">
                                 <div>
 
@@ -240,7 +238,7 @@
                         </div>
 
                         <div class="evento_esporte_cultura">
-                            <a href="#">
+                            <a href="https://maps.app.goo.gl/DQXXSuREcPJ76DVL9" target="_blank">
                                 <img src="assets/img/encontro_reverendo.png" alt="">
                                 <div>
 
@@ -253,7 +251,7 @@
                 </div>
                 <div class="space"></div>
                 <div class="centro">
-                    <a href="#" class="ver_atividades">Saiba mais</a>
+                    <a href="/esporte" class="ver_atividades">Saiba mais</a>
                 </div>
 
             </article>
@@ -275,7 +273,7 @@
                 <div class="eventos_esporte_cultura">
 
                     <div class="evento_esporte_cultura">
-                        <a href="#">
+                        <a href="/esporte">
                             <img src="assets/img/foto_treino.png" alt="Treinos Efatá">
                             <div>
                                 <h3>Treinos</h3>
@@ -287,7 +285,7 @@
                     </div>
 
                     <div class="evento_esporte_cultura">
-                        <a href="#">
+                        <a href="/esporte">
                             <img src="assets/img/foto_treino_dois.png" alt="Jogos e Competições">
                             <div>
                                 <h3>Jogos e Competições</h3>
@@ -299,7 +297,7 @@
                     </div>
 
                     <div class="evento_esporte_cultura">
-                        <a href="#">
+                        <a href="/esporte">
                             <img src="assets/img/foto_treino_tres.png" alt="Momentos de Fé">
                             <div>
                                 <h3>Oração e Palavra</h3>
@@ -314,7 +312,7 @@
                 </div>
                 <div class="space"></div>
                 <div class="centro">
-                    <a href="#" class="ver_atividades">Veja todas as atividades esportivas</a>
+                    <a href="/esporte" class="ver_atividades">Veja todas as atividades esportivas</a>
                 </div>
 
             </article>
@@ -335,7 +333,7 @@
             <article class="site">
                 <div class="eventos_esporte_cultura">
                     <div class="evento_esporte_cultura">
-                        <a href="#">
+                        <a href="/eventos">
                             <img src="assets/img/objetivo_um.png" alt="vôlei com excelência">
                             <div>
                                 <h3>VÔLEI COM EXCELÊNCIA</h3>
@@ -347,7 +345,7 @@
                     </div>
 
                     <div class="evento_esporte_cultura">
-                        <a href="#">
+                        <a href="/eventos">
                             <img src="assets/img/objetivo_dois.png" alt="Evangelismo Esportivo">
                             <div>
                                 <h3>EVANGELISMO ESPORTIVO</h3>
@@ -359,7 +357,7 @@
                     </div>
 
                     <div class="evento_esporte_cultura">
-                        <a href="#">
+                        <a href="/eventos">
                             <img src="assets/img/objetivo_tres.png" alt="Formação de Atletas">
                             <div>
                                 <h3>FORMAÇÃO DE ATLETAS</h3>
@@ -375,7 +373,7 @@
                 </div>
                 <div class="space"></div>
                 <div class="centro">
-                    <a href="#" class="ver_atividades">Veja todas as atividades culturais</a>
+                    <a href="/eventos" class="ver_atividades">Veja todas as os eventos</a>
                 </div>
 
             </article>
@@ -410,7 +408,7 @@
                         <div class="sobre_nos_tel">
                             <div class="lado_a_lado">
                                 <div class="ancora_sobre">
-                                    <a href="#">SOBRE NOS</a>
+                                    <a href="/sobre">SOBRE NOS</a>
                                 </div>
 
                                 <div class="tel_sobre">
@@ -621,7 +619,7 @@
                             </div>
 
                             <div class="cadastre">
-                                <a href="#" class="cadastre-se">CADASTRE-SE</a>
+                                <a href="/matricula" class="cadastre-se">CADASTRE-SE</a>
                             </div>
                         </div>
 
@@ -668,7 +666,67 @@
 
 
 
+
+    <!-- Modal de Sucesso -->
+    <div class="modal fade" id="modalMensagem" tabindex="-1" aria-labelledby="modalMensagemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalMensagemLabel">Mensagem</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body" id="modalMensagemCorpo"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="modalErroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="modalErroLabel">Erro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body" id="modalErroMensagem"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
     <?php require_once('templates/scriptGeral.php') ?>
+
+
+    <?php if (!empty($_SESSION['sucesso']) || !empty($_SESSION['erro'])): ?>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                <?php if (!empty($_SESSION['sucesso'])): ?>
+                    document.getElementById('modalMensagemCorpo').textContent = <?= json_encode($_SESSION['sucesso']); ?>;
+                    var modal = new bootstrap.Modal(document.getElementById('modalMensagem'));
+                    modal.show();
+                <?php elseif (!empty($_SESSION['erro'])): ?>
+                    document.getElementById('modalErroMensagem').textContent = <?= json_encode($_SESSION['erro']); ?>;
+                    var modal = new bootstrap.Modal(document.getElementById('modalErro'));
+                    modal.show();
+                <?php endif; ?>
+            });
+        </script>
+    <?php
+        unset($_SESSION['sucesso'], $_SESSION['erro']);
+    endif;
+    ?>
+
+
 
 
     <script>

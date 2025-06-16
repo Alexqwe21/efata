@@ -3,7 +3,9 @@
     <link rel="shortcut icon" href="#" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/img/Logo_Cultura.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+   <link rel="stylesheet" href="/assets/css/style.css?v=<?= time(); ?>">
+
+
     <link rel="stylesheet" type="text/css" href="assets/js/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="assets/js/slick/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />

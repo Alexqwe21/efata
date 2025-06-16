@@ -9,10 +9,6 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 
 class MatriculaController extends Controller
 {
-
-
-
-
     private $matriculaModel;
 
     public function __construct()
@@ -122,6 +118,14 @@ class MatriculaController extends Controller
             }
 
             $matriculaModel = new Matricula();
+
+            // Verificar se o CPF já existe antes de tentar cadastrar
+            if ($matriculaModel->cpfExiste($dadosMatricula['cpf'])) {
+                $_SESSION['erro'] = "Este CPF já está cadastrado!";
+                header('Location: ' . BASE_URL . 'matricula');
+                exit;
+            }
+
 
             try {
                 $matriculaModel->salvarMatriculaComQuestionario($dadosMatricula, $dadosQuestionario);
@@ -381,8 +385,12 @@ class MatriculaController extends Controller
                 $_SESSION['sucesso'] = "Matrícula realizada com sucesso! Verifique seu email (inclusive caixa de spam).";
                 header('Location: ' . BASE_URL . 'matricula');
                 exit;
-            } catch (\Exception $e) {
-                $_SESSION['erro'] = "Erro ao realizar matrícula ou enviar e-mail: " . $e->getMessage();
+            } catch (\PDOException $e) {
+                if ($e->getCode() == 23000) {
+                    $_SESSION['erro'] = "Este CPF já está cadastrado! Tente novamente.";
+                } else {
+                    $_SESSION['erro'] = "Erro ao realizar matrícula ou enviar e-mail: " . $e->getMessage();
+                }
                 header('Location: ' . BASE_URL . 'matricula');
                 exit;
             }
@@ -483,8 +491,7 @@ class MatriculaController extends Controller
 
         require_once __DIR__ . '/../../vendor/autoload.php';
 
-
-
+        // Filtros
         $status = $_GET['status'] ?? null;
         $nome = $_GET['nome'] ?? null;
         $cpf = $_GET['cpf'] ?? null;
@@ -492,13 +499,18 @@ class MatriculaController extends Controller
         $telefone = $_GET['telefone'] ?? null;
         $email = $_GET['email'] ?? null;
 
+        // Dados do relatório
         $dados = $this->matriculaModel->matricula_volei($status, $nome, $cpf, $rg, $telefone, $email);
 
+        // Ordena alfabeticamente por nome
+        usort($dados, fn($a, $b) => strcmp($a['matricula_nome'], $b['matricula_nome']));
+
+        // Carrega HTML do relatório
         ob_start();
         include __DIR__ . '/../views/pdf/relatorio_matriculas.php';
-
         $html = ob_get_clean();
 
+        // Configurações do DomPDF
         $options = new \Dompdf\Options();
         $options->set('defaultFont', 'Arial');
         $options->set('isRemoteEnabled', true);
@@ -508,6 +520,11 @@ class MatriculaController extends Controller
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
 
+        // (Opcional) Numeração de páginas
+        $canvas = $dompdf->get_canvas();
+        $canvas->page_text(520, 820, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 9, [0, 0, 0]);
+
+        // Envia para o navegador
         $dompdf->stream('relatorio_matriculas.pdf', ['Attachment' => false]);
         exit;
     }
@@ -522,20 +539,25 @@ class MatriculaController extends Controller
 
         require_once __DIR__ . '/../../vendor/autoload.php';
 
-        // Recebe filtros
+
+
+        // Filtros
         $filtro = $_GET['filtro'] ?? '';
         $status = $_GET['status'] ?? '';
 
-        // Busca os dados filtrados
         $matriculaModel = new Matricula();
         $matriculas = $matriculaModel->buscarFiltrados($filtro, $status);
 
-        // Cria a planilha
+        // Ordena em ordem alfabética pelo nome
+        usort($matriculas, function ($a, $b) {
+            return strcmp($a['matricula_nome'], $b['matricula_nome']);
+        });
+
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setTitle('Relatório de Matrículas');
 
-        // Define os cabeçalhos
+        // Cabeçalhos
         $cabecalhos = [
             'ID',
             'Nome',
@@ -564,7 +586,6 @@ class MatriculaController extends Controller
             'Status'
         ];
 
-        // Estilo do cabeçalho
         $headerStyle = [
             'font' => ['bold' => true, 'color' => ['rgb' => 'FFFFFF']],
             'fill' => ['fillType' => Fill::FILL_SOLID, 'startColor' => ['rgb' => '1E88E5']],
@@ -572,7 +593,7 @@ class MatriculaController extends Controller
             'borders' => ['allBorders' => ['borderStyle' => Border::BORDER_THIN]]
         ];
 
-        // Preenche os cabeçalhos na primeira linha
+        // Preenche cabeçalhos
         $coluna = 'A';
         foreach ($cabecalhos as $cabecalho) {
             $sheet->setCellValue("{$coluna}1", $cabecalho);
@@ -581,7 +602,7 @@ class MatriculaController extends Controller
             $coluna++;
         }
 
-        // Preenche os dados a partir da segunda linha
+        // Preenche dados
         $linha = 2;
         foreach ($matriculas as $matricula) {
             $sheet->fromArray([
@@ -614,29 +635,106 @@ class MatriculaController extends Controller
             $linha++;
         }
 
-        // Estilo das bordas para os dados
+        // Estilo geral das células preenchidas
         $sheet->getStyle("A2:Y" . ($linha - 1))->applyFromArray([
-            'borders' => ['allBorders' => ['borderStyle' => Border::BORDER_THIN]]
+            'borders' => ['allBorders' => ['borderStyle' => Border::BORDER_THIN]],
+            'alignment' => ['vertical' => Alignment::VERTICAL_CENTER]
         ]);
 
-        // Configura headers para download
+        // Congela o cabeçalho
+        $sheet->freezePane('A2');
+
+        // Configura headers
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment;filename="matriculas_completas.xlsx"');
+        header('Content-Disposition: attachment;filename="matriculas_ordenadas.xlsx"');
         header('Cache-Control: max-age=0');
 
-        // Gera e envia o arquivo
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
         exit;
     }
 
-
     public function totalMatriculas()
     {
         $matriculaModel = new Matricula();
         $total = $matriculaModel->contarTodas();
+        header('Content-Type: application/json; charset=utf-8');
         echo json_encode(['total' => $total]);
     }
 
-   
+    public function graficoPorIdade()
+    {
+        $matriculaModel = new Matricula();
+        $dados = $matriculaModel->agruparPorIdade();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados);
+    }
+
+    public function graficoPorAtividade()
+    {
+        $matriculaModel = new Matricula();
+        $dados = $matriculaModel->agruparPorAtividade();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados);
+    }
+
+    public function graficoPorStatus()
+    {
+        $matriculaModel = new Matricula();
+        $dados = $matriculaModel->agruparPorStatus();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados);
+    }
+
+    public function graficoPorMes()
+    {
+        $matriculaModel = new Matricula();
+        $dados = $matriculaModel->agruparPorMesCadastro();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados);
+    }
+
+    public function graficoPorCidade()
+    {
+        $matriculaModel = new Matricula();
+        $dados = $matriculaModel->agruparPorCidade();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados);
+    }
+
+    public function totalAtivos()
+    {
+        $matriculaModel = new Matricula();
+        $total = $matriculaModel->contarAtivos();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['total' => $total]);
+    }
+
+    public function totalInativos()
+    {
+        $matriculaModel = new Matricula();
+        $total = $matriculaModel->contarInativos();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['total' => $total]);
+    }
+
+    public function graficoPorBairro()
+    {
+        $matriculaModel = new Matricula();
+        $dados = $matriculaModel->agruparPorBairro();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados);
+    }
+
+    public function verificarCpf()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $cpf = trim($_POST['cpf'] ?? '');
+            $matriculaModel = new Matricula();
+            $existe = $matriculaModel->cpfExiste($cpf);
+            echo json_encode(['existe' => $existe]);
+            exit;
+        }
+    }
+    
 }

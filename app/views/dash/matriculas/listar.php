@@ -3,7 +3,8 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background-color: #198754; /* Verde Bootstrap */
+    background-color: #198754;
+    /* Verde Bootstrap */
     color: #fff;
     padding: 8px 14px;
     border-radius: 6px;
@@ -11,17 +12,22 @@
     font-weight: bold;
     transition: background 0.3s;
     margin-left: 20px;
-}
+  }
 
-.btn-admin-export:hover {
+  .btn-admin-export:hover {
     background-color: #157347;
     text-decoration: none;
-}
+  }
 
-.btn-admin-export i {
+  .btn-admin-export i {
     font-size: 18px;
-}
+  }
 
+  table,
+  .modal-content,
+  .form-control {
+    text-transform: uppercase !important;
+  }
 </style>
 
 
@@ -40,7 +46,7 @@
 
 <form method="GET" class="row g-3 mb-4">
 
-  <div class="col-md-3">
+  <div class="col-md-2">
     <label for="status" class="form-label">Filtrar por status:</label>
     <select name="status" id="status" class="form-select" onchange="this.form.submit()">
       <option value="">Todos</option>
@@ -107,11 +113,11 @@
   <a href="/matricula/exportarPDF<?= $queryString ?>" target="_blank" class="btn btn-danger">
     <i class="bi bi-file-earmark-pdf-fill"></i> Exportar PDF
   </a>
-  <a href="/matricula/exportarExcel?filtro=&status=" 
-   class="btn-admin-export" 
-   target="_blank">
-   <i class='bx bx-file'></i> Exportar Excel
-</a>
+  <a href="/matricula/exportarExcel?filtro=&status="
+    class="btn-admin-export"
+    target="_blank">
+    <i class='bx bx-file'></i> Exportar Excel
+  </a>
 </div>
 
 
@@ -251,11 +257,12 @@
                       name="<?php echo $key; ?>"
                       class="form-control <?php
                                           if (str_contains($key, 'cpf')) echo 'cpf';
+                                          elseif (str_contains($key, 'telefone')) echo 'telefone'; // agora vem antes
                                           elseif (str_contains($key, 'rg')) echo 'rg';
-                                          elseif (str_contains($key, 'telefone')) echo 'telefone';
                                           elseif (str_contains($key, 'cep')) echo 'cep';
                                           elseif (str_contains($key, 'nascimento')) echo 'data';
                                           ?>"
+
                       value="<?php echo htmlspecialchars($matricula[$key] ?? ''); ?>">
                   </div>
                 <?php endforeach; ?>
@@ -349,112 +356,66 @@ $queryString = !empty($params) ? '?' . http_build_query($params) : '';
 
 
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Máscara para CPF: 000.000.000-00
-    const cpf = document.getElementById('cpf');
-    if (cpf) {
-      cpf.addEventListener('input', function() {
-        let valor = cpf.value.replace(/\D/g, '');
-        if (valor.length > 11) valor = valor.slice(0, 11);
-        if (valor.length > 9) {
-          cpf.value = valor.slice(0, 3) + '.' + valor.slice(3, 6) + '.' + valor.slice(6, 9) + '-' + valor.slice(9);
-        } else if (valor.length > 6) {
-          cpf.value = valor.slice(0, 3) + '.' + valor.slice(3, 6) + '.' + valor.slice(6);
-        } else if (valor.length > 3) {
-          cpf.value = valor.slice(0, 3) + '.' + valor.slice(3);
-        } else {
-          cpf.value = valor;
-        }
-      });
-    }
 
-    // Máscara para RG: 00.000.000-0
-    const rg = document.getElementById('rg');
-    if (rg) {
-      rg.addEventListener('input', function() {
-        let valor = rg.value.replace(/\D/g, '');
-        if (valor.length > 9) valor = valor.slice(0, 9);
-        if (valor.length > 7) {
-          rg.value = valor.slice(0, 2) + '.' + valor.slice(2, 5) + '.' + valor.slice(5, 8) + '-' + valor.slice(8);
-        } else if (valor.length > 4) {
-          rg.value = valor.slice(0, 2) + '.' + valor.slice(2, 5) + '.' + valor.slice(5);
-        } else if (valor.length > 2) {
-          rg.value = valor.slice(0, 2) + '.' + valor.slice(2);
-        } else {
-          rg.value = valor;
-        }
-      });
-    }
-
-    // Máscara para Telefone: (00) 00000-0000
-    const telefone = document.getElementById('telefone');
-    if (telefone) {
-      telefone.addEventListener('input', function() {
-        let valor = telefone.value.replace(/\D/g, '');
-        if (valor.length > 11) valor = valor.slice(0, 11);
-        if (valor.length > 6) {
-          telefone.value = '(' + valor.slice(0, 2) + ') ' + valor.slice(2, 7) + '-' + valor.slice(7);
-        } else if (valor.length > 2) {
-          telefone.value = '(' + valor.slice(0, 2) + ') ' + valor.slice(2);
-        } else {
-          telefone.value = valor;
-        }
-      });
-    }
-  });
-</script>
 
 
 <!-- SCRIPT DE MÁSCARAS -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    function aplicarMascara(selector, func) {
-      document.querySelectorAll(selector).forEach(input => func(input));
-    }
+  function aplicarMascara(selector, func) {
+    document.querySelectorAll(selector).forEach(input => func(input));
+  }
 
-    function mascaraCPF(input) {
-      input.addEventListener('input', function() {
-        let v = input.value.replace(/\D/g, '').slice(0, 11);
-        input.value = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4').replace(/[-.]$/, '');
-      });
-    }
+  function mascaraCPF(input) {
+    input.addEventListener('input', function() {
+      let v = input.value.replace(/\D/g, '').slice(0, 11);
+      input.value = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4').replace(/[-.]$/, '');
+    });
+  }
 
-    function mascaraRG(input) {
-      input.addEventListener('input', function() {
-        let v = input.value.replace(/\D/g, '').slice(0, 9);
-        input.value = v.replace(/(\d{2})(\d{3})(\d{3})(\d{0,1})/, '$1.$2.$3-$4').replace(/[-.]$/, '');
-      });
-    }
+  function mascaraRG(input) {
+    input.addEventListener('input', function() {
+      let v = input.value.replace(/\D/g, '').slice(0, 9);
+      input.value = v.replace(/(\d{2})(\d{3})(\d{3})(\d{0,1})/, '$1.$2.$3-$4').replace(/[-.]$/, '');
+    });
+  }
 
-    function mascaraTelefone(input) {
-      input.addEventListener('input', function() {
-        let v = input.value.replace(/\D/g, '').slice(0, 11);
-        input.value = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3').replace(/[-]$/, '');
-      });
-    }
+  function mascaraTelefone(input) {
+    input.addEventListener('input', function() {
+      let v = input.value.replace(/\D/g, '').slice(0, 11);
+      input.value = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3').replace(/[-]$/, '');
+    });
+  }
 
-    function mascaraCEP(input) {
-      input.addEventListener('input', function() {
-        let v = input.value.replace(/\D/g, '').slice(0, 8);
-        input.value = v.replace(/(\d{5})(\d{0,3})/, '$1-$2').replace(/-$/, '');
-      });
-    }
+  function mascaraCEP(input) {
+    input.addEventListener('input', function() {
+      let v = input.value.replace(/\D/g, '').slice(0, 8);
+      input.value = v.replace(/(\d{5})(\d{0,3})/, '$1-$2').replace(/-$/, '');
+    });
+  }
 
-    function mascaraData(input) {
-      input.addEventListener('input', function() {
-        let v = input.value.replace(/\D/g, '').slice(0, 8);
-        input.value = v.replace(/(\d{2})(\d{2})(\d{0,4})/, '$1/$2/$3').replace(/\/$/, '');
-      });
-    }
+  function mascaraData(input) {
+    input.addEventListener('input', function() {
+      let v = input.value.replace(/\D/g, '').slice(0, 8);
+      input.value = v.replace(/(\d{2})(\d{2})(\d{0,4})/, '$1/$2/$3').replace(/\/$/, '');
+    });
+  }
 
+  function aplicarMascarasEmTudo() {
     aplicarMascara('.cpf', mascaraCPF);
     aplicarMascara('.rg', mascaraRG);
     aplicarMascara('.telefone', mascaraTelefone);
     aplicarMascara('.cep', mascaraCEP);
     aplicarMascara('.data', mascaraData);
+  }
+
+  document.addEventListener('DOMContentLoaded', aplicarMascarasEmTudo);
+
+  // Reaplica ao abrir modais dinamicamente
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('shown.bs.modal', aplicarMascarasEmTudo);
   });
 </script>
+
 
 
 

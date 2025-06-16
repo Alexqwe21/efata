@@ -187,7 +187,7 @@
 .jogo {
     width: 400px;
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.25);
-    height: 210px;
+    height: 230px;
     border-radius: 10px;
 
 }
@@ -635,6 +635,14 @@ footer ul li a.active::after {
             margin-top: 20px;
         }
 
+        input {
+            text-transform: uppercase;
+
+            &::placeholder {
+                text-transform: none;
+            }
+        }
+
         .form .input {
             width: 100%;
             background: white;
@@ -893,6 +901,17 @@ footer ul li a.active::after {
 
 .btn-admin-export i {
     font-size: 18px;
+}
+
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #009688;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 
@@ -1375,6 +1394,9 @@ header {
 
                     img {
                         margin: 0px 10px;
+                        width: 100px;
+                        height: 100px;
+                        object-fit: contain;
                     }
                 }
 
@@ -3984,7 +4006,7 @@ footer {
                             border-radius: 40px;
                             border: 1px solid black;
                             width: 90%;
-
+                            padding-left: 20px;
 
                         }
 
@@ -5986,8 +6008,6 @@ footer {
         }
     }
 
-
-
 }
 
 
@@ -6023,4 +6043,9 @@ footer {
         opacity: 1;
         transform: translateY(0) rotate(0deg);
     }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

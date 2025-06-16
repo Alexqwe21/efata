@@ -19,3 +19,5 @@
 <script type="text/javascript" src="assets/js/carrosel.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://kit.fontawesome.com/a327b26a99.js" crossorigin="anonymous"></script>
+<!-- JS do Bootstrap (requer Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

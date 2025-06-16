@@ -15,10 +15,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="shortcut icon" href="assets/img/Logo_Cultura.png" type="image/x-icon" />
 
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
 
     <!-- Seu CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=<?= time(); ?>">
 
     <!-- Slick Carousel CSS (escolha local OU CDN, não os dois) -->
     <link rel="stylesheet" href="assets/js/slick/slick.css" />
@@ -74,15 +74,25 @@ if (session_status() === PHP_SESSION_NONE) {
                         <input required class="input" type="text" name="endereco" placeholder="Endereço">
                         <input required class="input" type="text" name="bairro" placeholder="Bairro">
                         <input required class="input" type="text" name="cidade" placeholder="Cidade">
-                        <input required class="input" type="text" name="estado" placeholder="Estado" maxlength="2"
+                        <input required class="input" type="text" name="estado" placeholder="UF" maxlength="2"
                             style="text-transform:uppercase ;">
                         <input required class="input" type="text" name="pais" placeholder="País">
 
-                        <input required class="input" type="text" name="telefone" id="telefone" placeholder="Telefone">
-                        <input class="input" type="text" name="telefone_emergencia" id="telefone_emergencia"
-                            placeholder="Telefone de Emergência" required>
+                        <!-- Campos de telefone -->
+                        <div class="campo_telefone">
+                            <input required class="input" type="text" name="telefone" id="telefone" placeholder="Telefone">
+                            <span id="erroTelefone" class="mensagem-erro" style="display: none; color: red;">Telefone inválido. Use DDD + número (11 dígitos).</span>
+                        </div>
+
+                        <div class="campo_telefone">
+                            <input required class="input" type="text" name="telefone_emergencia" id="telefone_emergencia" placeholder="Telefone de Emergência">
+                            <span id="erroTelefoneEmergencia" class="mensagem-erro" style="display: none; color: red;">Telefone de emergência inválido.</span>
+                        </div>
+
                         <input required class="input" type="text" name="cpf" id="cpf" placeholder="CPF">
-                        <input  class="input" type="text" name="rg" id="rg" placeholder="RG">
+                        <small id="cpf-erro" style="color: red; display: none;"></small>
+
+                        <input class="input" type="text" name="rg" id="rg" placeholder="RG">
 
                         <div class="space_formulario">
                             <label class="input-label">Data de Nascimento (DD/MM/AAAA)</label>
@@ -230,9 +240,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <h4>Termo de Responsabilidade</h4>
                         </div>
 
-                        <p>Declaro que as informações acima são verdadeiras e me responsabilizo por qualquer omissão.
-                            Autorizo a participação no projeto de vôlei e reconheço que é recomendada a realização de
-                            avaliação médica antes do início das atividades.</p>
+                        <p>Declaro que as informações acima são verdadeiras e me responsabilizo por qualquer omissão. Autorizo a participação no projeto de vôlei e reconheço que é recomendada a realização de avaliação médica antes do início das atividades. Também autorizo o uso de minha imagem, vídeos e de textos por mim fornecidos para fins de divulgação e comunicação relacionados ao projeto.</p>
 
                         <button class="login-button" type="submit">Enviar Matrícula</button>
                         <a href="/home" class="login-button" style="display: flex; justify-content: center; text-decoration: none;">VOLTAR</a>
@@ -313,7 +321,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             function checkScroll() {
                 if ($(window).scrollTop() > 200) {
                     $('#back-to-top').addClass('show');
@@ -324,16 +332,17 @@ if (session_status() === PHP_SESSION_NONE) {
 
             checkScroll();
 
-            $(window).scroll(function () {
+            $(window).scroll(function() {
                 checkScroll();
             });
 
-            $('#back-to-top').click(function () {
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('#back-to-top').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
                 return false;
             });
         });
-
     </script>
 
 
@@ -359,11 +368,53 @@ if (session_status() === PHP_SESSION_NONE) {
         });
     </script>
 
+    <script>
+        function aplicarMascaraTelefone(input) {
+            input.addEventListener('input', function() {
+                let valor = input.value.replace(/\D/g, '');
+                if (valor.length > 11) valor = valor.slice(0, 11);
+
+                if (valor.length > 2 && valor.length <= 7) {
+                    valor = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
+                } else if (valor.length > 7) {
+                    valor = `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7)}`;
+                }
+
+                input.value = valor;
+            });
+        }
+
+        function validarTelefone(input, erroSpan) {
+            input.addEventListener('blur', function() {
+                const apenasNumeros = input.value.replace(/\D/g, '');
+                if (apenasNumeros.length !== 11) {
+                    erroSpan.style.display = 'inline';
+                    input.style.borderColor = 'red';
+                } else {
+                    erroSpan.style.display = 'none';
+                    input.style.borderColor = '';
+                }
+            });
+        }
+
+        // Aplicar em ambos os campos
+        const telefone = document.getElementById('telefone');
+        const telefoneEmergencia = document.getElementById('telefone_emergencia');
+        const erroTelefone = document.getElementById('erroTelefone');
+        const erroTelefoneEmergencia = document.getElementById('erroTelefoneEmergencia');
+
+        aplicarMascaraTelefone(telefone);
+        aplicarMascaraTelefone(telefoneEmergencia);
+
+        validarTelefone(telefone, erroTelefone);
+        validarTelefone(telefoneEmergencia, erroTelefoneEmergencia);
+    </script>
+
 
     <script>
         // Máscara para data DD/MM/AAAA
         const menorNascimento = document.getElementById('menor_nascimento');
-        menorNascimento.addEventListener('input', function () {
+        menorNascimento.addEventListener('input', function() {
             let valor = this.value.replace(/\D/g, '');
             if (valor.length > 8) valor = valor.slice(0, 8);
             if (valor.length >= 5) {
@@ -377,7 +428,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         // Máscara para telefone: (00) 00000-0000
         function mascaraTelefone(input) {
-            input.addEventListener('input', function () {
+            input.addEventListener('input', function() {
                 let valor = input.value.replace(/\D/g, '');
                 if (valor.length > 11) valor = valor.slice(0, 11);
                 if (valor.length > 6) {
@@ -394,7 +445,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         // Máscara para CPF: 000.000.000-00
         function mascaraCPF(input) {
-            input.addEventListener('input', function () {
+            input.addEventListener('input', function() {
                 let valor = input.value.replace(/\D/g, '');
                 if (valor.length > 11) valor = valor.slice(0, 11);
                 if (valor.length > 9) {
@@ -413,7 +464,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         // Máscara para RG: 00.000.000-0
         function mascaraRG(input) {
-            input.addEventListener('input', function () {
+            input.addEventListener('input', function() {
                 let valor = input.value.replace(/\D/g, '');
                 if (valor.length > 9) valor = valor.slice(0, 9);
                 if (valor.length > 7) {
@@ -433,7 +484,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         // Máscara para CEP: 00000-000
         const cep = document.getElementById('cep');
-        cep.addEventListener('input', function () {
+        cep.addEventListener('input', function() {
             let valor = this.value.replace(/\D/g, '');
             if (valor.length > 8) valor = valor.slice(0, 8);
             if (valor.length > 5) {
@@ -445,7 +496,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         // Máscara para datas: DD/MM/AAAA
         function mascaraData(input) {
-            input.addEventListener('input', function () {
+            input.addEventListener('input', function() {
                 let valor = this.value.replace(/\D/g, '');
                 if (valor.length > 8) valor = valor.slice(0, 8);
                 if (valor.length >= 5) {
@@ -460,7 +511,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
         mascaraData(document.getElementById('menor_nascimento'));
         mascaraData(document.getElementById('data_nascimento'));
-
     </script>
 
 
@@ -468,7 +518,7 @@ if (session_status() === PHP_SESSION_NONE) {
         const cepInput = document.getElementById('cep');
         const erroCep = document.getElementById('erro-cep');
 
-        cepInput.addEventListener('blur', function () {
+        cepInput.addEventListener('blur', function() {
             const cep = this.value.replace(/\D/g, '');
             erroCep.style.display = 'none'; // Sempre oculta antes
 
@@ -503,7 +553,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
     <script>
-        document.querySelector('.form').addEventListener('submit', function (e) {
+        document.querySelector('.form').addEventListener('submit', function(e) {
 
             // Função para mostrar o modal com a mensagem de erro usando Bootstrap
             function mostrarModal(msg) {
@@ -522,7 +572,7 @@ if (session_status() === PHP_SESSION_NONE) {
             // Validação checkbox saude_problemas
             const checkboxes = document.querySelectorAll('input[name="saude_problemas[]"]');
             let peloMenosUmMarcado = false;
-            checkboxes.forEach(function (checkbox) {
+            checkboxes.forEach(function(checkbox) {
                 if (checkbox.checked) {
                     peloMenosUmMarcado = true;
                 }
@@ -562,10 +612,43 @@ if (session_status() === PHP_SESSION_NONE) {
     </script>
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cpfInput = document.getElementById('cpf');
+            const erroSpan = document.getElementById('cpf-erro');
+
+            cpfInput.addEventListener('blur', function() {
+                const cpf = cpfInput.value.trim();
+                if (cpf.length === 0) return;
+
+                fetch('/matricula/verificarCpf', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: 'cpf=' + encodeURIComponent(cpf)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.existe) {
+                            erroSpan.textContent = 'Este CPF já está cadastrado.';
+                            erroSpan.style.display = 'inline';
+                            cpfInput.classList.add('is-invalid');
+                        } else {
+                            erroSpan.style.display = 'none';
+                            cpfInput.classList.remove('is-invalid');
+                        }
+                    });
+            });
+        });
+    </script>
+
+
+
 
     <?php if (!empty($_SESSION['sucesso']) || !empty($_SESSION['erro'])): ?>
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('DOMContentLoaded', function() {
                 var mensagem = '';
 
                 <?php if (!empty($_SESSION['sucesso'])): ?>
@@ -580,7 +663,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 modal.show();
             });
         </script>
-        <?php
+    <?php
         unset($_SESSION['sucesso'], $_SESSION['erro']);
     endif;
     ?>

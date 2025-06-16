@@ -222,38 +222,37 @@
                         <div class="col-lg-3 col-6"> <!--begin::Small Box Widget 1-->
                             <div class="small-box text-bg-primary" style="background-color: #06121E !important;">
                                 <div class="inner">
-                                  <h3>0</h3>
-                                    <p>.........</p>
-                                </div> 
-                                <!-- Ícone de Chat -->
+                                    <h3 id="totalInativos">0</h3>
+                                    <p>Matrículas Inativas</p>
+                                </div>
+
                                 <div class="icon" style="position: absolute; top: 10px; right: 10px; font-size: 3rem; color: white;">
-                                    <i class="bi-question-circle"></i>
+                                    <i class="bi-x-circle-fill"></i>
                                 </div>
 
                                 <a href="/matricula/matriculas" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                                  <i class="bi-question-circle" style="color: white;"></i>
+                                    <i class="bi-x-circle-fill" style="color: white;"></i>
                                 </a>
-                            </div> 
+                            </div>
+
                         </div> <!--end::Col-->
                         <div class="col-lg-3 col-6"> <!--begin::Small Box Widget 2-->
                             <div class="small-box text-bg-success" style="background-color: #06121E !important;">
                                 <div class="inner">
-                                     <h3>0</h3>
-                                    <p>.........</p>
-
-                                    
+                                    <h3 id="totalAtivos">0</h3>
+                                    <p>Matrículas Ativas</p>
                                 </div>
-                                
-                                <!-- Ícone de Chat -->
+
                                 <div class="icon" style="position: absolute; top: 10px; right: 10px; font-size: 3rem; color: white;">
-                                    <i class="bi-question-circle"></i>
+                                    <i class="bi-check-circle-fill"></i>
                                 </div>
 
                                 <a href="/matricula/matriculas" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                                  <i class="bi-question-circle" style="color: white;"></i>
+                                    <i class="bi-check-circle-fill" style="color: white;"></i>
                                 </a>
-                            </div> <!--end::Small Box Widget 2-->
-                        </div> 
+                            </div>
+
+                        </div>
                         <div class="col-lg-3 col-6"> <!--begin::Small Box Widget 3-->
                             <div class="small-box text-bg-warning" style="background-color: #06121E !important;">
                                 <div class="inner">
@@ -267,30 +266,33 @@
                                 </div>
 
                                 <a href="/matricula/matriculas" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                                  <i class="bi-journal-text" style="color: white;"></i>
+                                    <i class="bi-journal-text" style="color: white;"></i>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-6"> <!--begin::Small Box Widget 4-->
+                        <div class="col-lg-3 col-6">
                             <div class="small-box text-bg-danger" style="background-color: #06121E !important;">
                                 <div class="inner">
-                                    <h3>0</h3>
-                                    <p>.........</p>
+                                    <h3 id="totalNewsletter">0</h3>
+                                    <p>Inscritos na Newsletter</p>
                                 </div>
-                                <!-- Ícone de Chat -->
                                 <div class="icon" style="position: absolute; top: 10px; right: 10px; font-size: 3rem; color: white;">
-                                    <i class="bi-question-circle"></i>
+                                    <i class="bi-envelope-fill"></i>
                                 </div>
-
-                                <a href="/matricula/matriculas" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                                  <i class="bi-question-circle" style="color: white;"></i>
+                                <a href="/newsletter/listar" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
+                                    <i class="bi-envelope-fill" style="color: white;"></i>
                                 </a>
-                            </div> 
-                        </div> <!--end::Col-->
+                            </div>
+                        </div>
+                        <!--end::Col-->
                     </div>
 
                     <div class="row">
+
+
+
+
 
                         <!-- CONTEUDO -->
 
@@ -303,14 +305,42 @@
 
 
                         ?>
-
                         <?php if (!isset($conteudo) || $conteudo === 'dashboard') : ?>
+
+                            <div class="text-center mb-4">
+                                <div class="row g-2">
+                                    <div class="col-6 col-md-2">
+                                        <button class="btn btn-primary w-100 btn-filtro" data-filtro="total">Total</button>
+                                    </div>
+                                    <div class="col-6 col-md-2">
+                                        <button class="btn btn-secondary w-100 btn-filtro" data-filtro="idade">Faixa Etária</button>
+                                    </div>
+                                    <div class="col-6 col-md-2">
+                                        <button class="btn btn-success w-100 btn-filtro" data-filtro="atividade">Atividade</button>
+                                    </div>
+                                    <div class="col-6 col-md-2">
+                                        <button class="btn btn-info w-100 btn-filtro" data-filtro="status">Status</button>
+                                    </div>
+                                    <div class="col-6 col-md-2">
+                                        <button class="btn btn-warning w-100 btn-filtro" data-filtro="cadastro">Por Mês</button>
+                                    </div>
+                                    <div class="col-6 col-md-2">
+                                        <button class="btn btn-dark w-100 btn-filtro" data-filtro="cidade">Por Cidade</button>
+                                    </div>
+                                    <div class="col-6 col-md-2">
+                                        <button class="btn 	btn-danger w-100 btn-filtro" data-filtro="bairro">Por Bairro</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
                             <div class="col-12">
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">📊 Total de Matrículas</h3>
+                                        <h3 class="card-title" id="tituloGrafico">📊 Total de Matrículas</h3>
                                     </div>
-                                    <div class="card-body" style="height: 350px;">
+                                    <div class="card-body" style="height: 400px;">
                                         <canvas id="graficoMatriculas"></canvas>
                                     </div>
                                 </div>
@@ -318,70 +348,147 @@
 
                             <!-- Chart.js -->
                             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                            <!-- Plugin para exibir número acima da barra -->
                             <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
                             <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    fetch('/matricula/totalMatriculas')
-                                        .then(response => response.json())
-                                        .then(data => {
-                                            const ctx = document.getElementById('graficoMatriculas').getContext('2d');
+                                const cores = ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC', '#FF7043', '#26C6DA', '#EF5350'];
+                                let graficoAtual = null;
 
-                                            // Gradiente azul estilizado
-                                            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-                                            gradient.addColorStop(0, '#42A5F5'); // azul claro
-                                            gradient.addColorStop(1, '#1E88E5'); // azul escuro
+                                const rotas = {
+                                    total: {
+                                        url: '/matricula/totalMatriculas',
+                                        titulo: '📊 Total de Matrículas',
+                                        tipo: 'bar',
+                                        unicoValor: true
+                                    },
+                                    idade: {
+                                        url: '/matricula/graficoPorIdade',
+                                        titulo: '👤 Faixa Etária',
+                                        tipo: 'bar'
+                                    },
+                                    atividade: {
+                                        url: '/matricula/graficoPorAtividade',
+                                        titulo: '📚 Atividades',
+                                        tipo: 'bar'
+                                    },
+                                    status: {
+                                        url: '/matricula/graficoPorStatus',
+                                        titulo: '📌 Status',
+                                        tipo: 'bar'
+                                    },
+                                    cadastro: {
+                                        url: '/matricula/graficoPorMes',
+                                        titulo: '📆 Por Mês',
+                                        tipo: 'line'
+                                    },
+                                    cidade: {
+                                        url: '/matricula/graficoPorCidade',
+                                        titulo: '🌆 Por Cidade',
+                                        tipo: 'bar'
+                                    },
+                                    bairro: {
+                                        url: '/matricula/graficoPorBairro',
+                                        titulo: '🏘️ Por Bairro',
+                                        tipo: 'bar'
+                                    }
 
-                                            new Chart(ctx, {
-                                                type: 'bar',
-                                                data: {
-                                                    labels: ['Total de Matrículas'],
-                                                    datasets: [{
-                                                        label: 'Quantidade',
-                                                        data: [data.total],
-                                                        backgroundColor: gradient,
-                                                        borderRadius: 10,
-                                                        datalabels: {
-                                                            anchor: 'end',
-                                                            align: 'top',
-                                                            color: '#000',
-                                                            font: {
-                                                                weight: 'bold'
-                                                            }
-                                                        }
-                                                    }]
+                                };
+
+                                function criarGradiente(ctx, cor1, cor2) {
+                                    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+                                    gradient.addColorStop(0, cor1);
+                                    gradient.addColorStop(1, cor2);
+                                    return gradient;
+                                }
+
+                                async function carregarGrafico(tipo) {
+                                    const config = rotas[tipo];
+                                    document.getElementById('tituloGrafico').innerText = config.titulo;
+
+                                    const res = await fetch(config.url);
+                                    const dados = await res.json();
+
+                                    const ctx = document.getElementById('graficoMatriculas').getContext('2d');
+                                    if (graficoAtual) graficoAtual.destroy();
+
+                                    let labels = [];
+                                    let valores = [];
+                                    let cor = (config.tipo === 'bar' || config.tipo === 'line') ? criarGradiente(ctx, '#42A5F5', '#1E88E5') : cores;
+
+                                    if (config.unicoValor) {
+                                        labels = ['Total de Matrículas'];
+                                        valores = [dados.total];
+                                    } else {
+                                        labels = dados.map(item => item.label);
+                                        valores = dados.map(item => item.valor);
+                                    }
+
+                                    graficoAtual = new Chart(ctx, {
+                                        type: config.tipo,
+                                        data: {
+                                            labels: labels,
+                                            datasets: [{
+                                                label: 'Quantidade',
+                                                data: valores,
+                                                backgroundColor: cor,
+                                                borderRadius: 10,
+                                                datalabels: {
+                                                    anchor: 'end',
+                                                    align: 'top',
+                                                    color: '#000',
+                                                    font: {
+                                                        weight: 'bold'
+                                                    }
+                                                }
+                                            }]
+                                        },
+                                        options: {
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                legend: {
+                                                    display: config.tipo !== 'bar'
                                                 },
-                                                options: {
-                                                    responsive: true,
-                                                    maintainAspectRatio: false,
-                                                    plugins: {
-                                                        legend: {
-                                                            display: false
-                                                        },
-                                                        tooltip: {
-                                                            callbacks: {
-                                                                label: function(context) {
-                                                                    return `Total: ${context.raw}`;
-                                                                }
-                                                            }
-                                                        }
-                                                    },
-                                                    scales: {
-                                                        y: {
-                                                            beginAtZero: true,
-                                                            ticks: {
-                                                                stepSize: 1
-                                                            }
+                                                tooltip: {
+                                                    callbacks: {
+                                                        label: ctx => {
+                                                            const valor = ctx.raw || 0;
+                                                            return `Quantidade: ${valor}`;
                                                         }
                                                     }
-                                                },
-                                                plugins: [ChartDataLabels]
-                                            });
+                                                }
+                                            },
+                                            scales: (config.tipo === 'bar' || config.tipo === 'line') ? {
+                                                y: {
+                                                    beginAtZero: true,
+                                                    ticks: {
+                                                        stepSize: 1
+                                                    }
+                                                }
+                                            } : {}
+                                        },
+                                        plugins: typeof ChartDataLabels !== 'undefined' ? [ChartDataLabels] : []
+                                    });
+                                }
+
+                                document.addEventListener('DOMContentLoaded', () => {
+                                    carregarGrafico('total'); // Gráfico inicial
+
+                                    document.querySelectorAll('.btn-filtro').forEach(botao => {
+                                        botao.addEventListener('click', () => {
+                                            const filtro = botao.getAttribute('data-filtro');
+                                            carregarGrafico(filtro);
                                         });
+                                    });
                                 });
                             </script>
+
+
+
+
                         <?php endif; ?>
+
+
 
 
 
@@ -673,6 +780,48 @@
                 });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/matricula/totalAtivos')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('totalAtivos').textContent = data.total;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar matrículas ativas:', error);
+                });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/matricula/totalInativos')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('totalInativos').textContent = data.total;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar matrículas inativas:', error);
+                });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/newsletter/totalNewsletter')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('totalNewsletter').textContent = data.total;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar  Newsletter ', error);
+                });
+        });
+    </script>
+
+
 
 
 
