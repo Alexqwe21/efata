@@ -736,5 +736,4 @@ class MatriculaController extends Controller
             exit;
         }
     }
-    
 }

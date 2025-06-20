@@ -164,7 +164,7 @@
                         <div class="times">
                             <img src="assets/img/dragao_time.png" alt="time">
                             <p>3 - 1</p>
-                             <img src="assets/img/vibes.png" alt="vibes">
+                            <img src="assets/img/vibes.png" alt="vibes">
 
                         </div>
                         <h5>Amistoso</h5>
@@ -228,7 +228,7 @@
 
                         <div class="evento_esporte_cultura">
                             <a href="https://maps.app.goo.gl/axJY8jmV8axrNJRQA" target="_blank">
-                                <img src="assets/img/encontro_parigot.png" alt="Parigot">
+                                <img src="assets/img/treino_parigot.png" alt="Parigot">
                                 <div>
 
                                     <span>PARIGOT</span>
@@ -391,14 +391,26 @@
                             <p>
                                 Nossa equipe é formada por pessoas comprometidas com excelência e propósito:
                                 <br><br>
-                                🏐 <strong>Allan</strong> — professor de Educação Física, responsável pelos treinos
-                                técnicos.
-                                <br>
+
                                 🏐 <strong>Katiane</strong> — organiza os treinos e campeonatos, garantindo que tudo
                                 funcione bem.
                                 <br>
+
+                                🏐 <strong>Fidel</strong> — Organização Geral atua diretamente na coordenação e oferece suporte essencial às atividades do projeto.
+                                <br>
+
+                                🏐 <strong>Luan</strong> — Organização e Marketing é o responsável pela divulgação, comunicação e coordenação geral do projeto.
+                                <br>
+
+                                🏐 <strong>Allan</strong> — professor de Educação Física, responsável pelos treinos
+                                técnicos.
+                                <br>
+
                                 🏐 <strong>Pastora Gislene</strong> — cuida da parte espiritual e da organização dos
-                                eventos.
+                                eventos. <br>
+
+
+
                             </p>
                         </div>
 
@@ -435,41 +447,14 @@
                 <h2>Nossos Patrocinadores</h2>
 
                 <div class="lado_a_lado_patrocinador">
+
                     <div class="columns">
                         <div class="patrocinador_oficial">
                             <a href="#">
-                                <img src="assets/img/patrocinador_1.png" alt="patrocinador">
+                                <img src="assets/img/isar_patrocinador.png" alt="patrocinador">
                                 <strong>PATROCINADOR</strong>
-                                <h6>Cygnus</h6>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur enim
-                                </span>
-                                <div class="circulo">
-                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="patrocinador_oficial">
-                            <a href="#">
-                                <img src="assets/img/patrocinador_cepheus.png" alt="patrocinador">
-                                <strong>PATROCINADOR</strong>
-                                <h6>Cepheus</h6>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur enim
-                                </span>
-                                <div class="circulo">
-                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="patrocinador_oficial">
-                            <a href="#">
-                                <img src="assets/img/patrocinador_centarius.png" alt="patrocinador">
-                                <strong>PATROCINADOR</strong>
-                                <h6>Centarius</h6>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur enim
+                                <h6>Isar</h6>
+                                <span> Instituto de Arte e Cultura: Promove ações culturais e apoia projetos que valorizam a arte e os talentos da comunidade.
                                 </span>
                                 <div class="circulo">
                                     <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
@@ -481,10 +466,10 @@
                     <div class="columns">
                         <div class="patrocinador_oficial">
                             <a href="#">
-                                <img src="assets/img/patrocinador_centarius.png" alt="patrocinador">
+                                <img src="assets/img/patrocinador_paes.png" alt="patrocinador">
                                 <strong>PATROCINADOR</strong>
-                                <h6>Centarius</h6>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur enim
+                                <h6>Pães e doces</h6>
+                                <span>Pães e Doces: Produtos artesanais com sabor e qualidade, apoiando a comunidade local.
                                 </span>
                                 <div class="circulo">
                                     <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
@@ -492,13 +477,14 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="columns">
                         <div class="patrocinador_oficial">
                             <a href="#">
-                                <img src="assets/img/patrocinador_centarius.png" alt="patrocinador">
+                                <img src="assets/img/patrocinador_drogaria.png" alt="patrocinador">
                                 <strong>PATROCINADOR</strong>
-                                <h6>Centarius</h6>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur enim
+                                <h6>Drogaria jotta</h6>
+                                <span>Comprometida com a saúde e o bem-estar, a Drogaria Jotta apoia ações que promovem qualidade de vida na comunidade.
                                 </span>
                                 <div class="circulo">
                                     <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
@@ -506,13 +492,29 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="https://www.instagram.com/_arenanewopen?igsh=MTB0bDZwdHEza3JsYw==" target="_blank">
+                                <img src="assets/img/patrocinador_arena.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>Arena new open</h6>
+                                <span>Espaço dedicado ao esporte e ao entretenimento, a Arena New Open incentiva atividades que fortalecem a integração e o desenvolvimento comunitário.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="columns">
                         <div class="patrocinador_oficial">
                             <a href="#">
-                                <img src="assets/img/patrocinador_centarius.png" alt="patrocinador">
+                                <img src="assets/img/patrocinador_pequeno.png" alt="patrocinador">
                                 <strong>PATROCINADOR</strong>
-                                <h6>Centarius</h6>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur enim
+                                <h6>Pequeno Principe</h6>
+                                <span>Instituto focado no cuidado, desenvolvimento e bem-estar infantil, promovendo ações sociais e educativas para crianças e famílias.
                                 </span>
                                 <div class="circulo">
                                     <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
@@ -520,6 +522,119 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="#">
+                                <img src="assets/img/patrocinador_hotelinho.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>Hotelzinho</h6>
+                                <span>Espaço acolhedor e seguro, especializado no cuidado e desenvolvimento de crianças, apoiando famílias com carinho e atenção.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="#">
+                                <img src="assets/img/patrocinador_psicologa.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>Cleide Barros</h6>
+                                <span>Psicóloga: Atua no cuidado da saúde mental, oferecendo apoio emocional e promovendo o bem-estar psicológico da comunidade.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                    <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="https://www.instagram.com/tdgamesloja?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                                <img src="assets/img/patrocinador_td_games.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>TDgames</h6>
+                                <span> Empresa dedicada a jogos e entretenimento digital, promovendo diversão e inovação para todas as idades.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="https://www.instagram.com/sitiotaiacupebaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                                <img src="assets/img/sitio_patrocinador.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>Sitio Taiaçupeba</h6>
+                                <span>Espaço de contato com a natureza que oferece lazer, eventos e experiências rurais, valorizando a cultura e o meio ambiente local.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="https://www.instagram.com/sitiotaiacupebaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                                <img src="assets/img/patrocinador_dkm.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>DKM</h6>
+                                <span>Clínica especializada em cuidados dentários, oferecendo atendimento de qualidade para promover a saúde bucal e o bem-estar dos pacientes.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                      <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="https://www.instagram.com/sitiotaiacupebaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                                <img src="assets/img/patrocinador_assecoria.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>Assessoria Política</h6>
+                                <span>Serviço especializado em consultoria estratégica, comunicação e apoio a processos políticos, fortalecendo a gestão pública e o diálogo com a sociedade.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                      <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="https://www.instagram.com/sitiotaiacupebaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                                <img src="assets/img/patrocinador_casadecarnes.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>Casa de Carnes</h6>
+                                <span> Comércio especializado em cortes frescos e de qualidade, oferecendo variedade e atendimento dedicado à comunidade local.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </article>
         </section>
