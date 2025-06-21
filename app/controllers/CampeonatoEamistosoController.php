@@ -497,6 +497,53 @@ public function exportarExcelCampeonatos()
 
 
 
+public function totalTimes()
+{
+    $model = new CampeonatoEamistoso();
+    $total = $model->contarTodosTimes();
+    echo json_encode(['total' => $total]);
+}
+
+public function graficoPorStatusTime()
+{
+    $model = new CampeonatoEamistoso();
+    $dados = $model->agruparPorStatus();
+    echo json_encode($dados);
+}
+
+public function graficoPorPosicaoJogador()
+{
+    $model = new CampeonatoEamistoso();
+    $dados = $model->agruparPosicoesJogadores();
+    echo json_encode($dados);
+}
+
+public function graficoPorQtdJogadoresTime()
+{
+    $model = new CampeonatoEamistoso();
+    $dados = $model->quantidadeJogadoresPorTime();
+    echo json_encode($dados);
+}
+
+
+public function graficoMediaIdadeJogadores()
+{
+    $dados = $this->campeonatoEamistosoModel->calcularMediaIdadePorTime();
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($dados);
+}
+
+
+public function graficoPorIdade()
+{
+    $dados = $this->campeonatoEamistosoModel->agruparPorIdadeJogadores();
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($dados);
+}
+
+
+
+
 
 
 }

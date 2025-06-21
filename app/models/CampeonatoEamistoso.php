@@ -197,4 +197,86 @@ class CampeonatoEamistoso extends Model
     return true;
 }
 
+
+public function contarTodosTimes()
+{
+    $stmt = $this->db->query("SELECT COUNT(*) as total FROM tbl_campeonatos_amistosos");
+    return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+}
+
+public function agruparPorStatus()
+{
+    $sql = "SELECT status_time AS label, COUNT(*) AS valor
+            FROM tbl_campeonatos_amistosos
+            GROUP BY status_time";
+    return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+public function agruparPosicoesJogadores()
+{
+    $sql = "SELECT posicao_voleibol_jogador AS label, COUNT(*) AS valor
+            FROM tbl_jogadores
+            GROUP BY posicao_voleibol_jogador";
+    return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+public function quantidadeJogadoresPorTime()
+{
+    $sql = "SELECT c.nome_time AS label, COUNT(j.id_jogador) AS valor
+            FROM tbl_campeonatos_amistosos c
+            LEFT JOIN tbl_jogadores j ON j.id_campeonato = c.id_campeonato
+            GROUP BY c.nome_time";
+    return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+public function calcularMediaIdadePorTime()
+{
+    $sql = "
+        SELECT 
+            c.nome_time AS label,
+            ROUND(AVG(TIMESTAMPDIFF(YEAR, j.data_nascimento_jogador, CURDATE())), 1) AS valor
+        FROM 
+            tbl_jogadores j
+        INNER JOIN 
+            tbl_campeonatos_amistosos c ON j.id_campeonato = c.id_campeonato
+        WHERE 
+            j.data_nascimento_jogador IS NOT NULL
+        GROUP BY 
+            c.id_campeonato
+        ORDER BY 
+            valor DESC
+    ";
+
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+public function agruparPorIdadeJogadores()
+{
+    $sql = "
+        SELECT 
+            CASE 
+                WHEN TIMESTAMPDIFF(YEAR, j.data_nascimento_jogador, CURDATE()) BETWEEN 0 AND 12 THEN '0-12 anos'
+                WHEN TIMESTAMPDIFF(YEAR, j.data_nascimento_jogador, CURDATE()) BETWEEN 13 AND 17 THEN '13-17 anos'
+                WHEN TIMESTAMPDIFF(YEAR, j.data_nascimento_jogador, CURDATE()) BETWEEN 18 AND 25 THEN '18-25 anos'
+                WHEN TIMESTAMPDIFF(YEAR, j.data_nascimento_jogador, CURDATE()) BETWEEN 26 AND 35 THEN '26-35 anos'
+                WHEN TIMESTAMPDIFF(YEAR, j.data_nascimento_jogador, CURDATE()) BETWEEN 36 AND 50 THEN '36-50 anos'
+                ELSE '50+ anos'
+            END AS label,
+            COUNT(*) AS valor
+        FROM tbl_jogadores j
+        WHERE j.data_nascimento_jogador IS NOT NULL
+        GROUP BY label
+        ORDER BY label
+    ";
+    return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
+
 }

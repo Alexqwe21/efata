@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous"><!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous"><!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="/vendors/css/adminlte.css">
- 
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous"><!-- jsvectormap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css" integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -189,7 +189,7 @@
                                 <p>Newsletter</p>
                             </a> </li>
 
-                              <li class="nav-item"> <a href="/campeonatoEamistoso/campeonatoListar" class="nav-link"><i class="bi bi-clipboard-plus"></i>
+                        <li class="nav-item"> <a href="/campeonatoEamistoso/campeonatoListar" class="nav-link"><i class="bi bi-clipboard-plus"></i>
 
                                 <p>Campeonatos e amistoso</p>
                             </a> </li>
@@ -313,6 +313,7 @@
                         ?>
                         <?php if (!isset($conteudo) || $conteudo === 'dashboard') : ?>
 
+                            <!-- Botões de Matrículas -->
                             <div class="text-center mb-4">
                                 <div class="row g-2">
                                     <div class="col-6 col-md-2">
@@ -334,13 +335,12 @@
                                         <button class="btn btn-dark w-100 btn-filtro" data-filtro="cidade">Por Cidade</button>
                                     </div>
                                     <div class="col-6 col-md-2">
-                                        <button class="btn 	btn-danger w-100 btn-filtro" data-filtro="bairro">Por Bairro</button>
+                                        <button class="btn btn-danger w-100 btn-filtro" data-filtro="bairro">Por Bairro</button>
                                     </div>
-
                                 </div>
                             </div>
 
-
+                            <!-- Gráfico de Matrículas -->
                             <div class="col-12">
                                 <div class="card card-primary">
                                     <div class="card-header">
@@ -352,6 +352,61 @@
                                 </div>
                             </div>
 
+                            <!-- Botões de Campeonatos -->
+                            <div class="text-center mt-5 mb-4">
+                                <h4>📊 Análise e Estatísticas dos Campeonatos e Amistosos</h4>
+                                <div class="row g-2">
+                                  <div class="text-center mb-4">
+  <div class="row row-cols-1 row-cols-md-4 g-3 justify-content-center">
+    <div class="col">
+      <button class="btn btn-primary w-100 py-2 btn-filtro-campeonato" data-filtro="total">
+        Total de Times
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success w-100 py-2 btn-filtro-campeonato" data-filtro="status">
+        Status dos Times
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn btn-warning w-100 py-2 btn-filtro-campeonato" data-filtro="porposicao">
+        Posições dos Jogadores
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn btn-info w-100 py-2 btn-filtro-campeonato" data-filtro="porjogadores">
+        Jogadores por Time
+      </button>
+    </div>
+
+    <div class="col">
+      <button class="btn btn-secondary w-100 btn-filtro-campeonato" data-filtro="mediaidade">Média de Idade</button>
+    </div>
+
+    <div class="col">
+      <button class="btn btn-danger w-100  py-2 btn-filtro-campeonato" data-filtro="idade">
+        Faixa Etária dos Jogadores
+      </button>
+    </div>
+  </div>
+</div>
+
+
+                                </div>
+                            </div>
+
+                            <!-- Gráfico de Campeonatos -->
+                            <div class="col-12">
+                                <div class="card card-secondary">
+                                    <div class="card-header">
+                                        <h3 class="card-title" id="tituloGraficoCampeonato">📊 Total de Times</h3>
+                                    </div>
+                                    <div class="card-body" style="height: 400px;">
+                                        <canvas id="graficoCampeonatos"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Chart.js -->
                             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                             <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
@@ -359,6 +414,7 @@
                             <script>
                                 const cores = ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC', '#FF7043', '#26C6DA', '#EF5350'];
                                 let graficoAtual = null;
+                                let graficoCampeonato = null;
 
                                 const rotas = {
                                     total: {
@@ -397,6 +453,41 @@
                                         titulo: '🏘️ Por Bairro',
                                         tipo: 'bar'
                                     }
+                                };
+
+                                const rotasCampeonato = {
+                                    total: {
+                                        url: '/campeonatoEamistoso/totalTimes',
+                                        titulo: '📊 Total de Times',
+                                        tipo: 'bar',
+                                        unicoValor: true
+                                    },
+                                    status: {
+                                        url: '/campeonatoEamistoso/graficoPorStatusTime',
+                                        titulo: '📌 Status dos Times',
+                                        tipo: 'bar'
+                                    },
+                                    porposicao: {
+                                        url: '/campeonatoEamistoso/graficoPorPosicaoJogador',
+                                        titulo: '🧍‍♂️ Posições dos Jogadores',
+                                        tipo: 'bar'
+                                    },
+                                    porjogadores: {
+                                        url: '/campeonatoEamistoso/graficoPorQtdJogadoresTime',
+                                        titulo: '👥 Jogadores por Time',
+                                        tipo: 'bar'
+                                    },
+                                    mediaidade: {
+                                        url: '/campeonatoEamistoso/graficoMediaIdadeJogadores',
+                                        titulo: '🎯 Média de Idade dos Jogadores por Time',
+                                        tipo: 'bar'
+                                    },
+                                    idade: {
+                                        url: '/campeonatoEamistoso/graficoPorIdade',
+                                        titulo: '🧒 Faixa Etária dos Jogadores',
+                                        tipo: 'bar'
+                                    }
+
 
                                 };
 
@@ -417,9 +508,9 @@
                                     const ctx = document.getElementById('graficoMatriculas').getContext('2d');
                                     if (graficoAtual) graficoAtual.destroy();
 
-                                    let labels = [];
-                                    let valores = [];
-                                    let cor = (config.tipo === 'bar' || config.tipo === 'line') ? criarGradiente(ctx, '#42A5F5', '#1E88E5') : cores;
+                                    let labels = [],
+                                        valores = [];
+                                    let cor = criarGradiente(ctx, '#42A5F5', '#1E88E5');
 
                                     if (config.unicoValor) {
                                         labels = ['Total de Matrículas'];
@@ -457,10 +548,74 @@
                                                 },
                                                 tooltip: {
                                                     callbacks: {
-                                                        label: ctx => {
-                                                            const valor = ctx.raw || 0;
-                                                            return `Quantidade: ${valor}`;
-                                                        }
+                                                        label: ctx => `Quantidade: ${ctx.raw || 0}`
+                                                    }
+                                                }
+                                            },
+                                            scales: (config.tipo === 'bar' || config.tipo === 'line') ? {
+                                                y: {
+                                                    beginAtZero: true,
+                                                    ticks: {
+                                                        stepSize: 1
+                                                    }
+                                                }
+                                            } : {}
+                                        },
+                                        plugins: typeof ChartDataLabels !== 'undefined' ? [ChartDataLabels] : []
+                                    });
+                                }
+
+                                async function carregarGraficoCampeonato(tipo) {
+                                    const config = rotasCampeonato[tipo];
+                                    document.getElementById('tituloGraficoCampeonato').innerText = config.titulo;
+
+                                    const res = await fetch(config.url);
+                                    const dados = await res.json();
+
+                                    const ctx = document.getElementById('graficoCampeonatos').getContext('2d');
+                                    if (graficoCampeonato) graficoCampeonato.destroy();
+
+                                    let labels = [],
+                                        valores = [];
+                                    let cor = criarGradiente(ctx, '#AB47BC', '#7E57C2');
+
+                                    if (config.unicoValor) {
+                                        labels = ['Total de Times'];
+                                        valores = [dados.total];
+                                    } else {
+                                        labels = dados.map(item => item.label);
+                                        valores = dados.map(item => item.valor);
+                                    }
+
+                                    graficoCampeonato = new Chart(ctx, {
+                                        type: config.tipo,
+                                        data: {
+                                            labels: labels,
+                                            datasets: [{
+                                                label: 'Quantidade',
+                                                data: valores,
+                                                backgroundColor: cor,
+                                                borderRadius: 10,
+                                                datalabels: {
+                                                    anchor: 'end',
+                                                    align: 'top',
+                                                    color: '#000',
+                                                    font: {
+                                                        weight: 'bold'
+                                                    }
+                                                }
+                                            }]
+                                        },
+                                        options: {
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                legend: {
+                                                    display: config.tipo !== 'bar'
+                                                },
+                                                tooltip: {
+                                                    callbacks: {
+                                                        label: ctx => `Quantidade: ${ctx.raw || 0}`
                                                     }
                                                 }
                                             },
@@ -478,7 +633,8 @@
                                 }
 
                                 document.addEventListener('DOMContentLoaded', () => {
-                                    carregarGrafico('total'); // Gráfico inicial
+                                    carregarGrafico('total');
+                                    carregarGraficoCampeonato('total');
 
                                     document.querySelectorAll('.btn-filtro').forEach(botao => {
                                         botao.addEventListener('click', () => {
@@ -486,13 +642,18 @@
                                             carregarGrafico(filtro);
                                         });
                                     });
+
+                                    document.querySelectorAll('.btn-filtro-campeonato').forEach(botao => {
+                                        botao.addEventListener('click', () => {
+                                            const filtro = botao.getAttribute('data-filtro');
+                                            carregarGraficoCampeonato(filtro);
+                                        });
+                                    });
                                 });
                             </script>
 
-
-
-
                         <?php endif; ?>
+
 
 
 

@@ -392,11 +392,10 @@
                                 Nossa equipe é formada por pessoas comprometidas com excelência e propósito:
                                 <br><br>
 
-                                🏐 <strong>Katiane</strong> — organiza os treinos e campeonatos, garantindo que tudo
-                                funcione bem.
+                                🏐 <strong>Katiane</strong> — pedagoga, organiza treinos e campeonatos, promovendo atividades que fortalecem o aprendizado.
                                 <br>
 
-                                🏐 <strong>Fidel</strong> — Organização Geral atua diretamente na coordenação e oferece suporte essencial às atividades do projeto.
+                                🏐 <strong>Fidel</strong> — assistente social, apoia a coordenação e oferece orientações sociais aos participantes.
                                 <br>
 
                                 🏐 <strong>Luan</strong> — Organização e Marketing é o responsável pela divulgação, comunicação e coordenação geral do projeto.

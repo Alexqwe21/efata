@@ -43,7 +43,7 @@
             <article class="site">
                 <div class="ladoAlado">
                     <div class="foto">
-                        <img src="/assets/img/foto_treino_volei.png" alt="foto treino">
+                        <img src="/assets/img/foto_esporte_.png" alt="foto treino">
                     </div>
                     <div class="treinos_texto">
                         <h2>TREINOS</h2>
@@ -54,7 +54,7 @@
                             para diferentes níveis, sempre com foco na evolução dos
                             atletas.</p>
                         <div class="foto">
-                            <img src="/assets/img/time_treino.png" alt="foto volei">
+                            <img src="/assets/img/foto_treino_volei_um.png" alt="foto volei">
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="foto responsivodiv">
-                        <img src="/assets/img/foto_jogo.png" alt="foto treino" class="responsivo">
+                        <img src="/assets/img/jogos_esporte_um.png" alt="foto treino" class="responsivo">
                     </div>
                 </div>
             </article>
@@ -97,14 +97,14 @@
                     <div class="foto_lista">
 
                         <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
+                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="JOGOS DE RECREAÇÃO - Cultura Efatá">
                             <img src="/assets/img/amistoso.png" alt="amistoso">
                         </a>
 
                         <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
+                        <a href="" data-fancybox data-caption="Vídeo do JOGOS DE RECREAÇÃO">
                             <div class="video_e_texto">
-                                <p>AMISTOSO</p>
+                                <p>JOGOS DE RECREAÇÃO</p>
                                 <div>
                                     <img src="/assets/img/video_esporte.svg" alt="vídeo">
                                     <span>REPRODUZIR VÍDEO</span>
@@ -114,7 +114,7 @@
                         </a>
 
                         <div class="venha_jogar">
-                            
+
                             <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
                         </div>
 
@@ -126,8 +126,7 @@
                         </div>
 
                         <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
+                            <p>Os jogos de recreação são parte essencial do projeto, promovendo alegria, integração e aprendizado. Por meio de dinâmicas inclusivas, transmitimos valores cristãos como respeito, cooperação e perseverança, enquanto desenvolvemos habilidades motoras e espírito de equipe. Mais que diversão, são momentos de formação técnica e espiritual.</p>
                         </div>
 
                     </div>
@@ -136,12 +135,12 @@
                     <div class="foto_lista">
 
                         <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Treinos - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
+                        <a href="/assets/img/amistoso_esporte.png" data-fancybox="galeria_esporte" data-caption="Amistosos - Cultura Efatá">
+                            <img src="/assets/img/amistoso_esporte.png" alt="amistoso">
                         </a>
 
                         <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=xkU1PLa7ScQ&utm_source=chatgpt.com" data-fancybox data-caption="Treinos do Amistoso">
+                        <a href="" data-fancybox data-caption="Treinos do Amistoso">
                             <div class="video_e_texto">
                                 <p>AMISTOSO</p>
                                 <div>
@@ -164,61 +163,25 @@
                         </div>
 
                         <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
+                            <p>Os amistosos são oportunidades valiosas para integrar atletas,
+                                trocar experiências com outros times e fortalecer o desempenho
+                                coletivo em situações reais de jogo, mas sem a pressão de
+                                competição oficial.</p>
                         </div>
 
                     </div>
-
-                     <div class="foto_lista">
-
-                        <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Treinos - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
-                        </a>
-
-                        <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=xkU1PLa7ScQ&utm_source=chatgpt.com" data-fancybox data-caption="Treinos do Amistoso">
-                            <div class="video_e_texto">
-                                <p>AMISTOSO</p>
-                                <div>
-                                    <img src="/assets/img/video_esporte.svg" alt="vídeo">
-                                    <span>REPRODUZIR VÍDEO</span>
-                                </div>
-
-                            </div>
-                        </a>
-
-                        <div class="venha_jogar">
-                            <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
-                        </div>
-
-                        <div class="maps">
-                            <div>
-                                <img src="/assets/img/maps.svg" alt="maps">
-                                <p>CULTURA EFATÁ</p>
-                            </div>
-                        </div>
-
-                        <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
-                        </div>
-
-                    </div>
-
 
                     <div class="foto_lista">
 
                         <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Campeonatos - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
+                        <a href="/assets/img/torneio_esporte.png" data-fancybox="galeria_esporte" data-caption="TORNEIO - Cultura Efatá">
+                            <img src="/assets/img/torneio_esporte.png" alt="amistoso">
                         </a>
 
                         <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=1IYsqC6xpbQ&utm_source=chatgpt.com" data-fancybox data-caption="Vídeo do campeonatos">
+                        <a href="" data-fancybox data-caption="TORNEIO">
                             <div class="video_e_texto">
-                                <p>AMISTOSO</p>
+                                <p>TORNEIO</p>
                                 <div>
                                     <img src="/assets/img/video_esporte.svg" alt="vídeo">
                                     <span>REPRODUZIR VÍDEO</span>
@@ -239,11 +202,17 @@
                         </div>
 
                         <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
+                            <p>Participamos de torneios locais e regionais com o objetivo de
+                                desafiar nossos atletas, estimular o crescimento esportivo e
+                                representar com orgulho o projeto. Valorizamos tanto os
+                                resultados quanto o aprendizado que cada competição
+                                proporciona.</p>
                         </div>
 
                     </div>
+
+
+                 
 
 
 
