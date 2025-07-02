@@ -34,7 +34,7 @@ $('.carrosel_encontro').slick({
   autoplaySpeed: 3000,        // Tempo entre slides (3000ms = 3 segundos)
   responsive: [
     {
-      breakpoint: 768,
+      breakpoint: 767,
       settings: {
         arrows: false,
         centerMode: true,
@@ -60,7 +60,7 @@ $('.carrosel_encontro').slick({
 
 
 
-$('.lado_a_lado_patrocinador, .coordenadores').slick({
+$('.lado_a_lado_patrocinador, .coordenadores ,.lado_a_lado_jogos').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,

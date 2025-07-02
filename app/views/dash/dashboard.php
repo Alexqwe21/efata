@@ -356,40 +356,51 @@
                             <div class="text-center mt-5 mb-4">
                                 <h4>📊 Análise e Estatísticas dos Campeonatos e Amistosos</h4>
                                 <div class="row g-2">
-                                  <div class="text-center mb-4">
-  <div class="row row-cols-1 row-cols-md-4 g-3 justify-content-center">
-    <div class="col">
-      <button class="btn btn-primary w-100 py-2 btn-filtro-campeonato" data-filtro="total">
-        Total de Times
-      </button>
-    </div>
-    <div class="col">
-      <button class="btn btn-success w-100 py-2 btn-filtro-campeonato" data-filtro="status">
-        Status dos Times
-      </button>
-    </div>
-    <div class="col">
-      <button class="btn btn-warning w-100 py-2 btn-filtro-campeonato" data-filtro="porposicao">
-        Posições dos Jogadores
-      </button>
-    </div>
-    <div class="col">
-      <button class="btn btn-info w-100 py-2 btn-filtro-campeonato" data-filtro="porjogadores">
-        Jogadores por Time
-      </button>
-    </div>
+                                    <div class="text-center mb-4">
+                                        <div class="row row-cols-1 row-cols-md-4 g-3 justify-content-center">
+                                            <div class="col">
+                                                <button class="btn btn-primary w-100 py-2 btn-filtro-campeonato" data-filtro="total">
+                                                    Total de Times
+                                                </button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-success w-100 py-2 btn-filtro-campeonato" data-filtro="status">
+                                                    Status dos Times
+                                                </button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-warning w-100 py-2 btn-filtro-campeonato" data-filtro="porposicao">
+                                                    Posições dos Jogadores
+                                                </button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-info w-100 py-2 btn-filtro-campeonato" data-filtro="porjogadores">
+                                                    Jogadores por Time
+                                                </button>
+                                            </div>
 
-    <div class="col">
-      <button class="btn btn-secondary w-100 btn-filtro-campeonato" data-filtro="mediaidade">Média de Idade</button>
-    </div>
+                                            <div class="col">
+                                                <button class="btn btn-secondary w-100 btn-filtro-campeonato" data-filtro="mediaidade">Média de Idade</button>
+                                            </div>
 
-    <div class="col">
-      <button class="btn btn-danger w-100  py-2 btn-filtro-campeonato" data-filtro="idade">
-        Faixa Etária dos Jogadores
-      </button>
-    </div>
-  </div>
-</div>
+                                            <div class="col">
+                                                <button class="btn btn-danger w-100  py-2 btn-filtro-campeonato" data-filtro="idade">
+                                                    Faixa Etária dos Jogadores
+                                                </button>
+                                            </div>
+                                            <div class="col-6 col-md-3">
+                                                <button class="btn btn-outline-secondary w-100 btn-filtro-campeonato" data-filtro="jogadores_status_total">
+                                                    Jogadores Ativos x Inativos (Total)
+                                                </button>
+                                            </div>
+                                            <div class="col-6 col-md-3">
+                                                <button class="btn btn-outline-secondary w-100 btn-filtro-campeonato" data-filtro="jogadores_status_time">
+                                                    Status por Time
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
 
 
                                 </div>
@@ -410,7 +421,6 @@
                             <!-- Chart.js -->
                             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                             <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-
                             <script>
                                 const cores = ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC', '#FF7043', '#26C6DA', '#EF5350'];
                                 let graficoAtual = null;
@@ -486,9 +496,17 @@
                                         url: '/campeonatoEamistoso/graficoPorIdade',
                                         titulo: '🧒 Faixa Etária dos Jogadores',
                                         tipo: 'bar'
+                                    },
+                                    jogadores_status_total: {
+                                        url: '/campeonatoEamistoso/graficoStatusTotalJogadores',
+                                        titulo: '🧍‍♂️ Total de Jogadores por Status',
+                                        tipo: 'bar'
+                                    },
+                                    jogadores_status_time: {
+                                        url: '/campeonatoEamistoso/graficoStatusJogadoresPorTime',
+                                        titulo: '📊 Jogadores Ativos x Inativos por Time',
+                                        tipo: 'bar_stacked'
                                     }
-
-
                                 };
 
                                 function criarGradiente(ctx, cor1, cor2) {
@@ -575,6 +593,51 @@
                                     const ctx = document.getElementById('graficoCampeonatos').getContext('2d');
                                     if (graficoCampeonato) graficoCampeonato.destroy();
 
+                                    if (tipo === 'jogadores_status_time') {
+                                        const times = dados.map(d => d.label);
+                                        const ativos = dados.map(d => d.Ativo);
+                                        const inativos = dados.map(d => d.Inativo);
+
+                                        graficoCampeonato = new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: times,
+                                                datasets: [{
+                                                        label: 'Ativos',
+                                                        data: ativos,
+                                                        backgroundColor: '#4CAF50'
+                                                    },
+                                                    {
+                                                        label: 'Inativos',
+                                                        data: inativos,
+                                                        backgroundColor: '#F44336'
+                                                    }
+                                                ]
+                                            },
+                                            options: {
+                                                responsive: true,
+                                                maintainAspectRatio: false,
+                                                plugins: {
+                                                    tooltip: {
+                                                        callbacks: {
+                                                            label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}`
+                                                        }
+                                                    }
+                                                },
+                                                scales: {
+                                                    x: {
+                                                        stacked: true
+                                                    },
+                                                    y: {
+                                                        stacked: true,
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                        return;
+                                    }
+
                                     let labels = [],
                                         valores = [];
                                     let cor = criarGradiente(ctx, '#AB47BC', '#7E57C2');
@@ -651,6 +714,7 @@
                                     });
                                 });
                             </script>
+
 
                         <?php endif; ?>
 

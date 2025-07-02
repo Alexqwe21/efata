@@ -15,9 +15,9 @@
     <main>
 
 
-        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-fixo"
+        <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
-            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
+            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp"/>
         </a>
 
 
@@ -43,7 +43,7 @@
             <article class="site">
                 <div class="ladoAlado">
                     <div class="foto">
-                        <img src="/assets/img/foto_cultura_dois.png" alt="foto treino">
+                        <img src="/assets/img/cultura_socio.png" alt="foto treino">
                     </div>
                     <div class="treinos_texto treino_texto_cultura">
                         <h2>SOCIOEDUCATIVO</h2>
@@ -72,18 +72,18 @@
 
                     <div class="treinos_texto treino_texto_cultura">
                         <h2>PALESTRAS</h2>
-                        <h3>Realizamos palestras com temas  para a juventude.</h3>
+                        <h3>Realizamos palestras com temas para a juventude.</h3>
                         <p>Abordando princípios cristãos, ética, prevenção às drogas,
                             cidadania e fortalecimento da fé. São momentos de reflexão e
                             crescimento, que contribuem para a transformação de vidas
                             através da mensagem do Evangelho.</p>
                         <div class="foto">
-                            <img src="/assets/img/foto_cultura_tres.png" alt="foto volei">
+                            <img src="/assets/img/cultura_palestra_dois.png" alt="foto volei">
                         </div>
                     </div>
 
                     <div class="foto responsivodiv">
-                        <img src="/assets/img/foto_cultura_um.png" alt="foto treino" class="responsivo">
+                        <img src="/assets/img/cultura_palestra.png" alt="foto treino" class="responsivo">
                     </div>
                 </div>
             </article>
@@ -100,14 +100,14 @@
                     <div class="foto_lista">
 
                         <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
+                        <a href="/assets/img/DESENVOLVIMENTO_PESSOAL.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
+                            <img src="/assets/img/DESENVOLVIMENTO_PESSOAL.png" alt="amistoso">
                         </a>
 
                         <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
+                        <a href="" data-fancybox data-caption="Vídeo do Amistoso">
                             <div class="video_e_texto">
-                                <p>AMISTOSO</p>
+                                <p>DESENVOLVIMENTO</p>
                                 <div>
                                     <img src="/assets/img/video_cultura.svg" alt="vídeo">
                                     <span>REPRODUZIR VÍDEO</span>
@@ -129,23 +129,22 @@
                         </div>
 
                         <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
+                            <p>Realizamos oficinas voltadas ao autoconhecimento, comunicação, liderança e resolução de conflitos, preparando os participantes para os desafios da vida em sociedade.</p>
                         </div>
 
                     </div>
 
-    <div class="foto_lista">
+                    <div class="foto_lista">
 
                         <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
+                        <a href="/assets/img/IDENTIDADE_CULTURAL.png" data-fancybox="galeria_esporte" data-caption="IDENTIDADE CULTURAL.png- Cultura Efatá">
+                            <img src="/assets/img/IDENTIDADE_CULTURAL.png" alt="amistoso">
                         </a>
 
                         <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
+                        <a href="" data-fancybox data-caption="Vídeo do Amistoso">
                             <div class="video_e_texto">
-                                <p>AMISTOSO</p>
+                                <p>IDENTIDADE CULTURAL</p>
                                 <div>
                                     <img src="/assets/img/video_cultura.svg" alt="vídeo">
                                     <span>REPRODUZIR VÍDEO</span>
@@ -167,90 +166,13 @@
                         </div>
 
                         <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
+                            <p>Valorizamos as raízes culturais locais e a diversidade étnica e religiosa. Por meio de ações que celebram essas diferenças, incentivamos o respeito mútuo, o diálogo e a construção de uma cultura de paz.</p>
                         </div>
 
                     </div>
 
 
-                        <div class="foto_lista">
 
-                        <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
-                        </a>
-
-                        <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
-                            <div class="video_e_texto">
-                                <p>AMISTOSO</p>
-                                <div>
-                                    <img src="/assets/img/video_cultura.svg" alt="vídeo">
-                                    <span>REPRODUZIR VÍDEO</span>
-                                </div>
-
-                            </div>
-                        </a>
-
-                        <div class="venha_jogar venha_cultura">
-
-                            <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
-                        </div>
-
-                        <div class="maps">
-                            <div>
-                                <img src="/assets/img/maps_cultura.svg" alt="maps">
-                                <p>CULTURA EFATÁ</p>
-                            </div>
-                        </div>
-
-                        <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
-                        </div>
-
-                    </div>
-
-
-                        <div class="foto_lista">
-
-                        <!-- Imagem com Fancybox -->
-                        <a href="/assets/img/amistoso.png" data-fancybox="galeria_esporte" data-caption="Amistoso - Cultura Efatá">
-                            <img src="/assets/img/amistoso.png" alt="amistoso">
-                        </a>
-
-                        <!-- Vídeo com Fancybox -->
-                        <a href="https://www.youtube.com/watch?v=0ErDRrg9tM8" data-fancybox data-caption="Vídeo do Amistoso">
-                            <div class="video_e_texto">
-                                <p>AMISTOSO</p>
-                                <div>
-                                    <img src="/assets/img/video_cultura.svg" alt="vídeo">
-                                    <span>REPRODUZIR VÍDEO</span>
-                                </div>
-
-                            </div>
-                        </a>
-
-                        <div class="venha_jogar venha_cultura">
-
-                            <strong>JUNTE-SE AO NOSSO TIME! FAÇA SUA MATRÍCULA E VENHA JOGAR VÔLEI.</strong>
-                        </div>
-
-                        <div class="maps">
-                            <div>
-                                <img src="/assets/img/maps_cultura.svg" alt="maps">
-                                <p>CULTURA EFATÁ</p>
-                            </div>
-                        </div>
-
-                        <div class="descricaoTexto">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse earum voluptas maiores mollitia, voluptatem ipsa commodi numquam, illo sint quibusdam aut tenetur similique assumenda quod id sequi aliquid accusamus ut
-                                voluptates consequatur placeat? Nostrum, ipsam sit. Necessitatibus laborum explicabo libero.</p>
-                        </div>
-
-                    </div>
-           
 
                 </div>
             </article>

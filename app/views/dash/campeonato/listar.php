@@ -44,17 +44,17 @@
       value="<?= isset($_GET['nome_jogador']) ? htmlspecialchars($_GET['nome_jogador']) : ''; ?>">
   </div>
 
-<div class="col-md-2">
-  <label class="form-label" for="rg_jogador">RG</label>
-  <input type="text" name="rg_jogador" id="rg_jogador" class="form-control" placeholder="00.000.000-0"
-    maxlength="12" value="<?= isset($_GET['rg_jogador']) ? htmlspecialchars($_GET['rg_jogador']) : ''; ?>">
-</div>
+  <div class="col-md-2">
+    <label class="form-label" for="rg_jogador">RG</label>
+    <input type="text" name="rg_jogador" id="rg_jogador" class="form-control" placeholder="00.000.000-0"
+      maxlength="12" value="<?= isset($_GET['rg_jogador']) ? htmlspecialchars($_GET['rg_jogador']) : ''; ?>">
+  </div>
 
-<div class="col-md-2">
-  <label class="form-label" for="telefone_jogador">Telefone</label>
-  <input type="text" name="telefone_jogador" id="telefone_jogador" class="form-control" placeholder="(00) 00000-0000"
-    maxlength="15" value="<?= isset($_GET['telefone_jogador']) ? htmlspecialchars($_GET['telefone_jogador']) : ''; ?>">
-</div>
+  <div class="col-md-2">
+    <label class="form-label" for="telefone_jogador">Telefone</label>
+    <input type="text" name="telefone_jogador" id="telefone_jogador" class="form-control" placeholder="(00) 00000-0000"
+      maxlength="15" value="<?= isset($_GET['telefone_jogador']) ? htmlspecialchars($_GET['telefone_jogador']) : ''; ?>">
+  </div>
 
 
   <div class="col-md-2 d-flex align-items-end">
@@ -120,58 +120,58 @@
           $letra = strtoupper(substr($campeonatos['nome_time'], 0, 1));
 
           // Array expandido com cerca de 50 cores diferentes
-        $cores = [
-  '#D7263D', // vermelho forte
-  '#F46036', // laranja vibrante
-  '#2E294E', // roxo escuro
-  '#1B998B', // verde esmeralda escuro
-  '#2D3047', // azul petróleo
-  '#0F4C5C', // azul petróleo escuro
-  '#3C1642', // roxo profundo
-  '#086788', // azul escuro vibrante
-  '#1C1C1C', // preto quase puro
-  '#2C2C54', // roxo grafite
-  '#3D348B', // roxo escuro saturado
-  '#1D3557', // azul royal escuro
-  '#4A4E69', // cinza arroxeado escuro
-  '#8338EC', // roxo elétrico
-  '#3A0CA3', // azul royal profundo
-  '#240046', // roxo escuro
-  '#7209B7', // púrpura vivo
-  '#F72585', // rosa choque escuro
-  '#D00000', // vermelho puro escuro
-  '#9D0208', // vinho intenso
-  '#6A040F', // vermelho queimado
-  '#370617', // bordô escuro
-  '#03045E', // azul escuro saturado
-  '#023E8A', // azul royal
-  '#0077B6', // azul vibrante
-  '#0096C7', // ciano forte
-  '#00B4D8', // azul caribe
-  '#006D77', // verde petróleo forte
-  '#14213D', // azul marinho escuro
-  '#000814', // preto azulado
-  '#001D3D', // azul meia-noite
-  '#00296B', // azul escuro puro
-  '#003566', // azul naval
-  '#6F1D1B', // vinho terroso
-  '#5A189A', // roxo profundo escuro
-  '#9A031E', // vermelho vibrante escuro
-  '#8D0801', // vermelho queimado forte
-  '#2C6E49', // verde escuro saturado
-  '#1E5128', // verde floresta
-  '#264653', // azul petróleo escuro
-  '#006400', // verde musgo forte
-  '#2F3E46', // cinza escuro azulado
-  '#0B132B', // azul noite
-  '#1D1A05', // marrom muito escuro
-  '#361D32', // roxo escuro acinzentado
-  '#5F0F40', // vinho escuro rosado
-  '#8F2D56', // magenta escuro
-  '#C9184A', // rosa escuro saturado
-  '#A4161A', // vermelho barro
-  '#511845'  // roxo profundo saturado
-];
+          $cores = [
+            '#D7263D', // vermelho forte
+            '#F46036', // laranja vibrante
+            '#2E294E', // roxo escuro
+            '#1B998B', // verde esmeralda escuro
+            '#2D3047', // azul petróleo
+            '#0F4C5C', // azul petróleo escuro
+            '#3C1642', // roxo profundo
+            '#086788', // azul escuro vibrante
+            '#1C1C1C', // preto quase puro
+            '#2C2C54', // roxo grafite
+            '#3D348B', // roxo escuro saturado
+            '#1D3557', // azul royal escuro
+            '#4A4E69', // cinza arroxeado escuro
+            '#8338EC', // roxo elétrico
+            '#3A0CA3', // azul royal profundo
+            '#240046', // roxo escuro
+            '#7209B7', // púrpura vivo
+            '#F72585', // rosa choque escuro
+            '#D00000', // vermelho puro escuro
+            '#9D0208', // vinho intenso
+            '#6A040F', // vermelho queimado
+            '#370617', // bordô escuro
+            '#03045E', // azul escuro saturado
+            '#023E8A', // azul royal
+            '#0077B6', // azul vibrante
+            '#0096C7', // ciano forte
+            '#00B4D8', // azul caribe
+            '#006D77', // verde petróleo forte
+            '#14213D', // azul marinho escuro
+            '#000814', // preto azulado
+            '#001D3D', // azul meia-noite
+            '#00296B', // azul escuro puro
+            '#003566', // azul naval
+            '#6F1D1B', // vinho terroso
+            '#5A189A', // roxo profundo escuro
+            '#9A031E', // vermelho vibrante escuro
+            '#8D0801', // vermelho queimado forte
+            '#2C6E49', // verde escuro saturado
+            '#1E5128', // verde floresta
+            '#264653', // azul petróleo escuro
+            '#006400', // verde musgo forte
+            '#2F3E46', // cinza escuro azulado
+            '#0B132B', // azul noite
+            '#1D1A05', // marrom muito escuro
+            '#361D32', // roxo escuro acinzentado
+            '#5F0F40', // vinho escuro rosado
+            '#8F2D56', // magenta escuro
+            '#C9184A', // rosa escuro saturado
+            '#A4161A', // vermelho barro
+            '#511845'  // roxo profundo saturado
+          ];
 
 
           // Gera índice baseado no hash do nome do time
@@ -212,9 +212,71 @@
                 Editar
               </button>
 
+              <!-- Botão para adicionar jogador -->
+              <button style="width: 120px;" class="card__btn btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#adicionarJogador<?php echo $campeonatos['id_campeonato']; ?>">
+                ➕ Jogador
+              </button>
+
+
 
             </div>
           </div>
+
+
+
+          <!-- Modal Adicionar Jogador -->
+<div class="modal fade" id="adicionarJogador<?php echo $campeonatos['id_campeonato']; ?>" tabindex="-1" aria-labelledby="labelAddJogador" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form action="/campeonatoEamistoso/adicionarJogador" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title">Adicionar Jogador ao Time: <?php echo htmlspecialchars($campeonatos['nome_time']); ?></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="hidden" name="id_campeonato" value="<?php echo $campeonatos['id_campeonato']; ?>">
+
+          <div class="mb-2">
+            <label>Nome Completo</label>
+            <input type="text" name="nome_completo" class="form-control" required>
+          </div>
+          <div class="mb-2">
+            <label>RG</label>
+            <input type="text" name="rg" class="form-control rg" required>
+          </div>
+          <div class="mb-2">
+            <label>Data de Nascimento</label>
+            <input type="text" name="data_nascimento" class="form-control data" required>
+          </div>
+          <div class="mb-2">
+            <label>Telefone</label>
+            <input type="text" name="telefone" class="form-control telefone" required>
+          </div>
+          <div class="mb-2">
+            <label>Posição</label>
+            <select name="posicao" class="form-control" required>
+              <option value="">Selecione...</option>
+              <option value="Levantador">Levantador</option>
+              <option value="Ponteiro">Ponteiro</option>
+              <option value="Líbero">Líbero</option>
+              <option value="Central">Central</option>
+              <option value="Oposto">Oposto</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 
@@ -440,6 +502,24 @@ $queryString = !empty($params) ? '?' . http_build_query($params) : '';
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.8/inputmask.min.js"></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const modais = document.querySelectorAll('.modal');
+
+    modais.forEach(modal => {
+      modal.addEventListener('shown.bs.modal', function () {
+        const id = modal.id.replace('adicionarJogador', '');
+
+        Inputmask("99.999.999-9").mask(document.getElementById('rg_' + id));
+        Inputmask("99/99/9999").mask(document.getElementById('data_' + id));
+        Inputmask({ mask: ['(99) 9999-9999', '(99) 9 9999-9999'] }).mask(document.getElementById('telefone_' + id));
+      });
+    });
+  });
+</script>
 
 
 
@@ -500,29 +580,6 @@ $queryString = !empty($params) ? '?' . http_build_query($params) : '';
   });
 </script>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const visualizarimg = document.getElementById('preview-img-<?php echo $campeonatos['id_campeonato']; ?>');
-    const arquivo = document.getElementById('foto_time_<?php echo $campeonatos['id_campeonato']; ?>');
-
-    visualizarimg.addEventListener('click', function() {
-      arquivo.click();
-    });
-
-    arquivo.addEventListener('change', function() {
-      if (arquivo.files && arquivo.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          visualizarimg.src = e.target.result;
-        };
-        reader.readAsDataURL(arquivo.files[0]);
-      }
-    });
-  });
-</script>
-
-
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[id^="preview-img-"]').forEach(function(img) {
@@ -548,28 +605,28 @@ $queryString = !empty($params) ? '?' . http_build_query($params) : '';
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const rgInput = document.getElementById("rg_jogador");
-  const telefoneInput = document.getElementById("telefone_jogador");
+  document.addEventListener("DOMContentLoaded", function() {
+    const rgInput = document.getElementById("rg_jogador");
+    const telefoneInput = document.getElementById("telefone_jogador");
 
-  if (rgInput) {
-    rgInput.addEventListener("input", function (e) {
-      let value = e.target.value.replace(/\D/g, "");
-      if (value.length > 9) value = value.slice(0, 9);
-      value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{1})/, "$1.$2.$3-$4");
-      e.target.value = value;
-    });
-  }
+    if (rgInput) {
+      rgInput.addEventListener("input", function(e) {
+        let value = e.target.value.replace(/\D/g, "");
+        if (value.length > 9) value = value.slice(0, 9);
+        value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{1})/, "$1.$2.$3-$4");
+        e.target.value = value;
+      });
+    }
 
-  if (telefoneInput) {
-    telefoneInput.addEventListener("input", function (e) {
-      let value = e.target.value.replace(/\D/g, "");
-      if (value.length > 11) value = value.slice(0, 11);
-      value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
-      e.target.value = value;
-    });
-  }
-});
+    if (telefoneInput) {
+      telefoneInput.addEventListener("input", function(e) {
+        let value = e.target.value.replace(/\D/g, "");
+        if (value.length > 11) value = value.slice(0, 11);
+        value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+        e.target.value = value;
+      });
+    }
+  });
 </script>
 
 

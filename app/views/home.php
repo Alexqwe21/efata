@@ -13,7 +13,7 @@
     <header><?php require_once('templates/header.php'); ?></header>
 
     <main>
-        <a href="https://wa.link/ywitwe" target="_blank" class="whatsapp-fixo"
+        <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
             <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
@@ -128,64 +128,105 @@
         <section class="jogos">
             <article class="site">
                 <h3>Jogos Cultura Efatá</h3>
-                <div class="lado_a_lado">
-                    <div class="jogo">
-                        <h4>Amistoso</h4>
-                        <div class="times">
-                            <img src="assets/img/vibes.png" alt="vibes">
-                            <p>2 - 1</p>
-                            <img src="assets/img/thudercats.png" alt="time">
+                <div class="jogos_carrosel">
 
+                  
+
+                    <div class="lado_a_lado_jogos">
+
+                        <div class="jogo">
+                            <h4>Amistoso</h4>
+                            <div class="times">
+                                <img src="assets/img/vibes.png" alt="vibes">
+                                <p>2 - 1</p>
+                                <img src="assets/img/thudercats.png" alt="time">
+
+                            </div>
+                            <h5>Amistoso</h5>
+                            <p>Amistoso</p>
                         </div>
-                        <h5>Amistoso</h5>
-                        <p>Amistoso</p>
+
+
+                        <div class="jogo">
+                            <h4>Amistoso</h4>
+                            <div class="times">
+                                <img src="assets/img/Logo_Cultura.png" alt="time">
+                                <p>5 - 0</p>
+                                <img src="assets/img/sesi.webp" alt="time">
+
+                            </div>
+                            <h5>Amistoso</h5>
+                            <p>Amistoso</p>
+                        </div>
+
+                        <div class="jogo">
+                            <h4>Amistoso</h4>
+                            <div class="times">
+                                <img src="assets/img/dragao_time.png" alt="time">
+                                <p>3 - 1</p>
+                                <img src="assets/img/vibes.png" alt="vibes">
+
+                            </div>
+                            <h5>Amistoso</h5>
+                            <p>Amistoso</p>
+                        </div>
+
+
+                        <div class="jogo">
+                            <h4>Amistoso</h4>
+                            <div class="times">
+                                <img src="assets/img/circulo_phoenix.png" alt="time">
+                                <p>1 - 0</p>
+                                <img src="assets/img/circulo_setFinal.png" alt="vibes">
+
+                            </div>
+                            <h5>22/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+                        <div class="jogo">
+                            <h4>Amistoso</h4>
+                            <div class="times">
+                                <img src="assets/img/circulo_phoenix.png" alt="time">
+                                <p>1 - 0</p>
+                                <img src="assets/img/vibes.png" alt="vibes">
+
+                            </div>
+                            <h5>22/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+
+                        <div class="jogo">
+                            <h4>Amistoso</h4>
+                            <div class="times">
+                                <img src="assets/img/circulo_phoenix.png" alt="time">
+                                <p>1 - 0</p>
+                                <img src="assets/img/circulo_setFinal.png" alt="time">
+
+                            </div>
+                            <h5>22/06/2025</h5>
+                           <p>Cultura Efatá</p>
+                        </div>
+
+
+                        <div class="jogo">
+                            <h4>Amistoso</h4>
+                            <div class="times">
+                                <img src="assets/img/circulo_setFinal.png" alt="time">
+                                <p>1 - 0</p>
+                                <img src="assets/img/vibes.png" alt="time">
+
+                            </div>
+                            <h5>22/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+
                     </div>
 
-                    <div class="jogo">
-                        <h4>Amistoso</h4>
-                        <div class="times">
-                            <img src="assets/img/Logo_Cultura.png" alt="time">
-                            <p>5 - 0</p>
-                            <img src="assets/img/sesi.webp" alt="time">
-
-                        </div>
-                        <h5>Amistoso</h5>
-                        <p>Amistoso</p>
-                    </div>
-
-
+                    <div class="space"></div>
                 </div>
-
-                <div class="space"></div>
-
-                <div class="lado_a_lado">
-                    <div class="jogo">
-                        <h4>Amistoso</h4>
-                        <div class="times">
-                            <img src="assets/img/dragao_time.png" alt="time">
-                            <p>3 - 1</p>
-                            <img src="assets/img/vibes.png" alt="vibes">
-
-                        </div>
-                        <h5>Amistoso</h5>
-                        <p>Amistoso</p>
-                    </div>
-
-                    <!-- <div class="jogo">
-                        <h4>Agosto 25,2023</h4>
-                        <div class="times">
-                            <img src="assets/img/time_volleyball.png" alt="time">
-                            <p>3 - 2</p>
-                            <img src="assets/img/time_cygnus.png " alt="time">
-
-                        </div>
-                        <h5>Campeonato Efatá</h5>
-                        <p>Ceu são Miguel</p>
-                    </div> -->
-
-
-                </div>
-
             </article>
         </section>
 
@@ -602,7 +643,7 @@
                         </div>
                     </div>
 
-                      <div class="columns">
+                    <div class="columns">
                         <div class="patrocinador_oficial">
                             <a href="https://www.instagram.com/sitiotaiacupebaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                                 <img src="assets/img/patrocinador_assecoria.png" alt="patrocinador">
@@ -617,7 +658,7 @@
                         </div>
                     </div>
 
-                      <div class="columns">
+                    <div class="columns">
                         <div class="patrocinador_oficial">
                             <a href="https://www.instagram.com/sitiotaiacupebaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                                 <img src="assets/img/patrocinador_casadecarnes.png" alt="patrocinador">
@@ -965,30 +1006,39 @@
 
 
 
-    <script>
-        $(document).ready(function() {
-            const links = $('#menu a');
-            const currentPath = window.location.pathname;
+   <script>
+    $(document).ready(function () {
+        const links = $('#menu a');
+        const currentPath = window.location.pathname;
 
-            // Remove qualquer classe ativa
-            links.removeClass('active');
-
-            // Marca como ativo o link que corresponde à URL
-            links.each(function() {
-                const linkPath = $(this).attr('href');
-
-                if (linkPath === currentPath) {
-                    $(this).addClass('active');
-                }
-            });
-
-            // Ao clicar em qualquer link, define como ativo visualmente (em tempo real)
-            links.on('click', function() {
-                links.removeClass('active');
+        // Marca o link ativo
+        links.removeClass('active');
+        links.each(function () {
+            const linkPath = $(this).attr('href');
+            if (linkPath === currentPath) {
                 $(this).addClass('active');
-            });
+            }
         });
-    </script>
+        links.on('click', function () {
+            links.removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // Toggle do menu e controle do z-index da .escolha_categoria
+        $('#menu-toggle').on('click', function () {
+            $(this).toggleClass('open');
+
+            if ($(this).hasClass('open')) {
+                // Remove o z-index da .escolha_categoria
+                $('.escolha_categoria').css('z-index', '0');
+            } else {
+                // Restaura o z-index padrão
+                $('.escolha_categoria').css('z-index', '20');
+            }
+        });
+    });
+</script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

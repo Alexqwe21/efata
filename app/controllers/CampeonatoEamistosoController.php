@@ -65,7 +65,18 @@ class CampeonatoEamistosoController extends Controller
                 exit;
             }
 
+
+
             $campeonatoEamistosoModel = new CampeonatoEamistoso();
+
+            // Verifica se já existe um time com esse nome
+            $timeExistente = $campeonatoEamistosoModel->buscarPorNomeTime($nomeTime);
+            if ($timeExistente) {
+                $_SESSION['erro'] = "Este time já está cadastrado. Verifique seu e-mail ou tente com outro nome.";
+                header('Location: ' . BASE_URL . 'campeonatoEamistoso');
+                exit;
+            }
+
 
             try {
                 $idTime = $campeonatoEamistosoModel->salvarTime([
@@ -224,326 +235,379 @@ class CampeonatoEamistosoController extends Controller
 
 
 
-   public function campeonatoListar()
-{
-    if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
-        header('Location: ' . BASE_URL);
+    public function campeonatoListar()
+    {
+        if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
+            header('Location: ' . BASE_URL);
+            exit;
+        }
+
+        // Coleta os filtros da URL
+        $filtros = [
+            'nome_time' => $_GET['nome_time'] ?? '',
+            'email_campeonato' => $_GET['email_campeonato'] ?? '',
+            'status_time' => $_GET['status_time'] ?? '',
+            'nome_jogador' => $_GET['nome_jogador'] ?? '',
+            'telefone_jogador' => $_GET['telefone_jogador'] ?? '',
+            'rg_jogador' => $_GET['rg_jogador'] ?? ''
+        ];
+
+        // Consulta os dados filtrados
+        $retorno = $this->campeonatoEamistosoModel->listarCampeonatoAmistoso($filtros);
+
+        $dados = [
+            'listarCampeonato' => $retorno['campeonatos'],
+            'jogadores' => $retorno['jogadores'],
+            'conteudo' => 'dash/campeonato/listar',
+            'filtros' => $filtros // Passa os filtros para manter os valores no formulário
+        ];
+
+        $this->carregarViews('dash/dashboard', $dados);
+    }
+
+
+
+    public function atualizar($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $dadosTime = [
+                'nome_time' => $_POST['nome_time'],
+                'email_campeonato' => $_POST['email_campeonato'],
+                'status_time' => $_POST['status_time'],
+            ];
+
+            // Upload da imagem do time
+            $fotoTime = $this->uploadFoto($_FILES['foto_time'] ?? []);
+
+            $jogadores = [];
+
+            // var_dump($fotoTime);
+            // exit;
+
+            foreach ($_POST['jogadores'] as $jogador) {
+                $dataNascimento = null;
+                if (!empty($jogador['data_nascimento_jogador'])) {
+                    $dateObj = DateTime::createFromFormat('d/m/Y', $jogador['data_nascimento_jogador']);
+                    if ($dateObj !== false) {
+                        $dataNascimento = $dateObj->format('Y-m-d');
+                    }
+                }
+
+                $jogadores[] = [
+                    'id_jogador' => $jogador['id_jogador'],
+                    'nome_completo_jogador' => $jogador['nome_completo_jogador'],
+                    'rg_jogador' => $jogador['rg_jogador'],
+                    'data_nascimento_jogador' => $dataNascimento,
+                    'posicao_voleibol_jogador' => $jogador['posicao_voleibol_jogador'],
+                    'telefone_jogador' => $jogador['telefone_jogador'],
+                    'status_jogador' => $jogador['status_jogador'],
+                ];
+            }
+
+            try {
+                $campeonatoEamistosoModel = new CampeonatoEamistoso();
+                $campeonatoEamistosoModel->atualizarTimeEJogadores($id, $dadosTime, $jogadores, $fotoTime);
+
+                $_SESSION['sucesso'] = 'Time e jogadores atualizados com sucesso!';
+            } catch (Exception $e) {
+                $_SESSION['erro'] = 'Erro ao atualizar time ou jogadores: ' . $e->getMessage();
+            }
+
+            header('Location: ' . BASE_URL . 'campeonatoEamistoso/campeonatoListar');
+            exit;
+        }
+    }
+
+    // Função de upload da imagem
+    private function uploadFoto($file)
+    {
+        $dir = __DIR__ . '/../../uploads/';
+
+        if (!file_exists($dir . 'time/')) {
+            mkdir($dir . 'time/', 0755, true);
+        }
+
+        if (isset($file['tmp_name']) && !empty($file['tmp_name'])) {
+            $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+            $nome_arquivo = 'time/' . uniqid() . '.' . $ext;
+
+            if (move_uploaded_file($file['tmp_name'], $dir . $nome_arquivo)) {
+                return $nome_arquivo;
+            }
+        }
+
+        // Retorna a imagem padrão caso não tenha sido enviada uma nova
+        return null;
+    }
+
+
+    public function exportarPDFCampeonatos()
+    {
+        if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
+            header('Location: ' . BASE_URL);
+            exit;
+        }
+
+        require_once __DIR__ . '/../../vendor/autoload.php';
+
+        // Coleta os filtros da URL
+        $filtros = [
+            'status_time' => $_GET['status'] ?? null,
+            'nome_time' => $_GET['nome'] ?? null,
+            'email_campeonato' => $_GET['email'] ?? null,
+            'nome_jogador' => $_GET['nome_jogador'] ?? null,
+            'telefone_jogador' => $_GET['telefone'] ?? null,
+            'rg_jogador' => $_GET['rg'] ?? null
+        ];
+
+        // Busca os dados filtrados
+        $retorno = $this->campeonatoEamistosoModel->listarCampeonatoAmistoso($filtros);
+
+        $dados['listarCampeonato'] = $retorno['campeonatos'];
+        $dados['jogadores'] = $retorno['jogadores'];
+
+        // Ordena os times por nome
+        usort($dados['listarCampeonato'], fn($a, $b) => strcmp($a['nome_time'], $b['nome_time']));
+
+        // Extrai variáveis para a view
+        $listarCampeonato = $dados['listarCampeonato'];
+        $jogadores = $dados['jogadores'];
+
+        // Carrega a view HTML do PDF
+        ob_start();
+        include __DIR__ . '/../views/pdf/relatorio_campeonatos.php';
+        $html = ob_get_clean();
+
+        // Configura o DomPDF
+        $options = new \Dompdf\Options();
+        $options->set('defaultFont', 'Arial');
+        $options->set('isRemoteEnabled', true);
+
+        $dompdf = new \Dompdf\Dompdf($options);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        // Numeração de páginas
+        $canvas = $dompdf->get_canvas();
+        $canvas->page_text(520, 820, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 9, [0, 0, 0]);
+
+        // Gera o PDF no navegador
+        $dompdf->stream('relatorio_campeonatos.pdf', ['Attachment' => false]);
         exit;
     }
 
-    // Coleta os filtros da URL
-    $filtros = [
-        'nome_time' => $_GET['nome_time'] ?? '',
-        'email_campeonato' => $_GET['email_campeonato'] ?? '',
-        'status_time' => $_GET['status_time'] ?? '',
-        'nome_jogador' => $_GET['nome_jogador'] ?? '',
-        'telefone_jogador' => $_GET['telefone_jogador'] ?? '',
-        'rg_jogador' => $_GET['rg_jogador'] ?? ''
-    ];
 
-    // Consulta os dados filtrados
-    $retorno = $this->campeonatoEamistosoModel->listarCampeonatoAmistoso($filtros);
+    public function exportarExcelCampeonatos()
+    {
+        // Verifica se o usuário está logado e é funcionário
+        if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
+            header('Location: /');
+            exit;
+        }
 
-    $dados = [
-        'listarCampeonato' => $retorno['campeonatos'],
-        'jogadores' => $retorno['jogadores'],
-        'conteudo' => 'dash/campeonato/listar',
-        'filtros' => $filtros // Passa os filtros para manter os valores no formulário
-    ];
+        require_once __DIR__ . '/../../vendor/autoload.php';
 
-    $this->carregarViews('dash/dashboard', $dados);
-}
-
-
-
- public function atualizar($id)
-{
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $dadosTime = [
-            'nome_time' => $_POST['nome_time'],
-            'email_campeonato' => $_POST['email_campeonato'],
-            'status_time' => $_POST['status_time'],
+        // Captura os filtros que você usa no sistema, adapte se necessário
+        $filtros = [
+            'status_time' => $_GET['status'] ?? null,
+            'nome_time' => $_GET['nome'] ?? null,
+            'email_campeonato' => $_GET['email'] ?? null,
+            'nome_jogador' => $_GET['nome_jogador'] ?? null,
+            'telefone_jogador' => $_GET['telefone'] ?? null,
+            'rg_jogador' => $_GET['rg'] ?? null,
         ];
 
-        // Upload da imagem do time
-        $fotoTime = $this->uploadFoto($_FILES['foto_time'] ?? []);
+        // Busca dados filtrados pelo modelo (função que você já tem)
+        $retorno = $this->campeonatoEamistosoModel->listarCampeonatoAmistoso($filtros);
 
-        $jogadores = [];
+        $campeonatos = $retorno['campeonatos'];
+        $jogadores = $retorno['jogadores'];
 
-        // var_dump($fotoTime);
-        // exit;
+        // Ordena os campeonatos pelo nome_time
+        usort($campeonatos, fn($a, $b) => strcmp($a['nome_time'], $b['nome_time']));
 
-        foreach ($_POST['jogadores'] as $jogador) {
-            $dataNascimento = null;
-            if (!empty($jogador['data_nascimento_jogador'])) {
-                $dateObj = DateTime::createFromFormat('d/m/Y', $jogador['data_nascimento_jogador']);
-                if ($dateObj !== false) {
-                    $dataNascimento = $dateObj->format('Y-m-d');
+        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setTitle('Relatório de Campeonatos');
+
+        // Cabeçalhos
+        $cabecalhos = [
+            'ID Time',
+            'Nome Time',
+            'Status Time',
+            'Email Time',
+            'Data Cadastro Time',
+            'ID Jogador',
+            'Nome Jogador',
+            'RG Jogador',
+            'Data Nascimento Jogador',
+            'Posição',
+            'Telefone Jogador',
+            'Status Jogador'
+        ];
+
+        $headerStyle = [
+            'font' => ['bold' => true, 'color' => ['rgb' => 'FFFFFF']],
+            'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => '1E88E5']],
+            'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER],
+            'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]]
+        ];
+
+        // Preenche cabeçalhos na primeira linha
+        $coluna = 'A';
+        foreach ($cabecalhos as $cabecalho) {
+            $sheet->setCellValue("{$coluna}1", $cabecalho);
+            $sheet->getStyle("{$coluna}1")->applyFromArray($headerStyle);
+            $sheet->getColumnDimension($coluna)->setAutoSize(true);
+            $coluna++;
+        }
+
+        // Preenche dados - cada jogador em linha com seu time
+        $linha = 2;
+        foreach ($campeonatos as $time) {
+            foreach ($jogadores as $jogador) {
+                if ($jogador['id_campeonato'] == $time['id_campeonato']) {
+                    $sheet->fromArray([
+                        $time['id_campeonato'],
+                        $time['nome_time'],
+                        $time['status_time'],
+                        $time['email_campeonato'],
+                        $time['data_cadastro_time'],
+                        $jogador['id_jogador'],
+                        $jogador['nome_completo_jogador'],
+                        $jogador['rg_jogador'],
+                        !empty($jogador['data_nascimento_jogador']) ? date('d/m/Y', strtotime($jogador['data_nascimento_jogador'])) : '',
+                        $jogador['posicao_voleibol_jogador'],
+                        $jogador['telefone_jogador'],
+                        $jogador['status_jogador']
+                    ], null, "A{$linha}");
+                    $linha++;
                 }
             }
+        }
 
-            $jogadores[] = [
-                'id_jogador' => $jogador['id_jogador'],
-                'nome_completo_jogador' => $jogador['nome_completo_jogador'],
-                'rg_jogador' => $jogador['rg_jogador'],
-                'data_nascimento_jogador' => $dataNascimento,
-                'posicao_voleibol_jogador' => $jogador['posicao_voleibol_jogador'],
-                'telefone_jogador' => $jogador['telefone_jogador'],
-                'status_jogador' => $jogador['status_jogador'],
+        // Estilo geral das células preenchidas
+        $sheet->getStyle("A2:L" . ($linha - 1))->applyFromArray([
+            'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]],
+            'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER]
+        ]);
+
+        // Congela o cabeçalho
+        $sheet->freezePane('A2');
+
+        // Configura headers HTTP para download
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="relatorio_campeonatos.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $writer->save('php://output');
+        exit;
+    }
+
+
+
+    public function totalTimes()
+    {
+        $model = new CampeonatoEamistoso();
+        $total = $model->contarTodosTimes();
+        echo json_encode(['total' => $total]);
+    }
+
+    public function graficoPorStatusTime()
+    {
+        $model = new CampeonatoEamistoso();
+        $dados = $model->agruparPorStatus();
+        echo json_encode($dados);
+    }
+
+    public function graficoPorPosicaoJogador()
+    {
+        $model = new CampeonatoEamistoso();
+        $dados = $model->agruparPosicoesJogadores();
+        echo json_encode($dados);
+    }
+
+    public function graficoPorQtdJogadoresTime()
+    {
+        $model = new CampeonatoEamistoso();
+        $dados = $model->quantidadeJogadoresPorTime();
+        echo json_encode($dados);
+    }
+
+
+    public function graficoMediaIdadeJogadores()
+    {
+        $dados = $this->campeonatoEamistosoModel->calcularMediaIdadePorTime();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados);
+    }
+
+
+    public function graficoPorIdade()
+    {
+        $dados = $this->campeonatoEamistosoModel->agruparPorIdadeJogadores();
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados);
+    }
+
+    public function adicionarJogador()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $idCampeonato = $_POST['id_campeonato'];
+            $nome = $_POST['nome_completo'];
+            $rg = $_POST['rg'];
+            $nascimento = $this->formatarData($_POST['data_nascimento']);
+            $telefone = $_POST['telefone'];
+            $posicao = $_POST['posicao'];
+
+            $campeonatoEamistosoModel = new CampeonatoEamistoso();
+            $campeonatoEamistosoModel->adicionarJogador([
+                'id_campeonato' => $idCampeonato,
+                'nome_completo_jogador' => $nome,
+                'rg_jogador' => $rg,
+                'data_nascimento_jogador' => $nascimento,
+                'telefone_jogador' => $telefone,
+                'posicao_voleibol_jogador' => $posicao,
+                'status_jogador' => 'Ativo'
+            ]);
+
+            // var_dump( $idCampeonato,  $nome,  $rg , $nascimento ,  $telefone , $posicao  );
+            // exit;
+
+            $_SESSION['sucesso'] = "Jogador adicionado com sucesso!";
+            header("Location: " . BASE_URL . "campeonatoEamistoso/campeonatoListar");
+            exit;
+        }
+    }
+
+
+
+    public function graficoStatusTotalJogadores()
+    {
+        $dados = $this->campeonatoEamistosoModel->contarJogadoresPorStatus();
+        echo json_encode($dados);
+    }
+
+    public function graficoStatusJogadoresPorTime()
+    {
+        $dadosBrutos = $this->campeonatoEamistosoModel->contarJogadoresPorStatusPorTime();
+
+        $dados = [];
+        foreach ($dadosBrutos as $row) {
+            $dados[$row['time']][$row['status']] = (int) $row['quantidade'];
+        }
+
+        $response = [];
+        foreach ($dados as $time => $status) {
+            $response[] = [
+                'label' => $time,
+                'Ativo' => $status['Ativo'] ?? 0,
+                'Inativo' => $status['Inativo'] ?? 0
             ];
         }
 
-        try {
-            $campeonatoEamistosoModel = new CampeonatoEamistoso();
-            $campeonatoEamistosoModel->atualizarTimeEJogadores($id, $dadosTime, $jogadores, $fotoTime);
-
-            $_SESSION['sucesso'] = 'Time e jogadores atualizados com sucesso!';
-        } catch (Exception $e) {
-            $_SESSION['erro'] = 'Erro ao atualizar time ou jogadores: ' . $e->getMessage();
-        }
-
-        header('Location: ' . BASE_URL . 'campeonatoEamistoso/campeonatoListar');
-        exit;
+        echo json_encode($response);
     }
-}
-
-// Função de upload da imagem
-private function uploadFoto($file)
-{
-    $dir = __DIR__ . '/../../uploads/';
-
-    if (!file_exists($dir . 'time/')) {
-        mkdir($dir . 'time/', 0755, true);
-    }
-
-    if (isset($file['tmp_name']) && !empty($file['tmp_name'])) {
-        $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $nome_arquivo = 'time/' . uniqid() . '.' . $ext;
-
-        if (move_uploaded_file($file['tmp_name'], $dir . $nome_arquivo)) {
-            return $nome_arquivo;
-        }
-    }
-
-    // Retorna a imagem padrão caso não tenha sido enviada uma nova
-    return null;
-}
-
-
-public function exportarPDFCampeonatos()
-{
-    if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
-        header('Location: ' . BASE_URL);
-        exit;
-    }
-
-    require_once __DIR__ . '/../../vendor/autoload.php';
-
-    // Coleta os filtros da URL
-    $filtros = [
-        'status_time' => $_GET['status'] ?? null,
-        'nome_time' => $_GET['nome'] ?? null,
-        'email_campeonato' => $_GET['email'] ?? null,
-        'nome_jogador' => $_GET['nome_jogador'] ?? null,
-        'telefone_jogador' => $_GET['telefone'] ?? null,
-        'rg_jogador' => $_GET['rg'] ?? null
-    ];
-
-    // Busca os dados filtrados
-    $retorno = $this->campeonatoEamistosoModel->listarCampeonatoAmistoso($filtros);
-
-    $dados['listarCampeonato'] = $retorno['campeonatos'];
-    $dados['jogadores'] = $retorno['jogadores'];
-
-    // Ordena os times por nome
-    usort($dados['listarCampeonato'], fn($a, $b) => strcmp($a['nome_time'], $b['nome_time']));
-
-    // Extrai variáveis para a view
-    $listarCampeonato = $dados['listarCampeonato'];
-    $jogadores = $dados['jogadores'];
-
-    // Carrega a view HTML do PDF
-    ob_start();
-    include __DIR__ . '/../views/pdf/relatorio_campeonatos.php';
-    $html = ob_get_clean();
-
-    // Configura o DomPDF
-    $options = new \Dompdf\Options();
-    $options->set('defaultFont', 'Arial');
-    $options->set('isRemoteEnabled', true);
-
-    $dompdf = new \Dompdf\Dompdf($options);
-    $dompdf->loadHtml($html);
-    $dompdf->setPaper('A4', 'portrait');
-    $dompdf->render();
-
-    // Numeração de páginas
-    $canvas = $dompdf->get_canvas();
-    $canvas->page_text(520, 820, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 9, [0, 0, 0]);
-
-    // Gera o PDF no navegador
-    $dompdf->stream('relatorio_campeonatos.pdf', ['Attachment' => false]);
-    exit;
-}
-
-
-public function exportarExcelCampeonatos()
-{
-    // Verifica se o usuário está logado e é funcionário
-    if (!isset($_SESSION['userId']) || $_SESSION['userTipo'] !== 'Funcionario') {
-        header('Location: /');
-        exit;
-    }
-
-    require_once __DIR__ . '/../../vendor/autoload.php';
-
-    // Captura os filtros que você usa no sistema, adapte se necessário
-    $filtros = [
-        'status_time' => $_GET['status'] ?? null,
-        'nome_time' => $_GET['nome'] ?? null,
-        'email_campeonato' => $_GET['email'] ?? null,
-        'nome_jogador' => $_GET['nome_jogador'] ?? null,
-        'telefone_jogador' => $_GET['telefone'] ?? null,
-        'rg_jogador' => $_GET['rg'] ?? null,
-    ];
-
-    // Busca dados filtrados pelo modelo (função que você já tem)
-    $retorno = $this->campeonatoEamistosoModel->listarCampeonatoAmistoso($filtros);
-
-    $campeonatos = $retorno['campeonatos'];
-    $jogadores = $retorno['jogadores'];
-
-    // Ordena os campeonatos pelo nome_time
-    usort($campeonatos, fn($a, $b) => strcmp($a['nome_time'], $b['nome_time']));
-
-    $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
-    $sheet = $spreadsheet->getActiveSheet();
-    $sheet->setTitle('Relatório de Campeonatos');
-
-    // Cabeçalhos
-    $cabecalhos = [
-        'ID Time',
-        'Nome Time',
-        'Status Time',
-        'Email Time',
-        'Data Cadastro Time',
-        'ID Jogador',
-        'Nome Jogador',
-        'RG Jogador',
-        'Data Nascimento Jogador',
-        'Posição',
-        'Telefone Jogador',
-        'Status Jogador'
-    ];
-
-    $headerStyle = [
-        'font' => ['bold' => true, 'color' => ['rgb' => 'FFFFFF']],
-        'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => '1E88E5']],
-        'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER],
-        'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]]
-    ];
-
-    // Preenche cabeçalhos na primeira linha
-    $coluna = 'A';
-    foreach ($cabecalhos as $cabecalho) {
-        $sheet->setCellValue("{$coluna}1", $cabecalho);
-        $sheet->getStyle("{$coluna}1")->applyFromArray($headerStyle);
-        $sheet->getColumnDimension($coluna)->setAutoSize(true);
-        $coluna++;
-    }
-
-    // Preenche dados - cada jogador em linha com seu time
-    $linha = 2;
-    foreach ($campeonatos as $time) {
-        foreach ($jogadores as $jogador) {
-            if ($jogador['id_campeonato'] == $time['id_campeonato']) {
-                $sheet->fromArray([
-                    $time['id_campeonato'],
-                    $time['nome_time'],
-                    $time['status_time'],
-                    $time['email_campeonato'],
-                    $time['data_cadastro_time'],
-                    $jogador['id_jogador'],
-                    $jogador['nome_completo_jogador'],
-                    $jogador['rg_jogador'],
-                    !empty($jogador['data_nascimento_jogador']) ? date('d/m/Y', strtotime($jogador['data_nascimento_jogador'])) : '',
-                    $jogador['posicao_voleibol_jogador'],
-                    $jogador['telefone_jogador'],
-                    $jogador['status_jogador']
-                ], null, "A{$linha}");
-                $linha++;
-            }
-        }
-    }
-
-    // Estilo geral das células preenchidas
-    $sheet->getStyle("A2:L" . ($linha - 1))->applyFromArray([
-        'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]],
-        'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER]
-    ]);
-
-    // Congela o cabeçalho
-    $sheet->freezePane('A2');
-
-    // Configura headers HTTP para download
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment;filename="relatorio_campeonatos.xlsx"');
-    header('Cache-Control: max-age=0');
-
-    $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-    $writer->save('php://output');
-    exit;
-}
-
-
-
-public function totalTimes()
-{
-    $model = new CampeonatoEamistoso();
-    $total = $model->contarTodosTimes();
-    echo json_encode(['total' => $total]);
-}
-
-public function graficoPorStatusTime()
-{
-    $model = new CampeonatoEamistoso();
-    $dados = $model->agruparPorStatus();
-    echo json_encode($dados);
-}
-
-public function graficoPorPosicaoJogador()
-{
-    $model = new CampeonatoEamistoso();
-    $dados = $model->agruparPosicoesJogadores();
-    echo json_encode($dados);
-}
-
-public function graficoPorQtdJogadoresTime()
-{
-    $model = new CampeonatoEamistoso();
-    $dados = $model->quantidadeJogadoresPorTime();
-    echo json_encode($dados);
-}
-
-
-public function graficoMediaIdadeJogadores()
-{
-    $dados = $this->campeonatoEamistosoModel->calcularMediaIdadePorTime();
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($dados);
-}
-
-
-public function graficoPorIdade()
-{
-    $dados = $this->campeonatoEamistosoModel->agruparPorIdadeJogadores();
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($dados);
-}
-
-
-
-
-
-
 }

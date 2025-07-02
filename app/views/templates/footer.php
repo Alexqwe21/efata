@@ -19,7 +19,7 @@
                 <p>Entre Em Contato</p>
                 <div class="telefone">
                     <img src="assets/img/telefone_footer.svg" alt="telefone">
-                    <span>11 951950032</span>
+                    <span>11 944748900</span>
                 </div>
             </div>
             <nav>

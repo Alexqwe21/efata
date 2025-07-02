@@ -2,24 +2,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const carrossel = document.querySelector('.carrossel-hover');
 
   const imagensCarrossel = [
-    'assets/img/ben_vindo_sobre.png',
-    'assets/img/bem_vindo_um.png',
-    'assets/img/bem_vindo_dois.png'
+    '/assets/img/foto_sobre_luan.png',
+    '/assets/img/foto_sobre_dois.png',
+    '/assets/img/foto_sobre_tres.png'
   ];
 
   let indexCarrossel = 0;
 
   function trocarImagemCarrossel() {
-    carrossel.style.backgroundImage = `url(${imagensCarrossel[indexCarrossel]})`;
+    const timestamp = new Date().getTime(); // gera novo valor a cada execução
+    const imagemComVersao = `${imagensCarrossel[indexCarrossel]}?v=${timestamp}`;
+
+    carrossel.style.backgroundImage = `url(${imagemComVersao})`;
     indexCarrossel = (indexCarrossel + 1) % imagensCarrossel.length;
   }
 
-  // Inicializa a primeira imagem
-  trocarImagemCarrossel();
-
+  trocarImagemCarrossel(); // carrega a primeira imagem
 
   carrossel.addEventListener('click', trocarImagemCarrossel);
 
-  // Troca a cada 5 segundos (5000ms)
-  setInterval(trocarImagemCarrossel, 10000);
+  setInterval(trocarImagemCarrossel, 10000); // troca a cada 10s
 });

@@ -15,9 +15,9 @@
     <main>
 
 
-        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-fixo"
+        <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
-            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
+            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp"/>
         </a>
 
 
@@ -62,13 +62,9 @@
                         </div>
 
                         <div class="historia_sobre">
-                            <p>A equipe da nossa ONG, com o intuito de atender às necessidades dos amantes do vôlei e da
-                                comunidade, dedicou-se ao desenvolvimento de um site que oferece mais acessibilidade,
-                                clareza e proximidade. Pensando em facilitar o acesso às informações, criamos um espaço
-                                digital onde você pode acompanhar atividades, treinos e eventos esportivos com
-                                comodidade, direto da sua casa. Com muito carinho e dedicação, nasce o site da nossa ONG
-                                de Vôlei — um canal criado especialmente para fortalecer a paixão pelo esporte e
-                                promover inclusão, transparência e oportunidades para todos.</p>
+                            <p>O Projeto Esportivo da Igreja Cultura da Graça nasceu com o propósito de promover saúde, integração e bem-estar por meio do esporte. Iniciado com encontros aos sábados na pista de skate da Vila Pedroso, o projeto logo se expandiu para acolher todos os adultos interessados.
+
+                                Com o crescimento do grupo, as atividades foram transferidas para espaços maiores, como escolas e centros esportivos da região, garantindo melhores condições e acessibilidade. Mesmo com desafios, como a pausa na pandemia e limitações de estrutura, o projeto seguiu firme, alcançando mais de 40 participantes por encontro.</p>
                         </div>
 
                         <div class="equipe_numero">
@@ -79,15 +75,15 @@
 
                             <div class="contagem_um">
                                 <div class="number">
-                                    <strong data-numero="75">0</strong>
+                                    <strong data-numero="5">0</strong>
                                     <hr>
-                                    <span>Experiência</span>
+                                    <span>Campeonatos</span>
                                 </div>
 
                                 <div class="number">
-                                    <strong data-numero="100">0</strong>
+                                    <strong data-numero="30">0</strong>
                                     <hr>
-                                    <span>Experiência</span>
+                                    <span>Amistosos</span>
                                 </div>
 
                             </div>
@@ -96,16 +92,16 @@
 
                             <div class="contagem_um">
                                 <div class="number">
-                                    <strong data-numero="17">0</strong>
+                                    <strong data-numero="40">0</strong>
                                     <hr>
-                                    <span>Experiência</span>
+                                    <span>Eventos</span>
                                 </div>
 
 
                                 <div class="number">
-                                    <strong data-numero="200">0</strong>
+                                    <strong data-numero="100">0</strong>
                                     <hr>
-                                    <span>Experiência</span>
+                                    <span>Matriculas</span>
                                 </div>
 
                             </div>
@@ -164,16 +160,16 @@
 
                         <div class="columns">
                             <div class="textoEfoto">
-                                <p>Inde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Sed ut perspiciatis unde.
+                                <p>Projeto esportivo que promove saúde, união e inclusão por meio de atividades gratuitas. Aos fins de semana, reúne adultos em quadras públicas para esporte, amizade e fé cristã.
                                 </p>
-                                <img src="assets/img/quem_somos_foto.png" alt="Quem somos">
+                                <img src="assets/img/moldando_foto_dois.png" alt="Quem somos">
                             </div>
 
                         </div>
                     </div>
 
                     <div class="imageGrande">
-                        <img src="assets/img/image_grande.png" alt="Jogadores">
+                        <img src="assets/img/foto_time_sobre.png" alt="Jogadores">
                     </div>
                 </div>
             </article>
@@ -186,8 +182,8 @@
         <section class="carroselCampeonato">
             <article class="site">
                 <div class="texto">
-                    <strong>TORNEIO</strong> <br>
-                    <span>CAMPEONATO DE 2023</span>
+                    <strong>FOTOS</strong> <br>
+                    <span>GALERIA</span>
                 </div>
             </article>
 
@@ -196,8 +192,8 @@
 
             <!-- Carrossel Slick -->
             <div class="carrosel">
-                <div><img src="assets/img/carrosel_sobre_um.png" alt="carrossel"></div>
-                <div><img src="assets/img/carrosel_sobre_um.png" alt="carrossel"></div>
+                <div><img src="assets/img/foto_sobre_galeria__.png" alt="carrossel"></div>
+                <div><img src="assets/img/foto_sobre_galeria_dois__.png" alt="carrossel"></div>
                 <div><img src="assets/img/carrosel_sobre_um.png" alt="carrossel"></div>
             </div>
         </section>
@@ -221,38 +217,38 @@
 
                         <div class="columns">
                             <div class="textoEfoto">
-                                <p>Consectetur adipiscing elit, sed do eiusmod onsectetur adipiscing elit, sed do eiusm od tempor.
+                                <p>Equipe dedicada, movida por propósito e fé, unida para transformar vidas através do esporte, da comunhão e do serviço voluntário à comunidade.
                                 </p>
 
                                 <div class="coordenadores">
                                     <div class="coordenador">
-                                        <img src="assets/img/coordenador.png" alt="coordenador">
-                                        <p>Rebecca Moore</p>
-                                        <strong>CEO, Coach</strong>
+                                        <img src="assets/img/equipe_kat.png" alt="coordenador">
+                                        <p>Katiane</p>
+                                        <strong>Pedagoga</strong>
                                     </div>
 
                                     <div class="coordenador">
-                                        <img src="assets/img/coordenador.png" alt="coordenador">
-                                        <p>Rebecca Moore</p>
-                                        <strong>CEO, Coach</strong>
+                                        <img src="assets/img/circulo_fidel.png" alt="coordenador">
+                                        <p>Fidel</p>
+                                        <strong>Assistente social</strong>
                                     </div>
 
                                     <div class="coordenador">
-                                        <img src="assets/img/coordenador.png" alt="coordenador">
-                                        <p>Rebecca Moore</p>
-                                        <strong>CEO, Coach</strong>
+                                        <img src="assets/img/equipe_allan.png" alt="coordenador">
+                                        <p>Allan</p>
+                                        <strong>Professor</strong>
                                     </div>
 
                                     <div class="coordenador">
-                                        <img src="assets/img/coordenador.png" alt="coordenador">
-                                        <p>Rebecca Moore</p>
-                                        <strong>CEO, Coach</strong>
+                                        <img src="assets/img/equipe_efata.png" alt="coordenador">
+                                        <p>EQUIPE</p>
+                                        <strong>CEO</strong>
                                     </div>
 
-                                    <div class="coordenador">
-                                        <img src="assets/img/coordenador.png" alt="coordenador">
-                                        <p>Rebecca Moore</p>
-                                        <strong>CEO, Coach</strong>
+                                      <div class="coordenador">
+                                        <img src="assets/img/foto_sobre_luan_circulo.png" alt="coordenador">
+                                        <p>Luan</p>
+                                        <strong>Marketing</strong>
                                     </div>
 
                                 </div>
@@ -270,7 +266,7 @@
                     </div>
 
                     <div class="imageGrande">
-                        <img src="assets/img/foto_ia.png" alt="Jogadores">
+                        <img src="assets/img/foto_professor_sobre.png" alt="Jogadores">
                     </div>
                 </div>
 
@@ -345,7 +341,9 @@
                             <div class="columns">
                                 <img src="assets/img/documento.svg" alt="Documento">
                                 <h3>Documentos</h3>
-                                <p>Para participantes maiores de 18 anos, é necessário apresentar uma cópia do RG. Além disso, solicitamos informações como CPF, endereço de e-mail e residencial.</p>
+                                <p>Cadastre-se preenchendo seus dados e, se for menor de idade, inclua as informações do responsável. Após o envio, a equipe confirmará sua matrícula.
+
+                                </p>
                             </div>
                             <div class="seta">
                                 <img src="assets/img/seta.svg" alt="seta">
@@ -353,15 +351,17 @@
                             <div class="columns">
                                 <img src="assets/img/menor.svg" alt="Documento">
                                 <h3>Menores de 18 anos</h3>
-                                <p>Para participantes menores de 18 anos, é necessário apresentar uma cópia do documento de identidade do responsável</p>
+                                <p>Para participantes menores de 18 anos, é obrigatório informar os dados do responsável legal, incluindo RG, CPF e grau de parentesco.
+
+                                </p>
                             </div>
                             <div class="seta">
                                 <img src="assets/img/seta.svg" alt="seta">
                             </div>
                             <div class="columns">
-                                <img src="assets/img/calendario.svg" alt="Documento">
-                                <h3>Agende um horario</h3>
-                                <p>Evite filas! Agende um horário e visite a secretaria para realizar o cadastro e conhecer todas as nossas atividades e eventos.</p>
+                                <img src="assets/img/quadra.svg" alt="Documento">
+                                <h3>Treinos</h3>
+                                <p> Verifique também os dias e horários disponíveis para os treinos.</p>
                             </div>
                         </div>
                     </div>
@@ -388,20 +388,20 @@
 
                             <div class="columns">
                                 <img src="assets/img/relogio_sobre.svg" alt="Documento">
-                                <h3>SEMANA</h3>
-                                <p>Nosso horário de atendimento é de segunda a sexta-feira, das 8h às 20h,</p>
+                                <h3> Parigot</h3>
+                                <p>O treino acontece aos domingos, às 9h.</p>
                             </div>
 
                             <div class="columns">
                                 <img src="assets/img/relogio_sobre.svg" alt="Documento">
-                                <h3>SABADO</h3>
-                                <p>Estamos disponíveis para atendimento aos sábados, das 8h às 12h, e permanecemos fechados aos domingos</p>
+                                <h3>CEU Luiz Melodia</h3>
+                                <p>O treino acontece aos domingos, às 16h.</p>
                             </div>
 
                             <div class="columns">
                                 <img src="assets/img/relogio_sobre.svg" alt="Documento">
-                                <h3>FERIADO</h3>
-                                <p>Durante feriados, nosso horário de atendimento é das 08:00 às 18:00</p>
+                                <h3>Reverendo Tercio</h3>
+                                <p>O treino acontece aos sabado, às 09h.</p>
                             </div>
                         </div>
                     </div>

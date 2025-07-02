@@ -15,7 +15,7 @@
     <main>
 
 
-        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-fixo"
+        <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
             <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
@@ -57,12 +57,14 @@
                                     <img src="assets/img/bolo.svg" alt="">
                                 </div>
                                 <div class="caixa_texto">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                    <p>Celebramos a vida dos nossos participantes com alegria e
+                                        gratidão. Os aniversários são momentos especiais de união,
+                                        reconhecimento e demonstração do amor de Deus por cada um.</p>
                                 </div>
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_um.png" alt="evento" class="foto_responsivo">
+                                <img src="/assets/img/aniversarios_eventos.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -70,15 +72,17 @@
                         <div class="foto_eventos">
                             <div class="caixa">
                                 <div class="icone">
-                                    <img src="assets/img/bolo.svg" alt="">
+                                    <img src="assets/img/encontros_eventos.svg" alt="encontros_eventos">
                                 </div>
                                 <div class="caixa_texto">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                    <p>Promovemos encontros periódicos para fortalecer os laços entre
+                                        os participantes, compartilhar experiências e incentivar a
+                                        caminhada cristã. </p>
                                 </div>
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_dois.png" alt="evento" class="foto_responsivo">
+                                <img src="/assets/img/encontros_eventos.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -86,15 +90,18 @@
                         <div class="foto_eventos">
                             <div class="caixa">
                                 <div class="icone">
-                                    <img src="assets/img/bolo.svg" alt="">
+                                    <img src="assets/img/cafe_da_manha.svg" alt="cafe_da_manha">
                                 </div>
                                 <div class="caixa_texto">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                    <p>Nossos cafés da manhã são oportunidades de acolhimento e
+                                        comunhão. Reunimos atletas, voluntários e familiares para
+                                        compartilhar refeições simples, mas cheias de significado, afeto
+                                        e amizade. </p>
                                 </div>
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_dois.png" alt="evento" class="foto_responsivo">
+                                <img src="/assets/img/cafe_da_manha.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -102,15 +109,18 @@
                         <div class="foto_eventos">
                             <div class="caixa">
                                 <div class="icone">
-                                    <img src="assets/img/bolo.svg" alt="">
+                                    <img src="assets/img/biblia.svg" alt="">
                                 </div>
                                 <div class="caixa_texto">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                    <p>A Comunhão da Palavra é o momento em que nos reunimos
+                                        para meditar nas Escrituras, orar e aprender mais sobre os
+                                        ensinamentos de Jesus. É a base espiritual que sustenta e
+                                        inspira todo o projeto. </p>
                                 </div>
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_dois.png" alt="evento" class="foto_responsivo">
+                                <img src="/assets/img/comunhao_evento.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -118,15 +128,15 @@
                         <div class="foto_eventos">
                             <div class="caixa">
                                 <div class="icone">
-                                    <img src="assets/img/bolo.svg" alt="">
+                                    <img src="assets/img/campeonato.svg" alt="campeonato">
                                 </div>
                                 <div class="caixa_texto">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                    <p>Nosso campeonato de vôlei é mais do que uma disputa por pontos — é uma celebração da união, do espírito de equipe e dos valores que nos movem. </p>
                                 </div>
                             </div>
 
                             <div>
-                                <img src="/assets/img/evento_foto_dois.png" alt="evento" class="foto_responsivo">
+                                <img src="/assets/img/campeonato_evento.png" alt="evento" class="foto_responsivo">
                             </div>
 
                         </div>
@@ -147,7 +157,7 @@
                 <div class="sub_titulo">
                     <h4>Conheça nossos eventos do vôlei
                     </h4>
-                    <p>Consectetur adipiscing elit, sed do eiusmod onsectetur adipiscing elit, sed do eiusm od tempor.</p>
+                    <p>Realizamos eventos que fortalecem a integração entre participantes, famílias e comunidade. Cada ação é pensada para inspirar, educar e promover momentos de comunhão, cultura e diversão.</p>
                 </div>
                 <div class="lado_evento_container">
 
@@ -184,7 +194,7 @@
                                     <div class="tracker tr-23"></div>
                                     <div class="tracker tr-24"></div>
                                     <div class="tracker tr-25"></div>
-                                    <div id="card">
+                                    <div id="card_dois">
                                         <p id="prompt">PASSAR O MOUSE :D</p>
                                         <div class="title">Evento<br>Cultura Efatá</div>
                                         <div class="subtitle">
@@ -200,8 +210,8 @@
                         </div>
 
                         <div class="card_texto">
-                            <strong>Bridget Perry</strong>
-                            <span>Bloqueador do meio</span>
+                            <strong>Cultura Efatá</strong>
+                            <span>Evento</span>
                         </div>
                     </div>
 
@@ -253,8 +263,8 @@
                         </div>
 
                         <div class="card_texto">
-                            <strong>Bridget Perry</strong>
-                            <span>Bloqueador do meio</span>
+                            <strong>Cultura Efatá</strong>
+                            <span>Evento</span>
                         </div>
                     </div>
                 </div>
@@ -276,47 +286,15 @@
 
 
                         <div class="evento_esporte_cultura">
-                            <a href="#">
-                                <img src="assets/img/troianos.png" alt="Evento">
+                            <a href="assets/video/Vídeo_torneio.mp4" data-fancybox data-caption="Esquenta torneio ">
+                                <img src="assets/img/esquenta_torneio_eve.png" alt="Evento">
                                 <div>
                                     <strong class="strong_evento">EVENTO</strong>
-                                    
+
                                 </div>
 
                             </a>
                         </div>
-
-                           <div class="evento_esporte_cultura">
-                            <a href="#">
-                                <img src="assets/img/troianos.png" alt="Evento">
-                                <div>
-                                    <strong class="strong_evento">EVENTO</strong>
-                                </div>
-
-                            </a>
-                        </div>
-
-                           <div class="evento_esporte_cultura">
-                            <a href="#">
-                                <img src="assets/img/troianos.png" alt="Evento">
-                                <div>
-                                    <strong class="strong_evento">EVENTO</strong>
-                                </div>
-
-                            </a>
-                        </div>
-
-                           <div class="evento_esporte_cultura">
-                            <a href="#">
-                                <img src="assets/img/troianos.png" alt="Evento">
-                                <div>
-                                    <strong class="strong_evento">EVENTO</strong>
-                                </div>
-
-                            </a>
-                        </div>
-
-                     
 
                     </div>
                 </div>
@@ -328,7 +306,21 @@
             </article>
         </section>
 
-  <div class="space"></div>
+        <div class="space"></div>
+
+        <section class="campeonato">
+        
+            <article class="site">
+                <div class="texto_campeonato"><h2>CAMPEONATO</h2></div>
+
+                <img src="/assets/img/campeonato.png" alt="campeonato">
+            </article>
+        </section>
+
+
+
+
+
 
         <!-- Cursor grande -->
         <img src="https://culturaefata.com.br/assets/img/cursor.png" id="cursorCustom">
