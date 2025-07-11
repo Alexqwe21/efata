@@ -6,7 +6,7 @@
          <div class="lado_a_lado">
              <div class="logo">
                  <div>
-                     <a href="#"><img src="assets/img/Logo_Cultura.png" alt="logo"></a>
+                     <a href="/home"><img src="assets/img/Logo_Cultura.png" alt="logo"></a>
                  </div>
 
 
