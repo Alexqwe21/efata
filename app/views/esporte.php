@@ -17,7 +17,7 @@
 
         <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
-            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp"/>
+            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
 
 
@@ -176,6 +176,7 @@
                         <!-- Imagem com Fancybox -->
                         <a href="/assets/img/torneio_esporte.png" data-fancybox="galeria_esporte" data-caption="TORNEIO - Cultura Efatá">
                             <img src="/assets/img/torneio_esporte.png" alt="amistoso">
+                        
                         </a>
 
                         <!-- Vídeo com Fancybox -->
@@ -212,7 +213,7 @@
                     </div>
 
 
-                 
+
 
 
 

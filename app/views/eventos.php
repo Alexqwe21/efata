@@ -296,6 +296,29 @@
                             </a>
                         </div>
 
+                        <div class="evento_esporte_cultura">
+                            <!-- Item visível (imagem que abre a galeria) -->
+                            <a href="assets/video/video_apoio_igreja.mp4"
+                                data-fancybox="galeria_esporte"
+                                data-type="video"
+                                data-caption="Apoio igreja Efatá">
+                                <img src="assets/img/evento_apoio_efata.png" alt="Evento">
+                                <div>
+                                    <strong class="strong_evento">EVENTO</strong>
+                                </div>
+                            </a>
+
+                            <!-- Itens da galeria invisíveis -->
+                            <a href="assets/img/foto_igreja_um.png" data-fancybox="galeria_esporte" data-caption="Foto Igreja Um" style="display: none;"></a>
+                            <a href="assets/img/foto_igreja_dois.png" data-fancybox="galeria_esporte" data-caption="Foto Igreja Dois" style="display: none;"></a>
+                            <a href="assets/img/foto_igreja_tres.png" data-fancybox="galeria_esporte" data-caption="Foto Igreja Três" style="display: none;"></a>
+                        </div>
+
+
+
+
+
+
                     </div>
                 </div>
                 <div class="space"></div>
@@ -303,15 +326,20 @@
                     <a href="/sobre" class="ver_atividades">Saiba mais</a>
                 </div>
 
+
+
+
             </article>
         </section>
 
         <div class="space"></div>
 
         <section class="campeonato">
-        
+
             <article class="site">
-                <div class="texto_campeonato"><h2>CAMPEONATO</h2></div>
+                <div class="texto_campeonato">
+                    <h2>CAMPEONATO</h2>
+                </div>
 
                 <img src="/assets/img/campeonato.png" alt="campeonato">
             </article>
@@ -329,13 +357,7 @@
 
     <footer><?php require_once('templates/footer.php') ?></footer>
 
-
-
-
-
     <?php require_once('templates/scriptGeral.php') ?>
-
-
 
     <script>
         function animarContador(elemento, final) {

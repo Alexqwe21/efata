@@ -130,7 +130,7 @@
                 <h3>Jogos Cultura Efatá</h3>
                 <div class="jogos_carrosel">
 
-                  
+
 
                     <div class="lado_a_lado_jogos">
 
@@ -206,7 +206,7 @@
 
                             </div>
                             <h5>22/06/2025</h5>
-                           <p>Cultura Efatá</p>
+                            <p>Cultura Efatá</p>
                         </div>
 
 
@@ -219,6 +219,131 @@
 
                             </div>
                             <h5>22/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/time_choppers.png" alt="time">
+                                <p>2 - 1</p>
+                                <img src="assets/img/time_theLast.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/circulo_setFinal.png" alt="time">
+                                <p>2 - 1</p>
+                                <img src="assets/img/impacto_time.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/vibes.png" alt="time">
+                                <p>2 - 0</p>
+                                <img src="assets/img/time_baska.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/time_trentino_volley.png" alt="time">
+                                <p>2 - 1</p>
+                                <img src="assets/img/time_cptms.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/time_cptms.png" alt="time">
+                                <p>2 - 1</p>
+                                <img src="assets/img/impacto_time.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/vibes.png" alt="time">
+                                <p>2 - 0</p>
+                                <img src="assets/img/time_grito_baixo.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/time_trentino_volley.png" alt="time">
+                                <p>2 - 0</p>
+                                <img src="assets/img/time_baska.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/vibes.png" alt="time">
+                                <p>2 - 0</p>
+                                <img src="assets/img/circulo_setFinal.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/circulo_setFinal.png" alt="time">
+                                <p> W - O </p>
+                                <img src="assets/img/time_cptms.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
+                            <p>Cultura Efatá</p>
+                        </div>
+
+                        <div class="jogo">
+                            <h4>Campeonato Efatá</h4>
+                            <div class="times">
+                                <img src="assets/img/time_trentino_volley.png" alt="time">
+                                <p> 2 - 0 </p>
+                                <img src="assets/img/vibes.png" alt="time">
+
+                            </div>
+                            <h5>29/06/2025</h5>
                             <p>Cultura Efatá</p>
                         </div>
 
@@ -1006,38 +1131,38 @@
 
 
 
-   <script>
-    $(document).ready(function () {
-        const links = $('#menu a');
-        const currentPath = window.location.pathname;
+    <script>
+        $(document).ready(function() {
+            const links = $('#menu a');
+            const currentPath = window.location.pathname;
 
-        // Marca o link ativo
-        links.removeClass('active');
-        links.each(function () {
-            const linkPath = $(this).attr('href');
-            if (linkPath === currentPath) {
-                $(this).addClass('active');
-            }
-        });
-        links.on('click', function () {
+            // Marca o link ativo
             links.removeClass('active');
-            $(this).addClass('active');
-        });
+            links.each(function() {
+                const linkPath = $(this).attr('href');
+                if (linkPath === currentPath) {
+                    $(this).addClass('active');
+                }
+            });
+            links.on('click', function() {
+                links.removeClass('active');
+                $(this).addClass('active');
+            });
 
-        // Toggle do menu e controle do z-index da .escolha_categoria
-        $('#menu-toggle').on('click', function () {
-            $(this).toggleClass('open');
+            // Toggle do menu e controle do z-index da .escolha_categoria
+            $('#menu-toggle').on('click', function() {
+                $(this).toggleClass('open');
 
-            if ($(this).hasClass('open')) {
-                // Remove o z-index da .escolha_categoria
-                $('.escolha_categoria').css('z-index', '0');
-            } else {
-                // Restaura o z-index padrão
-                $('.escolha_categoria').css('z-index', '20');
-            }
+                if ($(this).hasClass('open')) {
+                    // Remove o z-index da .escolha_categoria
+                    $('.escolha_categoria').css('z-index', '0');
+                } else {
+                    // Restaura o z-index padrão
+                    $('.escolha_categoria').css('z-index', '20');
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 
     <script>

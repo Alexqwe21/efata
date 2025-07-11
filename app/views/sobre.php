@@ -17,7 +17,7 @@
 
         <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
-            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp"/>
+            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
 
 
@@ -234,7 +234,7 @@
                                     </div>
 
                                     <div class="coordenador">
-                                        <img src="assets/img/equipe_allan.png" alt="coordenador">
+                                        <img src="assets/img/foto_professorVolei_circulo.png" alt="coordenador">
                                         <p>Allan</p>
                                         <strong>Professor</strong>
                                     </div>
@@ -245,7 +245,7 @@
                                         <strong>CEO</strong>
                                     </div>
 
-                                      <div class="coordenador">
+                                    <div class="coordenador">
                                         <img src="assets/img/foto_sobre_luan_circulo.png" alt="coordenador">
                                         <p>Luan</p>
                                         <strong>Marketing</strong>
@@ -266,7 +266,7 @@
                     </div>
 
                     <div class="imageGrande">
-                        <img src="assets/img/foto_professor_sobre.png" alt="Jogadores">
+                        <img src="assets/img/foto_professorVolei.png" alt="Jogadores">
                     </div>
                 </div>
 
