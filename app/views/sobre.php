@@ -386,11 +386,11 @@
                                 <span>EQUIPE CULTURA EFATÁ</span>
                             </div>
 
-                            <div class="columns">
+                            <!-- <div class="columns">
                                 <img src="assets/img/relogio_sobre.svg" alt="Documento">
                                 <h3> Parigot</h3>
                                 <p>O treino acontece aos domingos, às 9h.</p>
-                            </div>
+                            </div> -->
 
                             <div class="columns">
                                 <img src="assets/img/relogio_sobre.svg" alt="Documento">

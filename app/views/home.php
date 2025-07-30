@@ -392,7 +392,7 @@
                             </a>
                         </div>
 
-                        <div class="evento_esporte_cultura">
+                        <!-- <div class="evento_esporte_cultura">
                             <a href="https://maps.app.goo.gl/axJY8jmV8axrNJRQA" target="_blank">
                                 <img src="assets/img/treino_parigot.png" alt="Parigot">
                                 <div>
@@ -401,11 +401,23 @@
                                 </div>
 
                             </a>
+                        </div> -->
+
+                          <div class="evento_esporte_cultura">
+                            <a href="https://maps.app.goo.gl/tdaki6jwBR1h8Kaj7" target="_blank">
+                                <img src="assets/img/encontro_ceu.png" alt="Ceu são miguel">
+                                <div>
+
+                                    <span>CEU SÃO MIGUEL</span>
+                                </div>
+
+                            </a>
                         </div>
+
 
                         <div class="evento_esporte_cultura">
                             <a href="https://maps.app.goo.gl/DQXXSuREcPJ76DVL9" target="_blank">
-                                <img src="assets/img/encontro_reverendo.png" alt="">
+                                <img src="assets/img/encontro_reverendo.png" alt="Escola reverendo tercio">
                                 <div>
 
                                     <span>REVERENDO TERCIO</span>
@@ -413,6 +425,8 @@
 
                             </a>
                         </div>
+
+                        
                     </div>
                 </div>
                 <div class="space"></div>

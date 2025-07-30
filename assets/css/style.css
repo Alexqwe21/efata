@@ -1356,6 +1356,7 @@ header {
 
 
     .site {
+        max-width: 100%;
         h3 {
             font-family: var(--font_joseh);
             text-align: center;
@@ -4132,7 +4133,6 @@ footer {
         }
     }
 }
-
 
 
 @media (max-width: 1024px) {
