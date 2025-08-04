@@ -48,8 +48,30 @@
 
                      </div>
                  </div>
+
+
              </div>
+            <input id="switch" type="checkbox">
+<div class="app" >
+  <div class="body">
+    <div class="phone">
+      <div class="content">
+        <div class="circle">
+          <div class="crescent"></div>
+        </div>
+        <label for="switch">
+          <div class="toggle"></div>
+          <div class="names">
+            <p class="light">Claro</p>
+            <p class="dark">Escuro</p>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
          </div>
+
      </div>
  </div>
 
@@ -77,3 +99,5 @@
          </div>
      </div>
  </div>
+
+

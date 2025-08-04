@@ -129,3 +129,5 @@
             });
     });
 </script>
+
+<script src="/assets/js/claroEescuro.js?v=<?= time(); ?>"></script>
