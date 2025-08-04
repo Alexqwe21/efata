@@ -52,7 +52,7 @@
 
              </div>
             <input id="switch" type="checkbox">
-<div class="app" >
+<div class="app" style="display: none;">
   <div class="body">
     <div class="phone">
       <div class="content">
