@@ -4364,13 +4364,19 @@ footer {
 body.dark-theme {
     background: var(--cor_modo_escuro);
 
-
     h3,
     p,
     h4,
     h5,
-    h2 {
+    h2,
+    a,
+    span,
+    h6 {
         color: white !important;
+    }
+
+    .container_azul {
+        background-color: #056CF2 !important;
     }
 
     .logo {
@@ -4465,11 +4471,24 @@ body.dark-theme {
                 & .evento_esporte_cultura {
                     & a {
                         background-color: var(--cor_secundaria_modo_escuro);
+
                         div {
-                        background-color: var(--cor_secundaria_modo_escuro);
-                              border-bottom: 4px solid #056CF2;
+                            background-color: var(--cor_secundaria_modo_escuro);
+                            border-bottom: 4px solid #056CF2;
                         }
                     }
+                }
+            }
+        }
+    }
+
+    .eventos_espor,
+    .eventos_cul {
+        & .site {
+            & .centro {
+                .ver_atividades {
+                    background-color: #0597F2;
+                    color: white;
                 }
             }
         }

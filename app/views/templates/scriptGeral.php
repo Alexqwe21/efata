@@ -1,3 +1,4 @@
+<script src="/assets/js/claroEescuro.js?v=<?= time(); ?>"></script>
 <script src="/assets/js/menu_hamburguer.js"></script>
 <script src="/assets/js/efeito_aparecer.js"></script>
 <script src="/assets/js/active.js"></script>
