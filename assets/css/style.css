@@ -944,6 +944,7 @@ footer ul li a.active::after {
                 border-radius: 40px;
 
                 .phone {
+
                     .menu {
                         .time {
                             color: white;
@@ -986,7 +987,7 @@ footer ul li a.active::after {
             z-index: 2;
             width: 14rem;
             height: 14rem;
-            background-color: inherit;
+            background-color: white;
             box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
             border-radius: 40px;
             display: flex;
@@ -4371,7 +4372,8 @@ body.dark-theme {
     h2,
     a,
     span,
-    h6 {
+    h6,
+    strong {
         color: white !important;
     }
 
@@ -4494,6 +4496,268 @@ body.dark-theme {
         }
     }
 
+    .galeria_volei {
+        background-image: url(../img/modo_escuro_fundo.png) !important;
+    }
+
+
+    .efeito_paralax {
+        & .site {
+            .content {
+                background-color: var(--cor_modo_escuro);
+
+                hr {
+                    border: 3px solid #00A3FF !important;
+                }
+
+                .cadastre-se {
+                    background-color: #00A3FF !important;
+                }
+            }
+        }
+    }
+
+
+    .foto {
+        img {
+            box-shadow: var(--shadow_modo_escuro);
+            border-radius: 20px;
+        }
+    }
+
+
+
+    .venha_jogar {
+        background-color: #056CF2 !important;
+    }
+
+    .carrosel_eventos {
+        background-color: var(--cor_secundaria_modo_escuro);
+
+        .ativo {
+            color: #056CF2 !important;
+        }
+
+        .foto_responsivo {
+            box-shadow: var(--shadow_modo_escuro);
+        }
+
+    }
+
+    .venha_participar_eventos {
+        background: var(--cor_modo_escuro);
+    }
+
+    .venha_participar_eventos {
+        height: 1000px;
+    }
+
+    .campeonato {
+        display: none;
+    }
+
+
+
+    .sobre_bem_vindo {
+        & .site {
+            & .lado_a_lado {
+                .carrossel-hover {
+                    box-shadow: var(--shadow_modo_escuro);
+                    border-radius: 13px;
+                }
+
+                & .texto_bem_vindo {
+                    hr {
+
+                        background-color: #056CF2;
+
+                    }
+                }
+            }
+        }
+    }
+
+
+    .number {
+
+        hr {
+            background-color: #056CF2 !important;
+        }
+
+        strong {
+            color: white;
+        }
+    }
+
+    .quemSomosSobre {
+        img {
+            box-shadow: var(--shadow_modo_escuro);
+        }
+    }
+
+
+    .nossaEquipe {
+        background-color: var(--cor_modo_escuro);
+
+        img {
+            box-shadow: var(--shadow_modo_escuro);
+            border-radius: 25px;
+        }
+
+        .coordenador {
+            img {
+                border-radius: 100px;
+            }
+        }
+
+        .progresso-fill {
+            background-color: #0597F2 !important;
+        }
+
+
+        .jogadora {
+            margin: 20px 0;
+
+            img {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .fazerMatricula {
+        background-color: var(--cor_modo_escuro) !important;
+
+        img {
+            filter: brightness(0) invert(1);
+            /* transforma o SVG para branco */
+        }
+
+        .fundo {
+            box-shadow: var(--shadow_modo_escuro) !important;
+        }
+
+        a {
+            background-color: #056CF2 !important;
+        }
+    }
+
+    .horariosTreinos {
+        background-color: var(--cor_modo_escuro);
+
+        img {
+            filter: brightness(0) invert(1);
+            /* transforma o SVG para branco */
+        }
+
+        .space {
+            background-color: var(--cor_modo_escuro) !important;
+        }
+
+        .coluna {
+            background-color: #056CF2 !important;
+        }
+    }
+
+
+    footer {
+        background-color: var(--cor_secundaria_modo_escuro);
+
+        .entre_em_contato {
+            background-color: var(--cor_modo_escuro) !important;
+            border: none !important;
+        }
+
+        .mapa {
+            iframe {
+                box-shadow: var(--shadow_modo_escuro);
+            }
+
+        }
+
+        .logo_footer {
+            a {
+                img {
+                    box-shadow: var(--shadow_modo_escuro);
+                    border-radius: 100px;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+
+
+
+        .direitos {
+            color: white;
+        }
+
+        #formNewsletter {
+            input {
+                background: var(--cor_modo_escuro);
+                box-shadow: var(--shadow_modo_escuro);
+
+                &::placeholder {
+                    color: white !important;
+                }
+            }
+        }
+
+
+    }
+
+
+    @media (max-width: 768px) {
+        header {
+            & .navegacao {
+                & .site {
+                    & .container_azul {
+                        nav {
+                            background: var(--cor_modo_escuro);
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu-toggle {
+            span {
+                background-color: white;
+            }
+
+        }
+    }
+
+    @media (max-width: 480px) {
+        header {
+            & .navegacao {
+                & .site {
+                    & .container_azul {
+                        & nav {
+                            ul {
+                                background-color: var(--cor_secundaria_modo_escuro) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .crescent {
+            background: #26242E !important;
+        }
+
+        .phone {
+            background: #26242E !important;
+        }
+
+        .escolha_categoria {
+            background-color: var(--cor_modo_escuro) !important;
+        }
+
+    }
+
+    .phone {
+        background: #26242E !important;
+    }
 
 
 }
@@ -4534,6 +4798,10 @@ body.dark-theme {
 
                 .lado_a_lado {
                     justify-content: space-around !important;
+
+                    .redes_sociais {
+                        display: none;
+                    }
 
                     .como_funciona {
 

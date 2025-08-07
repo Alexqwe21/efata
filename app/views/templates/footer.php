@@ -130,3 +130,25 @@
     });
 </script>
 
+
+<script>
+function moverAppParaMenu() {
+  const appContainer = document.getElementById('app-container');
+  const menuUl = document.querySelector('#menu ul');
+  const body = document.querySelector('body');
+
+  if (window.innerWidth <= 480) {
+    if (!menuUl.contains(appContainer)) {
+      menuUl.appendChild(appContainer);
+    }
+  } else {
+    if (!body.contains(appContainer)) {
+      body.prepend(appContainer); // Ou posicione onde preferir no body
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded', moverAppParaMenu);
+window.addEventListener('resize', moverAppParaMenu);
+
+</script>
