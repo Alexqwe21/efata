@@ -4658,6 +4658,20 @@ body.dark-theme {
         }
     }
 
+    .login {
+        & .site {
+            .container {
+
+                background: var(--cor_secundaria_modo_escuro) !important;
+
+            }
+        }
+    }
+
+    .phone {
+        background: #26242E !important;
+    }
+
 
     footer {
         background-color: var(--cor_secundaria_modo_escuro);
@@ -4712,11 +4726,17 @@ body.dark-theme {
                     & .container_azul {
                         nav {
                             background: var(--cor_modo_escuro);
+
+                            ul {
+                                background-color: var(--cor_secundaria_modo_escuro) !important;
+                            }
                         }
                     }
                 }
             }
         }
+
+
 
         .menu-toggle {
             span {
@@ -4724,6 +4744,11 @@ body.dark-theme {
             }
 
         }
+
+        .venha_participar_eventos {
+            height: 1540px;
+        }
+
     }
 
     @media (max-width: 480px) {
@@ -4753,11 +4778,40 @@ body.dark-theme {
             background-color: var(--cor_modo_escuro) !important;
         }
 
+        .foto {
+            img {
+
+                margin-bottom: 50px;
+            }
+        }
+
+        .venha_participar_eventos {
+            height: 1575px;
+        }
+
+
+        .quemSomosSobre,
+        .nossaEquipe {
+            & .site {
+                & .group {
+                    & .coluna {
+                        & .columns {
+                            & .textoEfoto {
+                                img {
+                                    margin-top: 35px;
+                                    margin-bottom: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 
-    .phone {
-        background: #26242E !important;
-    }
+
 
 
 }
