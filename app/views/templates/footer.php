@@ -94,6 +94,7 @@
 </div>
 
 
+
 <script>
     document.getElementById('formNewsletter').addEventListener('submit', function(e) {
         e.preventDefault();

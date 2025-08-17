@@ -125,7 +125,7 @@
             </article>
         </section>
 
-        <section class="jogos">
+            <section class="jogos">
             <article class="site">
                 <h3>Jogos Cultura Efatá</h3>
                 <div class="jogos_carrosel">
@@ -358,7 +358,7 @@
 
         <div class="space"></div>
 
-        <section class="eventos_prox">
+          <section class="eventos_prox">
             <div class="largura_total">
                 <h2>PONTOS DE ENCONTRO</h2>
             </div>
@@ -1145,38 +1145,38 @@
 
 
 
-    <script>
-        $(document).ready(function() {
-            const links = $('#menu a');
-            const currentPath = window.location.pathname;
+   <script>
+    $(document).ready(function () {
+        const links = $('#menu a');
+        const currentPath = window.location.pathname;
 
-            // Marca o link ativo
-            links.removeClass('active');
-            links.each(function() {
-                const linkPath = $(this).attr('href');
-                if (linkPath === currentPath) {
-                    $(this).addClass('active');
-                }
-            });
-            links.on('click', function() {
-                links.removeClass('active');
+        // Marca o link ativo
+        links.removeClass('active');
+        links.each(function () {
+            const linkPath = $(this).attr('href');
+            if (linkPath === currentPath) {
                 $(this).addClass('active');
-            });
-
-            // Toggle do menu e controle do z-index da .escolha_categoria
-            $('#menu-toggle').on('click', function() {
-                $(this).toggleClass('open');
-
-                if ($(this).hasClass('open')) {
-                    // Remove o z-index da .escolha_categoria
-                    $('.escolha_categoria').css('z-index', '0');
-                } else {
-                    // Restaura o z-index padrão
-                    $('.escolha_categoria').css('z-index', '20');
-                }
-            });
+            }
         });
-    </script>
+        links.on('click', function () {
+            links.removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // Toggle do menu e controle do z-index da .escolha_categoria
+        $('#menu-toggle').on('click', function () {
+            $(this).toggleClass('open');
+
+            if ($(this).hasClass('open')) {
+                // Remove o z-index da .escolha_categoria
+                $('.escolha_categoria').css('z-index', '0');
+            } else {
+                // Restaura o z-index padrão
+                $('.escolha_categoria').css('z-index', '20');
+            }
+        });
+    });
+</script>
 
 
     <script>

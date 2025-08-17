@@ -17,7 +17,7 @@
 
         <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
-            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
+            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp"/>
         </a>
 
 
@@ -199,7 +199,7 @@
         </section>
 
 
-        <section class="nossaEquipe">
+          <section class="nossaEquipe">
             <article class="site">
                 <div class="group">
 
@@ -410,6 +410,7 @@
                 </div>
             </article>
         </section>
+
 
 
     </main>

@@ -272,8 +272,7 @@
         </section>
 
         <div class="space"></div>
-
-        <section class="eventos_prox auto">
+    <section class="eventos_prox auto">
             <div class="largura_total">
                 <h2 class="texto_eventos">EVENTOS</h2>
             </div>
@@ -357,7 +356,13 @@
 
     <footer><?php require_once('templates/footer.php') ?></footer>
 
+
+
+
+
     <?php require_once('templates/scriptGeral.php') ?>
+
+
 
     <script>
         function animarContador(elemento, final) {

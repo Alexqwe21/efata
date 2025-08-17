@@ -1,5 +1,22 @@
 RewriteEngine On
 RewriteBase /
+
+# 🚀 URLs amigáveis
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# 🚫 Bloqueio de acesso direto a arquivos críticos
+<FilesMatch "(?i)(config\.php|\.env|composer\.json|composer\.lock|phpunit\.xml|readme\.md)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# 🚫 Bloqueio de listagem de diretórios
+Options -Indexes
+
+# 🌍 Permitir só Brasil
+SetEnvIf GEOIP_COUNTRY_CODE BR AllowCountry
+Order Deny,Allow
+Deny from all
+Allow from env=AllowCountry
