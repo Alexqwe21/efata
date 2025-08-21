@@ -10,12 +10,14 @@
 ---
 
 ## 📖 Sobre o Projeto
+
 O **Cultura Efata** é um site desenvolvido para uma ONG que oferece **aulas gratuitas de vôlei** para a comunidade.  
 O sistema combina um **site institucional moderno** com um **painel administrativo** intuitivo para gerenciamento de conteúdo, utilizando **estrutura MVC feita à mão**.
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
+
 <p align="center">
     <img alt="PHP" src="https://img.shields.io/badge/PHP-45.2%25-777BB4?style=for-the-badge&logo=php&logoColor=white" />
     <img alt="CSS" src="https://img.shields.io/badge/CSS-24.6%25-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
@@ -28,26 +30,26 @@ O sistema combina um **site institucional moderno** com um **painel administrati
 ---
 
 ## 📌 Funcionalidades
+
 ✅ Site institucional com informações sobre a ONG, missão e atividades  
 ✅ Painel administrativo para gerenciar conteúdo e usuários  
 ✅ Estrutura **MVC** personalizada  
 ✅ Layout **responsivo e otimizado**  
-✅ Integração com banco de dados  
+✅ Integração com banco de dados
 
 ---
 
 ## 🚀 Objetivo
+
 Oferecer à **ONG Cultura Efata** uma plataforma digital **moderna**, **funcional** e **fácil de gerenciar**, integrando a apresentação institucional com recursos administrativos.
-
-
 
 ---
 
 ## 📧 Contato
+
 **Alex Sandro**  
 📩 desenvolvedorweb21@gmail.com  
 📱 (11) 96881-2993  
 🐙 [GitHub](https://github.com/Alexqwe21)
 
 ---
-
