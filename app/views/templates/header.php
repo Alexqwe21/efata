@@ -36,7 +36,7 @@
                          <p>Telefone</p>
                          <div class="numero_telefone">
                              <img src="assets/img/telefone_topo.svg" alt="relogio">
-                             <span>11 944748900</span>
+                             <span>11 91475-4581</span>
                          </div>
                      </div>
                  </div>
