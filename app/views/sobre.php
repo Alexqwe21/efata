@@ -233,11 +233,11 @@
                                         <strong>Assistente social</strong>
                                     </div>
 
-                                    <!-- <div class="coordenador">
+                                    <div class="coordenador">
                                         <img src="assets/img/foto_professorVolei_circulo.png" alt="coordenador">
                                         <p>Allan</p>
                                         <strong>Professor</strong>
-                                    </div> -->
+                                    </div>
 
                                     <div class="coordenador">
                                         <img src="assets/img/equipe_efata.png" alt="coordenador">
@@ -266,7 +266,7 @@
                     </div>
 
                     <div class="imageGrande">
-                        <img src="assets/img/aluno-sobre.png" alt="Jogadores">
+                        <img src="assets/img/foto_professorVolei.png" alt="Jogadores">
                     </div>
                 </div>
 
