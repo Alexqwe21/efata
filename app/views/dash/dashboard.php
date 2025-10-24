@@ -194,6 +194,12 @@
                                 <p>Campeonatos e amistoso</p>
                             </a> </li>
 
+
+                        <li class="nav-item"> <a href="/ListaDePresenca/" class="nav-link"><i class="bi bi-bookmark-check-fill"></i>
+
+                                <p>Lista de Presença</p>
+                            </a> </li>
+
                     </ul> <!--end::Sidebar Menu-->
                 </nav>
             </div> <!--end::Sidebar Wrapper-->
