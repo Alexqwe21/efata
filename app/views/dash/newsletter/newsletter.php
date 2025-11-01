@@ -1,4 +1,8 @@
-<style>
+<head>
+  <link rel="stylesheet" href="/assets/css/dash.css?v=<?= time(); ?>">
+</head>
+
+ <style> 
   .btn-admin-export {
     display: inline-flex;
     align-items: center;
@@ -28,7 +32,7 @@
   .form-control {
     text-transform: uppercase !important;
   }
-</style>
+</style> 
 
 
 
@@ -81,6 +85,6 @@
     <?php endforeach; ?>
   </tbody>
 </table>
-<script src="/vendors/dash/js/adminlte.js"></script>
+
 
 </html>
