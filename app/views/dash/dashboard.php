@@ -195,10 +195,13 @@
                             </a> </li>
 
 
-                        <li class="nav-item"> <a href="/ListaDePresenca/" class="nav-link"><i class="bi bi-bookmark-check-fill"></i>
-
+                        <li class="nav-item">
+                            <a href="/ListaDePresenca/Listarpresenca" class="nav-link">
+                                <i class="bi bi-bookmark-check-fill"></i>
                                 <p>Lista de Presença</p>
-                            </a> </li>
+                            </a>
+                        </li>
+
 
                     </ul> <!--end::Sidebar Menu-->
                 </nav>
