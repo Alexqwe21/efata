@@ -64,6 +64,26 @@ public function listarHistorico($inicio = null, $fim = null)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+public function listarPorPeriodo($inicio, $fim)
+{
+    $sql = "SELECT 
+                p.data_aula, 
+                m.matricula_nome AS nome_aluno, 
+                p.presente AS status
+            FROM presencas p
+            JOIN matriculas m ON p.matricula_id = m.matricula_id
+            WHERE p.data_aula BETWEEN :inicio AND :fim
+            ORDER BY p.data_aula ASC, m.matricula_nome ASC";
+
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue(':inicio', $inicio);
+    $stmt->bindValue(':fim', $fim);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 
 
   
