@@ -13,7 +13,7 @@
     <header><?php require_once('templates/header.php'); ?></header>
 
     <main>
-        <a href="https://api.whatsapp.com/send?phone=5511914754581" target="_blank" class="whatsapp-fixo"
+        <a href="https://api.whatsapp.com/send?phone=5511912345494" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
             <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
