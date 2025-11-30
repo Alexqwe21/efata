@@ -21,41 +21,72 @@
   </form>
 
   <!-- Form para salvar presença -->
-  <form method="POST" action="/listaDePresenca/salvarPresenca">
+  <?php
+// Data selecionada (se vier do POST) ou data atual
+$dataSelecionada = isset($_POST['data_aula']) ? $_POST['data_aula'] : date('Y-m-d');
+
+// Identifica o dia da semana: 6 = sábado, 7 = domingo
+$diaSemana = date('N', strtotime($dataSelecionada));
+
+if ($diaSemana == 6) {
+    $diaTexto = "Sábado";
+    $horarioTexto = "18:00";
+} elseif ($diaSemana == 7) {
+    $diaTexto = "Domingo";
+    $horarioTexto = "16:00";
+} else {
+    $diaTexto = "Dia inválido (somente Sábado e Domingo)";
+    $horarioTexto = "-";
+}
+?>
+
+<!-- Bloco informativo -->
+<div class="alert alert-info mb-3">
+    <strong>Local:</strong> CEU SÃO MIGUEL - INSTITUTO BACARRELI <br>
+    <strong>Dia:</strong> <?= $diaTexto ?> <br>
+    <strong>Horário:</strong> <?= $horarioTexto ?>
+</div>
+
+
+<!-- Formulário principal -->
+<form method="POST" action="/listaDePresenca/salvarPresenca">
+
     <div class="mb-3">
-      <label for="data_aula" class="form-label">Data da Aula</label>
-      <input 
-    type="date" 
-    id="data_aula" 
-    name="data_aula" 
-    class="form-control" 
-    required
-    value="<?= date('Y-m-d'); ?>"  
-  >
+        <label for="data_aula" class="form-label">Data da Aula</label>
+        <input 
+            type="date" 
+            id="data_aula" 
+            name="data_aula" 
+            class="form-control" 
+            required
+            value="<?= $dataSelecionada; ?>"
+        >
     </div>
 
     <!-- Mantém o filtro para redirecionar após salvar -->
     <input type="hidden" name="filtro" value="<?= htmlspecialchars($filtro ?? ''); ?>">
 
     <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Nome do Aluno</th>
-          <th>Presença</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($alunos as $aluno): ?>
-          <tr>
-            <td><?= htmlspecialchars($aluno['matricula_nome']); ?></td>
-            <td>
-              <input type="checkbox" name="presenca[<?= $aluno['matricula_id']; ?>]" value="1">
-            </td>
-          </tr>
-        <?php endforeach; ?>
-      </tbody>
+        <thead>
+            <tr>
+                <th>Nome do Aluno</th>
+                <th>Presença</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($alunos as $aluno): ?>
+                <tr>
+                    <td><?= htmlspecialchars($aluno['matricula_nome']); ?></td>
+                    <td>
+                        <input type="checkbox" name="presenca[<?= $aluno['matricula_id']; ?>]" value="1">
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
 
     <button type="submit" class="btn btn-primary">Salvar Presenças</button>
-  </form>
+
+</form>
+
 </div>

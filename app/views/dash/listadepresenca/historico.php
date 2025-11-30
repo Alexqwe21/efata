@@ -1,3 +1,9 @@
+<style>
+  td{
+    text-transform: uppercase;
+  }
+</style>
+
 <div class="container mt-4">
   <h3>Histórico de Presenças</h3>
 

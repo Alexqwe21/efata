@@ -27,20 +27,44 @@ class ListaDePresenca extends Model
 
 
     // Salva presenças no banco
-    public function salvarPresencas($dataAula, $presencas)
-    {
-        $sql = "INSERT INTO presencas (matricula_id, data_aula, presente)
-                VALUES (:matricula_id, :data_aula, :presente)";
-        $stmt = $this->db->prepare($sql);
+   public function salvarPresencas($dataAula, $presencas)
+{
+    $local = "CEU SÃO MIGUEL - INSTITUTO BACARRELI";
 
-        foreach ($presencas as $idAluno => $presente) {
-            $stmt->execute([
-                ':matricula_id' => $idAluno,
-                ':data_aula' => $dataAula,
-                ':presente' => $presente ? 1 : 0
-            ]);
-        }
+    // Identifica o dia da semana da data
+    $diaSemana = date('N', strtotime($dataAula)); 
+    // 6 = Sábado, 7 = Domingo
+
+    if ($diaSemana == 6) {
+        $dia = "Sábado";
+        $horario = "18:00:00";
+    } elseif ($diaSemana == 7) {
+        $dia = "Domingo";
+        $horario = "16:00:00";
+    } else {
+        // Caso seja um dia inválido
+        $dia = null;
+        $horario = null;
     }
+
+    foreach ($presencas as $matriculaId => $presente) {
+
+        $sql = "INSERT INTO presencas 
+                (matricula_id, data_aula, presente, local, dia, horario)
+                VALUES (?, ?, ?, ?, ?, ?)";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            $matriculaId,
+            $dataAula,
+            $presente,
+            $local,
+            $dia,
+            $horario
+        ]);
+    }
+}
+
 
 public function listarHistorico($inicio = null, $fim = null)
 {
@@ -48,8 +72,8 @@ public function listarHistorico($inicio = null, $fim = null)
             FROM presencas p
             JOIN matriculas m ON p.matricula_id = m.matricula_id";
 
-    // 🔹 Se tiver filtro de datas, aplica no WHERE
     $params = [];
+
     if (!empty($inicio) && !empty($fim)) {
         $sql .= " WHERE p.data_aula BETWEEN :inicio AND :fim";
         $params[':inicio'] = $inicio;
@@ -64,12 +88,16 @@ public function listarHistorico($inicio = null, $fim = null)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+
 public function listarPorPeriodo($inicio, $fim)
 {
     $sql = "SELECT 
                 p.data_aula, 
                 m.matricula_nome AS nome_aluno, 
-                p.presente AS status
+                p.presente AS status,
+                p.local,
+                p.dia,
+                p.horario
             FROM presencas p
             JOIN matriculas m ON p.matricula_id = m.matricula_id
             WHERE p.data_aula BETWEEN :inicio AND :fim
@@ -82,6 +110,7 @@ public function listarPorPeriodo($inicio, $fim)
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 
 

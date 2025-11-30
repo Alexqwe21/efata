@@ -28,21 +28,28 @@ class ListaDePresencaController extends Controller
     }
 
     public function salvarPresenca()
-    {
-        if (!empty($_POST['data_aula']) && !empty($_POST['presenca'])) {
-            $dataAula = $_POST['data_aula'];
-            $presencas = $_POST['presenca'];
+{
+    if (!empty($_POST['data_aula']) && !empty($_POST['presenca'])) {
 
-            $presencaModel = new ListaDePresenca();
-            $presencaModel->salvarPresencas($dataAula, $presencas);
+        $dataAula = $_POST['data_aula'];
+        $presencas = $_POST['presenca'];
 
-            if (session_status() === PHP_SESSION_NONE) session_start();
-            $_SESSION['sucesso'] = "Aula salva com sucesso!";
+        // Chama o Model
+        $presencaModel = new ListaDePresenca();
+        $presencaModel->salvarPresencas($dataAula, $presencas);
+
+        // Mensagem de sucesso
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
         }
-
-        header("Location: " . BASE_URL . "ListaDePresenca/Listarpresenca");
-        exit;
+        $_SESSION['sucesso'] = "Aula salva com sucesso!";
     }
+
+    // Redireciona para a listagem
+    header("Location: " . BASE_URL . "ListaDePresenca/Listarpresenca");
+    exit;
+}
+
 
     public function HistoricoPresenca()
     {
@@ -98,29 +105,62 @@ public function exportarPresencaPDF()
         exit;
     }
 
-    // Monta o HTML do PDF
+    // ----------- DADOS AUTOMÁTICOS DO LOCAL/DIA/HORÁRIO ---------------- //
+
+    // Local é fixo
+    $localTexto = "CEU SÃO MIGUEL - INSTITUTO BACARRELLI";
+
+    // Pega a primeira data do período para identificar dia e horário
+    $primeiraData = $historico[0]['data_aula'];
+    $diaSemana = date('N', strtotime($primeiraData)); // 6 = sábado / 7 = domingo
+
+    if ($diaSemana == 6) {
+        $diaTexto = "SÁBADO";
+        $horarioTexto = "18:00";
+    } elseif ($diaSemana == 7) {
+        $diaTexto = "DOMINGO";
+        $horarioTexto = "16:00";
+    } else {
+        $diaTexto = "DIA INVÁLIDO";
+        $horarioTexto = "-";
+    }
+
+    // Deixa tudo maiúsculo
+    $localTexto    = strtoupper($localTexto);
+    $diaTexto      = strtoupper($diaTexto);
+    $horarioTexto  = strtoupper($horarioTexto);
+
+    // ----------- MONTAGEM DO HTML DO PDF ---------------- //
+
     $html = '
-        <h2 style="text-align:center;">Relatório de Presenças</h2>
+        <h2 style="text-align:center;">RELATÓRIO DE PRESENÇAS</h2>
+
+        <p><strong>LOCAL:</strong> ' . $localTexto . '</p>
+        <p><strong>DIA:</strong> ' . $diaTexto . '</p>
+        <p><strong>HORÁRIO:</strong> ' . $horarioTexto . '</p>
+
         <p style="text-align:center;">
-            Período: ' . date('d/m/Y', strtotime($inicio)) . ' até ' . date('d/m/Y', strtotime($fim)) . '
+            PERÍODO: ' . strtoupper(date('d/m/Y', strtotime($inicio)) . ' ATÉ ' . date('d/m/Y', strtotime($fim))) . '
         </p>
+
         <table border="1" cellspacing="0" cellpadding="6" width="100%">
             <thead>
                 <tr style="background:#f0f0f0;">
-                    <th>Data da Aula</th>
-                    <th>Aluno</th>
-                    <th>Status</th>
+                    <th>DATA DA AULA</th>
+                    <th>ALUNO</th>
+                    <th>STATUS</th>
                 </tr>
             </thead>
             <tbody>
     ';
 
     foreach ($historico as $linha) {
+
         $html .= '
             <tr>
                 <td>' . date('d/m/Y', strtotime($linha['data_aula'])) . '</td>
-                <td>' . htmlspecialchars($linha['nome_aluno']) . '</td>
-                <td>' . ($linha['status'] == 1 ? 'Presente' : 'Faltou') . '</td>
+                <td>' . strtoupper(htmlspecialchars($linha['nome_aluno'])) . '</td>
+                <td>' . strtoupper(($linha['status'] == 1 ? "Presente" : "Faltou")) . '</td>
             </tr>
         ';
     }
@@ -128,10 +168,12 @@ public function exportarPresencaPDF()
     $html .= '
             </tbody>
         </table>
-        <br><p style="text-align:right;">Gerado em ' . date('d/m/Y H:i') . '</p>
+
+        <br><p style="text-align:right;">GERADO EM ' . date('d/m/Y H:i') . '</p>
     ';
 
-    // Gera o PDF
+    // ----------- GERAÇÃO DO PDF ---------------- //
+
     $options = new \Dompdf\Options();
     $options->set('isRemoteEnabled', true);
     $dompdf = new \Dompdf\Dompdf($options);
@@ -143,6 +185,7 @@ public function exportarPresencaPDF()
     $dompdf->stream($fileName, ["Attachment" => true]);
     exit;
 }
+
 
 
 public function exportarPresencaExcel()
@@ -177,21 +220,40 @@ public function exportarPresencaExcel()
     $sheet->setTitle('Relatório de Presenças');
 
     // Cabeçalho
-    $sheet->setCellValue('A1', 'Data da Aula')
-          ->setCellValue('B1', 'Aluno')
-          ->setCellValue('C1', 'Status');
+    $sheet->setCellValue('A1', 'DATA DA AULA')
+          ->setCellValue('B1', 'ALUNO')
+          ->setCellValue('C1', 'STATUS')
+          ->setCellValue('D1', 'LOCAL')
+          ->setCellValue('E1', 'DIA')
+          ->setCellValue('F1', 'HORÁRIO');
 
     // Conteúdo
     $row = 2;
     foreach ($historico as $linha) {
+
+        // Nome do aluno em MAIÚSCULO
+        $nomeAluno = strtoupper($linha['nome_aluno']);
+
+        // Status em MAIÚSCULO
+        $status = $linha['status'] == 1 ? 'PRESENTE' : 'FALTOU';
+
+        // Local, dia e horário em MAIÚSCULO
+        $local = strtoupper($linha['local'] ?? '');
+        $dia   = strtoupper($linha['dia'] ?? '');
+        $hora  = $linha['horario'] ? date('H:i', strtotime($linha['horario'])) : '';
+
         $sheet->setCellValue('A'.$row, date('d/m/Y', strtotime($linha['data_aula'])));
-        $sheet->setCellValue('B'.$row, $linha['nome_aluno']);
-        $sheet->setCellValue('C'.$row, $linha['status'] == 1 ? 'Presente' : 'Faltou');
+        $sheet->setCellValue('B'.$row, $nomeAluno);
+        $sheet->setCellValue('C'.$row, $status);
+        $sheet->setCellValue('D'.$row, $local);
+        $sheet->setCellValue('E'.$row, $dia);
+        $sheet->setCellValue('F'.$row, $hora);
+
         $row++;
     }
 
-    // Formatação simples
-    foreach (range('A','C') as $col) {
+    // Ajuste automático de colunas
+    foreach (range('A','F') as $col) {
         $sheet->getColumnDimension($col)->setAutoSize(true);
     }
 
@@ -205,6 +267,7 @@ public function exportarPresencaExcel()
     $writer->save('php://output');
     exit;
 }
+
 
 
 
