@@ -2755,6 +2755,11 @@ header {
                             justify-content: center;
                             align-items: center;
 
+                            strong {
+                                color: white;
+                                font-weight:700 ;
+                            }
+
                             img {
                                 width: 100px;
                                 height: 100px;
