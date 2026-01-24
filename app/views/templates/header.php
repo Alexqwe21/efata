@@ -14,7 +14,7 @@
              </div>
              <div class="redes_sociais">
                  <div>
-                     <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank"><img src="assets/img/wpp_topo.svg" alt="whatsapp"></a>
+                     <a href="https://api.whatsapp.com/send?phone=5511912345494" target="_blank"><img src="assets/img/wpp_topo.svg" alt="whatsapp"></a>
                  </div>
 
                  <div>
@@ -36,7 +36,7 @@
                          <p>Telefone</p>
                          <div class="numero_telefone">
                              <img src="assets/img/telefone_topo.svg" alt="relogio">
-                             <span>11 944748900</span>
+                             <span>11 912345494</span>
                          </div>
                      </div>
                  </div>

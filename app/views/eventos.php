@@ -15,7 +15,7 @@
     <main>
 
 
-        <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
+        <a href="https://api.whatsapp.com/send?phone=5511912345494" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
             <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
@@ -272,7 +272,8 @@
         </section>
 
         <div class="space"></div>
-    <section class="eventos_prox auto">
+
+        <section class="eventos_prox auto">
             <div class="largura_total">
                 <h2 class="texto_eventos">EVENTOS</h2>
             </div>
@@ -333,7 +334,7 @@
 
         <div class="space"></div>
 
-        <section class="campeonato">
+        <!-- <section class="campeonato">
 
             <article class="site">
                 <div class="texto_campeonato">
@@ -342,11 +343,7 @@
 
                 <img src="/assets/img/campeonato.png" alt="campeonato">
             </article>
-        </section>
-
-
-
-
+        </section> -->
 
 
         <!-- Cursor grande -->
@@ -355,10 +352,6 @@
 
 
     <footer><?php require_once('templates/footer.php') ?></footer>
-
-
-
-
 
     <?php require_once('templates/scriptGeral.php') ?>
 

@@ -13,7 +13,7 @@
     <header><?php require_once('templates/header.php'); ?></header>
 
     <main>
-        <a href="https://api.whatsapp.com/send?phone=5511944748900" target="_blank" class="whatsapp-fixo"
+        <a href="https://api.whatsapp.com/send?phone=5511912345494" target="_blank" class="whatsapp-fixo"
             aria-label="Fale conosco pelo WhatsApp">
             <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
         </a>
@@ -581,12 +581,12 @@
                                 🏐 <strong>Luan</strong> — Organização e Marketing é o responsável pela divulgação, comunicação e coordenação geral do projeto.
                                 <br>
 
-                                🏐 <strong>Allan</strong> — professor de Educação Física, responsável pelos treinos
+                                <!-- 🏐 <strong>Allan</strong> — professor de Educação Física, responsável pelos treinos
                                 técnicos.
-                                <br>
+                                <br> -->
 
-                                🏐 <strong>Pastora Gislene</strong> — cuida da parte espiritual e da organização dos
-                                eventos. <br>
+                                <!-- 🏐 <strong>Pastora Gislene</strong> — cuida da parte espiritual e da organização dos
+                                eventos. <br> -->
 
 
 

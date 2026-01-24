@@ -154,25 +154,30 @@
 
 
 
-                        <!-- <li class="nav-item"> <a href="#" class="nav-link"> <i class="bi bi-briefcase"></i>
+                        <li class="nav-item"> <a href="#" class="nav-link"> <i class="bi bi-bookmark-check-fill"></i>
                                 <p>
-                                    Recursos Humanos
+                                      Lista de Presença
                                     <i class="nav-arrow bi bi-chevron-right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item"> <a href="./UI/general.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
-                                        <p>Funcionarios</p>
+                                <li class="nav-item">   <a href="/ListaDePresenca/Listarpresenca" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                        <p>Presença</p>
+                                    </a> </li>
+
+
+                                    <li class="nav-item">   <a href="/ListaDePresenca/HistoricoPresenca" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                        <p>Historico</p>
                                     </a> </li>
 
 
                             </ul>
-                        </li> -->
+                        </li>
 
 
 
 
-
+   
 
 
 
@@ -193,6 +198,10 @@
 
                                 <p>Campeonatos e amistoso</p>
                             </a> </li>
+
+
+                   
+
 
                     </ul> <!--end::Sidebar Menu-->
                 </nav>

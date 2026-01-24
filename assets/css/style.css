@@ -20,15 +20,21 @@
 
 
 
-:root {
 
+
+:root {
     --cor_P_topo: #0597F2;
     --cor_SPAN_topo: #0597F2;
     --fonte_INTER: "Inter", sans-serif;
     --background_fundo: #F6F6F6;
     --font_joseh: "Josefin Sans", sans-serif;
-
+    /* Tema escuro */
+    --cor_modo_escuro: #1C1C1C;
+    --cor_secundaria_modo_escuro: #161617;
+    --shadow_modo_escuro: -1px 0px 16px 2px #056CF2;
 }
+
+
 
 .lado_a_lado,
 .lado_a_lado_patrocinador,
@@ -915,6 +921,220 @@ footer ul li a.active::after {
     vertical-align: middle;
 }
 
+/* MODO CLARO E ESCURO ESTILO UNIVERSE IO */
+#switch {
+    display: none;
+
+    &:checked {
+        +.app {
+            .toggle {
+                transform: translateX(100%);
+                background-color: #34323D;
+            }
+
+            .dark,
+            .light {
+                opacity: 1;
+                color: white;
+            }
+
+            .body {
+                background-color: #26242E;
+                color: white;
+                border-radius: 40px;
+
+                .phone {
+
+                    .menu {
+                        .time {
+                            color: white;
+                        }
+
+                        .icons {
+                            .network {
+                                border-color: transparent transparent white transparent;
+                            }
+
+                            .battery {
+                                background-color: white;
+                            }
+                        }
+                    }
+                }
+
+                .crescent {
+                    transform: scale(1);
+                    background: #26242E;
+                }
+
+                .circle,
+                .main-circle {
+                    background: linear-gradient(40deg, #8983F7, #A3DAFB 70%);
+                }
+            }
+        }
+
+        +.time {
+            color: white;
+        }
+    }
+}
+
+.app {
+    .body {
+        .phone {
+            position: relative;
+            z-index: 2;
+            width: 14rem;
+            height: 14rem;
+            background-color: white;
+            box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+
+            .menu {
+                font-size: 80%;
+                opacity: 0.4;
+                padding: 0.8rem 1.8rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .time {
+                    color: black;
+                }
+
+                .icons {
+                    display: flex;
+                    margin-top: 0.5rem;
+
+                    .battery {
+                        width: 0.85rem;
+                        height: 0.45rem;
+                        background-color: black;
+                    }
+
+                    .network {
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 0 6.8px 7.2px 6.8px;
+                        border-color: transparent transparent black transparent;
+                        transform: rotate(135deg);
+                        margin: 0.12rem 0.5rem;
+                    }
+                }
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                text-align: center;
+                width: 70%;
+                transform: translateY(5%);
+
+                .circle {
+                    position: relative;
+                    border-radius: 100%;
+                    width: 8rem;
+                    height: 8rem;
+                    background: linear-gradient(40deg, #F2A007, #FF8C00 70%);
+                    margin: auto;
+
+                    .crescent {
+                        position: absolute;
+                        border-radius: 100%;
+                        right: 0;
+                        width: 6rem;
+                        height: 6rem;
+                        background: white;
+                        transform: scale(0);
+                        transform-origin: top right;
+                        transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    }
+                }
+
+                label {
+                    width: 100%;
+                    height: 2.8rem;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    border-radius: 100px;
+                    position: relative;
+                    margin: 1.8rem 0 4rem 0;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+
+                    .toggle {
+                        position: absolute;
+                        width: 50%;
+                        height: 2.8rem;
+                        background-color: #fff;
+                        border-radius: 100px;
+                        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+                        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    }
+
+                    .names {
+                        font-size: 90%;
+                        font-weight: bolder;
+                        color: black;
+                        width: 65%;
+                        margin-left: 17.5%;
+
+                        position: absolute;
+                        display: flex;
+                        justify-content: space-between;
+                        user-select: none;
+
+                        .dark {
+                            opacity: 0.5;
+                        }
+
+                        .light {
+                            opacity: 0.4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* General */
+.credit {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    color: white;
+
+    a {
+        color: inherit;
+    }
+}
+
+.main-circle {
+    width: 40rem;
+    height: 40rem;
+    border-radius: 100%;
+    background: linear-gradient(40deg, #FF0080, #FF8C00 70%);
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+.mark {
+    border-radius: 100px;
+    background-color: black;
+}
+
+
+
+/* MODO CLARO E ESCURO ESTILO UNIVERSE IO */
+
 
 /* ESTILO PARA O ADMIN */
 
@@ -952,10 +1172,10 @@ header {
 
                 }
 
-                .como_funciona,
-                .como_funciona_ {
+                .como_funciona {
                     display: flex;
-                    width: 45%;
+                    width: 360px;
+                    justify-content: space-around;
 
                     .horarios,
                     .telefone {
@@ -1005,6 +1225,8 @@ header {
                     }
 
                 }
+
+                .como_funciona_ {}
             }
 
 
@@ -1356,6 +1578,8 @@ header {
 
 
     .site {
+        max-width: 100%;
+
         h3 {
             font-family: var(--font_joseh);
             text-align: center;
@@ -4134,6 +4358,468 @@ footer {
 }
 
 
+/* Aqui começa o modo escuro */
+
+
+
+body.dark-theme {
+    background: var(--cor_modo_escuro);
+
+    h3,
+    p,
+    h4,
+    h5,
+    h2,
+    a,
+    span,
+    h6,
+    strong {
+        color: white !important;
+    }
+
+    .container_azul {
+        background-color: #056CF2 !important;
+    }
+
+    .logo {
+        img {
+            box-shadow: var(--shadow_modo_escuro);
+            border-radius: 70px;
+        }
+
+    }
+
+    .phone {
+        box-shadow: var(--shadow_modo_escuro) !important;
+    }
+
+    .sobre_nos {
+        background-color: var(--cor_secundaria_modo_escuro) !important;
+        color: white !important;
+    }
+
+    .fa-circle-user {
+        &:hover {
+            color: white !important;
+        }
+    }
+
+    .escolha_categoria {
+        position: relative;
+        z-index: 999;
+
+        .container_escolha,
+        .container_escolha_cul,
+        .container_escolha_even {
+            background-color: var(--cor_secundaria_modo_escuro);
+            border-bottom: 4px solid #056CF2;
+            box-shadow: var(--shadow_modo_escuro);
+
+            a {
+                color: white !important;
+            }
+
+        }
+
+    }
+
+
+
+    .video {
+        background-color: var(--cor_modo_escuro);
+
+        .video-thumbnail {
+            box-shadow: var(--shadow_modo_escuro);
+        }
+    }
+
+
+    .carrossel-nomes {
+        & .conteudo {
+            div {
+
+                color: #ffffff;
+
+            }
+        }
+    }
+
+    .jogo {
+        background-color: var(--cor_secundaria_modo_escuro);
+        box-shadow: var(--shadow_modo_escuro);
+    }
+
+    .evento_esporte_cultura {
+        padding: 15px;
+
+        a {
+            box-shadow: var(--shadow_modo_escuro);
+
+        }
+
+    }
+
+    .largura_total {
+        background-color: #056CF2 !important;
+        margin-top: 70px;
+    }
+
+
+
+    .eventos_espor,
+    .eventos_cul {
+        & .site {
+            & .eventos_esporte_cultura {
+                & .evento_esporte_cultura {
+                    & a {
+                        background-color: var(--cor_secundaria_modo_escuro);
+
+                        div {
+                            background-color: var(--cor_secundaria_modo_escuro);
+                            border-bottom: 4px solid #056CF2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .eventos_espor,
+    .eventos_cul {
+        & .site {
+            & .centro {
+                .ver_atividades {
+                    background-color: #0597F2;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .galeria_volei {
+        background-image: url(../img/modo_escuro_fundo.png) !important;
+    }
+
+
+    .efeito_paralax {
+        & .site {
+            .content {
+                background-color: var(--cor_modo_escuro);
+
+                hr {
+                    border: 3px solid #00A3FF !important;
+                }
+
+                .cadastre-se {
+                    background-color: #00A3FF !important;
+                }
+            }
+        }
+    }
+
+
+    .foto {
+        img {
+            box-shadow: var(--shadow_modo_escuro);
+            border-radius: 20px;
+        }
+    }
+
+
+
+    .venha_jogar {
+        background-color: #056CF2 !important;
+    }
+
+    .carrosel_eventos {
+        background-color: var(--cor_secundaria_modo_escuro);
+
+        .ativo {
+            color: #056CF2 !important;
+        }
+
+        .foto_responsivo {
+            box-shadow: var(--shadow_modo_escuro);
+        }
+
+    }
+
+    .venha_participar_eventos {
+        background: var(--cor_modo_escuro);
+    }
+
+    .venha_participar_eventos {
+        height: 1000px;
+    }
+
+    .campeonato {
+        display: none;
+    }
+
+
+
+    .sobre_bem_vindo {
+        & .site {
+            & .lado_a_lado {
+                .carrossel-hover {
+                    box-shadow: var(--shadow_modo_escuro);
+                    border-radius: 13px;
+                }
+
+                & .texto_bem_vindo {
+                    hr {
+
+                        background-color: #056CF2;
+
+                    }
+                }
+            }
+        }
+    }
+
+
+    .number {
+
+        hr {
+            background-color: #056CF2 !important;
+        }
+
+        strong {
+            color: white;
+        }
+    }
+
+    .quemSomosSobre {
+        img {
+            box-shadow: var(--shadow_modo_escuro);
+        }
+    }
+
+
+    .nossaEquipe {
+        background-color: var(--cor_modo_escuro);
+
+        img {
+            box-shadow: var(--shadow_modo_escuro);
+            border-radius: 25px;
+        }
+
+        .coordenador {
+            img {
+                border-radius: 100px;
+            }
+        }
+
+        .progresso-fill {
+            background-color: #0597F2 !important;
+        }
+
+
+        .jogadora {
+            margin: 20px 0;
+
+            img {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .fazerMatricula {
+        background-color: var(--cor_modo_escuro) !important;
+
+        img {
+            filter: brightness(0) invert(1);
+            /* transforma o SVG para branco */
+        }
+
+        .fundo {
+            box-shadow: var(--shadow_modo_escuro) !important;
+        }
+
+        a {
+            background-color: #056CF2 !important;
+        }
+    }
+
+    .horariosTreinos {
+        background-color: var(--cor_modo_escuro);
+
+        img {
+            filter: brightness(0) invert(1);
+            /* transforma o SVG para branco */
+        }
+
+        .space {
+            background-color: var(--cor_modo_escuro) !important;
+        }
+
+        .coluna {
+            background-color: #056CF2 !important;
+        }
+    }
+
+    .login {
+        & .site {
+            .container {
+
+                background: var(--cor_secundaria_modo_escuro) !important;
+
+            }
+        }
+    }
+
+    .phone {
+        background: #26242E !important;
+    }
+
+
+    footer {
+        background-color: var(--cor_secundaria_modo_escuro);
+
+        .entre_em_contato {
+            background-color: var(--cor_modo_escuro) !important;
+            border: none !important;
+        }
+
+        .mapa {
+            iframe {
+                box-shadow: var(--shadow_modo_escuro);
+            }
+
+        }
+
+        .logo_footer {
+            a {
+                img {
+                    box-shadow: var(--shadow_modo_escuro);
+                    border-radius: 100px;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+
+
+
+        .direitos {
+            color: white;
+        }
+
+        #formNewsletter {
+            input {
+                background: var(--cor_modo_escuro);
+                box-shadow: var(--shadow_modo_escuro);
+
+                &::placeholder {
+                    color: white !important;
+                }
+            }
+        }
+
+
+    }
+
+
+    @media (max-width: 768px) {
+        header {
+            & .navegacao {
+                & .site {
+                    & .container_azul {
+                        nav {
+                            background: var(--cor_modo_escuro);
+
+                            ul {
+                                background-color: var(--cor_secundaria_modo_escuro) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        .menu-toggle {
+            span {
+                background-color: white;
+            }
+
+        }
+
+        .venha_participar_eventos {
+            height: 1540px;
+        }
+
+    }
+
+    @media (max-width: 480px) {
+        header {
+            & .navegacao {
+                & .site {
+                    & .container_azul {
+                        & nav {
+                            ul {
+                                background-color: var(--cor_secundaria_modo_escuro) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .crescent {
+            background: #26242E !important;
+        }
+
+        .phone {
+            background: #26242E !important;
+        }
+
+        .escolha_categoria {
+            background-color: var(--cor_modo_escuro) !important;
+        }
+
+        .foto {
+            img {
+
+                margin-bottom: 50px;
+            }
+        }
+
+        .venha_participar_eventos {
+            height: 1575px;
+        }
+
+
+        .quemSomosSobre,
+        .nossaEquipe {
+            & .site {
+                & .group {
+                    & .coluna {
+                        & .columns {
+                            & .textoEfoto {
+                                img {
+                                    margin-top: 35px;
+                                    margin-bottom: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+
+
+}
+
+/* Aqui termina o modo escuro */
+
+
+
 
 @media (max-width: 1024px) {
 
@@ -4166,6 +4852,10 @@ footer {
 
                 .lado_a_lado {
                     justify-content: space-around !important;
+
+                    .redes_sociais {
+                        display: none;
+                    }
 
                     .como_funciona {
 
@@ -4471,9 +5161,9 @@ footer {
                         & .columns,
                         & .coluna {
                             h3 {
-                               
+
                                 font-size: 25px;
-                              
+
                             }
                         }
                     }
@@ -5593,19 +6283,21 @@ footer {
 
                     .foto_tres {
 
-                        img{
+                        img {
                             width: 90%;
                             height: 250px;
                         }
+
                         width: 90%;
                         margin-right: 0px;
                         height: 290px;
                     }
 
-                    .foto_oito{
+                    .foto_oito {
                         width: 100%;
                         height: auto;
-                        img{
+
+                        img {
                             width: 100% !important;
                         }
                     }
@@ -5638,7 +6330,7 @@ footer {
 
         & .site {
             .content {
-               width: 90% !important;
+                width: 90% !important;
                 height: 580px;
 
                 .columns {

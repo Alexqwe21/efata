@@ -3,7 +3,7 @@
 // FUNÇÕES AUXILIARES
 // =======================
 
-// Recupera o IP real do usuário, considerando possíveis proxies
+// Recupera o IP real do usuário
 function getClientIP() {
     $keys = [
         'HTTP_CLIENT_IP','HTTP_X_FORWARDED_FOR','HTTP_X_FORWARDED',
@@ -22,14 +22,14 @@ function getClientIP() {
     return '0.0.0.0';
 }
 
-// Função para registrar arquivos/pastas bloqueadas ou suspeitas
+// Registrar arquivos/pastas bloqueadas ou suspeitas
 function logMalware($file, $reason) {
     $ip = getClientIP();
     $line = date('Y-m-d H:i:s') . " | IP: {$ip} | Arquivo/Pasta: {$file} | Motivo: {$reason}\n";
     file_put_contents(__DIR__ . '/malware_scan.log', $line, FILE_APPEND);
 }
 
-// Função para registrar acessos bloqueados por país
+// Registrar acessos bloqueados por país
 function logBlock($ip, $country = 'Unknown', $reason) {
     $line = date('Y-m-d H:i:s') . " | IP: {$ip} | País: {$country} | Motivo: {$reason}\n";
     file_put_contents(__DIR__ . '/access_block.log', $line, FILE_APPEND);
@@ -43,7 +43,7 @@ $ip = getClientIP();
 $cacheFile = __DIR__ . '/geo_cache_' . md5($ip) . '.json';
 $geoData = null;
 
-// Usamos cache local por 1h para reduzir requisições externas
+// Cache de 1 hora para reduzir requisições externas
 if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < 3600)) {
     $geoData = json_decode(file_get_contents($cacheFile), true);
 } else {
@@ -52,7 +52,7 @@ if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < 3600)) {
     if ($json) {
         $geoData = json_decode($json, true);
         if ($geoData && $geoData['status'] === 'success') {
-            file_put_contents($cacheFile, $json); // salva cache
+            file_put_contents($cacheFile, $json);
         }
     }
 }
@@ -71,11 +71,10 @@ if ($geoData && $geoData['status'] === 'success') {
 }
 
 // =======================
-// SCANNER DE MALWARE + BLOQUEIO DE PASTAS E ARQUIVOS
+// SCANNER DE MALWARE (IGNORANDO VENDOR E DOMPDF)
 // =======================
 
 function scanProject($dir) {
-    // Lista de padrões suspeitos em PHP
     $suspiciousPatterns = [
         '/eval\s*\(/i',
         '/base64_decode\s*\(/i',
@@ -86,34 +85,23 @@ function scanProject($dir) {
         '/preg_replace\s*\(\s*[\'"].*\/e[\'"]/i',
     ];
 
+    $ignoredDirs = ['vendor', 'vendor/dompdf', 'app/libraries', 'node_modules'];
+
     $rii = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS),
         RecursiveIteratorIterator::SELF_FIRST
     );
 
     foreach ($rii as $file) {
-        $parts = array_map('strtolower', explode(DIRECTORY_SEPARATOR, $file->getPath()));
-        
-        // Bloqueio imediato de pastas críticas
-        if (in_array('service', $parts) || in_array('int', $parts)) {
-            logMalware($file->getPathname(), 'Pasta bloqueada (service/int)');
-            exit('Acesso bloqueado: Pasta proibida detectada.');
-        }
-
-        // Bloqueio de arquivos críticos, mas config.php é permitido
-        $blockedFiles = ['.htaccess', '.env'];
-        foreach ($blockedFiles as $bf) {
-            if (strpos($file->getFilename(), $bf) !== false) {
-                logMalware($file->getPathname(), 'Arquivo crítico bloqueado');
-                exit('Acesso bloqueado: arquivo crítico detectado.');
+        foreach ($ignoredDirs as $ignored) {
+            if (strpos($file->getPathname(), DIRECTORY_SEPARATOR . $ignored . DIRECTORY_SEPARATOR) !== false) {
+                continue 2;
             }
         }
 
-        // Apenas verifica arquivos PHP
         if ($file->isDir()) continue;
         if (pathinfo($file, PATHINFO_EXTENSION) !== 'php') continue;
 
-        // Varre o conteúdo do PHP em busca de código suspeito
         $content = file_get_contents($file->getPathname());
         foreach ($suspiciousPatterns as $pattern) {
             if (preg_match($pattern, $content)) {
@@ -124,23 +112,21 @@ function scanProject($dir) {
     }
 }
 
-// Executa scan no diretório inteiro do projeto
+// Executa o scanner
 scanProject(__DIR__);
 
 // =======================
-// FUNÇÃO PARA VALIDAR UPLOADS DE IMAGEM
+// VALIDAÇÃO DE UPLOAD DE IMAGEM
 // =======================
 
 function validateImageUpload($filePath) {
     $ext = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
 
-    // Bloqueia qualquer PHP
     if ($ext === 'php') {
         logMalware($filePath, 'Tentativa de upload de arquivo PHP');
         exit('Upload bloqueado: arquivo não permitido.');
     }
 
-    // Tipos MIME permitidos
     $allowedMime = ['image/jpeg','image/png','image/gif','image/svg+xml'];
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
     $mime  = finfo_file($finfo, $filePath);
@@ -151,7 +137,6 @@ function validateImageUpload($filePath) {
         exit('Upload bloqueado: tipo de arquivo inválido.');
     }
 
-    // Sanitiza SVG (remove scripts)
     if ($mime === 'image/svg+xml') {
         $content = file_get_contents($filePath);
         $content = preg_replace('/<script.*?<\/script>/is', '', $content);
@@ -162,23 +147,26 @@ function validateImageUpload($filePath) {
 }
 
 // =======================
-// CONFIGURAÇÕES NORMAIS DO SISTEMA
+// CONFIGURAÇÕES DO SISTEMA
 // =======================
 
 date_default_timezone_set('America/Sao_Paulo');
 
-define('BASE_URL', 'https://culturaefata.webdevsolutions.com.br/');
-define('DB_HOST', 'webdevsolutions.com.br');
-define('DB_NAME', 'u230564252_CulturaEfataVa');
-define('DB_USER', 'u230564252_CulturaEfataVa');
-define('DB_PASS', 'EfataVIbes!@#Cultura111');
+define('BASE_URL', 'https://culturaefata.com.br/');
+define('DB_HOST', 'culturaefata.com.br');
+define('DB_NAME', 'u230564252_CulturaEfataVi');
+define('DB_USER', 'u230564252_CulturaEfataVi');
+define('DB_PASS', 'EfataVIbes!@#Cultura1');
 
 define('HOTS_EMAIL','smtp.hostinger.com');
 define('PORT_EMAIL', 465);
 define('USER_EMAIL','culturaefata@culturaefata.com.br');
 define('PASS_EMAIL','Culturaefata1@');
 
-// Autoload das classes do projeto
+// =======================
+// AUTOLOAD DO SISTEMA
+// =======================
+
 spl_autoload_register(function($c){
     foreach (['app/controllers/','app/models/','core/'] as $dir) {
         $path = "{$dir}{$c}.php";
@@ -188,3 +176,14 @@ spl_autoload_register(function($c){
         }
     }
 });
+
+// =======================
+// AUTOLOAD DO COMPOSER (DOMPDF, ETC)
+// =======================
+
+$composerAutoload = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($composerAutoload)) {
+    require_once $composerAutoload;
+} else {
+    exit('Erro: Autoload do Composer não encontrado. Instale as dependências via Composer.');
+}

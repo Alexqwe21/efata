@@ -407,9 +407,6 @@ GROUP BY matricula_atividade
         return $this->db->query($sql)->fetch(PDO::FETCH_ASSOC)['total'];
     }
 
-
-
-
     public function cpfExiste($cpf)
     {
         $sql = "SELECT COUNT(*) as total FROM matriculas WHERE matricula_cpf = :cpf";
