@@ -274,47 +274,29 @@
                 <div class="carrossel-jogadoras">
                     <div class="jogadoras">
                         <div class="jogadora">
-                            <img src="assets/img/jogadora.png" alt="jogadora">
-                            <p>Bridget Perry</p>
-                            <strong>Bloqueador do meio</strong>
+                            <img src="assets/img/Almir.png" alt="jogadora">
+                            <p>Almir</p>
+                            <strong>Ponteiro</strong>
                         </div>
                         <div class="jogadora">
-                            <img src="assets/img/jogadora.png" alt="jogadora">
-                            <p>Bridget Perry</p>
-                            <strong>Bloqueador do meio</strong>
+                            <img src="assets/img/Daniel.png" alt="jogadora">
+                            <p>Daniel</p>
+                            <strong>Oposto</strong>
                         </div>
                         <div class="jogadora">
-                            <img src="assets/img/jogadora.png" alt="jogadora">
-                            <p>Bridget Perry</p>
-                            <strong>Bloqueador do meio</strong>
+                            <img src="assets/img/Kaue.png" alt="jogadora">
+                            <p>Kauê</p>
+                            <strong>Levantador</strong>
                         </div>
                         <div class="jogadora">
-                            <img src="assets/img/jogadora.png" alt="jogadora">
-                            <p>Bridget Perry</p>
-                            <strong>Bloqueador do meio</strong>
+                            <img src="assets/img/Eduardo.png" alt="jogadora">
+                            <p>Eduardo</p>                        
+                                <strong>Central</strong>
                         </div>
                         <div class="jogadora">
-                            <img src="assets/img/jogadora.png" alt="jogadora">
-                            <p>Bridget Perry</p>
-                            <strong>Bloqueador do meio</strong>
-                        </div>
-
-                        <div class="jogadora">
-                            <img src="assets/img/jogadora.png" alt="jogadora">
-                            <p>Bridget Perry</p>
-                            <strong>Bloqueador do meio</strong>
-                        </div>
-
-                        <div class="jogadora">
-                            <img src="assets/img/jogadora.png" alt="jogadora">
-                            <p>Bridget Perry</p>
-                            <strong>Bloqueador do meio</strong>
-                        </div>
-
-                        <div class="jogadora">
-                            <img src="assets/img/jogadora.png" alt="jogadora">
-                            <p>Bridget Perry</p>
-                            <strong>Bloqueador do meio</strong>
+                            <img src="assets/img/Miguel.png" alt="jogadora">
+                            <p>Miguel</p>
+                            <strong>Ponteiro</strong>
                         </div>
                     </div>
 
