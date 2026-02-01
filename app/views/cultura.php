@@ -4,7 +4,7 @@
 <head><?php require_once('templates/head.php'); ?></head>
 
 <body>
-    <button id="back-to-top" title="Voltar para o Topo"><img src="assets/img/seta_para_cima.svg" alt="seta"></button>
+    <button id="back-to-top" title="Voltar para o Topo"><img src="assets/img/seta_para_cima.svg" alt="seta"></button>back-to-top
 
     <div class="preloader" id="preloader">
         <div id="lottie-container" style="width: 350px; height: 350px;"></div>

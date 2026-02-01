@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const imagensCarrossel = [
     '/assets/img/foto_sobre_luan.png',
     '/assets/img/foto_sobre_dois.png',
-    '/assets/img/foto_sobre_tres.png'
+    '/assets/img/foto_sobre_tres.png',
+    '/assets/img/Advogada_Susan.png'
   ];
 
   let indexCarrossel = 0;

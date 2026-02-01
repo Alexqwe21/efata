@@ -245,6 +245,12 @@
                                         <strong>CEO</strong>
                                     </div>
 
+                                      <div class="coordenador">
+                                        <img src="assets/img/Advogada_Susan_circulo.png" alt="coordenador">
+                                        <p>Susan</p>
+                                        <strong>Advogada</strong>
+                                    </div>
+
                                     <div class="coordenador">
                                         <img src="assets/img/foto_sobre_luan_circulo.png" alt="coordenador">
                                         <p>Luan</p>

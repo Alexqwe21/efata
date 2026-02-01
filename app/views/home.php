@@ -581,9 +581,8 @@
                                 🏐 <strong>Luan</strong> — Organização e Marketing é o responsável pela divulgação, comunicação e coordenação geral do projeto.
                                 <br>
 
-                                <!-- 🏐 <strong>Allan</strong> — professor de Educação Física, responsável pelos treinos
-                                técnicos.
-                                <br> -->
+                                🏐 <strong>Susan</strong> — Advogada Participação ativa no contexto jurídico do projeto, analisando todas as demandas acerca de documentação, contratos e parceria.
+                                <br>
 
                                 <!-- 🏐 <strong>Pastora Gislene</strong> — cuida da parte espiritual e da organização dos
                                 eventos. <br> -->
@@ -604,7 +603,7 @@
 
                                 <div class="tel_sobre">
                                     <img src="assets/img/tel_sobre.svg" alt="telefone">
-                                    <p>11 96458-4570</p>
+                                    <p>11 91234-5494</p>
                                 </div>
                             </div>
                         </div>

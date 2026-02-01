@@ -269,7 +269,7 @@ class MatriculaController extends Controller
 
                 $pdf2->SetFont('Arial', 'B', 16);
                 $pdf2->SetTextColor(0, 102, 204);
-                $pdf2->Cell(0, 10, safe('R$ 5,00 (cinco reais)'), 0, 1, 'C');
+                $pdf2->Cell(0, 10, safe('R$ 10,00 (cinco reais)'), 0, 1, 'C');
 
                 $pdf2->Ln(5);
                 $pdf2->SetFont('Arial', '', 13);
