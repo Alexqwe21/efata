@@ -813,6 +813,23 @@
 
 
 
+                    <div class="columns">
+                        <div class="patrocinador_oficial">
+                            <a href="#" target="_blank">
+                                <img src="assets/img/estetica_farmaceutica.png" alt="patrocinador">
+                                <strong>PATROCINADOR</strong>
+                                <h6>Estética Farmacêutica</h6>
+                                <span> Serviço especializado em cuidados estéticos e farmacêuticos, oferecendo tratamentos de qualidade para promover a saúde e o bem-estar dos pacientes.
+                                </span>
+                                <div class="circulo">
+                                    <img src="assets/img/seta_circulo.svg" alt="seta" class="seta_circulo">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </article>
         </section>

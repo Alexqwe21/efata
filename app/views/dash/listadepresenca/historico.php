@@ -5,7 +5,7 @@
 </style>
 
 <div class="container mt-4">
-  <h3>Histórico de Presenças</h3>
+ 
 
 <div class="container mt-4">
   <h3>Histórico de Presenças</h3>
