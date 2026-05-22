@@ -603,7 +603,7 @@
 
                                 <div class="tel_sobre">
                                     <img src="assets/img/tel_sobre.svg" alt="telefone">
-                                    <p>11 91234-5494</p>
+                                    <p>11 91475-4581</p>
                                 </div>
                             </div>
                         </div>
