@@ -68,7 +68,7 @@
 
             <div class="redes_sociais_footer">
                 <div>
-                    <a href="https://wa.link/rbfxje" target="_blank"><img src="assets/img/wpp_topo.svg" alt="whatsapp"></a>
+                    <a href="https://wa.me/5511914754581" target="_blank"><img src="assets/img/wpp_topo.svg" alt="whatsapp"></a>
                 </div>
 
                 <div>
