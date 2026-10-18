@@ -352,6 +352,8 @@ class MatriculaController extends Controller
         <p>✅ Matrícula realizada com sucesso!</p>
     ");
                 $mail->AltBody = "Nova matrícula: $nome - $email - Atividade: $atividade";
+                // $mail->SMTPDebug = 3;
+                // $mail->Debugoutput = 'html';
                 $mail->send();
 
                 // ---------- USUÁRIO ----------

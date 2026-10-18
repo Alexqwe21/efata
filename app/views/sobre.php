@@ -383,14 +383,14 @@
                             <div class="columns">
                                 <img src="assets/img/relogio_sobre.svg" alt="Documento">
                                 <h3>CEU Luiz Melodia</h3>
-                                <p>O treino acontece aos domingos, às 16h.</p>
+                                <p>Os treinos acontecem aos sábados, às 18h, e aos domingos, às 16h.</p>
                             </div>
 
-                            <div class="columns">
+                            <!-- <div class="columns">
                                 <img src="assets/img/relogio_sobre.svg" alt="Documento">
                                 <h3>Reverendo Tercio</h3>
                                 <p>O treino acontece aos sabado, às 09h.</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

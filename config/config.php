@@ -153,10 +153,10 @@ function validateImageUpload($filePath) {
 date_default_timezone_set('America/Sao_Paulo');
 
 define('BASE_URL', 'https://culturaefata.com.br/');
-define('DB_HOST', 'culturaefata.com.br');
+define('DB_HOST', '193.203.175.197');
 define('DB_NAME', 'u230564252_CulturaEfataVi');
 define('DB_USER', 'u230564252_CulturaEfataVi');
-define('DB_PASS', 'EfataVIbes!@#Cultura1');
+define('DB_PASS', '21566647aA@');
 
 define('HOTS_EMAIL','smtp.hostinger.com');
 define('PORT_EMAIL', 465);

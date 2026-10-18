@@ -199,6 +199,36 @@
                                 <p>Campeonatos e amistoso</p>
                             </a> </li>
 
+<?php
+// Mantém o menu aberto e o item marcado quando a pessoa está numa tela do blog
+$uriAtual    = strtolower(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH));
+$noBlog      = strpos($uriAtual, '/blogadmin') === 0 || strpos($uriAtual, '/blogcomentarios') === 0;
+$noComentarios = strpos($uriAtual, '/blogcomentarios') === 0;
+?>
+<li class="nav-item <?= $noBlog ? 'menu-open' : '' ?>">
+    <a href="#" class="nav-link <?= $noBlog ? 'active' : '' ?>">
+        <i class="bi bi-journal-text"></i>
+        <p>
+            Blog
+            <i class="nav-arrow bi bi-chevron-right"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="/blogadmin" class="nav-link <?= ($noBlog && !$noComentarios) ? 'active' : '' ?>">
+                <i class="nav-icon bi bi-circle"></i>
+                <p>Posts</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/blogcomentarios" class="nav-link <?= $noComentarios ? 'active' : '' ?>">
+                <i class="nav-icon bi bi-circle"></i>
+                <p>Comentários</p>
+            </a>
+        </li>
+    </ul>
+</li>
+
 
                    
 
