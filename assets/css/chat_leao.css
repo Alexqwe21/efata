@@ -1,0 +1,327 @@
+/* =======================
+   CHAT DO LEÃO (balão flutuante)
+   ======================= */
+
+.leao-chat {
+    --leao-azul: #056CF2;
+    --leao-azul-claro: #0597F2;
+    --leao-noite: #06121E;
+    --leao-fundo: #f3f8fe;
+    --leao-card: #ffffff;
+    --leao-texto: #1b2733;
+    --leao-suave: #566678;
+    --leao-borda: #dbe6f3;
+    --leao-verde: #25D366;
+
+    font-family: "Inter", sans-serif;
+}
+
+body.dark-theme .leao-chat {
+    --leao-fundo: #161617;
+    --leao-card: #1C1C1C;
+    --leao-texto: #e8eef5;
+    --leao-suave: #9fb0c3;
+    --leao-borda: #2a3644;
+}
+
+/* ---- botão do leão ---- */
+
+.leao-chat-botao {
+    position: fixed;
+    right: 14px;
+    bottom: 20px;
+    z-index: 10000;
+    width: 66px;
+    height: 66px;
+    padding: 0;
+    border: 2px solid var(--leao-azul-claro);
+    border-radius: 50%;
+    background: var(--leao-noite);
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(5, 108, 242, .45);
+    animation: leao-pulso 2.6s ease-out infinite;
+    transition: transform .25s ease;
+}
+
+.leao-chat-botao:hover,
+.leao-chat-botao:focus-visible {
+    transform: scale(1.08);
+}
+
+.leao-chat-botao:focus-visible {
+    outline: 3px solid var(--leao-azul-claro);
+    outline-offset: 3px;
+}
+
+.leao-chat-botao img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Para de pulsar quando o chat está aberto */
+.leao-chat-botao[aria-expanded="true"] {
+    animation: none;
+}
+
+@keyframes leao-pulso {
+    0%   { box-shadow: 0 0 0 0 rgba(5, 151, 242, .6), 0 6px 18px rgba(5, 108, 242, .45); }
+    70%  { box-shadow: 0 0 0 16px rgba(5, 151, 242, 0), 0 6px 18px rgba(5, 108, 242, .45); }
+    100% { box-shadow: 0 0 0 0 rgba(5, 151, 242, 0), 0 6px 18px rgba(5, 108, 242, .45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .leao-chat-botao { animation: none; }
+    .leao-chat-janela { animation: none !important; }
+}
+
+/* ---- convite "Posso ajudar?" ---- */
+
+.leao-chat-convite {
+    position: fixed;
+    right: 90px;
+    bottom: 36px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 10px 9px 14px;
+    border-radius: 16px 16px 4px 16px;
+    background: var(--leao-card);
+    color: var(--leao-texto);
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(6, 18, 30, .18);
+    animation: leao-entrar .3s ease;
+}
+
+.leao-chat-convite[hidden] { display: none; }
+
+.leao-chat-convite button {
+    border: 0;
+    background: none;
+    color: var(--leao-suave);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ---- janela ---- */
+
+.leao-chat-janela {
+    position: fixed;
+    right: 14px;
+    bottom: 98px;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    max-width: calc(100vw - 28px);
+    height: 500px;
+    max-height: calc(100vh - 120px);
+    overflow: hidden;
+    border-radius: 18px;
+    background: var(--leao-fundo);
+    box-shadow: 0 14px 40px rgba(6, 18, 30, .3);
+    animation: leao-entrar .25s ease;
+}
+
+.leao-chat-janela[hidden] { display: none; }
+
+@keyframes leao-entrar {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.leao-chat-topo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, var(--leao-noite), #0b2a4a);
+    color: #fff;
+}
+
+.leao-chat-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--leao-azul-claro);
+}
+
+.leao-chat-titulo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    line-height: 1.25;
+}
+
+.leao-chat-titulo strong { font-size: 16px; }
+
+.leao-chat-titulo span {
+    font-size: 12px;
+    color: #9fd3ff;
+}
+
+.leao-chat-fechar {
+    border: 0;
+    background: none;
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: .8;
+}
+
+.leao-chat-fechar:hover { opacity: 1; }
+
+/* ---- mensagens ---- */
+
+.leao-chat-mensagens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    padding: 14px;
+    overflow-y: auto;
+}
+
+.leao-msg {
+    max-width: 85%;
+    padding: 10px 13px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.45;
+    white-space: pre-line;   /* respeita as quebras de linha da resposta */
+    overflow-wrap: anywhere;
+    animation: leao-entrar .2s ease;
+}
+
+.leao-msg-bot {
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    background: var(--leao-card);
+    color: var(--leao-texto);
+    box-shadow: 0 1px 3px rgba(6, 18, 30, .08);
+}
+
+.leao-msg-pessoa {
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    background: var(--leao-azul);
+    color: #fff;
+}
+
+.leao-msg-link {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--leao-azul);
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: normal;
+}
+
+.leao-msg-link:hover { background: var(--leao-azul-claro); }
+
+/* "digitando..." */
+.leao-digitando {
+    display: flex;
+    gap: 4px;
+    padding: 14px;
+}
+
+.leao-digitando span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--leao-suave);
+    animation: leao-ponto 1s infinite ease-in-out;
+}
+
+.leao-digitando span:nth-child(2) { animation-delay: .15s; }
+.leao-digitando span:nth-child(3) { animation-delay: .3s; }
+
+@keyframes leao-ponto {
+    0%, 80%, 100% { opacity: .3; transform: translateY(0); }
+    40%           { opacity: 1;  transform: translateY(-4px); }
+}
+
+/* ---- botões de pergunta ---- */
+
+.leao-opcoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.leao-opcao {
+    max-width: 90%;
+    padding: 8px 13px;
+    border: 1.5px solid var(--leao-azul);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--leao-azul);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+}
+
+body.dark-theme .leao-opcao { color: #7cc4ff; border-color: #3d8fe0; }
+
+.leao-opcao:hover,
+.leao-opcao:focus-visible {
+    background: var(--leao-azul);
+    color: #fff;
+}
+
+/* ---- WhatsApp fixo no rodapé da janela ---- */
+
+.leao-chat-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 12px 12px;
+    padding: 11px;
+    border-radius: 12px;
+    background: var(--leao-verde);
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.leao-chat-whatsapp:hover { filter: brightness(1.06); }
+
+.leao-chat-whatsapp img {
+    width: 20px;
+    height: 20px;
+}
+
+/* ---- celular ---- */
+
+@media (max-width: 480px) {
+    .leao-chat-botao {
+        width: 58px;
+        height: 58px;
+    }
+
+    .leao-chat-janela {
+        bottom: 88px;
+        height: 70vh;
+    }
+
+    .leao-chat-convite {
+        right: 80px;
+        bottom: 32px;
+    }
+}

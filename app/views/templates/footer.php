@@ -153,3 +153,5 @@ window.addEventListener('DOMContentLoaded', moverAppParaMenu);
 window.addEventListener('resize', moverAppParaMenu);
 
 </script>
+
+<?php require_once(__DIR__ . '/chatLeao.php'); ?>

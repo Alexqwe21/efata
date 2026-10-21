@@ -229,6 +229,13 @@ $noComentarios = strpos($uriAtual, '/blogcomentarios') === 0;
     </ul>
 </li>
 
+<li class="nav-item">
+    <a href="/chatadmin" class="nav-link <?= strpos($uriAtual, '/chatadmin') === 0 ? 'active' : '' ?>">
+        <i class="bi bi-chat-dots"></i>
+        <p>Chat do leão</p>
+    </a>
+</li>
+
 
                    
 

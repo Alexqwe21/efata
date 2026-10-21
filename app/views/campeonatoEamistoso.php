@@ -55,10 +55,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
     <main>
-        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-fixo"
-            aria-label="Fale conosco pelo WhatsApp">
-            <img src="assets/img/whatsapp_Flutuante.svg" alt="WhatsApp" />
-        </a>
 
 
         <section class="matricula_formulario">
@@ -524,6 +520,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
 
+    <?php require_once(__DIR__ . '/templates/chatLeao.php'); ?>
 </body>
 
 </html>
